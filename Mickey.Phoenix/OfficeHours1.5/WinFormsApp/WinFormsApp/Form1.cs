@@ -16,5 +16,10 @@ namespace WinFormsApp
         {
             InitializeComponent();
         }
+
+        private void DoSomethingClicked(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello, world!");
+        }
     }
 }

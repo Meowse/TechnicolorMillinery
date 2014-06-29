@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.doSomethingButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -42,11 +43,22 @@
     "ces) just this easily!\r\n\r\nYou should all play around with Windows Forms applicat" +
     "ions, because they\'re fun.\r\n";
             // 
+            // doSomethingButton
+            // 
+            this.doSomethingButton.Location = new System.Drawing.Point(175, 52);
+            this.doSomethingButton.Name = "doSomethingButton";
+            this.doSomethingButton.Size = new System.Drawing.Size(179, 30);
+            this.doSomethingButton.TabIndex = 1;
+            this.doSomethingButton.Text = "Do Something!";
+            this.doSomethingButton.UseVisualStyleBackColor = true;
+            this.doSomethingButton.Click += new System.EventHandler(this.DoSomethingClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 94);
+            this.Controls.Add(this.doSomethingButton);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Best Window Ever!!!";
@@ -58,6 +70,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button doSomethingButton;
     }
 }
 
