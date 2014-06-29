@@ -28,12 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(505, 39);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Welcome to Windows Forms applications!  You can make GUIs (Graphical User Interfa" +
+    "ces) just this easily!\r\n\r\nYou should all play around with Windows Forms applicat" +
+    "ions, because they\'re fun.\r\n";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(585, 94);
+            this.Controls.Add(this.label1);
+            this.Name = "Form1";
+            this.Text = "Best Window Ever!!!";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label1;
     }
 }
 
