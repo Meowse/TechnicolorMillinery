@@ -30,14 +30,18 @@ namespace brushYourTeeth
 	        };
 
             //store items required
-           
             const string brushingReqs = "Liquid Waste Receptacle\nWater\nTooth Brush\nTooth Paste";
-
+            
+            //introduction
             Console.WriteLine("Welcome to How to Brush Your Teeth!\n");
             Console.WriteLine("The following items are required:\n");
             Console.Write(brushingReqs);
-            Console.WriteLine("\nOnce you have located these items any key.");
+            Console.WriteLine("\nOnce you have located these items press any key to continue.");
             Console.Read();
+
+            //9 out of 10 dentists agree that this is the start of the brushing process
+
+            Console.Write();
         }
     }
 }
