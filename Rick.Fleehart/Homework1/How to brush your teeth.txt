@@ -1,27 +1,45 @@
-this is the Baseline before any fixes.
+Improved solution 6/28 -RAF
 
 Acquire LiquidWasteReceptacle -- details TBD
 Acquire a toothbrush	-- details TBD
+Acquire a cup of water -- details TBD
+
 CALL PROCEDURE "Apply toothpaste to (the toothbrush we just acquired)"
-Put the cap back on the toothpaste
-Put the toothpaste tube down
+
 Open mouth
 Place the toothpaste that is on the bristles against your teeth
 Move the toothbrush back and forth horizontally on the teeth
-Iterate motion over all the (exposed surfaces of the) teeth for two minutes
-Brush the tongue until you gag
+Iterate motion over all the (exposed surfaces of the) teeth for two minutes, total
+Brush the tongue for 30 seconds /* until you gag */
+
 Remove toothbrush from your mouth
-Rinse the toothpaste out of your mouth and into the LiquidWasteReceptacle
+Put down the toothbrush.
+Rinse the toothpaste out of your mouth USING a "cup of water" and into the LiquidWasteReceptacle
+Close mouth
+
+CALL PROCEDURE "Put away Toothpaste and Toothbrush (Toothpaste tube we are using, Toothbrush we are using)"
 
 
-PROCEDURE "Apply toothpaste to (the toothbrush we just acquired)"
+PROCEDURE "Apply toothpaste to (toothbrush)"
 	Acquire toothpaste tube -- details TBD
-	Pick up your toothbrush
-	Pick up your toothpaste
+	
+	Pick up your toothpaste with one hand
 	Unscrew the top
-	Align the bristles with the opening of the tube
+	Put the top down
+
+	Pick up your toothbrush with the other hand
+	Align the bristles of the toothbraush with the opening of the toothpaste tube
 	Make sure the bristles are pointing up
 	Make sure that the toothbrush is below the toothpaste
 	Gently squeeze a small amount of the toothpaste onto the toothbrush
 		"small" -- the same size as the length and width of the bristles
+	Pick up the toothpaste cap
+	Put the cap back on the toothpaste
+	Put the toothpaste tube down
+
+
+PROCEDURE "Put away Toothpaste and Toothbrush (Toothpaste tube, Toothbrush)"
+	Pick up the toothpaste tube
+	Pick up the toothbrush
+	Place both in the approved storage area -- details TBD
 
