@@ -9,6 +9,12 @@ How to brush your teeth:
 
     Acquire toothpaste tube -- details TBD
 
+    Acquire a cup
+
+    Acquire a towel
+
+Fill your cup with water
+
 Pick up your toothbrush
 
 Pick up your toothpaste
@@ -41,5 +47,15 @@ Brush the tongue until you gag
 
 Remove toothbrush from your mouth
 
-Rinse the toothpaste out of your mouth and into the LiquidWasteReceptacle
+Hold up your cup
+
+Put water in your mouth but do not swallow, swish around in your mouth instead
+
+Spit water out into the into the LiquidWasteReceptacle
+
+Repeat the above rinsing steps until toothpaste is cleaned from your mouth
+
+Rinse your toothbrush under flowing water until clean
+
+Wipe your mouth with towel
 
