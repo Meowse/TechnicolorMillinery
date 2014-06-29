@@ -1,4 +1,4 @@
-This is what changes look like.
+this is the Baseline before any fixes.
 
 Acquire LiquidWasteReceptacle -- details TBD
 Acquire a toothbrush	-- details TBD
