@@ -1,0 +1,23 @@
+Acquire LiquidWasteReceptacle -- details TBD
+Acquire a toothbrush    -- details TBD
+PROCEDURE CALL: ApplyToothPaste to (the toothbrush we just acquired)
+Open mouth
+Place the toothpaste that is on the bristles against your teeth
+Move the toothbrush back and forth horizontally on the teeth
+Iterate motion over all the (exposed surfaces of the) teeth for two minutes
+Brush the tongue until you gag
+Remove toothbrush from your mouth
+Rinse the toothpaste out of your mouth and into the LiquidWasteReceptacle
+
+PROCEDURE ApplyToothPaste(toothbrush)
+   Acquire toothpaste tube -- details TBD
+   Pick up your toothbrush in one hand
+   Pick up your toothpaste in the other hand
+   Unscrew the top
+   Align the bristles with the opening of the tube
+   Make sure the bristles are pointing up
+   Make sure that the toothbrush is below the toothpaste
+   Gently squeeze a small amount of the toothpaste onto the toothbrush
+      "small" -- the same size as the length and width of the bristles or about the size of a pea
+   Put the cap back on the toothpaste
+   Put the toothpaste tube down
