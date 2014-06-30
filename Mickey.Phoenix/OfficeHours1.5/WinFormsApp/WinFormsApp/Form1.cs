@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,6 +73,14 @@ PROCEDURE ""Apply toothpaste to (the toothbrush we just acquired)""
         private void DoSomethingClicked(object sender, EventArgs e)
         {
             MessageBox.Show(VERBATIM_TOOTH_BRUSHING_INSTRUCTIONS, "How to Brush Your Teeth");
+        }
+
+        private void QuitClicked(object sender, EventArgs e)
+        {
+            Application.Exit();
+            char myChar = 'a';
+            string myString = "this is my string";
+            char myOtherChar = 'h';
         }
     }
 }

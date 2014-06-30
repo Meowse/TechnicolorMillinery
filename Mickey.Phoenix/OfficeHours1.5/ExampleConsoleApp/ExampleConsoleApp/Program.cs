@@ -10,6 +10,8 @@ namespace ExampleConsoleApp
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("perfectly ordinary");
+            Console.ReadKey();
         }
     }
 }

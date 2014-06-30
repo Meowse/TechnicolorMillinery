@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.doSomethingButton = new System.Windows.Forms.Button();
+            this.quitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -53,11 +54,22 @@
             this.doSomethingButton.UseVisualStyleBackColor = true;
             this.doSomethingButton.Click += new System.EventHandler(this.DoSomethingClicked);
             // 
+            // quitButton
+            // 
+            this.quitButton.Location = new System.Drawing.Point(466, 41);
+            this.quitButton.Name = "quitButton";
+            this.quitButton.Size = new System.Drawing.Size(107, 41);
+            this.quitButton.TabIndex = 2;
+            this.quitButton.Text = "Quit!";
+            this.quitButton.UseVisualStyleBackColor = true;
+            this.quitButton.Click += new System.EventHandler(this.QuitClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 94);
+            this.Controls.Add(this.quitButton);
             this.Controls.Add(this.doSomethingButton);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
@@ -71,6 +83,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button doSomethingButton;
+        private System.Windows.Forms.Button quitButton;
     }
 }
 

@@ -1,0 +1,18 @@
+
+This is a perfectly ordinary line.
+
+
+This is a “perfectly ordinary” line.
+
+
+This is a "perfecty ordinary" line.
+
+
+This is a “perfectly ordinary” line.
+
+
+
+“perfectly ordinary”
+
+ASCII
+
