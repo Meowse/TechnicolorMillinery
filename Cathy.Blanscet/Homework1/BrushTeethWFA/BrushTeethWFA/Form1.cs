@@ -13,7 +13,8 @@ namespace BrushTeethWFA
 {
     public partial class Form1 : Form
     {
-        private const string BrushingInstructions = "Acquire LiquidWasteReceptacle -- details TBD\n" +
+        private const string BrushingInstructions = "Hello World!\n"+
+            "Acquire LiquidWasteReceptacle -- details TBD\n" +
             "Acquire a toothbrush	-- details TBD\n" +
             "CALL PROCEDURE \"Apply toothpaste to (the toothbrush we just acquired)\"\n" +
             "Put the cap back on the toothpaste\n" +
@@ -29,14 +30,14 @@ namespace BrushTeethWFA
             "\n" +
             "PROCEDURE \"Apply toothpaste to (the toothbrush we just acquired)\"\n" +
             "	Acquire toothpaste tube -- details TBD\n" +
-            "	Pick up your toothbrush\n" +
-            "	Pick up your toothpaste\n" +
+            "	Pick up your toothbrush in one hand\n" +
+            "	Pick up your toothpaste in the other hand\n" +
             "	Unscrew the top\n" +
             "	Align the bristles with the opening of the tube\n" +
             "	Make sure the bristles are pointing up\n" +
             "	Make sure that the toothbrush is below the toothpaste\n" +
             "	Gently squeeze a small amount of the toothpaste onto the toothbrush\n" +
-            "		\"small\" -- the same size as the length and width of the bristles\"";
+            "		\"small\" -- the same size as the length and width of the bristles or the size of a small pea.\"";
 
         public Form1()
         {

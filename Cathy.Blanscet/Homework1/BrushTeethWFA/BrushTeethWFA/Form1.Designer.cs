@@ -39,9 +39,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(62, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(464, 17);
+            this.label1.Size = new System.Drawing.Size(375, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Hello World... Click the button for instructions on how to brush your teeth";
+            this.label1.Text = "Click the button for instructions on how to brush your teeth";
             // 
             // ClickMeButton
             // 
