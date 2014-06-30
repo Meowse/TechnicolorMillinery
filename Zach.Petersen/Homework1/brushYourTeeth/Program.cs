@@ -10,7 +10,26 @@ namespace brushYourTeeth
     {
         static void Main(string[] args)
         {
-           var brushingSteps = new string[,] { //create and initialize array of instructions
+            //store items required
+            const string brushingReqs = "Liquid Waste Receptacle\nWater\nTooth Brush\nTooth Paste";
+            
+            //introduction
+            Console.WriteLine("Welcome to How to Brush Your Teeth!\n");
+            Console.WriteLine("The following items are required:\n");
+            Console.Write(brushingReqs);
+            Console.WriteLine("\nOnce you have located these items press any key to continue.");
+            Console.Read();
+           
+            //tooth brushing process
+            BrushTeeth();
+            Console.Read();
+
+        }
+
+        //9 out of 10 dentists agree that this is the start of the brushing process
+        static void BrushTeeth()
+        {
+            var brushingSteps = new string[,] { //create and initialize array of instructions
                 //stepId,requiresTimer,duration,instruction
                 //{"","0","0",""},
                 {"1","0","0","Position yourself near the Liquid Waste Receptacle"},
@@ -29,19 +48,7 @@ namespace brushYourTeeth
                 {"14","1","5","Next open your mouth and dispense three ounces of water into your mouth without swallowing any of the water. Close your mouth and swish the water back and forth for five seconds to clean the toothpaste from inside your mouth. After five seconds has elapsed position your mouth over the liquid waste receptacle and discharge the water from your mouth into the liquid waste receptacle."},
 	        };
 
-            //store items required
-            const string brushingReqs = "Liquid Waste Receptacle\nWater\nTooth Brush\nTooth Paste";
-            
-            //introduction
-            Console.WriteLine("Welcome to How to Brush Your Teeth!\n");
-            Console.WriteLine("The following items are required:\n");
-            Console.Write(brushingReqs);
-            Console.WriteLine("\nOnce you have located these items press any key to continue.");
-            Console.Read();
 
-            //9 out of 10 dentists agree that this is the start of the brushing process
-
-            Console.Write();
         }
     }
 }
