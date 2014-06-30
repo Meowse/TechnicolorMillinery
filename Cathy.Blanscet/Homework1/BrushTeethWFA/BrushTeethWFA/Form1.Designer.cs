@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ClickMeButton = new System.Windows.Forms.Button();
             this.CloseMeButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -44,7 +45,7 @@
             // 
             // ClickMeButton
             // 
-            this.ClickMeButton.Location = new System.Drawing.Point(374, 90);
+            this.ClickMeButton.Location = new System.Drawing.Point(542, 22);
             this.ClickMeButton.Name = "ClickMeButton";
             this.ClickMeButton.Size = new System.Drawing.Size(75, 23);
             this.ClickMeButton.TabIndex = 1;
@@ -54,7 +55,7 @@
             // 
             // CloseMeButton
             // 
-            this.CloseMeButton.Location = new System.Drawing.Point(374, 199);
+            this.CloseMeButton.Location = new System.Drawing.Point(542, 200);
             this.CloseMeButton.Name = "CloseMeButton";
             this.CloseMeButton.Size = new System.Drawing.Size(75, 23);
             this.CloseMeButton.TabIndex = 2;
@@ -62,11 +63,21 @@
             this.CloseMeButton.UseVisualStyleBackColor = true;
             this.CloseMeButton.Click += new System.EventHandler(this.CloseMeButtonClicked);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(62, 136);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(449, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Or just go to http://www.wikihow.com/Brush-Your-Teeth for instructions";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(691, 276);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.CloseMeButton);
             this.Controls.Add(this.ClickMeButton);
             this.Controls.Add(this.label1);
@@ -82,6 +93,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ClickMeButton;
         private System.Windows.Forms.Button CloseMeButton;
+        private System.Windows.Forms.Label label2;
     }
 }
 
