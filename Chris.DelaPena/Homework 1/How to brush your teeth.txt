@@ -1,22 +1,41 @@
 How to brush your teeth:
-	Acquire LiquidWasteReceptacle -- details TBD
-	Acquire a toothbrush	-- details TBD
-	Apply toothpaste to (the toothbrush we just acquired)
-	Acquire toothpaste tube -- details TBD
-Pick up your toothbrush
-Pick up your toothpaste
-Unscrew the top
+
+Acquire LiquidWasteReceptacle 
+	Verify LiquidWasteReceptacle drains
+	Verify LiquidWasteReceptacle includes water source
+Acquire a toothbrush	
+	Verify toothbrush britles are stiff and unworn
+Apply toothpaste to (the toothbrush we just acquired)
+Acquire toothpaste tube 
+	Verify toothpaste tube contains minimum "n-x" grams of toothpaste
+		n = nominal amount of toothpaste to brush teeth
+		x = plus/minus tolerance for amount of toothpaste necessary to brush teeth
+Acquire CupOfWater
+	Obtain EmptyCup with volume >= "a"
+		a = amount of water necessary for mouth rinsing after brushing teeth
+	Fill EmptyCup with "a" ounces of water
+Position toothbrush
+	Pick up toothbrush
+	position toothbrush handle in hand so that bristles are perpindicular to gravity
+Prepare toothpaste tube
+	Determine type of cap common to toothpaste tube (screw, snap-cap, etc.)
+	Unhinge or remove toothpaste cap as required.
 Align the bristles with the opening of the tube
 Make sure the bristles are pointing up
 Make sure that the toothbrush is below the toothpaste
-Gently squeeze a small amount of the toothpaste onto the toothbrush
-	"small" -- the same size as the length and width of the bristles
-Put the cap back on the toothpaste
-Put the toothpaste tube down
+Gently squeeze "n-x" of the toothpaste onto the toothbrush in-line, ensuring toothpaste engages and maintains contact with toothbrush bristles
+Recap the toothpaste tube
+Put away the toothpaste tube
 Open mouth
 Place the toothpaste that is on the bristles against your teeth
-Move the toothbrush back and forth horizontally on the teeth
-Iterate motion over all the (exposed surfaces of the) teeth for two minutes
+Move the toothbrush back and forth horizontally on the teeth with "m" stroke velocity.
+	m = minimum stroke velocity to ensure generation of toothplaste lather.
+Iterate motion over all the (exposed surfaces of the) teeth for 150 seconds, plus or minus 30 seconds allowable.
 Brush the tongue until you gag
 Remove toothbrush from your mouth
-Rinse the toothpaste out of your mouth and into the LiquidWasteReceptacle
+Pour contents of CupOfWater into open mouth, ensuring contents do not spill out AND swallowing does not occur.
+Swish contents of CupofWater in closed mouth for 10 seconds, plus or minus 2 seconds allowable.
+Open mouth and eject contents into LiquidWasteReceptacle
+Rinse toothbrush using water source feature of LiquidWasteReceptacle
+Obtain towel
+Wipe mouth using towel
