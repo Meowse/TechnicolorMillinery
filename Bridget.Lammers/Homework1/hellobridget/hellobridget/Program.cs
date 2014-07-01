@@ -12,6 +12,7 @@ namespace hellobridget
         {
             Console.WriteLine("hello bridget");
             Console.WriteLine("its sunny outside");
+            Console.WriteLine("another test to see if sync works getting frustrated");
             Console.ReadKey();
         }
     }
