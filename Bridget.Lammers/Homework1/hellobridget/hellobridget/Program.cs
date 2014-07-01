@@ -11,6 +11,7 @@ namespace hellobridget
         static void Main(string[] args)
         {
             Console.WriteLine("hello bridget");
+            Console.WriteLine("its sunny outside");
             Console.ReadKey();
         }
     }
