@@ -1,8 +1,36 @@
 How to brush your teeth:
-	Acquire LiquidWasteReceptacle -- details TBD
-	Acquire a toothbrush	-- details TBD
-	Apply toothpaste to (the toothbrush we just acquired)
-	Acquire toothpaste tube -- details TBD
+
+Pick up your toothpaste container with your non dominant hand.
+Unscrew the cap of the toothpaste container with your dominant hand.
+Place the cap down.
+With your dominant hand, pick up your toothbrush by the handle with the bristols pointing up.
+Gently squeeze the toothpaste out of the toothpaste container onto the bristols of your toothbrush until the toothpaste covers majorly top of the bristols.
+Put the toothpaste container down.
+Open your mouth.
+Place toothpaste on the your tooth brush against your teeth.
+Start moving toothbrush so the bristols brush against your teeth.
+Iterate the motion over all the exposed surfaces of your teeth for next 2 minutes.
+Move the bristols to the top surface of your tongue and start moving the bristols on the expose top surface of your tongue.
+Remove the brush from your mouth.
+Turn on the cold water on the sink.
+Place the toothbrush bristols under the running water for 10 seconds.
+Move the toothbrush back and forth under the running water for 5 seconds.
+Put the toothbrush down.
+Fill a cup half way with water.
+Drink from the cup but do not swallow.
+Keep your mouth closed and swoosh the water around your mouth.
+Open your mouth slightly and spit the liquid out of your mouth into the sink.
+Repeat the last 3 steps.
+Turn off the cold water
+Pick up the toothpaste container in one hand and toothpaste cap in the other.
+Screw the cap back on the top of the toothpaste container's opening until it will not turn anymore.
+Put down the toothpaste container.
+
+---------------Previous------------------------------
+Acquire LiquidWasteReceptacle -- details TBD
+Acquire a toothbrush	-- details TBD
+Apply toothpaste to (the toothbrush we just acquired)
+Acquire toothpaste tube -- details TBD
 Pick up your toothbrush
 Pick up your toothpaste
 Unscrew the top
