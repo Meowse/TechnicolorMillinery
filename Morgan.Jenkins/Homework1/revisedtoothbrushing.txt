@@ -1,0 +1,32 @@
+How to brush your teeth:
+    Acquire NonFullLiquidWasteReceptacle 
+    Acquire CleanToothbrush    
+    Acquire NonemptyToothpasteTube 
+    Acquire NonemptyRinseSolution
+Runcheck all Acquire steps
+if Runchecks = 1 
+	then proceed to Use NonemptyToothpasteTube
+
+Use NonemptyToothpasteTube on CleanToothbrush:
+	- Open by unscrewing cap
+	- Apply ~5 ml of Toothpaste to CleanToothbrush
+		- Apply to bristle-side up, along length of bristle area.
+Runcheck = UseNonemptyToothpasteTube on CleanToothbrush
+if Runcheck = 1, proceed to step Use ReadyToothbrush, Cleantoothbrush = ReadyToothbrush
+
+Use Readytoothbrush:
+	- Place bristles of Readytoothbrush against exposed tooth surface area and gum line
+		- Iterate Readytoothbrush against exposed tooth surface area and gum line for 30 seconds (count repetition)
+			- spit out saliva and waste toothpaste into NonFullLiquidWasteReceptacle
+			When count = 4, proceed to Use RinseSolution, ReadyToothbrush = DirtyToothbrush
+
+Use NonemptyRinseSolution:
+	- apply ~100 ml of solution to interior of mouth; do not swallow solution
+		- swish solution inside interior of mouth for 30 seconds (count repetition)
+			-spit out saliva and waste solution into NonFullLiquidWasteReceptacle
+			When count = 2, terminate action and move to next sequence
+	- wash DirtyToothbrush bristles with solution by pouring solution over bristles while over NonFullLiquidWasteReceptacle
+			- DirtyToothBrush = CleanToothbrush
+
+
+    
