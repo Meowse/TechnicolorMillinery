@@ -1,22 +1,20 @@
 How to brush your teeth:
-	Acquire LiquidWasteReceptacle -- details TBD
-	Acquire a toothbrush	-- details TBD
-	Apply toothpaste to (the toothbrush we just acquired)
-	Acquire toothpaste tube -- details TBD
+	Acquire LiquidWasteReceptacle 
+	Acquire your personal toothbrush
+	Acquire partially full toothpaste tube
 Pick up your toothbrush
 Pick up your toothpaste
-Unscrew the top
+Open the toothpaste 
 Align the bristles with the opening of the tube
 Make sure the bristles are pointing up
 Make sure that the toothbrush is below the toothpaste
-Gently squeeze a small amount of the toothpaste onto the toothbrush
-	"small" -- the same size as the length and width of the bristles
-Put the cap back on the toothpaste
+Gently squeeze enough toothpaste to cover the bristles
+Close the toothpaste container
 Put the toothpaste tube down
-Open mouth
+Open mouth wide
 Place the toothpaste that is on the bristles against your teeth
 Move the toothbrush back and forth horizontally on the teeth
 Iterate motion over all the (exposed surfaces of the) teeth for two minutes
-Brush the tongue until you gag
+Then brush the interior portion of your teeth
 Remove toothbrush from your mouth
-Rinse the toothpaste out of your mouth and into the LiquidWasteReceptacle
+Rinse the toothpaste out of your mouth with water and evacuate the contents into the LiquidWasteReceptacle
