@@ -45,11 +45,11 @@
             // 
             // displayMessage
             // 
-            this.displayMessage.Location = new System.Drawing.Point(949, 12);
+            this.displayMessage.Location = new System.Drawing.Point(474, 0);
             this.displayMessage.Name = "displayMessage";
-            this.displayMessage.Size = new System.Drawing.Size(75, 23);
+            this.displayMessage.Size = new System.Drawing.Size(118, 30);
             this.displayMessage.TabIndex = 1;
-            this.displayMessage.Text = "Display Message";
+            this.displayMessage.Text = "Display Steps";
             this.displayMessage.UseVisualStyleBackColor = true;
             this.displayMessage.Click += new System.EventHandler(this.displayMessage_Click);
             // 
