@@ -84,17 +84,18 @@ namespace brushYourTeeth
 
             foreach (brushingInstruction ins in newBrushingInstructionList)
             {
-                // Console.Clear();
-                // if (ins.RequiresTimer == 1)
-                // {
-                Console.WriteLine("Step " + ins.StepId + ": " + ins.Instruction + "\n");
-                //taskTimer(ins.Duration);
-                Console.ReadKey();
-                //  }
-                //  else
-                //  {
-                //      Console.WriteLine("Step " + ins.StepId + ": " + ins.Instruction + "\n");
-                //      Console.Read();
+                Console.Clear();
+                if (ins.RequiresTimer == 1)
+                {
+                    Console.WriteLine("Step " + ins.StepId + ": " + ins.Instruction + "\n");
+                    taskTimer(ins.Duration);
+                    Console.ReadKey();
+                }
+                else
+                {
+                    Console.WriteLine("Step " + ins.StepId + ": " + ins.Instruction + "\n");
+                    Console.ReadKey();
+                }
             }
             
             Console.WriteLine("You have now completed the task of brushing your teeth.\n");
