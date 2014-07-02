@@ -54,7 +54,7 @@ namespace HowToBrushTeeth
             Console.WriteLine(StrEnd);
 
             // Write a string with the method.
-            string valueString = "Your string";
+            string valueString = "Its hot outside";
             Console.WriteLine(valueString);
             Console.ReadKey();
         }
