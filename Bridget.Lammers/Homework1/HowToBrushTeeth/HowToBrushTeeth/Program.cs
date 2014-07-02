@@ -10,6 +10,7 @@ namespace HowToBrushTeeth
     {
         static void Main(string[] args)
         {
+            
             Console.WriteLine("How to Brush Your Teeth twice a day morning and before bedtime");
             Console.WriteLine("Go to a sink");
             Console.WriteLine("Get a toothbrush");
@@ -44,6 +45,17 @@ namespace HowToBrushTeeth
             Console.WriteLine("wipe your mouth, check the mirror to see if you made a mess on your face");
             Console.WriteLine("when done, look in the mirror and smile to show your pearly whites");
             Console.WriteLine("well done now go give someone a kiss");
+            Console.WriteLine("");
+
+            string StrEnd = "Now you know how to brush your teeth at the sink.\n" +
+                   "Next will be instructions on how to brush your teeth when camping.\n" +
+                   "That should be fun.\n";
+
+            Console.WriteLine(StrEnd);
+
+            // Write a string with the method.
+            string valueString = "Your string";
+            Console.WriteLine(valueString);
             Console.ReadKey();
         }
     }
