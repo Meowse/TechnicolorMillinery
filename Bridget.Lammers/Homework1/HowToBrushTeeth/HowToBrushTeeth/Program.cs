@@ -14,6 +14,7 @@ namespace HowToBrushTeeth
             Console.WriteLine("Go to a sink");
             Console.WriteLine("Get a toothbrush");
             Console.WriteLine("Get your favorite toothpaste");
+            Console.WriteLine("");
             Console.WriteLine("Apply toothpaste to the toothbrush");
             Console.WriteLine("First hold the toothbrush in your right hand");
             Console.WriteLine("Hold toothpaste in left hand");
@@ -36,6 +37,7 @@ namespace HowToBrushTeeth
             Console.WriteLine("it will get bubbly so lean over the sink, it does get messy");
             Console.WriteLine("once done brushing, spit out the toothpaste and rinse with water several times");
             Console.WriteLine("and spit in sink");
+            Console.WriteLine("");
             Console.WriteLine("when done, rinse your toothbrush thoroughly");
             Console.WriteLine("put the toothbrush back in your toothbrush holder");
             Console.WriteLine("put the cap back on your toothpaste");
