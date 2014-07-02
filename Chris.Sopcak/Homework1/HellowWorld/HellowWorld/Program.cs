@@ -4,12 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HellowWorld
+// Hello2.cs
+using System;
+
+using System;
+namespace HelloWorldApplication
 {
-    class Program
+    class HelloWorld
     {
         static void Main(string[] args)
         {
+            /* my first program in C# */
+            Console.WriteLine("Hello World");
+            Console.ReadKey();
         }
     }
 }
