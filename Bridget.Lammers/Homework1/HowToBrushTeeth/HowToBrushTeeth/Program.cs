@@ -43,7 +43,7 @@ namespace HowToBrushTeeth
             Console.WriteLine("put the cap back on your toothpaste");
             Console.WriteLine("wipe your mouth, check the mirror to see if you made a mess on your face");
             Console.WriteLine("when done, look in the mirror and smile to show your pearly whites");
-            Console.WriteLine("well done");
+            Console.WriteLine("well done now go give someone a kiss");
             Console.ReadKey();
         }
     }
