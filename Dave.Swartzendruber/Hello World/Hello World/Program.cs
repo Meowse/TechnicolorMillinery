@@ -10,6 +10,9 @@ namespace Hello_World
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hello World");
+            Console.WriteLine("Press any Key to Exit");
+            Console.ReadKey();
         }
     }
 }
