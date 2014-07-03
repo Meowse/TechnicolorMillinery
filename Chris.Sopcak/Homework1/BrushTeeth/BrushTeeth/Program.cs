@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// BrushTeeth.cs
+
 namespace BrushTeeth
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form1
     {
         public Form1()
         {
@@ -19,18 +18,18 @@ namespace BrushTeeth
         private void Form1_Load(object sender, EventArgs e)
         {
             String HowToBrush;
-            HowToBrush = "Acquire LiquidWasteReceptacle -- details TBD\n" +
-                         "Acquire a toothbrush	-- details TBD\n" +
-                         "CALL PROCEDURE \"Apply toothpaste to (the toothbrush we just acquired)\"\n" +
-                         "Put the cap back on the toothpaste\n" +
-                         "Put the toothpaste tube down\n" +
-                         "Open mouth\n" +
-                         "Place the toothpaste that is on the bristles against your teeth\n" +
-                         "Move the toothbrush back and forth horizontally on the teeth\n" +
-                         "Iterate motion over all the (exposed surfaces of the) teeth for two minutes\n" +
-                         "Brush the tongue until you gag\n" +
-                         "Remove toothbrush from your mouth\n" +
-                         "Rinse the toothpaste out of your mouth and into the LiquidWasteReceptacle\n" +
+            HowToBrush = "1.  Acquire LiquidWasteReceptacle -- details TBD\n" +
+                         "2.  Acquire a toothbrush	-- details TBD\n" +
+                         "3.  CALL PROCEDURE \"Apply toothpaste to (the toothbrush we just acquired)\"\n" +
+                         "4.  Put the cap back on the toothpaste\n" +
+                         "5.  Put the toothpaste tube down\n" +
+                         "6.  Open mouth\n" +
+                         "7.  Place the toothpaste that is on the bristles against your teeth\n" +
+                         "8.  Move the toothbrush back and forth in a circular manner on the teeth\n" +
+                         "9.  Iterate motion over all the (exposed surfaces of the) teeth for two minutes\n" +
+                         "10. Brush the tongue until you gag\n" +
+                         "11. Remove toothbrush from your mouth\n" +
+                         "12. Rinse the toothpaste out of your mouth and into the LiquidWasteReceptacle\n" +
                          "\n" +
                          "PROCEDURE \"Apply toothpaste to (the toothbrush we just acquired)\"\n" +
                          "	  Acquire toothpaste tube -- details TBD\n" +
