@@ -30,13 +30,15 @@ Brush the tongue until you gag
 Remove PreparedToothbrush from your mouth
 Close mouth
 Spit contents of mouth into LiquidWasteReceptacle
-Begin Rinse
+Prepare Rinse
 	Turn on WaterDispenser
-	Fill LiquidDrinkingReceptacle
+	Pick up LiquidDrinkingReceptacle, open side facing up
+	Place LiquidDrinkingReceptacle underneath water for 2 seconds
+Begin Rinse
 	Rinse PreparedToothbrush using WaterDispenser
 	Turn off WaterDispenser
 	Put toothbrush away
-	Pick up LiquidDrinkingReceptacle
+	Pick up Filled LiquidDrinkingReceptacle
 	Open Mouth
 	Tilt Head back
 	Pour ~2oz of RinseWater into open mouth
