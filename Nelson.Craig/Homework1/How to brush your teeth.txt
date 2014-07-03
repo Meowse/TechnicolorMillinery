@@ -1,21 +1,47 @@
+Begin Brushing Teeth
+Check for Teeth
+	If HaveTeeth then proceed
+	Else Acquire Dentures & Exit
 Acquire LiquidWasteReceptacle -- details TBD
-	Acquire a toothbrush	-- details TBD
-	Apply toothpaste to (the toothbrush we just acquired)
-	Acquire toothpaste tube -- details TBD
-Pick up your toothbrush
-Pick up your toothpaste
-Unscrew the top
-Align the bristles with the opening of the tube
-Make sure the bristles are pointing up
-Make sure that the toothbrush is below the toothpaste
-Gently squeeze a small amount of the toothpaste onto the toothbrush
+Acquire LiquidDrinkingReceptacle
+Acquire a Toothbrush (interface brush) -- details TBD
+Prepare Toothbrush
+	Empty hands of all objects
+	Acquire Toothpaste tube -- details TBD
+	Pick up your toothpaste
+	Unscrew the top
+	Place top on flat surface
+	If right hand IsOccupied
+		Pick up your toothbrush with left hand
+	Else
+		Pick up your toothbrush with right hand
+	Align the bristles with the opening of the tube
+	Make sure the bristles are pointing up
+	Make sure that the toothbrush is below the toothpaste
+	Gently squeeze a small amount of the toothpaste onto the toothbrush
 	"small" -- the same size as the length and width of the bristles
-Put the cap back on the toothpaste
-Put the toothpaste tube down
+	Put the cap back on the toothpaste
+	Put the toothpaste tube down
 Open mouth
-Place the toothpaste that is on the bristles against your teeth
-Move the toothbrush back and forth horizontally on the teeth
+Place PreparedToothbrush bristles on teeth using light pressure
+Move the PreparedToothbrush back and forth horizontally on the teeth
 Iterate motion over all the (exposed surfaces of the) teeth for two minutes
 Brush the tongue until you gag
-Remove toothbrush from your mouth
-Rinse the toothpaste out of your mouth and into the LiquidWasteReceptacle
+Remove PreparedToothbrush from your mouth
+Close mouth
+Spit contents of mouth into LiquidWasteReceptacle
+Begin Rinse
+	Turn on WaterDispenser
+	Fill LiquidDrinkingReceptacle
+	Rinse PreparedToothbrush using WaterDispenser
+	Turn off WaterDispenser
+	Put toothbrush away
+	Pick up LiquidDrinkingReceptacle
+	Open Mouth
+	Tilt Head back
+	Pour ~2oz of RinseWater into open mouth
+	Close Mouth
+	Push RinseWater around mouth
+	Spit RinseWater into LiquidWasteReceptacle
+End Rinse
+End Brushing Teeth
