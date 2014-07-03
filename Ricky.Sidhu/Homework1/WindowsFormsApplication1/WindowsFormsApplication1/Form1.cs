@@ -16,5 +16,10 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
+
+        private void Whiteteethhereclicked(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello World");
+        }
     }
 }
