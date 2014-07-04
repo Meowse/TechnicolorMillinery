@@ -24,9 +24,16 @@ namespace WFA_WorkingWithVariables
 
         private void GreetMeButtonClicked(object sender, EventArgs e)
         {
-             string varName = NameTextBox.Text;
-            MessageBox.Show("Hello " + varName);
-
+            string varName = NameTextBox.Text;
+            if (varName == "Mickey")
+            {
+                MessageBox.Show("Hello teacher!");
+            }
+            else
+            {
+                MessageBox.Show("Hello " + varName);
+                
+            }
         }
 
         private void IncrementNumberButtonClicked(object sender, EventArgs e)
