@@ -21,7 +21,6 @@ namespace brushYourTeethGUI
             this.Instruction = ins;
         }
     }
-
     static class Program
     {
         /// <summary>
@@ -29,6 +28,13 @@ namespace brushYourTeethGUI
         /// </summary>
         [STAThread]
         static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
+        }
+
+        public static void InsList()
         {
             //populate instructions list
             List<brushingInstruction> newBrushingInstructionList = new List<brushingInstruction>();
@@ -61,10 +67,6 @@ namespace brushYourTeethGUI
                 "To clean the toothbrush rinse with a sufficient amount of water to clean all toothpaste residue from the bristles and handle of the toothbrush. Once cleaning has been completed place the toothbrush back in its storage container."));
             newBrushingInstructionList.Add(new brushingInstruction(14, 1, 10,
                 "Next open your mouth and dispense three ounces of water into your mouth without swallowing any of the water. Close your mouth and swish the water back and forth for five seconds to clean the toothpaste from inside your mouth. After five seconds has elapsed position your mouth over the liquid waste receptacle and discharge the water from your mouth into the liquid waste receptacle."));
-
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
         }
     }
 }

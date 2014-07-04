@@ -16,5 +16,13 @@ namespace brushYourTeethGUI
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach (brushingInstruction i in Program.newBrushingInstructionList)
+            {
+                textBox.Text += i.Instruction;
+            }
+        }
     }
 }
