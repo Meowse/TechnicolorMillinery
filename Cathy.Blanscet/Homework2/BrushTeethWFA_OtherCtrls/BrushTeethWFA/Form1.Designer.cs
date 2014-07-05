@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.ClickMeButton = new System.Windows.Forms.Button();
             this.CloseMeButton = new System.Windows.Forms.Button();
@@ -36,6 +37,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.SayHelloButton = new System.Windows.Forms.Button();
             this.toolTipSayHello = new System.Windows.Forms.ToolTip(this.components);
+            this.MyCheckBox = new System.Windows.Forms.CheckBox();
+            this.MyMonthCalendar = new System.Windows.Forms.MonthCalendar();
+            this.MyPictureBox = new System.Windows.Forms.PictureBox();
+            this.SBToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.MyWebBrowser = new System.Windows.Forms.WebBrowser();
+            ((System.ComponentModel.ISupportInitialize)(this.MyPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -59,7 +66,7 @@
             // 
             // CloseMeButton
             // 
-            this.CloseMeButton.Location = new System.Drawing.Point(542, 200);
+            this.CloseMeButton.Location = new System.Drawing.Point(542, 123);
             this.CloseMeButton.Name = "CloseMeButton";
             this.CloseMeButton.Size = new System.Drawing.Size(83, 30);
             this.CloseMeButton.TabIndex = 2;
@@ -100,11 +107,56 @@
             // 
             this.toolTipSayHello.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
+            // MyCheckBox
+            // 
+            this.MyCheckBox.AutoSize = true;
+            this.MyCheckBox.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MyCheckBox.Location = new System.Drawing.Point(227, 540);
+            this.MyCheckBox.Name = "MyCheckBox";
+            this.MyCheckBox.Size = new System.Drawing.Size(104, 21);
+            this.MyCheckBox.TabIndex = 6;
+            this.MyCheckBox.Text = "My Checkbox";
+            this.MyCheckBox.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.MyCheckBox.UseVisualStyleBackColor = true;
+            this.MyCheckBox.Visible = false;
+            // 
+            // MyMonthCalendar
+            // 
+            this.MyMonthCalendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.MyMonthCalendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.MyMonthCalendar.Location = new System.Drawing.Point(18, 162);
+            this.MyMonthCalendar.Name = "MyMonthCalendar";
+            this.MyMonthCalendar.TabIndex = 7;
+            // 
+            // MyPictureBox
+            // 
+            this.MyPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("MyPictureBox.Image")));
+            this.MyPictureBox.Location = new System.Drawing.Point(18, 381);
+            this.MyPictureBox.Name = "MyPictureBox";
+            this.MyPictureBox.Size = new System.Drawing.Size(203, 180);
+            this.MyPictureBox.TabIndex = 8;
+            this.MyPictureBox.TabStop = false;
+            this.SBToolTip.SetToolTip(this.MyPictureBox, "Hey there! Whatcha doin\'?");
+            // 
+            // MyWebBrowser
+            // 
+            this.MyWebBrowser.Location = new System.Drawing.Point(328, 162);
+            this.MyWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.MyWebBrowser.Name = "MyWebBrowser";
+            this.MyWebBrowser.ScriptErrorsSuppressed = true;
+            this.MyWebBrowser.Size = new System.Drawing.Size(674, 416);
+            this.MyWebBrowser.TabIndex = 9;
+            this.MyWebBrowser.Url = new System.Uri("http://www.boeing.com", System.UriKind.Absolute);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(691, 276);
+            this.ClientSize = new System.Drawing.Size(1042, 605);
+            this.Controls.Add(this.MyWebBrowser);
+            this.Controls.Add(this.MyPictureBox);
+            this.Controls.Add(this.MyMonthCalendar);
+            this.Controls.Add(this.MyCheckBox);
             this.Controls.Add(this.SayHelloButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -113,6 +165,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.MyPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,6 +180,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button SayHelloButton;
         private System.Windows.Forms.ToolTip toolTipSayHello;
+        private System.Windows.Forms.CheckBox MyCheckBox;
+        private System.Windows.Forms.MonthCalendar MyMonthCalendar;
+        private System.Windows.Forms.PictureBox MyPictureBox;
+        private System.Windows.Forms.ToolTip SBToolTip;
+        private System.Windows.Forms.WebBrowser MyWebBrowser;
     }
 }
 
