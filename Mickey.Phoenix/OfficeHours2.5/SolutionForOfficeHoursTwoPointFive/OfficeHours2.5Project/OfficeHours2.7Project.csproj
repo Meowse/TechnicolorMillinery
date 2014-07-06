@@ -77,6 +77,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NamedItRightThisTime\NamedItRightThisTime.csproj">
+      <Project>{5de50619-fed0-4d6b-8701-dcb8dffa1d5a}</Project>
+      <Name>NamedItRightThisTime</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OtherGoodName\OtherGoodName.csproj">
+      <Project>{aa67200c-5ce7-42e7-a62f-27a6ad030838}</Project>
+      <Name>OtherGoodName</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

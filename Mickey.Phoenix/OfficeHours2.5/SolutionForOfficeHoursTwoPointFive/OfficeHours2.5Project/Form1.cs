@@ -19,12 +19,12 @@ namespace OfficeHours2._5Project
 
         private void ShowNamedItRight(object sender, EventArgs e)
         {
-            MessageBox.Show("Trying to show Named It Right");
+            new NamedItRightThisTime.Form1().Show();
         }
 
         private void ShowOtherGoodName(object sender, EventArgs e)
         {
-            MessageBox.Show("Trying to show Other Good Name");
+            new OtherGoodName.Form1().Show();
         }
     }
 }
