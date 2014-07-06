@@ -26,5 +26,19 @@ namespace OfficeHours2._5Project
         {
             new OtherGoodName.Form1().Show();
         }
+
+        private void SayHello(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello, cruel world!", "Hello There!");
+        }
+
+        private void TellMeHowToBrush(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "Step 1: get toothbrush\n"
+                + "Step 2: get toothpaste\n"
+                + "Step 3: etc.",
+                "Tooth-Brushing Instructions");
+        }
     }
 }
