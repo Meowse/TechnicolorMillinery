@@ -61,7 +61,7 @@
             this.Controls.Add(this.btnHello);
             this.Controls.Add(this.lblHello);
             this.Name = "Form1";
-            this.Text = "Instructions";
+            this.Text = "Hello World";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
