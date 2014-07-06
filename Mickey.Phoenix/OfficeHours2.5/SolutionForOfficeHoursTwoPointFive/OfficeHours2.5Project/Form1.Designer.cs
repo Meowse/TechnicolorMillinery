@@ -40,6 +40,7 @@
             this.openNamedItRightButton.TabIndex = 0;
             this.openNamedItRightButton.Text = "Named it right!";
             this.openNamedItRightButton.UseVisualStyleBackColor = true;
+            this.openNamedItRightButton.Click += new System.EventHandler(this.ShowNamedItRight);
             // 
             // otherGoodNameButton
             // 
@@ -49,6 +50,7 @@
             this.otherGoodNameButton.TabIndex = 1;
             this.otherGoodNameButton.Text = "Good name!";
             this.otherGoodNameButton.UseVisualStyleBackColor = true;
+            this.otherGoodNameButton.Click += new System.EventHandler(this.ShowOtherGoodName);
             // 
             // Form1
             // 

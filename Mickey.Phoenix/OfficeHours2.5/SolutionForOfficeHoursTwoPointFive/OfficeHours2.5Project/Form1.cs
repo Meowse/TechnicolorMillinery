@@ -16,5 +16,15 @@ namespace OfficeHours2._5Project
         {
             InitializeComponent();
         }
+
+        private void ShowNamedItRight(object sender, EventArgs e)
+        {
+            MessageBox.Show("Trying to show Named It Right");
+        }
+
+        private void ShowOtherGoodName(object sender, EventArgs e)
+        {
+            MessageBox.Show("Trying to show Other Good Name");
+        }
     }
 }
