@@ -28,80 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.retrieve_button = new System.Windows.Forms.Button();
-            this.howto_button = new System.Windows.Forms.Button();
-            this.hello_bridget_button = new System.Windows.Forms.Button();
-            this.name_label = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.display_name_label = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // retrieve_button
+            // button1
             // 
-            this.retrieve_button.Location = new System.Drawing.Point(101, 274);
-            this.retrieve_button.Name = "retrieve_button";
-            this.retrieve_button.Size = new System.Drawing.Size(75, 23);
-            this.retrieve_button.TabIndex = 0;
-            this.retrieve_button.Text = "Retrieve";
-            this.retrieve_button.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(35, 213);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // howto_button
+            // button2
             // 
-            this.howto_button.Location = new System.Drawing.Point(200, 274);
-            this.howto_button.Name = "howto_button";
-            this.howto_button.Size = new System.Drawing.Size(75, 23);
-            this.howto_button.TabIndex = 1;
-            this.howto_button.Text = "How To Brush Teeth";
-            this.howto_button.UseVisualStyleBackColor = true;
-            this.howto_button.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Location = new System.Drawing.Point(139, 213);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // hello_bridget_button
+            // button3
             // 
-            this.hello_bridget_button.Location = new System.Drawing.Point(299, 274);
-            this.hello_bridget_button.Name = "hello_bridget_button";
-            this.hello_bridget_button.Size = new System.Drawing.Size(75, 23);
-            this.hello_bridget_button.TabIndex = 2;
-            this.hello_bridget_button.Text = "Hello Bridget";
-            this.hello_bridget_button.UseVisualStyleBackColor = true;
-            this.hello_bridget_button.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // name_label
-            // 
-            this.name_label.AutoSize = true;
-            this.name_label.Location = new System.Drawing.Point(81, 178);
-            this.name_label.Name = "name_label";
-            this.name_label.Size = new System.Drawing.Size(38, 13);
-            this.name_label.TabIndex = 3;
-            this.name_label.Text = "Name:";
+            this.button3.Location = new System.Drawing.Point(238, 213);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(125, 131);
-            this.textBox1.Multiline = true;
+            this.textBox1.Location = new System.Drawing.Point(139, 108);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 100);
-            this.textBox1.TabIndex = 4;
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 3;
             // 
-            // display_name_label
+            // label1
             // 
-            this.display_name_label.AutoSize = true;
-            this.display_name_label.Location = new System.Drawing.Point(337, 178);
-            this.display_name_label.Name = "display_name_label";
-            this.display_name_label.Size = new System.Drawing.Size(72, 13);
-            this.display_name_label.TabIndex = 5;
-            this.display_name_label.Text = "Display Name";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(75, 108);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(308, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "label2";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 570);
-            this.Controls.Add(this.display_name_label);
+            this.ClientSize = new System.Drawing.Size(499, 443);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.name_label);
-            this.Controls.Add(this.hello_bridget_button);
-            this.Controls.Add(this.howto_button);
-            this.Controls.Add(this.retrieve_button);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -111,12 +108,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button retrieve_button;
-        private System.Windows.Forms.Button howto_button;
-        private System.Windows.Forms.Button hello_bridget_button;
-        private System.Windows.Forms.Label name_label;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label display_name_label;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
