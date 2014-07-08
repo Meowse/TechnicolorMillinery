@@ -43,5 +43,10 @@ namespace HelloWorldForm
                             "start at the upper gum and work your way down the lower gum");
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
