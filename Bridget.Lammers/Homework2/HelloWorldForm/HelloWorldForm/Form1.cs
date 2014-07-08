@@ -25,7 +25,22 @@ namespace HelloWorldForm
 
         private void howtobrushteeth_button_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("How to brush your teeth at a sink\n\nGo to a sink\nGet a toothbrush\nGet your favorite toothpaste\nApply toothpaste to the toothbrush\nFirst hold the toothbrush in your right hand\nHold toothpaste in left hand\nWith the bristles facing upward to the sky\nSqueeze a small amount onto the toothbrush, a little more than a size of a pea\n   turn on the water in your sink\nget the toothbrush with the toothpaste a little wet\n\nPut the toothbrush with toothpaste in your mouth\nGo up and down with your toothbrush\nstart at the upper gum and work your way down the lower gum");
+            MessageBox.Show("How to brush your teeth at a sink\n" +
+                            "Go to a sink\n" +
+                            "Get a toothbrush\n" +
+                            "Get your favorite toothpaste\n" +
+                            "\n" +
+                            "Apply toothpaste to the toothbrush\n" +
+                            "First hold the toothbrush in your right hand\n" +
+                            "Hold toothpaste in left hand\n" +
+                            "With the bristles facing upward to the sky\n" +
+                            "Squeeze a small amount onto the toothbrush, a little more than a size of a pea\n" +
+                            "turn on the water in your sink\n" +
+                            "get the toothbrush with the toothpaste a little wet\n" +
+                            "\n" +
+                            "Put the toothbrush with toothpaste in your mouth\n" +
+                            "Go up and down with your toothbrush\n" +
+                            "start at the upper gum and work your way down the lower gum");
 
         }
     }
