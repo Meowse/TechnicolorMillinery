@@ -117,26 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HowToText.Text" xml:space="preserve">
-    <value>Acquire LiquidWasteReceptacle -- details TBD
-Acquire a toothbrush	-- details TBD
-Acquire a cup of water -- details TBD
-
-CALL PROCEDURE "Apply toothpaste to (the toothbrush we just acquired)"
-
-
-Open mouth
-Place the toothpaste that is on the bristles against your teeth
-Move the toothbrush back and forth horizontally on the teeth
-Iterate motion over all the (exposed surfaces of the) teeth for two minutes, total
-Brush the tongue for 30 seconds -until you gag
-
-Remove toothbrush from your mouth
-Put down the toothbrush.
-Rinse the toothpaste out of your mouth USING a "cup of water" and into the LiquidWasteReceptacle
-Close mouth
-
-CALL PROCEDURE "Put away Toothpaste and Toothbrush (Toothpaste tube we are using, Toothbrush we are using)"
-</value>
-  </data>
 </root>
