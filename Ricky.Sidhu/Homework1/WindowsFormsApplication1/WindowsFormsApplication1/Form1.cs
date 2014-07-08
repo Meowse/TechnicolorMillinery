@@ -16,5 +16,17 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
+
+        private void Greetthem(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GreetThem(object sender, EventArgs e)
+        {
+            String username = nameField.Text;
+            String greeting = "Hello, " + username; 
+            greetingsLabel. Text= greeting;
+        }
     }
 }
