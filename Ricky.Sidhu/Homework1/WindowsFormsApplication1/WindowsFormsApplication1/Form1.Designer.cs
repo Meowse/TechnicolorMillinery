@@ -57,9 +57,9 @@
             this.greetingsLabel.AutoSize = true;
             this.greetingsLabel.Location = new System.Drawing.Point(237, 45);
             this.greetingsLabel.Name = "greetingsLabel";
-            this.greetingsLabel.Size = new System.Drawing.Size(35, 13);
+            this.greetingsLabel.Size = new System.Drawing.Size(106, 13);
             this.greetingsLabel.TabIndex = 2;
-            this.greetingsLabel.Text = "label1";
+            this.greetingsLabel.Text = "                                 ";
             // 
             // label2
             // 
