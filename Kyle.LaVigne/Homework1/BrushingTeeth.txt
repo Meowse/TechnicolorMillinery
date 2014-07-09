@@ -1,0 +1,30 @@
+How to Brush Your Teeth
+
+1. Acquire Materials:
+	-LiquidWasteReceptacle -- details TBD
+	-toothbrush	-- details TBD
+	-toothpaste tube-- details TBD
+2. Properly set up materials for brushing:
+	-Pick up your toothpaste tube with your hands
+	-Unscrew the top
+	-Hold toothpaste tube with your non-dominant hand
+	-Pick up toothbrush with free hand
+	-Align the toothbrush bristles with the opening of the tube
+	-Make sure the bristles are pointing up
+	-Make sure that the toothbrush is below the toothpaste
+	-Gently squeeze an amount (roughly equal to fingertip size) of toothpaste onto the toothbrush
+	-Put the cap back on the toothpaste
+	-Put the toothpaste tube down
+3.  The Brushing
+	-Open mouth
+	-Carefully draw the toothbrush into your mouth
+	-Place the toothpaste that is on the bristles against your teeth
+	-Move the toothbrush in a gentle circular motion across the teeth
+	-Iterate motion over all the (exposed surfaces of the) teeth for two minutes
+	-Brush the tongue 
+	-Remove toothbrush from your mouth
+	-Rinse the toothpaste out of your mouth and into the LiquidWasteReceptacle
+4.  Cleaning up
+	-Rinse the toothpaste out of your mouth and into the LiquidWasteReceptacle
+	-Run the bristles of the toothbrush under warm water to clean toothbrush
+	-Pack materials (toothpaste tube and toothbrush) back to proper destination
