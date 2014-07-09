@@ -12,9 +12,12 @@ namespace HW1_Super_duper_extra_credit
 {
     public partial class Form1 : Form
     {
+        private int myInt = 1;
+
         public Form1()
         {
             InitializeComponent();
+            labelInt.Text = myInt.ToString();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -76,6 +79,30 @@ namespace HW1_Super_duper_extra_credit
             {
                 listBox.Items.Add("Extra Cheese");
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string name = textBoxName.Text;
+            if (name == @"Mickey")
+            {
+                labelNameResult.Text = "Hello, teacher!";
+            }
+            else
+            {
+                labelNameResult.Text = "Hello, " + textBoxName.Text;
+            }
+        }
+
+        private void buttonIntIncrease_Click(object sender, EventArgs e)
+        {
+            myInt++;
+            if (myInt > 10)
+            {
+                MessageBox.Show("Number too big!", "Warning");
+                myInt = 0;
+            }
+            labelInt.Text = myInt.ToString();
         }
     }
 }

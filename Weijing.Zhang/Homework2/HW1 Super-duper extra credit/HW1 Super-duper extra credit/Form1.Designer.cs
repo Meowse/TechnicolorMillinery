@@ -37,7 +37,17 @@
             this.listBox = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.labelNameResult = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelInt = new System.Windows.Forms.Label();
+            this.buttonIntIncrease = new System.Windows.Forms.Button();
             this.groupBox.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -80,7 +90,7 @@
             this.groupBox.Size = new System.Drawing.Size(180, 80);
             this.groupBox.TabIndex = 4;
             this.groupBox.TabStop = false;
-            this.groupBox.Text = "Entee";
+            this.groupBox.Text = "Entree";
             // 
             // radioButton1
             // 
@@ -134,11 +144,90 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Order Result:";
             // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Location = new System.Drawing.Point(6, 30);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(38, 13);
+            this.labelName.TabIndex = 6;
+            this.labelName.Text = "Name:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.labelNameResult);
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.textBoxName);
+            this.groupBox1.Controls.Add(this.labelName);
+            this.groupBox1.Location = new System.Drawing.Point(25, 241);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(391, 66);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Working with variables, part 1";
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Location = new System.Drawing.Point(50, 27);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxName.TabIndex = 7;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(177, 25);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Greet Me!";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // labelNameResult
+            // 
+            this.labelNameResult.AutoSize = true;
+            this.labelNameResult.Location = new System.Drawing.Point(286, 30);
+            this.labelNameResult.Name = "labelNameResult";
+            this.labelNameResult.Size = new System.Drawing.Size(0, 13);
+            this.labelNameResult.TabIndex = 9;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.buttonIntIncrease);
+            this.groupBox2.Controls.Add(this.labelInt);
+            this.groupBox2.Location = new System.Drawing.Point(25, 328);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(391, 66);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Working with variables, part 2";
+            // 
+            // labelInt
+            // 
+            this.labelInt.AutoSize = true;
+            this.labelInt.Location = new System.Drawing.Point(6, 29);
+            this.labelInt.Name = "labelInt";
+            this.labelInt.Size = new System.Drawing.Size(35, 13);
+            this.labelInt.TabIndex = 0;
+            this.labelInt.Text = "label3";
+            // 
+            // buttonIntIncrease
+            // 
+            this.buttonIntIncrease.Location = new System.Drawing.Point(177, 24);
+            this.buttonIntIncrease.Name = "buttonIntIncrease";
+            this.buttonIntIncrease.Size = new System.Drawing.Size(75, 23);
+            this.buttonIntIncrease.TabIndex = 1;
+            this.buttonIntIncrease.Text = "Increase";
+            this.buttonIntIncrease.UseVisualStyleBackColor = true;
+            this.buttonIntIncrease.Click += new System.EventHandler(this.buttonIntIncrease_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 231);
+            this.ClientSize = new System.Drawing.Size(471, 425);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.checkBox);
             this.Controls.Add(this.groupBox);
@@ -150,6 +239,10 @@
             this.Text = "Menu";
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,6 +259,14 @@
         private System.Windows.Forms.ListBox listBox;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label labelNameResult;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label labelInt;
+        private System.Windows.Forms.Button buttonIntIncrease;
 
     }
 }
