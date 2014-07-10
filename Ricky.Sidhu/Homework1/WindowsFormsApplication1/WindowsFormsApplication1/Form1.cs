@@ -27,6 +27,7 @@ namespace WindowsFormsApplication1
             String username = nameField.Text;
             String greeting = "Hello, " + username; 
             greetingsLabel. Text= greeting;
+                   
         }
     }
 }
