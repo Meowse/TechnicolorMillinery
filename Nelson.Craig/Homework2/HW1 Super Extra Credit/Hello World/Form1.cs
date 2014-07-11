@@ -17,12 +17,6 @@ namespace Hello_World
             InitializeComponent();
         }
 
-        private void btnHello_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Hello World!");
-
-        }
-
         private void btnBrush_Click(object sender, EventArgs e)
         {
             MessageBox.Show(@"Check for Teeth
