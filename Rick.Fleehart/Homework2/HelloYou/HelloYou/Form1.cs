@@ -28,9 +28,19 @@ namespace HelloYou
             }
             else
             {
-                labelForName.Text = "Hello " + EnterName.Text;
                 // Remove the warning since they did what we wanted
                 Warninglabel.Text = "";
+
+                if (EnterName.Text.ToUpper() == "MICKEY")
+                    // it won't matter if they capitalize his name
+                {
+                    labelForName.Text = "Hello Teacher";
+                }
+                else { 
+                    labelForName.Text = "Hello " + EnterName.Text;
+                }
+               
+               
             }
             
         }

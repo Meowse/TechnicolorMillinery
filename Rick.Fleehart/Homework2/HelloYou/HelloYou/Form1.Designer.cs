@@ -93,7 +93,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.EnterName);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Rick\'s Greet O\'matic";
             this.ResumeLayout(false);
             this.PerformLayout();
 
