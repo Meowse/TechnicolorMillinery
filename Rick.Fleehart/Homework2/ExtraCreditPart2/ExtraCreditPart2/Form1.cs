@@ -16,5 +16,24 @@ namespace ExtraCreditPart2
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // add 1 to whatever is there
+            int AddMe = Convert.ToInt32(ResultsLabel.Text);
+            AddMe = AddMe + 1;
+
+            if (AddMe > 10)
+            {
+                AddMe = 0;
+                WarningLabel.Text = "That's too high, you have been zero'd!";
+            } else {
+                // no warning needed
+                WarningLabel.Text = "";
+            }
+
+            //Display the results in the label
+            ResultsLabel.Text = Convert.ToString(AddMe);
+        }
     }
 }
