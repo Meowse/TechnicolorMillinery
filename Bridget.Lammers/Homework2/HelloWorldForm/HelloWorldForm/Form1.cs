@@ -38,7 +38,11 @@ namespace HelloWorldForm
         {
             nameText.Select(0, 25);
 
-            MessageBox.Show(nameText.SelectedText);
+            MessageBox.Show("Hello " + nameText.SelectedText);
+
+            ///MessageBox.Show(this.nameText.Text);
+
+            this.nameLabel.Text = "Hello " + this.nameText.Text;
         }
     }
 }

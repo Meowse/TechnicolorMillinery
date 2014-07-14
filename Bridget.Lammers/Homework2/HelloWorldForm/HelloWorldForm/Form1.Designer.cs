@@ -78,9 +78,9 @@
             // 
             // nameText
             // 
-            this.nameText.Location = new System.Drawing.Point(129, 172);
+            this.nameText.Location = new System.Drawing.Point(184, 172);
             this.nameText.Name = "nameText";
-            this.nameText.Size = new System.Drawing.Size(100, 20);
+            this.nameText.Size = new System.Drawing.Size(143, 20);
             this.nameText.TabIndex = 4;
             // 
             // retrieveButton
@@ -89,14 +89,14 @@
             this.retrieveButton.Name = "retrieveButton";
             this.retrieveButton.Size = new System.Drawing.Size(105, 23);
             this.retrieveButton.TabIndex = 5;
-            this.retrieveButton.Text = "Retrieve Name";
+            this.retrieveButton.Text = "Greet Me!";
             this.retrieveButton.UseVisualStyleBackColor = true;
             this.retrieveButton.Click += new System.EventHandler(this.retrieveButton_Click);
             // 
             // nameLabelTwo
             // 
             this.nameLabelTwo.AutoSize = true;
-            this.nameLabelTwo.Location = new System.Drawing.Point(264, 175);
+            this.nameLabelTwo.Location = new System.Drawing.Point(346, 172);
             this.nameLabelTwo.Name = "nameLabelTwo";
             this.nameLabelTwo.Size = new System.Drawing.Size(42, 13);
             this.nameLabelTwo.TabIndex = 6;
