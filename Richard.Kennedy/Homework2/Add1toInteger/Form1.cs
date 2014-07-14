@@ -16,5 +16,21 @@ namespace Add1toInteger
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Convert label text to integer
+            int Sum = Convert.ToInt32(label1.Text);
+            // Increment integer by 1
+            Sum = Sum++;
+
+            //Display the results in the label
+            label1.Text = Convert.ToString(Sum);
+        }
     }
 }
