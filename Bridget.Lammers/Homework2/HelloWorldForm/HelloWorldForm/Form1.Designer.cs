@@ -35,6 +35,7 @@
             this.nameText = new System.Windows.Forms.TextBox();
             this.retrieveButton = new System.Windows.Forms.Button();
             this.nameLabelTwo = new System.Windows.Forms.Label();
+            this.addOne = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // helloworld_button
@@ -70,7 +71,7 @@
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(75, 175);
+            this.nameLabel.Location = new System.Drawing.Point(37, 175);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(35, 13);
             this.nameLabel.TabIndex = 3;
@@ -78,14 +79,14 @@
             // 
             // nameText
             // 
-            this.nameText.Location = new System.Drawing.Point(184, 172);
+            this.nameText.Location = new System.Drawing.Point(40, 191);
             this.nameText.Name = "nameText";
-            this.nameText.Size = new System.Drawing.Size(143, 20);
+            this.nameText.Size = new System.Drawing.Size(251, 20);
             this.nameText.TabIndex = 4;
             // 
             // retrieveButton
             // 
-            this.retrieveButton.Location = new System.Drawing.Point(129, 221);
+            this.retrieveButton.Location = new System.Drawing.Point(40, 212);
             this.retrieveButton.Name = "retrieveButton";
             this.retrieveButton.Size = new System.Drawing.Size(105, 23);
             this.retrieveButton.TabIndex = 5;
@@ -96,17 +97,28 @@
             // nameLabelTwo
             // 
             this.nameLabelTwo.AutoSize = true;
-            this.nameLabelTwo.Location = new System.Drawing.Point(346, 172);
+            this.nameLabelTwo.Location = new System.Drawing.Point(37, 260);
             this.nameLabelTwo.Name = "nameLabelTwo";
-            this.nameLabelTwo.Size = new System.Drawing.Size(42, 13);
+            this.nameLabelTwo.Size = new System.Drawing.Size(13, 13);
             this.nameLabelTwo.TabIndex = 6;
-            this.nameLabelTwo.Text = "Label 2";
+            this.nameLabelTwo.Text = "0";
+            // 
+            // addOne
+            // 
+            this.addOne.Location = new System.Drawing.Point(196, 255);
+            this.addOne.Name = "addOne";
+            this.addOne.Size = new System.Drawing.Size(75, 23);
+            this.addOne.TabIndex = 7;
+            this.addOne.Text = "Add 1";
+            this.addOne.UseVisualStyleBackColor = true;
+            this.addOne.Click += new System.EventHandler(this.addOne_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(503, 584);
+            this.Controls.Add(this.addOne);
             this.Controls.Add(this.nameLabelTwo);
             this.Controls.Add(this.retrieveButton);
             this.Controls.Add(this.nameText);
@@ -130,6 +142,7 @@
         private System.Windows.Forms.TextBox nameText;
         private System.Windows.Forms.Button retrieveButton;
         private System.Windows.Forms.Label nameLabelTwo;
+        private System.Windows.Forms.Button addOne;
     }
 }
 

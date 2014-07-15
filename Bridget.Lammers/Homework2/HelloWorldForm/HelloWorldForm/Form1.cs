@@ -36,13 +36,46 @@ namespace HelloWorldForm
 
         private void retrieveButton_Click(object sender, EventArgs e)
         {
-            nameText.Select(0, 25);
+            //nameText.Select(0, 25);
+            //MessageBox.Show("Hello " + nameText.SelectedText);
 
-            MessageBox.Show("Hello " + nameText.SelectedText);
+            // Check for a blank entry
+            if (nameText.Text == "")
+            {
+                // do not print anything
+                this.nameLabel.Text = "";
+                // display a warning for them to add a name
+                this.nameLabel.Text = "Name is a required field, please enter a name.";
+            }
+            else
+            {
+               this.nameLabel.Text = "Hello " + this.nameText.Text;
+            }
+             
+        }
 
-            ///MessageBox.Show(this.nameText.Text);
+        private void addOne_Click(object sender, EventArgs e)
+        {
+            // retrieve value on label 
+            int x = Convert.ToInt32(nameLabelTwo.Text);
+            
+            // add 1
+            x = x + 1;
 
-            this.nameLabel.Text = "Hello " + this.nameText.Text;
+            // check if greater than 15
+            if (x > 15)
+            {
+                x = 0;
+                MessageBox.Show("Game over you won, start again!");
+            }
+            else
+            {
+                // blank out
+                //nameLabelTwo.Text = "";
+            }
+
+            // display total label 
+            nameLabelTwo.Text = Convert.ToString(x);
         }
     }
 }
