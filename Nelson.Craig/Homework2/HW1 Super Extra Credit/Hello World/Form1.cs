@@ -19,7 +19,7 @@ namespace Hello_World
 
         private void btnBrush_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(@"Check for Teeth
+            txtInstructions.Text = @"Check for Teeth
 	If HaveTeeth then proceed
 	Else Acquire Dentures & Exit
 Acquire LiquidWasteReceptacle -- details TBD
@@ -40,16 +40,9 @@ Prepare Toothbrush
 	Make sure that the toothbrush is below the toothpaste
 	Gently squeeze a small amount of the toothpaste onto the toothbrush
 	Put the cap back on the toothpaste
-	Put the toothpaste tube down
-Open mouth
-Place PreparedToothbrush bristles on teeth using light pressure
-Move the PreparedToothbrush back and forth horizontally on the teeth
-Iterate motion over all the (exposed surfaces of the) teeth for two minutes
-Brush the tongue until you gag
-Remove PreparedToothbrush from your mouth
-Close mouth
-Spit contents of mouth into LiquidWasteReceptacle
-Prepare Rinse
+	Put the toothpaste tube down" +
+BrushInitiate(cmbLocation.SelectedIndex) +
+@"Prepare Rinse
 	Turn on WaterDispenser
 	Pick up LiquidDrinkingReceptacle, open side facing up
 	Place LiquidDrinkingReceptacle underneath water for 2 seconds
@@ -64,7 +57,42 @@ Begin Rinse
 	Close Mouth
 	Push RinseWater around mouth
 	Spit RinseWater into LiquidWasteReceptacle
-End Rinse");
+End Rinse";
+        }
+            public string BrushInitiate(int index) {
+                
+string result = "";
+
+    if (index == 0)
+    {
+        result = @"Open mouth
+Place PreparedToothbrush bristles on teeth using light pressure
+Turn On Toothbrush
+Move the PreparedToothbrush back and forth horizontally on the teeth
+Iterate motion over all the (exposed surfaces of the) teeth for two minutes
+Brush the tongue until you gag
+Remove PreparedToothbrush from your mouth
+Close mouth
+Turn Off Toothbrush";
+    }
+        else if (index == 1)
+    {
+        result = @"Open mouth
+Place PreparedToothbrush bristles on teeth using light pressure
+Move the PreparedToothbrush back and forth horizontally on the teeth
+Iterate motion over all the (exposed surfaces of the) teeth for two minutes
+Brush the tongue until you gag
+Remove PreparedToothbrush from your mouth
+Close mouth";
+     }
+            else
+            {
+                result = "Error! Could not brush teeth without a toothbrush";
+            }
+        return result;
+    
+
+            }
         }
     }
-}
+
