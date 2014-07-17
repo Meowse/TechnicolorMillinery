@@ -54,7 +54,7 @@ namespace HW_2_Part_2
     +"          LiquidWastereceptacle to clean toothbrush\n"
     +"      -Tighten cap back on toothpaste tube\n"     
     +"      -Pack materials (toothpaste tube and toothbrush) back to proper destination\n", 
-               "How to Brush Your Teeth");
+               "Hello World!");
         }
 
         private void ExpertStatus(object sender, EventArgs e)
