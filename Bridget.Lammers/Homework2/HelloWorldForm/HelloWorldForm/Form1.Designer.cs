@@ -36,6 +36,9 @@
             this.retrieveButton = new System.Windows.Forms.Button();
             this.nameLabelTwo = new System.Windows.Forms.Label();
             this.addOne = new System.Windows.Forms.Button();
+            this.colorChanger_checkbox = new System.Windows.Forms.CheckBox();
+            this.colorChanger_Label = new System.Windows.Forms.Label();
+            this.colorChanger_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // helloworld_button
@@ -113,11 +116,44 @@
             this.addOne.UseVisualStyleBackColor = true;
             this.addOne.Click += new System.EventHandler(this.addOne_Click);
             // 
+            // colorChanger_checkbox
+            // 
+            this.colorChanger_checkbox.AutoSize = true;
+            this.colorChanger_checkbox.Location = new System.Drawing.Point(703, 193);
+            this.colorChanger_checkbox.Name = "colorChanger_checkbox";
+            this.colorChanger_checkbox.Size = new System.Drawing.Size(132, 17);
+            this.colorChanger_checkbox.TabIndex = 9;
+            this.colorChanger_checkbox.Text = "Enable color changing";
+            this.colorChanger_checkbox.UseVisualStyleBackColor = true;
+            // 
+            // colorChanger_Label
+            // 
+            this.colorChanger_Label.AutoSize = true;
+            this.colorChanger_Label.BackColor = System.Drawing.Color.Red;
+            this.colorChanger_Label.Location = new System.Drawing.Point(548, 194);
+            this.colorChanger_Label.Name = "colorChanger_Label";
+            this.colorChanger_Label.Size = new System.Drawing.Size(74, 13);
+            this.colorChanger_Label.TabIndex = 11;
+            this.colorChanger_Label.Text = "Color Changer";
+            // 
+            // colorChanger_button
+            // 
+            this.colorChanger_button.Location = new System.Drawing.Point(592, 250);
+            this.colorChanger_button.Name = "colorChanger_button";
+            this.colorChanger_button.Size = new System.Drawing.Size(213, 23);
+            this.colorChanger_button.TabIndex = 12;
+            this.colorChanger_button.Text = "Change the color if the box is checked";
+            this.colorChanger_button.UseVisualStyleBackColor = true;
+            this.colorChanger_button.Click += new System.EventHandler(this.colorChanger_button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 584);
+            this.ClientSize = new System.Drawing.Size(948, 584);
+            this.Controls.Add(this.colorChanger_button);
+            this.Controls.Add(this.colorChanger_Label);
+            this.Controls.Add(this.colorChanger_checkbox);
             this.Controls.Add(this.addOne);
             this.Controls.Add(this.nameLabelTwo);
             this.Controls.Add(this.retrieveButton);
@@ -143,6 +179,9 @@
         private System.Windows.Forms.Button retrieveButton;
         private System.Windows.Forms.Label nameLabelTwo;
         private System.Windows.Forms.Button addOne;
+        private System.Windows.Forms.CheckBox colorChanger_checkbox;
+        private System.Windows.Forms.Label colorChanger_Label;
+        private System.Windows.Forms.Button colorChanger_button;
     }
 }
 
