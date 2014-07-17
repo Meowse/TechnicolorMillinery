@@ -81,5 +81,31 @@ namespace HelloWorldForm
             // display total label 
             nameLabelTwo.Text = Convert.ToString(x);
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            
+             
+        }
+
+        private void colorChanger_button_Click(object sender, EventArgs e)
+        {
+            if (colorChanger_checkbox.Checked == true)
+            {
+                if (colorChanger_Label.BackColor == Color.Red)
+                {
+                    this.colorChanger_Label.BackColor = Color.DeepSkyBlue;
+                }
+                else if (colorChanger_Label.BackColor == Color.DeepSkyBlue)
+                {
+                    this.colorChanger_Label.BackColor = Color.Red;
+                }
+            }
+            else
+            {
+                MessageBox.Show("The checkbox is not checked");
+            }
+
+        }
     }
 }
