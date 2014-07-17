@@ -47,6 +47,10 @@ namespace HelloWorldForm
                 // display a warning for them to add a name
                 this.nameLabel.Text = "Name is a required field, please enter a name.";
             }
+            else if (nameText.Text == "Mickey")
+            {
+                this.nameLabel.Text = "Hello, teacher! ";   
+            }
             else
             {
                this.nameLabel.Text = "Hello " + this.nameText.Text;
@@ -62,11 +66,11 @@ namespace HelloWorldForm
             // add 1
             x = x + 1;
 
-            // check if greater than 15
-            if (x > 15)
+            // check if greater than 10
+            if (x > 10)
             {
                 x = 0;
-                MessageBox.Show("Game over you won, start again!");
+                MessageBox.Show("Number too big, start again!");
             }
             else
             {
