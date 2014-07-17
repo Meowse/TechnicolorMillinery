@@ -129,6 +129,7 @@
             // colorChanger_Label
             // 
             this.colorChanger_Label.AutoSize = true;
+            this.colorChanger_Label.BackColor = System.Drawing.Color.Red;
             this.colorChanger_Label.Location = new System.Drawing.Point(548, 194);
             this.colorChanger_Label.Name = "colorChanger_Label";
             this.colorChanger_Label.Size = new System.Drawing.Size(74, 13);
