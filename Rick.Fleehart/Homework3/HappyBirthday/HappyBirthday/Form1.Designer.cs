@@ -36,6 +36,7 @@
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
             this.OutputLabel = new System.Windows.Forms.Label();
+            this.todaysdate = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -108,11 +109,21 @@
             this.OutputLabel.TabIndex = 8;
             this.OutputLabel.Text = "  ";
             // 
+            // todaysdate
+            // 
+            this.todaysdate.AutoSize = true;
+            this.todaysdate.Location = new System.Drawing.Point(470, 4);
+            this.todaysdate.Name = "todaysdate";
+            this.todaysdate.Size = new System.Drawing.Size(62, 13);
+            this.todaysdate.TabIndex = 9;
+            this.todaysdate.Text = "todays date";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 371);
+            this.Controls.Add(this.todaysdate);
             this.Controls.Add(this.OutputLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.monthCalendar1);
@@ -138,6 +149,7 @@
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label OutputLabel;
+        private System.Windows.Forms.Label todaysdate;
     }
 }
 

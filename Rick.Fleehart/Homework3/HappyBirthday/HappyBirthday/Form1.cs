@@ -16,20 +16,23 @@ namespace HappyBirthday
             InitializeComponent();
         }
 
-       
+        String TodayDateTime = DateTime.Now.ToString("M/d/yyyy");
+
+    
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
+            // Puts the selected date into the label: SelectedDate
             SelectedDate.Text = monthCalendar1.SelectionRange.Start.ToShortDateString();
         }
 
-        // if today is birthday, display Happy birthday song
+        // if today is birthday, display Happy birthday song into label OutputLabel
 
-        // if today is not birthday but morning display good morning
- 
-        // if today is not birthday but noon to 5pm display is taking a siesta
+        // if today is not birthday but morning display good morning into label OutputLabel
 
-        // if today is not birthday but after 5PM then display lullaby
+        // if today is not birthday but noon to 5pm display is taking a siesta into label OutputLabel
+
+        // if today is not birthday but after 5PM then display lullaby into label OutputLabel
 
 
 
