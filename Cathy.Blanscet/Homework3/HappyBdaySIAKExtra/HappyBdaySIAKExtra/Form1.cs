@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
-namespace HappyBdaySDExtra
+namespace HappyBdaySIAKExtra
 {
     public partial class Form1 : Form
     {
@@ -34,12 +35,15 @@ namespace HappyBdaySDExtra
             TimeSpan varNowDt = DateTime.Now.TimeOfDay;
             //TimeSpan varNowDt = new TimeSpan(9, 0, 0); // for testing purposes only uncomment when needed.
 
+            // give age a non zero value if it is zero.
             if (age == 0)
             {
                 age = 1;
             }
 
             string varSiestaTime = "We're sorry but it is siesta time between noon and 5 pm.";
+            string varBDWords = "Happy Birthday";
+            string varGMWords = "Good Morning";
 
             if (varName == "")
             {
@@ -52,57 +56,15 @@ namespace HappyBdaySDExtra
 
                 if (varCurrentMonth == varBirthMonth && varCurrentDay == varBirthDay)
                 {
-                    int cnt = 1;
-                    int maxCnt = 5;
-                    int maxLoop = 0;
-
-                    while (maxLoop < age)
-                    {
-                        while (cnt < maxCnt)
-                        {
-                            if (cnt == 3)
-                            {
-                                ResultLabel.Text += "Happy Birthday, Dear " + varName + ". ";
-                            }
-                            else
-                            {
-                                ResultLabel.Text += "Happy Birthday to you. ";
-                            }
-                            cnt++;
-                        }
-                        ResultLabel.Text += "\n"; //break between the versions
-                        ResultLabel.ForeColor = Color.DarkTurquoise;
-                        cnt = 1;
-                        maxLoop ++;
-                    }
+                    ResultLabel.Text += SingSong(age, varName, varBDWords);
+                    ResultLabel.ForeColor = Color.DarkTurquoise;
                 }
                 else
                 {
                     if ((varNowDt < varStartDt)) //before noon
                     {
-                        int cnt = 1;
-                        int maxCnt = 5;
-                        int maxLoop = 0;
-
-                        while (maxLoop < age)
-                        {
-                            while (cnt < maxCnt)
-                            {
-                                if (cnt == 3)
-                                {
-                                    ResultLabel.Text += "Good Morning, Dear " + varName + ". ";
-                                }
-                                else
-                                {
-                                    ResultLabel.Text += "Good Morning to you. ";
-                                }
-                                cnt++;
-                            }
-                            ResultLabel.Text += "\n"; //break between the versions
-                            ResultLabel.ForeColor = Color.MediumSeaGreen;
-                            cnt = 1;
-                            maxLoop++;
-                        }
+                        ResultLabel.Text += SingSong(age, varName, varGMWords);
+                        ResultLabel.ForeColor = Color.MediumSeaGreen;
                     }
 
                     if ((varNowDt > varStartDt) && (varNowDt < varEndDt)) // between noon and 5 p.m.
@@ -113,12 +75,40 @@ namespace HappyBdaySDExtra
 
                     if ((varNowDt > varEndDt)) // after 5 p.m.
                     {
-                        ResultLabel.Text =
+                        ResultLabel.Text +=
                             "Twinkle, twinkle, little star,\nHow I wonder what you are!\nUp above the world so high,\nLike a diamond in the sky.\nTwinkle, twinkle, little star,\nHow I wonder what you are!";
                         ResultLabel.ForeColor = Color.MediumBlue;
                     }
+                } // end of birthday check
+            } //end of varGoodName check
+        }
+
+        public static string SingSong(int age, string varName, string varWords)
+        {
+            int cnt = 1;
+            int maxCnt = 5;
+            int maxLoop = 0;
+            string varStr = "";
+
+            while (maxLoop < age)
+            {
+                while (cnt < maxCnt)
+                {
+                    if (cnt == 3)
+                    {
+                        varStr += varWords + ", Dear " + varName + ". ";
+                    }
+                    else
+                    {
+                        varStr += varWords + " to you. ";
+                    }
+                    cnt++;
                 }
-            } //end of varGoodName ==""
+                varStr += "\n"; //break between the versions
+                cnt = 1;
+                maxLoop++;
+            }
+            return varStr;
         }
 
         public static string ToBinary(Int64 Decimal)
@@ -130,9 +120,9 @@ namespace HappyBdaySDExtra
 
             while (Decimal > 0)
             {
-                BinaryHolder = Decimal%2;
+                BinaryHolder = Decimal % 2;
                 BinaryResult += BinaryHolder;
-                Decimal = Decimal/2;
+                Decimal = Decimal / 2;
             }
 
             // The algoritm gives us the binary number in reverse order (mirrored)

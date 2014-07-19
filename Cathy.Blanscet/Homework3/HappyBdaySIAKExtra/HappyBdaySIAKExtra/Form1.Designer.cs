@@ -1,4 +1,4 @@
-﻿namespace HappyBdaySDExtra
+﻿namespace HappyBdaySIAKExtra
 {
     partial class Form1
     {
@@ -28,47 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ClickMeButton = new System.Windows.Forms.Button();
             this.NameLabel = new System.Windows.Forms.Label();
+            this.BDayLabel = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.BDayBox = new System.Windows.Forms.DateTimePicker();
-            this.BDayLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.ResultLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // ClickMeButton
-            // 
-            this.ClickMeButton.Location = new System.Drawing.Point(5, 79);
-            this.ClickMeButton.Name = "ClickMeButton";
-            this.ClickMeButton.Size = new System.Drawing.Size(210, 30);
-            this.ClickMeButton.TabIndex = 0;
-            this.ClickMeButton.Text = "3) Click Me, for a message";
-            this.ClickMeButton.UseVisualStyleBackColor = true;
-            this.ClickMeButton.Click += new System.EventHandler(this.ClickMeClicked);
             // 
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(77, 16);
+            this.NameLabel.Location = new System.Drawing.Point(82, 12);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(138, 17);
-            this.NameLabel.TabIndex = 1;
+            this.NameLabel.TabIndex = 0;
             this.NameLabel.Text = "1) Enter Your Name:";
-            // 
-            // NameTextBox
-            // 
-            this.NameTextBox.Location = new System.Drawing.Point(221, 16);
-            this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(134, 22);
-            this.NameTextBox.TabIndex = 2;
-            // 
-            // BDayBox
-            // 
-            this.BDayBox.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.BDayBox.Location = new System.Drawing.Point(221, 51);
-            this.BDayBox.Name = "BDayBox";
-            this.BDayBox.Size = new System.Drawing.Size(125, 22);
-            this.BDayBox.TabIndex = 3;
             // 
             // BDayLabel
             // 
@@ -76,31 +51,57 @@
             this.BDayLabel.Location = new System.Drawing.Point(51, 51);
             this.BDayLabel.Name = "BDayLabel";
             this.BDayLabel.Size = new System.Drawing.Size(169, 17);
-            this.BDayLabel.TabIndex = 4;
+            this.BDayLabel.TabIndex = 1;
             this.BDayLabel.Text = "2) Choose your birthdate:";
+            // 
+            // NameTextBox
+            // 
+            this.NameTextBox.Location = new System.Drawing.Point(232, 12);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(100, 22);
+            this.NameTextBox.TabIndex = 2;
+            // 
+            // BDayBox
+            // 
+            this.BDayBox.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.BDayBox.Location = new System.Drawing.Point(232, 51);
+            this.BDayBox.Name = "BDayBox";
+            this.BDayBox.Size = new System.Drawing.Size(130, 22);
+            this.BDayBox.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 83);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(214, 31);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "3) Click Me, for a message";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.ClickMeClicked);
             // 
             // ResultLabel
             // 
             this.ResultLabel.AutoSize = true;
-            this.ResultLabel.Location = new System.Drawing.Point(391, 18);
+            this.ResultLabel.Location = new System.Drawing.Point(386, 12);
             this.ResultLabel.Name = "ResultLabel";
-            this.ResultLabel.Size = new System.Drawing.Size(20, 17);
+            this.ResultLabel.Size = new System.Drawing.Size(16, 17);
             this.ResultLabel.TabIndex = 5;
-            this.ResultLabel.Text = "   ";
+            this.ResultLabel.Text = "  ";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1094, 586);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1100, 309);
             this.Controls.Add(this.ResultLabel);
-            this.Controls.Add(this.BDayLabel);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.BDayBox);
             this.Controls.Add(this.NameTextBox);
+            this.Controls.Add(this.BDayLabel);
             this.Controls.Add(this.NameLabel);
-            this.Controls.Add(this.ClickMeButton);
             this.Name = "Form1";
-            this.Text = "Is it your Birthday (Binary)?";
+            this.Text = "Is It Your Birthday (Methods)?";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,11 +109,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button ClickMeButton;
         private System.Windows.Forms.Label NameLabel;
+        private System.Windows.Forms.Label BDayLabel;
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.DateTimePicker BDayBox;
-        private System.Windows.Forms.Label BDayLabel;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label ResultLabel;
     }
 }
