@@ -20,16 +20,15 @@ namespace Happy_Birthday_Song
             //Compare users birthday to today and sing happy birthday if it is today. Otherwise tell them to leave.
             if (yourBday.DayOfYear == DateTime.Now.DayOfYear) 
             {
-                SingHappyBirthday(yourName, yourBday); 
+                SingHappyBirthday(yourName, yourBday);
+                Console.ReadKey();
             }
                 else
             {
-                Console.WriteLine("It's not your birthday ya goon! Come back later");
+                SingOtherSong();
                 Console.ReadKey();
             }
             
-            
-
         }
 
         static void SingHappyBirthday(string name, DateTime bday)
@@ -43,8 +42,39 @@ namespace Happy_Birthday_Song
             }
            Console.WriteLine("Happy Birthday to " + name);
            Console.WriteLine("Happy Birthday to you!");
-           Console.ReadKey();
 
+        }
+        static void SingOtherSong()
+        {
+            int noon = 12;
+            int evening = 17;
+            int x = 0;
+
+            if (DateTime.Now.Hour < noon)
+            {
+                while (x < 2)
+                {
+                    Console.WriteLine("Good Morning, Good Morning, Good Morning to you!");
+                    x = x + 1;
+                }
+                Console.WriteLine("Our day is beginning, there's so much to do" +
+                                    "So, good morning, good morning, good morning to you");
+                Console.ReadKey();
+            }
+            else if (DateTime.Now.Hour >= noon & DateTime.Now.Hour < evening)
+            {
+                Console.WriteLine("I'm taking a siesta. Please come back later.");
+                Console.ReadKey();
+            }
+            else if (DateTime.Now.Hour > evening)
+            {
+                Console.WriteLine(@"Twinkle, twinkle, little star
+How I wonder what you are!
+Up above the world so high
+Like a diamond in the sky
+Twinkle, twinkle, little star
+How I wonder what you are");
+            }
         }
     }
 }
