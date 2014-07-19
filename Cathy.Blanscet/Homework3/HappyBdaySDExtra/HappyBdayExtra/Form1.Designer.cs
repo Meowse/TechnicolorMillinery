@@ -34,24 +34,22 @@
             this.BDayBox = new System.Windows.Forms.DateTimePicker();
             this.BDayLabel = new System.Windows.Forms.Label();
             this.ResultLabel = new System.Windows.Forms.Label();
-            this.BirthYearTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ClickMeButton
             // 
-            this.ClickMeButton.Location = new System.Drawing.Point(15, 122);
+            this.ClickMeButton.Location = new System.Drawing.Point(5, 79);
             this.ClickMeButton.Name = "ClickMeButton";
-            this.ClickMeButton.Size = new System.Drawing.Size(210, 23);
+            this.ClickMeButton.Size = new System.Drawing.Size(210, 30);
             this.ClickMeButton.TabIndex = 0;
-            this.ClickMeButton.Text = "4) Click Me, for a message";
+            this.ClickMeButton.Text = "3) Click Me, for a message";
             this.ClickMeButton.UseVisualStyleBackColor = true;
             this.ClickMeButton.Click += new System.EventHandler(this.ClickMeClicked);
             // 
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(87, 18);
+            this.NameLabel.Location = new System.Drawing.Point(77, 16);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(138, 17);
             this.NameLabel.TabIndex = 1;
@@ -59,7 +57,7 @@
             // 
             // NameTextBox
             // 
-            this.NameTextBox.Location = new System.Drawing.Point(231, 18);
+            this.NameTextBox.Location = new System.Drawing.Point(221, 16);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(134, 22);
             this.NameTextBox.TabIndex = 2;
@@ -67,7 +65,7 @@
             // BDayBox
             // 
             this.BDayBox.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.BDayBox.Location = new System.Drawing.Point(231, 53);
+            this.BDayBox.Location = new System.Drawing.Point(221, 51);
             this.BDayBox.Name = "BDayBox";
             this.BDayBox.Size = new System.Drawing.Size(125, 22);
             this.BDayBox.TabIndex = 3;
@@ -75,7 +73,7 @@
             // BDayLabel
             // 
             this.BDayLabel.AutoSize = true;
-            this.BDayLabel.Location = new System.Drawing.Point(61, 53);
+            this.BDayLabel.Location = new System.Drawing.Point(51, 51);
             this.BDayLabel.Name = "BDayLabel";
             this.BDayLabel.Size = new System.Drawing.Size(164, 17);
             this.BDayLabel.TabIndex = 4;
@@ -90,29 +88,11 @@
             this.ResultLabel.TabIndex = 5;
             this.ResultLabel.Text = "   ";
             // 
-            // BirthYearTextBox
-            // 
-            this.BirthYearTextBox.Location = new System.Drawing.Point(231, 94);
-            this.BirthYearTextBox.Name = "BirthYearTextBox";
-            this.BirthYearTextBox.Size = new System.Drawing.Size(100, 22);
-            this.BirthYearTextBox.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 94);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 17);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "3) Enter the year you were born:";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1094, 586);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.BirthYearTextBox);
             this.Controls.Add(this.ResultLabel);
             this.Controls.Add(this.BDayLabel);
             this.Controls.Add(this.BDayBox);
@@ -134,8 +114,6 @@
         private System.Windows.Forms.DateTimePicker BDayBox;
         private System.Windows.Forms.Label BDayLabel;
         private System.Windows.Forms.Label ResultLabel;
-        private System.Windows.Forms.TextBox BirthYearTextBox;
-        private System.Windows.Forms.Label label1;
     }
 }
 
