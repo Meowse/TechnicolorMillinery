@@ -34,7 +34,7 @@ namespace HappyBdaySDExtra
             if (varIsGoodYear)
             {
                 int age = (varCurrentYear - BirthYr);
-                
+
                 /*string varBDline1 = "Happy Birthday to you.";
                 string varBDline2 = "Happy Birthday, Dear ";
                 string varGMline1 = "Good Morning to you.";
@@ -66,34 +66,37 @@ namespace HappyBdaySDExtra
                         }
 
                         ResultLabel.Text = ""; // clear the previous text
+                        ResultLabel.Text = "Your age in Binary is: " + ToBinary(age) + "!!!\n";
+
                         while (maxLoop < age)
                         {
                             while (cnt < maxCnt)
                             {
                                 if (cnt == 3)
                                 {
-                                    ResultLabel.Text += "Happy Birthday, Dear " + varName + ",\n";
+                                    ResultLabel.Text += "Happy Birthday, Dear " + varName + ". ";
                                 }
                                 else
                                 {
-                                    ResultLabel.Text += "Happy Birthday to you.\n";
+                                    ResultLabel.Text += "Happy Birthday to you. ";
                                 }
                                 cnt++;
-                            } 
-                            ResultLabel.Text += "\n";   //break between the versions
+                            }
+                            ResultLabel.Text += "\n"; //break between the versions
+                            ResultLabel.ForeColor = Color.DarkTurquoise;
                             cnt = 1;
                             maxLoop ++;
-                        } 
+                        }
                     }
                     else
                     {
-                        TimeSpan start = new TimeSpan(12, 0, 0); //12 o'clock
-                        TimeSpan end = new TimeSpan(17, 0, 0); //5 o'clock
-                        TimeSpan now = DateTime.Now.TimeOfDay;
+                        TimeSpan varStartDt = new TimeSpan(12, 0, 0); //12 o'clock
+                        TimeSpan varEndDt = new TimeSpan(17, 0, 0); //5 o'clock
+                        TimeSpan varNowDt = DateTime.Now.TimeOfDay;
                         //MessageBox.Show("now is " + now);
                         //MessageBox.Show("end is " + end);
 
-                        if ((now < start)) //before noon
+                        if ((varNowDt < varStartDt)) //before noon
                         {
                             //replace with a while loop
                             //ResultLabel.Text = varGMline1 + "\n" + varGMline1 + "\n" + varGMline2 + varName + ",\n" + varGMline1;
@@ -105,36 +108,45 @@ namespace HappyBdaySDExtra
                                 age = 1;
                             }
 
-                            ResultLabel.Text = "";
+                            ResultLabel.Text = ""; // clear the previous text
+                            ResultLabel.Text = "Your age in Binary is: " + ToBinary(age) + "!!!\n";
+
                             while (maxLoop < age)
                             {
                                 while (cnt < maxCnt)
                                 {
                                     if (cnt == 3)
                                     {
-                                        ResultLabel.Text += "Good Morning, Dear " + varName + ",\n";
+                                        ResultLabel.Text += "Good Morning, Dear " + varName + ". ";
                                     }
                                     else
                                     {
-                                        ResultLabel.Text += "Good Morning to you.\n";
+                                        ResultLabel.Text += "Good Morning to you. ";
                                     }
                                     cnt++;
                                 }
-                                ResultLabel.Text += "\n";   //break between the versions
+                                ResultLabel.Text += "\n"; //break between the versions
+                                ResultLabel.ForeColor = Color.MediumSeaGreen;
                                 cnt = 1;
                                 maxLoop++;
                             }
                         }
 
-                        if ((now > start) && (now < end)) // between noon and 5 p.m.
+                        if ((varNowDt > varStartDt) && (varNowDt < varEndDt)) // between noon and 5 p.m.
                         {
-                            ResultLabel.Text = varSiestaTime;
+                            ResultLabel.Text = ""; // clear the previous text
+                            ResultLabel.Text = "Your age in Binary is: " + ToBinary(age) + "!!!\n";
+                            ResultLabel.Text += varSiestaTime;
+                            ResultLabel.ForeColor = Color.MediumVioletRed;
                         }
 
-                        if ((now > end)) // after 5 p.m.
+                        if ((varNowDt > varEndDt)) // after 5 p.m.
                         {
+                            ResultLabel.Text = ""; // clear the previous text
+                            ResultLabel.Text = "Your age in Binary is: " + ToBinary(age) + "!!!\n";
                             ResultLabel.Text =
                                 "Twinkle, twinkle, little star,\nHow I wonder what you are!\nUp above the world so high,\nLike a diamond in the sky.\nTwinkle, twinkle, little star,\nHow I wonder what you are!";
+                            ResultLabel.ForeColor = Color.MediumBlue;
                         }
                     }
                 } //end of varGoodName > 0
@@ -143,6 +155,29 @@ namespace HappyBdaySDExtra
             {
                 MessageBox.Show("I cannot calculate your age.\nPlease reenter the year of your birth in yyyy format.");
             }
+        }
+
+        public static string ToBinary(Int64 Decimal)
+        {
+            // Declare a few variables we're going to need
+            Int64 BinaryHolder;
+            char[] BinaryArray;
+            string BinaryResult = "";
+
+            while (Decimal > 0)
+            {
+                BinaryHolder = Decimal%2;
+                BinaryResult += BinaryHolder;
+                Decimal = Decimal/2;
+            }
+
+            // The algoritm gives us the binary number in reverse order (mirrored)
+            // We store it in an array so that we can reverse it back to normal
+            BinaryArray = BinaryResult.ToCharArray();
+            Array.Reverse(BinaryArray);
+            BinaryResult = new string(BinaryArray);
+
+            return BinaryResult;
         }
     }
 }
