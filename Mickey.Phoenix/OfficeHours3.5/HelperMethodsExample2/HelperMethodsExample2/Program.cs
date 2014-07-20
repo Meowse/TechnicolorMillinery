@@ -84,31 +84,34 @@ namespace HelperMethodsExample2
                 return "0";
             }
 
+            int largestPowerOf2 = GetLargestPowerOf2(decimalValue);
+
+            return ConvertToBinary(decimalValue, largestPowerOf2);
+        }
+
+        private static int GetLargestPowerOf2(int decimalValue)
+        {
             int powerOf2 = 1;
             while (powerOf2 <= decimalValue)
             {
                 powerOf2 = powerOf2 * 2;
             }
-            powerOf2 = powerOf2 / 2;
+            return powerOf2 / 2;
+        }
 
-            // The string of "1"s and "0"s that represents the number in binary
+        // Convert a decimal value to a binary value (represented as a 
+        // string), given the largest power of 2 that the decimal value
+        // contains.
+        private static string ConvertToBinary(int decimalValue, int powerOf2)
+        {
             string binaryValue = "";
 
             while (powerOf2 > 0)
             {
-                // Either the remaining decimalValue contains the current power
-                // of 2, or it doesn't.
-                // If it does contain the current power of 2:
-                //      subtract it from the decimal number
-                //      add a "1" to binaryValue to record that it contained
-                //          this power of 2
-                // If it doesn't contain the current power of 2:
-                //      add a "0" to binaryValue to record that it did not
-                //      contain this power of 2
                 if (decimalValue >= powerOf2)
                 {
-                    decimalValue = decimalValue - powerOf2;
                     binaryValue = binaryValue + "1";
+                    decimalValue = decimalValue - powerOf2;
                 }
                 else
                 {
@@ -119,10 +122,5 @@ namespace HelperMethodsExample2
 
             return binaryValue;
         }
-
-        // In class, talk about:
-        //  "intentional programming"
-        //  top-down design
-        //  hierarchical decomposition
     }
 }
