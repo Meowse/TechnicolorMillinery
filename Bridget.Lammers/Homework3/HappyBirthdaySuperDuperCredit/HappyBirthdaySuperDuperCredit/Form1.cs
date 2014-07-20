@@ -67,6 +67,10 @@ namespace HappyBirthdaySuperDuperCredit
                     birthday_dt.Day == todays_dt.Day)
                 {
                     int age = todays_dt.Year - birthday_dt.Year;
+                    string str_age_binary = GetIntBinaryString(age);
+                    MessageBox.Show("Your age is " + age + "\n" +
+                                    "Your age in Binary is " + str_age_binary);
+
                     string str_age = age.ToString();
                     //MessageBox.Show("Age string " + str_age);
           
@@ -102,6 +106,34 @@ namespace HappyBirthdaySuperDuperCredit
                 }
             }   // End IF
         }       // End enter_button_Click
+
+        
+        /* The method receives a normal integer, and then loops over each of the 32 bit positions.
+          At the same time, it writes zeros and ones in reverse order. This results in standard results. 
+         The char array is the most efficient structure here.
+         */
+
+        static string GetIntBinaryString(int n)
+        {
+            char[] b = new char[32];
+            int pos = 31;
+            int i = 0;
+
+            while (i < 32)
+            {
+                if ((n & (1 << i)) != 0)
+                {
+                    b[pos] = '1';
+                }
+                else
+                {
+                    b[pos] = '0';
+                }
+                pos--;
+                i++;
+            }
+            return new string(b);
+        }
        
     }
 }
