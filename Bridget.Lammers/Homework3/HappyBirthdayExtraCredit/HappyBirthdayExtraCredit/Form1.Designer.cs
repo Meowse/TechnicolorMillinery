@@ -73,6 +73,7 @@
             this.monthCalendar1.Location = new System.Drawing.Point(421, 113);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 4;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // click_for_surprise_button
             // 
@@ -82,6 +83,7 @@
             this.click_for_surprise_button.TabIndex = 5;
             this.click_for_surprise_button.Text = "Click for Surprise";
             this.click_for_surprise_button.UseVisualStyleBackColor = true;
+            this.click_for_surprise_button.Click += new System.EventHandler(this.click_for_surprise_button_Click);
             // 
             // month_calendar
             // 
