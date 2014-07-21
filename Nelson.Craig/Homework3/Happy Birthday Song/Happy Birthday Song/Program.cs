@@ -14,13 +14,13 @@ namespace Happy_Birthday_Song
             Console.Write("Please enter your name:"); //Request user name input
             string yourName = Console.ReadLine();
 
-            Console.Write("Please enter your birthday:"); //Request user date input
+            Console.Write("Please enter your birthday (dd/MM/YYYY):"); //Request user date input
             DateTime yourBday = DateTime.Parse(Console.ReadLine()); //Parse the date into DateTime data type
 
             //Compare users birthday to today and sing happy birthday if it is today. Otherwise tell them to leave.
             if (yourBday.DayOfYear == DateTime.Now.DayOfYear) 
             {
-                SingHappyBirthday(yourName, yourBday);
+                SingHappyBirthday(yourName, ref yourBday);
                 Console.ReadKey();
             }
                 else
@@ -28,20 +28,21 @@ namespace Happy_Birthday_Song
                 SingOtherSong();
                 Console.ReadKey();
             }
-            
+          
         }
 
-        static void SingHappyBirthday(string name, DateTime bday)
+        static void SingHappyBirthday(string name, ref DateTime bday)
         {
-            int x = 0;
+            
             //Loop the happy birthday song, filling in the user input name
-            while (x < 2)
+            while (DateTime.Now.Year >= bday.Year)
             {
-                Console.WriteLine("Happy Birthday to you.");
-                x = x + 1;
+                    Console.WriteLine("Happy Birthday to you.");
+                    Console.WriteLine("Happy Birthday to you.");
+                    Console.WriteLine("Happy Birthday to " + name);
+                    Console.WriteLine("Happy Birthday to you!");
+                    bday = bday.AddYears(1);
             }
-           Console.WriteLine("Happy Birthday to " + name);
-           Console.WriteLine("Happy Birthday to you!");
 
         }
         static void SingOtherSong()
@@ -57,8 +58,8 @@ namespace Happy_Birthday_Song
                     Console.WriteLine("Good Morning, Good Morning, Good Morning to you!");
                     x = x + 1;
                 }
-                Console.WriteLine("Our day is beginning, there's so much to do" +
-                                    "So, good morning, good morning, good morning to you");
+                Console.WriteLine("Our day is beginning, there's so much to do \n" +
+"So, good morning, good morning, good morning to you");
                 Console.ReadKey();
             }
             else if (DateTime.Now.Hour >= noon & DateTime.Now.Hour < evening)
