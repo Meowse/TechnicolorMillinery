@@ -52,7 +52,8 @@ namespace HappyBdaySIAKExtra
             else
             {
                 ResultLabel.Text = ""; // clear the previous text
-                ResultLabel.Text = "Your age in Binary is: " + ToBinary(age) + "!!!\n";
+                ResultLabel.Text = "Your age in Binary is: " + GetBinaryValueForAge(age) + "!!!\n";
+                //ResultLabel.Text = "Your age in Binary is: " + ToBinary(age) + "!!!\n";
 
                 if (varCurrentMonth == varBirthMonth && varCurrentDay == varBirthDay)
                 {
@@ -111,6 +112,49 @@ namespace HappyBdaySIAKExtra
             return varStr;
         }
 
+        public static string GetBinaryValueForAge(int varDecimal)
+        {
+            if (varDecimal == 0)
+            {
+                return "0";
+            }
+            int biggestPowerOf2 = GetBiggestPowerOf2(varDecimal);
+            return turnItBinary(varDecimal, biggestPowerOf2);
+        }
+
+        public static int GetBiggestPowerOf2(int varDecimal)
+        {
+            int varPowerOf2 = 1;
+            while (varPowerOf2 <= varDecimal)
+            {
+                varPowerOf2 = varPowerOf2*2;
+            }
+            return varPowerOf2/2;
+        }
+
+        public static string turnItBinary(int varDecimal, int varPowerOf2)
+        {
+            string binaryValue = "";
+
+            while (varPowerOf2 > 0)
+            {
+                if (varDecimal >= varPowerOf2)
+                {
+                    binaryValue = binaryValue + "1";
+                    varDecimal = varDecimal - varPowerOf2;
+                }
+                else
+                {
+                    binaryValue = binaryValue + "0";
+                }
+                varPowerOf2 = varPowerOf2/2;
+            }
+
+            return binaryValue;
+        }
+
+/*
+         // this worked but couldn't do a helper method as it was pretty simple but did things backwards
         public static string ToBinary(Int64 Decimal)
         {
             // Declare a few variables we're going to need
@@ -133,5 +177,6 @@ namespace HappyBdaySIAKExtra
 
             return BinaryResult;
         }
+ */
     }
 }
