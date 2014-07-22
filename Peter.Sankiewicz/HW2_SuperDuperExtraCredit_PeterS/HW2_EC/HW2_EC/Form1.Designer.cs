@@ -33,6 +33,8 @@
             this.greetingsLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.addOne = new System.Windows.Forms.Button();
+            this.myIntegerLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nameField
@@ -80,11 +82,34 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Hello, please enter your name and click \"Greet Me!\"";
             // 
+            // addOne
+            // 
+            this.addOne.Location = new System.Drawing.Point(78, 106);
+            this.addOne.Name = "addOne";
+            this.addOne.Size = new System.Drawing.Size(75, 23);
+            this.addOne.TabIndex = 5;
+            this.addOne.Text = "Add 1";
+            this.addOne.UseVisualStyleBackColor = true;
+            this.addOne.Click += new System.EventHandler(this.addOneTo_myIntgerValue);
+            // 
+            // myIntegerLabel
+            // 
+            this.myIntegerLabel.AutoSize = true;
+            this.myIntegerLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.myIntegerLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.myIntegerLabel.Location = new System.Drawing.Point(179, 110);
+            this.myIntegerLabel.Name = "myIntegerLabel";
+            this.myIntegerLabel.Size = new System.Drawing.Size(36, 15);
+            this.myIntegerLabel.TabIndex = 6;
+            this.myIntegerLabel.Text = "         ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(644, 218);
+            this.Controls.Add(this.myIntegerLabel);
+            this.Controls.Add(this.addOne);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.greetingsLabel);
@@ -104,6 +129,8 @@
         private System.Windows.Forms.Label greetingsLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button addOne;
+        private System.Windows.Forms.Label myIntegerLabel;
     }
 }
 

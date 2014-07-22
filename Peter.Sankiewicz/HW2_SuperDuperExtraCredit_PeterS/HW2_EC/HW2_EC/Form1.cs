@@ -29,6 +29,19 @@ namespace HW2_EC
         {
 
         }
+
+
+
+        private void addOneTo_myIntgerValue(object sender, EventArgs e)
+        {
+            int myIntegerValue = 0;
+            string myIntegerText = myIntegerValue.ToString();
+            myIntegerLabel.Text = myIntegerText;
+            myIntegerValue++;
+            //addOne.
+
+            //addOneTo_myIntgerValue(myIntegerValue ++);
+        }
         // Options:
         // 1) Display a message box saying "Please enter your name."
         // 2) Have it say "Hello" without a name.
