@@ -31,12 +31,27 @@ namespace happybirthdaytoyou
             DateTime now = DateTime.Now;
             if (birthdate.Month == now.Month && birthdate.Day == now.Day)
             {
-                 
+                 for (int i = 0; i < 4; i++)
+                {
+                    if (i == 2)
+                    {
                         Console.WriteLine("Happy birthday, dear {0}!", name);
                     }
                     else
                     {
-                        Console.WriteLine();
+                        Console.WriteLine("Happy birthday to you.");
+                    }
+                }
+
+                 Console.WriteLine();
+                 for (int i = 0; i < now.Year - birthdate.Year; i++)
+                 {
+                     Console.WriteLine("Happy birthday for your age {0}", i + 1);
+                 }
+            }
+
+                    else
+                    {
 
                         if (now.Hour < 12)
                         {
