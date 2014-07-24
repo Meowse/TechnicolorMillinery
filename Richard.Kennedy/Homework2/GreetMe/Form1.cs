@@ -17,19 +17,29 @@ namespace GreetMe
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string HelloName = "Hello, " + textBox1.Text;
-            MessageBox.Show(HelloName);
+            {
+                // Check if a name was entered
+                if (textBox1.Text == "")
+                {
+                    // Clear prior name
+                    label2.Text = "";
+                    // Give warning
+                    MessageBox.Show("Please enter your first name.");
+                }
+                else
+                {
+                    label2.Text = "Hello, " + textBox1.Text;
+                }
+
+            }
+
         }
     }
 }

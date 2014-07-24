@@ -76,19 +76,27 @@ namespace FunStuffWithConditionals
                     if ((xYr%100) == 0)
                     {
                         if ((xYr%400) == 0)
+                        {
                             msgStr = "That year is a Leap Year";
                             //MessageBox.Show(msgStr);
+                        }
                         else
+                        {
                              msgStr = "That year is not a Leap Year";
                             //MessageBox.Show(msgStr);
+                        }
                     }
                     else
+                    {
                         msgStr = "That year is a Leap Year";
                         //MessageBox.Show(msgStr);
+                        }
                 }
                 else
+                    {
                     msgStr = "That year is not a Leap Year";
                     //MessageBox.Show(msgStr);
+                    }
             }
             /*else
             {
