@@ -12,9 +12,18 @@ namespace VariablesandConditionals
 {
     public partial class Form1 : Form
     {
+        int valueToDisplay;
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            valueToDisplay = valueToDisplay + 1;
+            label1.Text = valueToDisplay.ToString();
+
         }
     }
 }
