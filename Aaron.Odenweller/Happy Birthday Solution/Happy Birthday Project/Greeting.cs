@@ -35,7 +35,7 @@ namespace Happy_Birthday_Project
                 aGreeting += System.Environment.NewLine + "Good morning, " + name;
             }
 
-            else if(hour <= 17 && hour >= 12){
+            else if(hour < 17 && hour >= 12){
                 aGreeting += System.Environment.NewLine+ "Sorry, " + name + ". It's the afternoon!  Get back to work";
             }
             else
