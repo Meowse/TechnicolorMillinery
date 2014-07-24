@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Part1b.Properties
+namespace VariablesandConditionals.Properties
 {
 
 
