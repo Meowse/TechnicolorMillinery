@@ -138,7 +138,7 @@ namespace HappyBirthday
                 {
                     MessageBox.Show(goodMorningSong);
                 }
-                if (Convert.ToInt32(currentHour) >= Noon && Convert.ToInt32(currentHour) <= Evening)
+                if (Convert.ToInt32(currentHour) >= Noon && Convert.ToInt32(currentHour) < Evening)
                 {
                     MessageBox.Show(siestaSong);
                 }
