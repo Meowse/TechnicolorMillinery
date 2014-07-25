@@ -29,7 +29,7 @@ namespace HappyBirthDay
 
             string bDayLines = "Happy Birthday to You!\n";
             
-            if (dateDiff== 0 )
+            if (dateDiff == 0 )
             {
                 int i = 0;
                 while (i < Age)
@@ -69,8 +69,6 @@ namespace HappyBirthDay
             {
                 lblHBDSong.Text = "Sorry, We are out for a Siesta!";
             }
-            int currenthour = System.DateTime.Now.Hour;
-            MessageBox.Show(currenthour.ToString());
 
         }
     }

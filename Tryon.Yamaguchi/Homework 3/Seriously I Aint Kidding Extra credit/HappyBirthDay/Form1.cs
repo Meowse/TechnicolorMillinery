@@ -30,32 +30,18 @@ namespace HappyBirthDay
             
             if (dateDiff == 0)
             {
-                    lblHBDSong.Text = "You binary age is " + GetAsBinary(Age) + " .\n";
- 
+                lblBinary.Text = "You binary age is " + GetAsBinary(Age) + " .\n";
+
+                lblHBDSong.Text = GetHBDSong(Age, txtName.Text);
+
             }
             else if (System.DateTime.Now.Hour < 12)
             {
-                lblHBDSong.Text = "Good morning, good morning\n" +
-                                  "We've danced the whole night through\n" +
-                                  "Good morning, good morning to you\n" +
-
-                                  "Good morning, good morning\n" +
-                                  "It's great to stay up late\n" +
-                                  "Good morning, good morning to you\n" +
-
-                                  "When the band began to play\n" +
-                                  "The sun was shining bright\n" +
-                                  "Now the milkman's on his way\n" +
-                                  "It's too late to say goodnight...\n";
+                lblHBDSong.Text = GetGMSong();
             }
             else if (System.DateTime.Now.Hour > 17)
             {
-                lblHBDSong.Text = "Lullaby and good night,\n" +
-                                  "With roses bedight,\n" +
-                                  "With lilies o'er spread\n" +
-                                  "Is baby's wee bed.\n" +
-                                  "Lay thee down now and rest,\n" +
-                                  "May thy slumber be blessed...\n";
+                lblHBDSong.Text = GetLullbaySong();
             }
             else
             {
@@ -74,8 +60,6 @@ namespace HappyBirthDay
                 return "0";
             }
 
-            else  
-            {
                 while (powerOf2 <= decimalValue)
                 {
                     powerOf2 = powerOf2*2;
@@ -96,9 +80,52 @@ namespace HappyBirthDay
                     }
                     powerOf2 = powerOf2/2;
                 }
-            }
+ 
             return binaryValue;
         }
 
+        private static string GetHBDSong(int bYear, string bName)
+        {
+
+            string bDayLines = "Happy Birthday to You!\n";
+
+            int i = 0;
+            while (i < bYear)
+            {
+                bDayLines += "Happy Birthday to You!\n";
+                i++;
+            }
+
+            bDayLines += bDayLines + "Happy Birthday Dear " + bName + "!\n" +
+                                     "Happy Birthday to You!\n";
+            return bDayLines;
+        }
+
+        private static string GetGMSong()
+        {
+            string gMorningLines = "Good morning, good morning\n" +
+                                   "We've danced the whole night through\n" +
+                                   "Good morning, good morning to you\n" +
+                                   "Good morning, good morning\n" +
+                                   "It's great to stay up late\n" +
+                                   "Good morning, good morning to you\n" +
+
+                                   "When the band began to play\n" +
+                                   "The sun was shining bright\n" +
+                                   "Now the milkman's on his way\n" +
+                                   "It's too late to say goodnight...\n";
+            return gMorningLines;
+        }
+
+        private static string GetLullbaySong()
+        {
+            string lullabySong = "Lullaby and good night,\n" +
+                                 "With roses bedight,\n" +
+                                 "With lilies o'er spread\n" +
+                                 "Is baby's wee bed.\n" +
+                                 "Lay thee down now and rest,\n" +
+                                 "May thy slumber be blessed...\n";
+            return lullabySong;
+        }
     }
 }

@@ -34,6 +34,7 @@
             this.dtpCalendar = new System.Windows.Forms.DateTimePicker();
             this.btnCalculate = new System.Windows.Forms.Button();
             this.lblHBDSong = new System.Windows.Forms.Label();
+            this.lblBinary = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblName
@@ -86,11 +87,20 @@
             this.lblHBDSong.Size = new System.Drawing.Size(0, 17);
             this.lblHBDSong.TabIndex = 5;
             // 
+            // lblBinary
+            // 
+            this.lblBinary.AutoSize = true;
+            this.lblBinary.Location = new System.Drawing.Point(454, 12);
+            this.lblBinary.Name = "lblBinary";
+            this.lblBinary.Size = new System.Drawing.Size(0, 17);
+            this.lblBinary.TabIndex = 6;
+            // 
             // frmHappyBirthday
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(583, 381);
+            this.Controls.Add(this.lblBinary);
             this.Controls.Add(this.lblHBDSong);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.dtpCalendar);
@@ -112,6 +122,7 @@
         private System.Windows.Forms.DateTimePicker dtpCalendar;
         private System.Windows.Forms.Button btnCalculate;
         private System.Windows.Forms.Label lblHBDSong;
+        private System.Windows.Forms.Label lblBinary;
     }
 }
 
