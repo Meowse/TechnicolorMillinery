@@ -10,8 +10,8 @@ namespace ClassesAndObjectsHW4
     {
         private static void Main(string[] args)
         {
-            int arg1 = 10; //17
-            int arg2 = 0; //32
+            //int arg1 = 10; //17
+            int arg2 = 32; //0
 
             Console.WriteLine(SomeMethodReWrite(arg2));
             //Console.WriteLine(SomeMethod(arg1, arg2));
