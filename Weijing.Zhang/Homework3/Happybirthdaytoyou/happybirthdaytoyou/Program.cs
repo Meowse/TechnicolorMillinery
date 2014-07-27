@@ -31,30 +31,12 @@ namespace happybirthdaytoyou
             DateTime now = DateTime.Now;
             if (birthdate.Month == now.Month && birthdate.Day == now.Day)
             {
-                for (int i = 0; i < 4; i++)
-                {
-                    if (i == 2)
-                    {
-                        Console.WriteLine("Happy birthday, dear {0}!", name);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Happy birthday to you.");
-                    }
-                }
+                SingHappyBirthday(name);
 
                 Console.WriteLine();
                 for (int i = 0; i < now.Year - birthdate.Year; i++)
                 {
-                    Console.Write("Happy birthday for your age {0}: ", i + 1);
-                    string ageBinary = string.Empty;
-                    int j = i + 1;
-                    while (j > 0)
-                    {
-                        ageBinary = (j % 2) + ageBinary;
-                        j /= 2;
-                    }
-                    Console.WriteLine(ageBinary);
+                    Console.WriteLine("Happy birthday for your age {0}: {1}", i + 1, GetBinaryAge(i + 1));
                 }
             }
             else
@@ -82,6 +64,32 @@ namespace happybirthdaytoyou
             }
 
             Console.ReadKey();
+        }
+
+        static void SingHappyBirthday(string name)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (i == 2)
+                {
+                    Console.WriteLine("Happy birthday, dear {0}!", name);
+                }
+                else
+                {
+                    Console.WriteLine("Happy birthday to you.");
+                }
+            }
+        }
+
+        static string GetBinaryAge(int age)
+        {
+            string ageBinary = string.Empty;
+            while (age > 0)
+            {
+                ageBinary = (age % 2) + ageBinary;
+                age /= 2;
+            }
+            return ageBinary;
         }
     }
 }
