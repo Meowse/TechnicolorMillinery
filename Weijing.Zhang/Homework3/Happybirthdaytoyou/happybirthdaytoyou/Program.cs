@@ -31,7 +31,7 @@ namespace happybirthdaytoyou
             DateTime now = DateTime.Now;
             if (birthdate.Month == now.Month && birthdate.Day == now.Day)
             {
-                 for (int i = 0; i < 4; i++)
+                for (int i = 0; i < 4; i++)
                 {
                     if (i == 2)
                     {
@@ -43,40 +43,45 @@ namespace happybirthdaytoyou
                     }
                 }
 
-                 Console.WriteLine();
-                 for (int i = 0; i < now.Year - birthdate.Year; i++)
-                 {
-                     Console.WriteLine("Happy birthday for your age {0}", i + 1);
-                 }
-            }
-
-                    else
+                Console.WriteLine();
+                for (int i = 0; i < now.Year - birthdate.Year; i++)
+                {
+                    Console.Write("Happy birthday for your age {0}: ", i + 1);
+                    string ageBinary = string.Empty;
+                    int j = i + 1;
+                    while (j > 0)
                     {
+                        ageBinary = (j % 2) + ageBinary;
+                        j /= 2;
+                    }
+                    Console.WriteLine(ageBinary);
+                }
+            }
+            else
+            {
 
-                        if (now.Hour < 12)
-                        {
-                            Console.WriteLine("Good morning to you, {0}!", name);
-                        }
-                        else if (now.Hour < 17)
-                        {
-                            Console.WriteLine("Sorry, I'm taking a siesta. Please come back after 5pm.");
-                        }
-                        else
-                        {
-                            Console.WriteLine(@"
+                if (now.Hour < 12)
+                {
+                    Console.WriteLine("Good morning to you, {0}!", name);
+                }
+                else if (now.Hour < 17)
+                {
+                    Console.WriteLine("Sorry, I'm taking a siesta. Please come back after 5pm.");
+                }
+                else
+                {
+                    Console.WriteLine(@"
                     Twinkle, twinkle, little star
                     How I wonder what you are!
                     Up above the world so high
                     Like a diamond in the sky
                     Twinkle, twinkle, little star
                     How I wonder what you are");
-                        }     
+                }
 
-                    }
-                
-                
+            }
+
             Console.ReadKey();
-
         }
     }
 }
