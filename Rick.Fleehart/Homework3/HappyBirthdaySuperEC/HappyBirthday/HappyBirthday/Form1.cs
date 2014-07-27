@@ -16,8 +16,7 @@ namespace HappyBirthday
             InitializeComponent();
         }
 
-        // Make this global so everyone can see it when it is created in monthCalendar1_DateChanged()
-        
+        // tell them how old they are in years.
 
         public void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
@@ -34,8 +33,9 @@ namespace HappyBirthday
             String thebirthDay     = birthDateString[1];
             String thebirthYear    = birthDateString[2];
 
-            //Create todays Date and All of its parts
+            //Create todays Date and all of its individual parts
             DateTime TodayDateTime = DateTime.Now;
+            String TodaysYear = TodayDateTime.Year.ToString();
             String TodaysMonth = TodayDateTime.Month.ToString();
             String TodaysDay = TodayDateTime.Day.ToString();
             String TodaysHour = TodayDateTime.Hour.ToString();
@@ -51,8 +51,10 @@ namespace HappyBirthday
             MorningSong += "go get some coffee " + EnteredName + "\n";
             MorningSong += "and enjoy another day!";
 
-            String SeistaSong = "It time for a nap " + EnteredName + "\n";
-            SeistaSong += "go home and wake me when it is 5 PM\n";
+            // you asked for it: Vogon poetry in the evening
+            String SeistaSong = "Oh freddled gruntbuggly, Thy micturitions are to me, \n" ;
+            SeistaSong += "As plurdled gabbleblotchits, On alurgid bee,\n";
+            SeistaSong += "...blah blah blah, Vogon poetry annoys me";
 
             String EveningSong = "It getting dark " + EnteredName + "\n";
             EveningSong += "You better get inside before the zombies get you!\n";
@@ -62,29 +64,45 @@ namespace HappyBirthday
             if (thebirthMonth == TodaysMonth && thebirthDay == TodaysDay)
             {
                 // if today is birthday (month & day are today, display Happy birthday song message box
-                MessageBox.Show(BirthdaySong);
+                MessageBox.Show(BirthdaySong + HowManyYearsOld(thebirthYear, TodaysYear));
             }
             else
             {
                 if (Convert.ToInt32(TodaysHour) < Noon)
                 {
                     // if today is not birthday but morning display good morning into  message box
-                    MessageBox.Show(MorningSong);
+                    MessageBox.Show(MorningSong + HowManyYearsOld(thebirthYear, TodaysYear));
                 }
 
                 if (Convert.ToInt32(TodaysHour) < Evening)
                 {
                     // if today is not birthday but noon to 5pm display is taking a siesta into message box
-                    MessageBox.Show(SeistaSong);
+                    MessageBox.Show(SeistaSong + HowManyYearsOld(thebirthYear, TodaysYear));
                 }
                 if (Convert.ToInt32(TodaysHour) > Evening)
                 {
                     // if today is not birthday but after 5PM then display lullaby into message box
-                    MessageBox.Show(EveningSong);
+                    MessageBox.Show(EveningSong + HowManyYearsOld(thebirthYear, TodaysYear));
                 }
             }
        }
 
+
+        public String HowManyYearsOld(String BirthYear, String TodaysYear) {
+            // subtract todyas year from the entered year to find out how old they are
+            int YearsOld = Convert.ToInt32(TodaysYear) - Convert.ToInt32(BirthYear);
+
+            return "\nYou are " + YearsOld.ToString() + " years old today!";
+    
+        }
+
+        public String HowManyYearsOldBinary(String BirthYear, String TodaysYear)
+        {
+            //1   1  1  1  1 1 1 1  binary digits
+            //128 64 32 16 8 4 2 1  what each means
+
+        }
+        
         //------------------ old code home -----------------------------
         private void label1_Click(object sender, EventArgs e)
         {

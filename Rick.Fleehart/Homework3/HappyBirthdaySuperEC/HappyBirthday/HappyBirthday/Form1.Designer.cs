@@ -35,7 +35,6 @@
             this.ChooseBDaylabel = new System.Windows.Forms.Label();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
-            this.OutputLabel = new System.Windows.Forms.Label();
             this.todaysdate = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -100,15 +99,6 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Your Birthday:";
             // 
-            // OutputLabel
-            // 
-            this.OutputLabel.AutoSize = true;
-            this.OutputLabel.Location = new System.Drawing.Point(55, 177);
-            this.OutputLabel.Name = "OutputLabel";
-            this.OutputLabel.Size = new System.Drawing.Size(13, 13);
-            this.OutputLabel.TabIndex = 8;
-            this.OutputLabel.Text = "  ";
-            // 
             // todaysdate
             // 
             this.todaysdate.AutoSize = true;
@@ -124,7 +114,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 371);
             this.Controls.Add(this.todaysdate);
-            this.Controls.Add(this.OutputLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.ChooseBDaylabel);
@@ -148,7 +137,6 @@
         private System.Windows.Forms.Label ChooseBDaylabel;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label OutputLabel;
         private System.Windows.Forms.Label todaysdate;
     }
 }
