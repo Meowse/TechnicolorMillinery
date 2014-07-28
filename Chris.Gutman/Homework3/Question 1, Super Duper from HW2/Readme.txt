@@ -1,6 +1,8 @@
 
 "Find something interesting, impressive, or funny to do with variables and conditionals."
 
+This is HW3 question 1.
+
 This program takes an arbitrary string and regular expression and finds the first match determined by the microsoft VB regular expressions scripting V5.5.
 
 Things I learned:
