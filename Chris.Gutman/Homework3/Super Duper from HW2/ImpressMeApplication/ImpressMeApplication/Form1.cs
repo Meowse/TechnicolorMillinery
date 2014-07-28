@@ -34,13 +34,18 @@ namespace ImpressMeApplication
 
 
             MatchCollection rematches = re.Execute(InputBox.Text);
-            var output = rematches[0].Value;          
+        
 
            
             if(rematches.Count != 0) 
             {
-                ResultBox.Text = output;                
+                var output = rematches[0].Value;  
+                ResultBox.Text = output;
 
+            }
+            else
+            {
+                ResultBox.Text = "No matches";
             }
 
 
