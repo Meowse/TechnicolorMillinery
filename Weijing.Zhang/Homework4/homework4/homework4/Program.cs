@@ -8,6 +8,16 @@ namespace homework4
 {
     class Program
     {
+        // 2) Rewrite this method so that it does exactly the same thing, but doesn't have a single local
+        //      variable whose scope is the entire method (like "OtherMethod", but, you know, with the
+        //      same functionality as this method).
+        public string Method(int arg1, int arg2)
+        {
+            if (arg2 <= 6) return "";
+            else if (arg2 <= 9) return "arg1" + arg2;
+            else return "Ooops...";
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine(SomeMethod(2, 8));
@@ -68,15 +78,6 @@ namespace homework4
     }
 }
 
-// HOMEWORK:
-// 1) Figure out what this method actually returns, and describe it, in detail, in terms of
-//      arg1 and arg2.
-
-    // Answers: the returns will depend on the number of arg2, no matter what arg1 is.
-   /*   arg2		returns
-     	(-∞, 6]		""
-		(6, 9]		"arg1x"
-		(9, +∞)		"Ooops..."*/
 
 
 
