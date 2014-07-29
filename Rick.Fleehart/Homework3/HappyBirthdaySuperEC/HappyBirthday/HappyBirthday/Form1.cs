@@ -65,6 +65,8 @@ namespace HappyBirthday
             {
                 // if today is birthday (month & day are today, display Happy birthday song message box
                 MessageBox.Show(BirthdaySong + HowManyYearsOld(thebirthYear, TodaysYear));
+                //Then do binary
+                MessageBox.Show(BirthdaySong + HowManyYearsOldBinary(thebirthYear, TodaysYear));
             }
             else
             {
@@ -100,7 +102,145 @@ namespace HappyBirthday
         {
             //1   1  1  1  1 1 1 1  binary digits
             //128 64 32 16 8 4 2 1  what each means
+            String OnesBit = "1";   //This is to build the BinaryNumber
+            String ZerosBit = "0";  //This is to build the BinaryNumber
+            String BinaryNumber = ""; //initialize to nothing
 
+            int remainder = 0;
+
+            int YearsOld = Convert.ToInt32(TodaysYear) - Convert.ToInt32(BirthYear); // how many years old
+
+            int PowerOf2 = 128; //start at the top
+
+            // now convert from decimal to binary
+            // first pass check how many 128 are there?
+            if (YearsOld / PowerOf2 > 0)
+            {
+                // add a 1 to the BinaryNumber
+                BinaryNumber =  OnesBit;
+                remainder = YearsOld - PowerOf2; // whats left for the next operation
+            }
+            else
+            {
+                // add a 0 to the BinaryNumber
+                BinaryNumber = ZerosBit;
+                remainder = YearsOld;
+            }
+
+
+            //----------- loop this later ---------------------
+            //Second pass 64 ----------------------------
+            PowerOf2 = PowerOf2 / 2;
+
+            if (remainder / PowerOf2 > 0)
+            {
+                // add a 1 to the BinaryNumber
+                BinaryNumber = BinaryNumber + OnesBit;
+                remainder = remainder - PowerOf2; // whats left for the next operation
+            }
+            else
+            {
+                // add a 0 to the BinaryNumber
+                BinaryNumber = BinaryNumber + ZerosBit;
+                //remainder = remainder; // whats left for the next operation
+            }
+
+            //Third pass 32 ----------------------------
+            PowerOf2 = PowerOf2 / 2;
+
+            if (remainder / PowerOf2 > 0)
+            {
+                // add a 1 to the BinaryNumber
+                BinaryNumber = BinaryNumber + OnesBit;
+                remainder = remainder - PowerOf2; // whats left for the next operation
+            }
+            else
+            {
+                // add a 0 to the BinaryNumber
+                BinaryNumber = BinaryNumber + ZerosBit;
+                //remainder = remainder; // whats left for the next operation
+            }
+
+           
+            //Fourth pass 16 -------------------------------
+            PowerOf2 = PowerOf2 / 2;
+            if (remainder / PowerOf2 > 0)
+            {
+                // add a 1 to the BinaryNumber
+                BinaryNumber = BinaryNumber + OnesBit;
+                remainder = remainder - PowerOf2; // whats left for the next operation
+            }
+            else
+            {
+                // add a 0 to the BinaryNumber
+                BinaryNumber = BinaryNumber + ZerosBit;
+                //remainder = remainder; // whats left for the next operation
+            }
+
+            //Fifth pass 8 -------------------------
+            PowerOf2 = PowerOf2 / 2;
+            if (remainder / PowerOf2 > 0)
+            {
+                // add a 1 to the BinaryNumber
+                BinaryNumber = BinaryNumber + OnesBit;
+                remainder = remainder - PowerOf2; // whats left for the next operation
+            }
+            else
+            {
+                // add a 0 to the BinaryNumber
+                BinaryNumber = BinaryNumber + ZerosBit;
+                //remainder = remainder; // whats left for the next operation
+            }
+
+            //Sixth pass 4 -------------------
+            PowerOf2 = PowerOf2 / 2;
+            if (remainder / PowerOf2 > 0)
+            {
+                // add a 1 to the BinaryNumber
+                BinaryNumber = BinaryNumber + OnesBit;
+                remainder = remainder - PowerOf2; // whats left for the next operation
+            }
+            else
+            {
+                // add a 0 to the BinaryNumber
+                BinaryNumber = BinaryNumber + ZerosBit;
+                //remainder = remainder; // whats left for the next operation
+            }
+
+            //Seveth pass 2 ---------------------
+            PowerOf2 = PowerOf2 / 2;
+            if (remainder / PowerOf2 > 0)
+            {
+                // add a 1 to the BinaryNumber
+                BinaryNumber = BinaryNumber + OnesBit;
+                remainder = remainder - PowerOf2; // whats left for the next operation
+            }
+            else
+            {
+                // add a 0 to the BinaryNumber
+                BinaryNumber = BinaryNumber + ZerosBit;
+                //remainder = remainder; // whats left for the next operation
+            }
+
+            //Eigth pass 1 --------------------------
+            PowerOf2 = PowerOf2 / 2;
+            if (remainder / PowerOf2 > 0)
+            {
+                // add a 1 to the BinaryNumber
+                BinaryNumber = BinaryNumber + OnesBit;
+                remainder = remainder - PowerOf2; // whats left for the next operation
+            }
+            else
+            {
+                // add a 0 to the BinaryNumber
+                BinaryNumber = BinaryNumber + ZerosBit;
+                //remainder = remainder; // whats left for the next operation
+            }
+
+            //----------- loop this later ---------------------
+
+
+            return "\nYou are " + BinaryNumber + " years old today (in binary)!"; 
         }
         
         //------------------ old code home -----------------------------
