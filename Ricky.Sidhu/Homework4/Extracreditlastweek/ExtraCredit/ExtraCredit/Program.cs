@@ -13,7 +13,7 @@ namespace ExtraCredit
             int rhymeLine = 0;
             while (rhymeLine <5)
             {
-                Console.WriteLine("Happy Birthday to you! You might live in a zoo!!");
+                Console.WriteLine("Happy Birthday to you! You might live not live in a zoo!!");
                 if (rhymeLine ==3)
                 {
                     Console.WriteLine("Happy Birthday dear friend!");
@@ -21,13 +21,13 @@ namespace ExtraCredit
                 }
                 rhymeLine++;
            }
-            Console.WriteLine("What is yoru age?");
+            Console.WriteLine("What is your age?");
             string ageString = Console.ReadLine();
             int age = int.Parse(ageString);
             int count = 1;
             while (count <age)
             {
-                Console.WriteLine("Happy Birthday to you!!!!");
+                Console.WriteLine("Happy Birthday to you!!!!\n You might not live in a zoo!!");
                 count++;
             }
 
