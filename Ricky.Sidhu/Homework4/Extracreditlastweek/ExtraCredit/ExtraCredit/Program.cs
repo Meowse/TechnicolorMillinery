@@ -10,28 +10,39 @@ namespace ExtraCredit
     {
         static void Main(string[] args)
         {
-            int rhymeLine = 0;
-            while (rhymeLine <5)
+            Console.Write("What is your age");
+            String stringAge = Console.ReadLine();
+            int age = Int32.Parse(stringAge);
+
+            int powerof2 = 2;
+            while (age / powerof2 > 0)
             {
-                Console.WriteLine("Happy Birthday to you! You might live not live in a zoo!!");
-                if (rhymeLine ==3)
+                powerof2 = powerof2 * 2;
+
+            }
+            powerof2 = powerof2 / 2;
+
+            int remainderAge = age;
+            string binaryAge = "";
+            while (powerof2 > 0)
+            {
+                if (remainderAge / powerof2 > 0)
                 {
-                    Console.WriteLine("Happy Birthday dear friend!");
+                    binaryAge = binaryAge + "1";
+                    remainderAge = remainderAge - powerof2;
 
                 }
-                rhymeLine++;
-           }
-            Console.WriteLine("What is your age?");
-            string ageString = Console.ReadLine();
-            int age = int.Parse(ageString);
-            int count = 1;
-            while (count <age)
-            {
-                Console.WriteLine("Happy Birthday to you!!!!\n You might not live in a zoo!!");
-                count++;
+                else
+                {
+                    binaryAge = binaryAge + "0";
+                }
+                powerof2 = powerof2 / 2;
             }
-
+            Console.WriteLine("Your age in binary is" + binaryAge);
             Console.ReadKey();
+
         }
+
     }
+
 }
