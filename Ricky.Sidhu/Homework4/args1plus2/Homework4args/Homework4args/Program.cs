@@ -40,6 +40,11 @@ namespace Homework4args
         //      variable whose scope is the entire method (like "OtherMethod", but, you know, with the
         //      same functionality as this method).
         //
+        //ANSWERS FOR 1:
+        // Arg 2 is dependend in the number with returns. Arg1 is not significant other than being less than 17.
+        // If arg2= 7,8,9, result = "arg17", "arg"18", "arg 19". if arg 2 is 10 or greater result ="oops"
+
+
         // EXTRA CREDIT:
         // 1) Write your own "puzzle" method.  Make it as confusing per length as you can.
         // 2) Share your "puzzle" method with the class (on the class forum), so that other people
@@ -94,6 +99,9 @@ namespace Homework4args
                 return result;
             }
             return "";
+          
+            
+            
         }
 
         }
