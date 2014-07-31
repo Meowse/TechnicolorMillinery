@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MathHelper;
+using NUnit.Framework;
 
-namespace MathHelperTests
+namespace MathsHelperTest
 {
     [TestFixture]
     public class TestClass

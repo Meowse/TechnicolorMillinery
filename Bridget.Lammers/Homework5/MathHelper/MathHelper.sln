@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathHelper", "MathHelper\MathHelper.csproj", "{7850F511-F777-42B1-AC91-3BC091D49C3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathHelperTests", "MathHelperTests\MathHelperTests.csproj", "{DA3E3EF4-6132-4D86-A257-19060470DB6F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathsHelperTest", "MathsHelperTest\MathsHelperTest.csproj", "{66C8A265-5062-4558-99AB-D09CADFDA594}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{7850F511-F777-42B1-AC91-3BC091D49C3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7850F511-F777-42B1-AC91-3BC091D49C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7850F511-F777-42B1-AC91-3BC091D49C3C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA3E3EF4-6132-4D86-A257-19060470DB6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA3E3EF4-6132-4D86-A257-19060470DB6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA3E3EF4-6132-4D86-A257-19060470DB6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA3E3EF4-6132-4D86-A257-19060470DB6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66C8A265-5062-4558-99AB-D09CADFDA594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66C8A265-5062-4558-99AB-D09CADFDA594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66C8A265-5062-4558-99AB-D09CADFDA594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66C8A265-5062-4558-99AB-D09CADFDA594}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
