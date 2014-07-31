@@ -68,8 +68,10 @@ namespace ClassesAndObjectsExample
             return result;
         }
 
+
         public string OtherMethod(int arg1, int arg2)  //Homework 2 - refactor
         {
+            /* this code is not needed since the code below sets result and overwrites this variable results
             if (arg1 < 17)
             {
                 if (arg2 > 12)
@@ -81,17 +83,23 @@ namespace ClassesAndObjectsExample
                     return "I hate logic!";
                 }
                 return "";
-            }
+            } 
+             */
+
             if (arg2 > 6)
             {
-                String result = "arg1" + arg2;
+                String result = "arg1" + arg2; //why don't I need arg2.ToString() ?<- redundent?
+                //result = "arg17", "arg18" ..."arg1999999999" '999999999' represents as big as int can handle
+
                 if (result.Length > 5)
                 {
                     return "Ooops...";
                 }
+                
                 return result;
+            
             }
-            return "";
+           
         }
 
     }
