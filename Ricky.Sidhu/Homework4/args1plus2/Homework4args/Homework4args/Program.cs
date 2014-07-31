@@ -50,29 +50,19 @@ namespace Homework4args
         // 2) Share your "puzzle" method with the class (on the class forum), so that other people
         //    can try to figure out what it does, and how to rewrite it.
         // 3) Bring your solution to class on Tuesday (what it does, and what a clean rewrite looks like).
-        public string SomeMethod(int arg1, int arg2)
+        public string SomewhatrefactoredMethod(int arg1, int arg2) 
         {
-            String result = "";
-            if (arg1 < 17)
-            {
-                if (arg2 > 12)
+                if (arg2 <=6)
                 {
-                    result = "Fred!";
+                    return "";
                 }
-                if (arg2 > 22)
-                {
-                    result = "I hate logic!";
-                }
-            }
-            if (arg2 > 6)
-            {
-                result = "arg1" + arg2;
-                if (result.Length > 5)
+          
+                else if (result.Length > 5
                 {
                     result = "Ooops...";
                 }
             }
-            return result;
+            result;
         }
 
         public string OtherMethod(int arg1, int arg2)
