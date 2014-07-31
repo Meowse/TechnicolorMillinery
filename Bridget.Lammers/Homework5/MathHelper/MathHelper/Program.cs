@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MathHelper
 {
-    //  Start
+    //  Start coding
     class Program
     {
         static void Main(string[] args)
