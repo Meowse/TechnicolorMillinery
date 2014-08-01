@@ -1,9 +1,12 @@
-﻿namespace Sorter
+﻿using System.Data;
+
+namespace Sorter
 {
     public class SortUtility
     {
         public void Sort(int[] values)
         {
+
             // Read a value with "values[3]"
             // Write a value with "values[2] = 17"
             // Get the number of values with "values.Length"
@@ -14,8 +17,15 @@
             // Example of using a for-loop to double all elements of an array
             for (int i = 0; i < values.Length; i++)
             {
-                values[i] = values[i] * 2;
+                //values[i] = values[i] * 2;
+                if (values[i] > values[i + 1]) //unhandled out of bounds error here
+                {
+                    int tempInt = values[i];
+                    values[i] = values[i + 1];
+                    values[i + 1] = tempInt;
+                }
             }
+
         }
     }
 }
