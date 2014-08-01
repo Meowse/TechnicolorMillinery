@@ -40,6 +40,12 @@ namespace ClassesAndObjectsExample
         // 2) Share your "puzzle" method with the class (on the class forum), so that other people
         //    can try to figure out what it does, and how to rewrite it.
         // 3) Bring your solution to class on Tuesday (what it does, and what a clean rewrite looks like).
+
+
+        // The value of "arg1" is ignored.
+        // If arg2 is less than 7, it will return "".
+        // If arg2 is 7, 8, or 9, I will return "arg17", "arg18", or "arg19"
+        // If arg2 is 10 or greater, it will return "Ooops..."
         public string SomeMethod(int arg1, int arg2)
         {
             String result = "";
@@ -61,6 +67,25 @@ namespace ClassesAndObjectsExample
                 {
                     result = "Ooops...";
                 }
+            }
+            return result;
+        }
+
+        // The value of "arg1" is ignored.
+        // If arg2 is less than 7, it will return "".
+        // If arg2 is 7, 8, or 9, I will return "arg17", "arg18", or "arg19"
+        // If arg2 is 10 or greater, it will return "Ooops..."
+        public string SomeMethodRefactored(int arg)
+        {
+            if (arg <= 6)
+            {
+                return "";
+            }
+
+            string result = "arg1" + arg;
+            if (result.Length > 5)
+            {
+                return "Ooops...";
             }
             return result;
         }
