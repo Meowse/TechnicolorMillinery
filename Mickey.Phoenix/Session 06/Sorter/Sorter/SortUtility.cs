@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Sorter
+﻿namespace Sorter
 {
-    public class Sorter
+    public class SortUtility
     {
         public void Sort(int[] values)
         {
@@ -16,12 +11,11 @@ namespace Sorter
             // First value in the array is "values[0]"
             // Last value in the array is "values[values.Length - 1]"
 
-            int[] newArray = new int[7];
+            // Example of using a for-loop to double all elements of an array
             for (int i = 0; i < values.Length; i++)
             {
-                newArray[i] = values[i];
+                values[i] = values[i] * 2;
             }
-            
         }
     }
 }
