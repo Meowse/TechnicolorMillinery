@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Sorter;
+// using Sorter;
 
 namespace SortThings
 {
@@ -8,7 +8,7 @@ namespace SortThings
     {
         static void Main()
         {
-            var sorter = new SortUtility();
+            var sorter = new Sorter.Sorter();
 
             Console.WriteLine("Enter numbers to sort, or 'exit' to exit.");
             string input = Console.ReadLine();

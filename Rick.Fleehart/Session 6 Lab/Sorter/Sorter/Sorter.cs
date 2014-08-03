@@ -1,6 +1,6 @@
 ﻿namespace Sorter
 {
-    public class SortUtility
+    public class Sorter
     {
         public void Sort(int[] values)
         {
