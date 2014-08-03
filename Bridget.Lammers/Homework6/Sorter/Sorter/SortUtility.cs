@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Sorter
+﻿namespace Sorter
 {
     public class SortUtility
     {
@@ -14,34 +12,10 @@ namespace Sorter
             // Last value in the array is "values[values.Length - 1]"
 
             // Example of using a for-loop to double all elements of an array
-            //for (int i = 0; i < values.Length; i++)
-            //{
-             //  values[i] = values[i] * 2;
-            //}
-
-            if (values.Length > 1)
+            for (int i = 0; i < values.Length; i++)
             {
-                if (values[0] > values[1])
-                {
-                    int temp = values[0];
-                    values[0] = values[1];
-                    values[1] = temp;
-                }
-
+                values[i] = values[i] * 2;
             }
-
-            // Simple sort call
-           // i0nt[] values = { 4, 7, 2, 0 };
-           // Array.Sort(values);
-//            foreach (int value in values)
-//            {
-//                Console.Write(value);
-//                Console.Write(' ');
-//            }
-//            Console.WriteLine();
-
-
-           
         }
     }
 }
