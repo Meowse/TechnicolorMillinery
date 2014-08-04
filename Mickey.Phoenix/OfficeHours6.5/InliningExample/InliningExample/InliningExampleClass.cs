@@ -36,8 +36,7 @@ namespace InliningExample
                 return false;
             }
 
-            bool isGoodJob = someArg.StartsWith("good") && someArg.EndsWith("job");
-            return isGoodJob;
+            return someArg.StartsWith("good") && someArg.EndsWith("job");
         }
 
         private static bool ShouldSkip(string someArg)
