@@ -1,7 +1,16 @@
-﻿namespace Sorter
+﻿using System;
+
+namespace Sorter
 {
     public class SortUtility
     {
+        // "Auto-property" -- this is kind of like an instance variable, and kind of like the combination
+        // of a "getter method" and a "setter method".
+        // You can say Console.WriteLine(sortUtils.Operations), and it will write out the value of
+        // Operations.
+        // You can say sortUtils.Operations = 0, and it will reset the number of operations to zero.
+        public int Operations { get; set; }
+
         public void Sort(int[] values)
         {
             // How I sort a handful of playing cards in numerical order:
@@ -78,28 +87,159 @@
             //
             // This algorithm is called "bubble sort", for obvious reasons.
 
-            if (values.Length > 1)
-            {
-                if (values[0] > values[1])
-                {
-                    int temp = values[0];
-                    values[0] = values[1];
-                    values[1] = temp;
-                }
-            }
+            BubbleSortEfficient(values);
+        }
 
-            if (values.Length > 2)
+        // I'm going to implement a really, really, really simple sort.
+        //
+        // It's a version of BubbleSort, but it's a very inefficient version of BubbleSort.
+        //
+        // The algorithm (in human terms) goes like this:
+        // 1) Go through the whole list, and if two elements are out of order, swap them.
+        // 2) Go through the whole list, and check if it is in order yet.
+        // 3) If it is in order, we're done.  If not, do step (1) again.
+
+        // Proof that this algorithm will sort all possible lists:
+        //
+        // I'm going to define the term "inversion" as "two elements that are out of order".
+        // 
+        // If a list has no inversions, then it is in order, and we'll return
+        //
+        // If a list has any inversions, and we swap any two elements that are out of order, we
+        // are guaranteed to remove at least one inversion when we swap the two out-of-order elements.
+        //
+        // A list can only have a finite number of inversions.  Every time we go through the list
+        // and swap out-of-order elements, we reduce the number of inversions by at least one.
+        //
+        // Eventually, for any list, we run out of inversions, and return the sorted list.
+
+        // The algorithm (in pseudocode) goes like this:
+        // while the list is not sorted:
+        //      go through the whole list, and if two elements are out of order, swap them
+        //
+        // while the list is not sorted:
+        //      for each pair of adjacent elements in the list:
+        //          if the elements are out of order, swap them
+        public void BubbleSortInefficient(int[] values)
+        {
+            while (!IsSorted(values))
             {
-                if (values[1] > values[2])
+                for (int i = 0; i < (values.Length - 1); i++)
                 {
-                    int temp = values[1];
-                    values[1] = values[2];
-                    values[2] = temp;
+                    Operations++;
+                    if (values[i] > values[i + 1])
+                    {
+                        Swap(values, i, i + 1);
+                        Console.WriteLine("After swap: {0}", ForDisplay(values));
+                        Console.ReadKey();
+                    }
+                    else
+                    {
+                        Console.WriteLine("No swap needed: {0}", ForDisplay(values));
+                        Console.ReadKey();
+                    }
+                }
+                Console.WriteLine("After a full pass: {0}", ForDisplay(values));
+                Console.ReadKey();
+            }
+        }
+
+        // Like BubbleSortInefficient, but we don't call IsSorted.  Instead, we keep track of 
+        // whether we did any swaps this time around.  If we didn't do any swaps, it's sorted, so
+        // we return.
+        public void BubbleSortLessInefficient(int[] values)
+        {
+            bool isSorted = false;
+
+            while (!isSorted)
+            {
+                isSorted = true;
+                for (int i = 0; i < (values.Length - 1); i++)
+                {
+                    Operations++; // compared two values
+                    if (values[i] > values[i + 1])
+                    {
+                        isSorted = false;
+                        Swap(values, i, i + 1);
+                        Console.WriteLine("After swap: {0}", ForDisplay(values));
+                        Console.ReadKey();
+                    }
+                    else
+                    {
+                        Console.WriteLine("No swap needed: {0}", ForDisplay(values));
+                        Console.ReadKey();
+                    }
+                }
+                Console.WriteLine("After a full pass: {0}", ForDisplay(values));
+                Console.ReadKey();
+            }
+        }
+
+        // Like BubbleSortLessInefficient, but we don't keep going into the part we've already sorted.
+        // Instead, we keep track of how much of the array is already sorted, and we stop when we get there.
+        public void BubbleSortEfficient(int[] values)
+        {
+            bool isSorted = false;
+            int numberOfPasses = 0;
+
+            while (!isSorted)
+            {
+                isSorted = true;
+                for (int i = 0; i < (values.Length - 1 - numberOfPasses); i++)
+                {
+                    Operations++; // compared two values
+                    if (values[i] > values[i + 1])
+                    {
+                        isSorted = false;
+                        Swap(values, i, i + 1);
+                        Console.WriteLine("After swap: {0}", ForDisplay(values));
+                        Console.ReadKey();
+                    }
+                    else
+                    {
+                        Console.WriteLine("No swap needed: {0}", ForDisplay(values));
+                        Console.ReadKey();
+                    }
+                }
+                Console.WriteLine("After pass number {0}: {1}", numberOfPasses, ForDisplay(values));
+                Console.ReadKey();
+                numberOfPasses++;
+            }
+        }
+
+        private bool IsSorted(int[] values)
+        {
+            // Go through the list, comparing each pair of elements.
+            // If they are out of order, return false (it's not sorted).
+            // If you get to the end of the list, return true (it's sorted).
+            for (int i = 0; i < (values.Length - 1); i++)
+            {
+                Operations++; // compared two values
+                if (values[i] > values[i + 1])
+                {
+                    return false;
                 }
             }
+            return true;
+        }
+
+        private void Swap(int[] values, int index1, int index2)
+        {
+            int temp = values[index1];
+            Operations++; // changed a value
+            values[index1] = values[index2];
+            Operations++; // changed a value
+            values[index2] = temp;
+        }
+
+        private string ForDisplay(int[] values)
+        {
+            return "[" + String.Join(", ", values) + "]";
         }
     }
 }
+
+
 
 // Example of using a for-loop to double all elements of an array
 //            for (int i = 0; i < values.Length; i++)
@@ -107,3 +247,7 @@
 //                values[i] = values[i] * 2;
 //            }
 
+// Code for Swap():
+//                    int temp = values[0];
+//                    values[0] = values[1];
+//                    values[1] = temp;
