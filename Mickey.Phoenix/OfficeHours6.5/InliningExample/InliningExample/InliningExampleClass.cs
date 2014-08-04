@@ -31,13 +31,13 @@ namespace InliningExample
 
         public bool IsGoodJob(string someArg)
         {
-            if (string.IsNullOrEmpty(someArg))
+            if (string.IsNullOrEmpty(someArg) || ShouldSkip(someArg))
             {
                 return false;
             }
 
             bool isGoodJob = someArg.StartsWith("good") && someArg.EndsWith("job");
-            return !ShouldSkip(someArg) && isGoodJob;
+            return isGoodJob;
         }
 
         private static bool ShouldSkip(string someArg)
