@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Sorter
 {
@@ -235,6 +236,60 @@ namespace Sorter
         private string ForDisplay(int[] values)
         {
             return "[" + String.Join(", ", values) + "]";
+        }
+
+        public void BubbleSortFancy(int[] values)
+        {
+            while (!IsSorted(values))
+            {
+                foreach (IndexPair indexPair in IndexPairsOf(values))
+                {
+                    if (AreOutOfOrder(values, indexPair))
+                    {
+                        Swap(values, indexPair);
+                        Console.WriteLine("After swap: {0}", ForDisplay(values));
+                        Console.ReadKey();
+                    }
+                    else
+                    {
+                        Console.WriteLine("No swap needed: {0}", ForDisplay(values));
+                        Console.ReadKey();
+                    }
+                }
+                Console.WriteLine("After a full pass: {0}", ForDisplay(values));
+                Console.ReadKey();
+            }
+        }
+
+        private bool AreOutOfOrder(int[] values, IndexPair indexPair)
+        {
+            Operations++;
+            return values[indexPair.First] > values[indexPair.Second];
+        }
+
+        private void Swap(int[] values, IndexPair indexPair)
+        {
+            Swap(values, indexPair.First, indexPair.Second);
+        }
+
+        private IEnumerable<IndexPair> IndexPairsOf(int[] values)
+        {
+            for (int i = 0; i < values.Length - 2; i++)
+            {
+                yield return new IndexPair(i, i+1);
+            }
+        }
+    }
+
+    public class IndexPair
+    {
+        public int First { get; set; }
+        public int Second { get; set; }
+
+        public IndexPair(int first, int second)
+        {
+            First = first;
+            Second = second;
         }
     }
 }
