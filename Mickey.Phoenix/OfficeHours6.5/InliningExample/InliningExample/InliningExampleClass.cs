@@ -12,12 +12,12 @@ namespace InliningExample
         {
             int total = 0;
             int length = someArg.Length;
-            for (int i = 0; i < someArg.Length; i++)
+            for (int i = 0; i < length; i++)
             {
                 char nextChar = someArg[i];
                 if (char.IsDigit(nextChar))
                 {
-                    int value = int.Parse(nextChar.ToString()) * i;
+                    int value = int.Parse(nextChar.ToString()) * (i - length);
                     total = total + value;
                 }
             }
