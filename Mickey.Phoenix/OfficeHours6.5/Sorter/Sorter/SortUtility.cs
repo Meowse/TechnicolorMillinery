@@ -242,41 +242,24 @@ namespace Sorter
         {
             while (!IsSorted(values))
             {
-                foreach (IndexPair indexPair in IndexPairsOf(values))
+                foreach (IndexPair adjacentIndices in values.AdjacentPairs())
                 {
-                    if (AreOutOfOrder(values, indexPair))
+                    if (adjacentIndices.AreOutOfOrder(values))
                     {
-                        Swap(values, indexPair);
-                        Console.WriteLine("After swap: {0}", ForDisplay(values));
-                        Console.ReadKey();
-                    }
-                    else
-                    {
-                        Console.WriteLine("No swap needed: {0}", ForDisplay(values));
-                        Console.ReadKey();
+                        adjacentIndices.Swap(values);
                     }
                 }
-                Console.WriteLine("After a full pass: {0}", ForDisplay(values));
-                Console.ReadKey();
             }
         }
+    }
 
-        private bool AreOutOfOrder(int[] values, IndexPair indexPair)
-        {
-            Operations++;
-            return values[indexPair.First] > values[indexPair.Second];
-        }
-
-        private void Swap(int[] values, IndexPair indexPair)
-        {
-            Swap(values, indexPair.First, indexPair.Second);
-        }
-
-        private IEnumerable<IndexPair> IndexPairsOf(int[] values)
+    public static class IndexPairExtensions
+    {
+        public static IEnumerable<IndexPair> AdjacentPairs(this int[] values)
         {
             for (int i = 0; i < values.Length - 2; i++)
             {
-                yield return new IndexPair(i, i+1);
+                yield return new IndexPair(i, i + 1);
             }
         }
     }
@@ -290,6 +273,18 @@ namespace Sorter
         {
             First = first;
             Second = second;
+        }
+
+        public bool AreOutOfOrder(int[] values)
+        {
+            return values[First] > values[Second];
+        }
+
+        public void Swap(int[] values)
+        {
+            int temp = values[First];
+            values[First] = values[Second];
+            values[Second] = temp;
         }
     }
 }
