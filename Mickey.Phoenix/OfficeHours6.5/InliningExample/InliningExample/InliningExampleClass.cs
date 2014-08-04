@@ -16,13 +16,13 @@ namespace InliningExample
                 char nextChar = someArg[i];
                 if (char.IsDigit(nextChar))
                 {
-                    int value = int.Parse(nextChar.ToString()) * (i - someArg.Length);
+                    int value = int.Parse(nextChar.ToString()) * (someArg.Length - i);
                     total = total + value;
 
-                    // int value = int.Parse(nextChar.ToString()) * (i - length);
+                    // int value = int.Parse(nextChar.ToString()) * (SomeArg.length - i);
                     // total = total + value;
                     //      becomes
-                    // total = total + int.Parse(nextChar.ToString()) * (i - length);
+                    // total = total + int.Parse(nextChar.ToString()) * (SomeArg.length - i);
                     //      if we inline the variable "value"
                 }
             }
