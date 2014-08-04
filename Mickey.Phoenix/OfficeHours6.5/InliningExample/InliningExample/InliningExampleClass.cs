@@ -36,9 +36,14 @@ namespace InliningExample
                 return false;
             }
 
-            bool shouldSkip = someArg.Contains("skip") || someArg.Contains("avoid") || someArg.Contains("avoid");
+            bool shouldSkip = ShouldSkip(someArg);
             bool isGoodJob = someArg.StartsWith("good") && someArg.EndsWith("job");
             return !shouldSkip && isGoodJob;
+        }
+
+        private static bool ShouldSkip(string someArg)
+        {
+            return someArg.Contains("skip") || someArg.Contains("avoid") || someArg.Contains("nope");
         }
     }
 }
