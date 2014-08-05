@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace BubbleSortConsoleApp
 {
-    class SortUtility
+    class Program
     {
-
         static int BubbleSorting()
-
         {
 
-            Console.Write("\nProgram for sorting using Bubble Sort Algorithm");
+         Console.Write("\nProgram for sorting using Bubble Sort Algorithm");
 
             Console.Write("\n\nEnter the total number of elements: ");
 

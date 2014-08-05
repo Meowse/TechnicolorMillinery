@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0B92CC3B-3234-4B7D-ABB9-AB85D5BDA14B}</ProjectGuid>
+    <ProjectGuid>{CC741397-52D4-49E7-B3AF-27D0FD6D2EC4}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BubbleSortConsoleApp</RootNamespace>
-    <AssemblyName>BubbleSortConsoleApp</AssemblyName>
+    <RootNamespace>HW4_4_Sopcak</RootNamespace>
+    <AssemblyName>HW4_4_Sopcak</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
