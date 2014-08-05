@@ -1,0 +1,76 @@
+Homework 6 Test Cases for Triangle Typer
+
+1.A triangle is  a  polygon  with  three  sides.
+2.The vertices of  a  triangle must  not  be  in  a  straight  line.
+3.An equilateral  triangle has  three  sides  of  equal  length.
+4.An isosceles  triangle has  two  sides  of  equal  length.
+5.A scalene  triangle has  three  sides  of  different  length
+
+
+INPUT		Expected Result
+
+Do an integer test of all inputed fields
+Check for negative numbers, should be positive numbers
+-1,1,1		Not a triangle
+1,-1,1		Not a triangle
+1,1,-1		Not a triangle
+
+Test case non-integer values
+A,1,1		Not valid non-integer value
+1,A,1		Not valid non-integer value
+1,1,A		Not valid non-integer value
+
+Test case all sizes are zero
+0,0,0		Not valid All sides zero
+3,3,3		Valid Equilateral Triangle
+3,3,2		Valid Isoscelese Triangle
+3.4.5		Valid Scalene Triangle
+3,3,?		Not valid Invalid Input, not integer or blank
+ 
+Test case wrong number of values (2 or less, 4 or more)
+3,		Not valid, Not enough integers inputed, need 3 integers
+3,3,3,4  	Not valid More than 3 integers inputed
+
+Valid isoscelese triangles such that have all 3 permutations on two equal sides 
+1,1,2		Valid Isosceles triangle
+2,1,1		Valid Isosceles triangle
+1,2,1		Valid Isosceles triangle
+
+Test case one side has a zero value
+0,2,4		Not valid triangle
+2,0,4		Not valid triangle
+2,3,0		Not valid triangle
+
+Test case one side has a negative number
+-1,2,4		Not a triangle
+2,-1,4		Not a triangle
+2,3,-1		Not a triangle
+
+1,1,1		Equalateral triangle
+2,2,2		Equalateral triangle
+3,3,3		Equalateral triangle
+
+1,1,2		Isosceles triangle
+2,3,2		Isosceles triangle
+3,3,2		Isosceles triangle
+
+3,2,4		Scalene triangle 
+4,5,6		Scalene triangle
+4,6,9		Scalene triangle
+
+Test case with 3 integers that the sum of two is equal to the third
+2,2,4		Isosceles also a degenerate triangle
+2,4,2		Isosceles also a degenerate triangle
+4,2,2		Isosceles also a degenerate triangle
+
+Test case with 3 integers greater than zero that the sume of two numbers is less than the third
+2,2,3		Isosceles also a degenerate triangle
+2,3,2		Isosceles also a degenerate triangle
+3,2,2		Isosceles also a degenerate triangle
+
+1,2,3		Scalene triangle also a degenerate triangle
+1,2,4		Not a triangle? Scalene? 1+2>4 is false but 2+4>1 and 1+4>2 are true
+
+
+
+ 
