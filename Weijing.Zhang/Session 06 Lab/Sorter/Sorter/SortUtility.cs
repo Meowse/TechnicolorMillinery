@@ -78,25 +78,38 @@
             //
             // This algorithm is called "bubble sort", for obvious reasons.
 
-            if (values.Length > 1)
+            int n = values.Length;
+            if (n <= 1)
             {
-                if (values[0] > values[1])
+                return;
+            }
+            for (int i = 0; i < n; i++)
+            {
+                int min = int.MaxValue;
+                int minIndex = i;
+                for (int j = i; j < n; j++)
                 {
-                    int temp = values[0];
-                    values[0] = values[1];
-                    values[1] = temp;
+                    if (values[j] < min)
+                    {
+                        min = values[j];
+                        minIndex = j;
+                    }
                 }
+
+                swap(values, i, minIndex);
+            }
+        }
+
+        private void swap(int[] values, int a, int b)
+        {
+            if (a == b)
+            {
+                return;
             }
 
-            if (values.Length > 2)
-            {
-                if (values[1] > values[2])
-                {
-                    int temp = values[1];
-                    values[1] = values[2];
-                    values[2] = temp;
-                }
-            }
+            int tmp = values[a];
+            values[a] = values[b];
+            values[b] = tmp;
         }
     }
 }
