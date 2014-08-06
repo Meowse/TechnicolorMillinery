@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorter", "Sorter\Sorter.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortThings", "SortThings\SortThings.csproj", "{022AFB4B-2AE5-4159-A8EF-7521C7C5A342}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortTests", "SortTests\SortTests.csproj", "{A80E472A-205F-4FDA-9281-E092DF50DD18}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{022AFB4B-2AE5-4159-A8EF-7521C7C5A342}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{022AFB4B-2AE5-4159-A8EF-7521C7C5A342}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{022AFB4B-2AE5-4159-A8EF-7521C7C5A342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A80E472A-205F-4FDA-9281-E092DF50DD18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A80E472A-205F-4FDA-9281-E092DF50DD18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A80E472A-205F-4FDA-9281-E092DF50DD18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A80E472A-205F-4FDA-9281-E092DF50DD18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
