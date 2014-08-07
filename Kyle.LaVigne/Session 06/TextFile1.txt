@@ -1,0 +1,15 @@
+Notes for possible test cases for a (hypothetical) triangle typer.  
+I assume some are redundant and I'm missing others, 
+but I think this covers some basics.
+
+{3, 3, 3} Return "Equilateral"
+{0, 0, 0} Return "Not a triangle"
+{-1, -1, -1} Return "Not a triangle"
+{3, 4, 4} Return "Isosceles"
+{1, 2, 3} Return "Scalene"
+{3, 4, 0} Return "Not a triangle"
+{3, 4, -4} Return "Not a triangle"
+{1.7, 3, 4} Return "Scalene"
+{1.7, 3, 3} Return "Isosceles"
+{1.669, 2.378, 6.723} Return "Scalene"
+{2.378, 2.378, 6.724} Return "Isosceles" 
