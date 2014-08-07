@@ -10,11 +10,24 @@
 
             // First value in the array is "values[0]"
             // Last value in the array is "values[values.Length - 1]"
-
+             
             // Example of using a for-loop to double all elements of an array
+
+            int temp = 0;
+
             for (int i = 0; i < values.Length; i++)
             {
-                values[i] = values[i] * 2;
+
+                for (int j = 0; j < values.Length - 1; j++)
+                {
+                    
+                        if (values[j] > values[j + 1])
+                        {
+                            temp = values[j + 1];
+                            values[j + 1] = values[j];
+                            values[j] = temp;
+                        }
+                }
             }
         }
     }
