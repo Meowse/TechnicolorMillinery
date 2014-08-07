@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorter", "Sorter\Sorter.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortThings", "SortThings\SortThings.csproj", "{022AFB4B-2AE5-4159-A8EF-7521C7C5A342}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3A73FD79-F6E4-48AD-B6E2-D29D3DB00DF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SorterTests", "SorterTests\SorterTests.csproj", "{BB4E08D9-1F6D-4671-8648-D786F8A7883F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,10 @@ Global
 		{022AFB4B-2AE5-4159-A8EF-7521C7C5A342}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{022AFB4B-2AE5-4159-A8EF-7521C7C5A342}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{022AFB4B-2AE5-4159-A8EF-7521C7C5A342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB4E08D9-1F6D-4671-8648-D786F8A7883F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB4E08D9-1F6D-4671-8648-D786F8A7883F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB4E08D9-1F6D-4671-8648-D786F8A7883F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB4E08D9-1F6D-4671-8648-D786F8A7883F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
