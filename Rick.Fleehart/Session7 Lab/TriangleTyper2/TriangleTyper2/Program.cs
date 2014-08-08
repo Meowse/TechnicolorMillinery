@@ -8,7 +8,7 @@ namespace TriangleTyper2
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             /*
              * TriangleTyper.GetType() is a function that returns the type of a triangle -- equilateral, isosceles, or scalene.
@@ -21,6 +21,9 @@ namespace TriangleTyper2
              * */
             Console.WriteLine("Enter three sides of our triangle and I will tell you what it is");
             Console.WriteLine("Enter exit to quit");
+     
+
+       
 
             string input = "";
             //int[] theNumbers = ParseInput(input); // returns an array of the integers entered.
@@ -39,6 +42,8 @@ namespace TriangleTyper2
             }
             Console.ReadKey();
         }
+        
+
 
         public static int[] ParseInput(string userInput)
         {
@@ -63,12 +68,12 @@ namespace TriangleTyper2
             // Check to see if the numbers given is a triangle
             if (sideA <= 0 || sideB <= 0 || sideC <= 0)
             {
-                return "All sides must be greater than zero";
+                return "NotATriangle";
             }
 
             if ((sideA + sideB) <= sideC || (sideA + sideC) <= sideB || (sideB + sideC) <= sideA)
             {
-                return "two sides must be bigger than the third";
+                return "NotATriangle";
             }
 
             //--- it is a triangle, now check which kind
@@ -93,7 +98,7 @@ namespace TriangleTyper2
                 return "scalene";
             }
 
-            return "I do not know what kind of triangle that is is."; // default
+            return "Unknown"; // default
         }
     }
 }
