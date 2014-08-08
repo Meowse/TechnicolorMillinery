@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using CalculatorBrain;
@@ -98,6 +99,26 @@ namespace CalculatorBrainTests
             Assert.AreEqual("2", calculator.GetDisplay());
             calculator.ProvideInput('=');
             Assert.AreEqual("69", calculator.GetDisplay());
+        }
+
+        [Test]
+        public void ShouldNotChangeJustBecauseGetDisplayIsCalled()
+        {
+            var calculator = new Calculator();
+            calculator.ProvideInput('1');
+            Assert.AreEqual("1", calculator.GetDisplay());
+            calculator.ProvideInput('+');
+            Assert.AreEqual("1", calculator.GetDisplay());
+            Assert.AreEqual("1", calculator.GetDisplay());
+            Assert.AreEqual("1", calculator.GetDisplay());
+            calculator.ProvideInput('2');
+            Assert.AreEqual("2", calculator.GetDisplay());
+            Assert.AreEqual("2", calculator.GetDisplay());
+            Assert.AreEqual("2", calculator.GetDisplay());
+            calculator.ProvideInput('=');
+            Assert.AreEqual("3", calculator.GetDisplay());
+            Assert.AreEqual("3", calculator.GetDisplay());
+            Assert.AreEqual("3", calculator.GetDisplay());                    
         }
     }
 }
