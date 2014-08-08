@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangleStuff", "TriangleStuff\TriangleStuff.csproj", "{778348FD-F2AD-4371-AE7F-C8A4E7A8A3C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangleTest", "TriangleTest\TriangleTest.csproj", "{89A6D388-DC9A-40AA-8DA3-FF7778028E7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{DFCAB739-802C-4C2B-9890-74579BBA3EE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{778348FD-F2AD-4371-AE7F-C8A4E7A8A3C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{778348FD-F2AD-4371-AE7F-C8A4E7A8A3C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{778348FD-F2AD-4371-AE7F-C8A4E7A8A3C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{778348FD-F2AD-4371-AE7F-C8A4E7A8A3C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89A6D388-DC9A-40AA-8DA3-FF7778028E7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A6D388-DC9A-40AA-8DA3-FF7778028E7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A6D388-DC9A-40AA-8DA3-FF7778028E7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A6D388-DC9A-40AA-8DA3-FF7778028E7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFCAB739-802C-4C2B-9890-74579BBA3EE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFCAB739-802C-4C2B-9890-74579BBA3EE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFCAB739-802C-4C2B-9890-74579BBA3EE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFCAB739-802C-4C2B-9890-74579BBA3EE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
