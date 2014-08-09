@@ -39,6 +39,16 @@ namespace TriangleTest
             Assertallorderings("NotATriangle", -1, 7, 7);
         }
 
+        [Test]
+
+        public void TwoSidesEqualImpliesIsos()
+        {
+            Assertallorderings("Isosolese", 2, 2, 3);
+            Assertallorderings("Isosolese", 5, 10, 10);
+            Assertallorderings("Isosolese", 1, 7, 7);
+            
+        }
+
         public void Assertallorderings(string expectedtype, long a, long b, long c)
         {
             Assert.AreEqual(expectedtype, Triangles.getType(a, b, c));

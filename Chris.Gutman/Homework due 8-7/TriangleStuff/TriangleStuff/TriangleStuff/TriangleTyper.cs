@@ -18,7 +18,10 @@ namespace TriangleStuff
             }else if ((a + b == c) || (b + c == a) || (c + a == b))
             {
                 return "NotATriangle";
-            }else if ((a == b) && (b == c) && (a == c) && (a > 0))
+            }else if (((a == b) && (b != c)) || ((a == c) && (c !=b)) || ((b == c) && (c != a)))
+            {
+                return "Isosolese";
+            }else if ((a == b) && (b == c) && (a == c))
             {
                 return "Equilateral";
             }else if ((a != b) && (b != c) && (a != c))
