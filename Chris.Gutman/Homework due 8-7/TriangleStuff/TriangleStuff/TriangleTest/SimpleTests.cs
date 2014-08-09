@@ -17,10 +17,21 @@ namespace TriangleTest
 
         public void EqualSidesShouldBeEquilateral()
         {
-            Assert.AreEqual("Equilateral", Triangles.getType(1,1,1));
+            //Assert.AreEqual("Equilateral", Triangles.getType(1,1,1));
+            Assertallorderings("Equilateral", 1,1,1);
+        }
+        [Test]
+
+        public void AnyZeroLengthSidesImpliesNotATriangle()
+        {
+            Assertallorderings("NotATriangle", 0,1,2);
+            Assertallorderings("NotATriangle", 0,7,7);
+            Assertallorderings("NotATriangle",0,0,5);
+      //      Assert.AreEqual("NotATriangle", Triangles.getType(0,0,0));
+           
         }
 
-        public void assertallorderings(string expectedtype, long a, long b, long c)
+        public void Assertallorderings(string expectedtype, long a, long b, long c)
         {
             Assert.AreEqual(expectedtype, Triangles.getType(a, b, c));
             Assert.AreEqual(expectedtype, Triangles.getType(a, c, b));
