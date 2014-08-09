@@ -10,15 +10,17 @@ namespace TriangleStuff
     {
         public string getType(long a, long b, long c)
         {
-            if ((a == b) && (b == c) && (a == c) && (a > 0))
-            {
-                return "Equilateral";
-            }else if (a == 0 || b == 0 || c == 0)
+           
+            
+            if (a <= 0 || b <= 0 || c <= 0)
             {
                 return "NotATriangle";
             }else if ((a + b == c) || (b + c == a) || (c + a == b))
             {
                 return "NotATriangle";
+            }else if ((a == b) && (b == c) && (a == c) && (a > 0))
+            {
+                return "Equilateral";
             }else if ((a != b) && (b != c) && (a != c))
             {
                 return "Scalene";
