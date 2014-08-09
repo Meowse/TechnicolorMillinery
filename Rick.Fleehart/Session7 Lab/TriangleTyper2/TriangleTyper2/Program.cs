@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TriangleTyper2
 {
@@ -22,9 +19,6 @@ namespace TriangleTyper2
             Console.WriteLine("Enter three sides of our triangle and I will tell you what it is");
             Console.WriteLine("Enter exit to quit");
      
-
-       
-
             string input = "";
             //int[] theNumbers = ParseInput(input); // returns an array of the integers entered.
             
@@ -33,11 +27,13 @@ namespace TriangleTyper2
             while (input != "exit")
             {
                 input = Console.ReadLine();
-                int[] theNumbers = ParseInput(input); // returns an array of the integers entered.
+                int[] theNumbers = ParseInput(input); // returns an array of the integers entered: theNumbers[x].
 
                 string theResults = GetType(theNumbers[0], theNumbers[1], theNumbers[2]);
-                Console.WriteLine("the sides were: " + theNumbers[0] + "-" + theNumbers[1] + "-" + theNumbers[2]);
-                Console.WriteLine("Your triangle is: " + theResults + "\n");
+                //GetType() does all the work
+
+                Console.WriteLine("the sides were: " + theNumbers[0] + " - " + theNumbers[1] + " - " + theNumbers[2]);
+                Console.WriteLine("The type of your triangle is: " + theResults + "\n");
                 //input = Console.ReadLine();
             }
             Console.ReadKey();

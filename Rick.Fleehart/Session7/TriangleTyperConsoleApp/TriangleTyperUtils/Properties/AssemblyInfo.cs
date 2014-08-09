@@ -1,15 +1,16 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TriangleTyper2")]
+[assembly: AssemblyTitle("TriangleTyperUtils")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TriangleTyper2")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCompany("Toshiba")]
+[assembly: AssemblyProduct("TriangleTyperUtils")]
+[assembly: AssemblyCopyright("Copyright © Toshiba 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -19,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("793fb59c-9020-47b2-98ab-52a21e8d5e8a")]
+[assembly: Guid("bd0e3560-0a5a-4acb-9e2a-a3bb4ec3e14e")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TriangleType2Test")]
+[assembly: AssemblyTitle("CalculatorBrainTests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TriangleType2Test")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCompany("Toshiba")]
+[assembly: AssemblyProduct("CalculatorBrainTests")]
+[assembly: AssemblyCopyright("Copyright © Toshiba 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("685c955a-7389-4d4a-84d9-36263f69a93a")]
+[assembly: Guid("fb4d6cb6-7bdd-461a-87e9-563bb36c3efb")]
 
 // Version information for an assembly consists of the following four values:
 //
