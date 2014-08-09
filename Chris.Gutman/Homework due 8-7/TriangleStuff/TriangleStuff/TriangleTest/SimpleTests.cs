@@ -49,6 +49,16 @@ namespace TriangleTest
             
         }
 
+        [Test]
+
+        public void ThreeDifferentSidesImpliesScalene()
+        {
+            Assertallorderings("Scalene", 2, 3, 4);
+            Assertallorderings("Scalene", 5, 6, 7);
+            Assertallorderings("Scalene", 4, 5, 6);
+            
+        }
+
         public void Assertallorderings(string expectedtype, long a, long b, long c)
         {
             Assert.AreEqual(expectedtype, Triangles.getType(a, b, c));
