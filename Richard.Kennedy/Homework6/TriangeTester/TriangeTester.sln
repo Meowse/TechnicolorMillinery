@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangeTester", "TriangeTester\TriangeTester.csproj", "{57290E3B-2F4E-4A08-98A2-79E0121D3421}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangeTesterTest", "TriangeTesterTest\TriangeTesterTest.csproj", "{A453F38E-1A66-452D-BA82-C37D9CFA743F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57290E3B-2F4E-4A08-98A2-79E0121D3421}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57290E3B-2F4E-4A08-98A2-79E0121D3421}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57290E3B-2F4E-4A08-98A2-79E0121D3421}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57290E3B-2F4E-4A08-98A2-79E0121D3421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A453F38E-1A66-452D-BA82-C37D9CFA743F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A453F38E-1A66-452D-BA82-C37D9CFA743F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A453F38E-1A66-452D-BA82-C37D9CFA743F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A453F38E-1A66-452D-BA82-C37D9CFA743F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

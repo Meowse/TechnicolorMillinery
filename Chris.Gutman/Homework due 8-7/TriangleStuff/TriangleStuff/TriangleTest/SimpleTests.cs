@@ -17,10 +17,49 @@ namespace TriangleTest
 
         public void EqualSidesShouldBeEquilateral()
         {
-            Assert.AreEqual("Equilateral", Triangles.getType(1,1,1));
+            Assertallorderings("Equilateral", 1,1,1);
+        }
+        [Test]
+
+        public void AnyZeroLengthSidesImpliesNotATriangle()
+        {
+            Assertallorderings("NotATriangle", 0,1,2);
+            Assertallorderings("NotATriangle", 0,7,7);
+            Assertallorderings("NotATriangle",0,0,5);
+            Assert.AreEqual("NotATriangle", Triangles.getType(0,0,0));
+           
         }
 
-        public void assertallorderings(string expectedtype, long a, long b, long c)
+        [Test]
+
+        public void AnyNegativeSidesImpliesNotATriangle()
+        {
+            Assertallorderings("NotATriangle", -1, 0, 1);
+            Assertallorderings("NotATriangle", -1, 2, 3);
+            Assertallorderings("NotATriangle", -1, 7, 7);
+        }
+
+        [Test]
+
+        public void TwoSidesEqualImpliesIsos()
+        {
+            Assertallorderings("Isosolese", 2, 2, 3);
+            Assertallorderings("Isosolese", 5, 10, 10);
+            Assertallorderings("Isosolese", 1, 7, 7);
+            
+        }
+
+        [Test]
+
+        public void ThreeDifferentSidesImpliesScalene()
+        {
+            Assertallorderings("Scalene", 2, 3, 4);
+            Assertallorderings("Scalene", 5, 6, 7);
+            Assertallorderings("Scalene", 4, 5, 6);
+            
+        }
+
+        public void Assertallorderings(string expectedtype, long a, long b, long c)
         {
             Assert.AreEqual(expectedtype, Triangles.getType(a, b, c));
             Assert.AreEqual(expectedtype, Triangles.getType(a, c, b));

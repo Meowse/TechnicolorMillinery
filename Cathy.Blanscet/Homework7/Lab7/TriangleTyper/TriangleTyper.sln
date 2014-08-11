@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangleTyper", "TriangleTyper.csproj", "{DEE99CA0-A480-479A-AF1E-389990DA5A17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "triangleTyperUtils", "..\triangleTyperUtils\triangleTyperUtils.csproj", "{8DD6B5A0-7477-4892-B18E-DBCD6300FDBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangleTyperUtilsTests", "TriangleTyperUtilsTests\TriangleTyperUtilsTests.csproj", "{31DDE667-4C3F-469E-81B3-48E47B87031A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEE99CA0-A480-479A-AF1E-389990DA5A17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEE99CA0-A480-479A-AF1E-389990DA5A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEE99CA0-A480-479A-AF1E-389990DA5A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEE99CA0-A480-479A-AF1E-389990DA5A17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DD6B5A0-7477-4892-B18E-DBCD6300FDBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD6B5A0-7477-4892-B18E-DBCD6300FDBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD6B5A0-7477-4892-B18E-DBCD6300FDBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD6B5A0-7477-4892-B18E-DBCD6300FDBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31DDE667-4C3F-469E-81B3-48E47B87031A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31DDE667-4C3F-469E-81B3-48E47B87031A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31DDE667-4C3F-469E-81B3-48E47B87031A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31DDE667-4C3F-469E-81B3-48E47B87031A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
