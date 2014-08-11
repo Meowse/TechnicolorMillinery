@@ -13,7 +13,7 @@ namespace TriangleTyperConsoleApp
         static void Main(string[] args)
         {
             TriangleTyper typer = new TriangleTyper();
-            Triangle triangle = GetTriangle();
+            Triangle triangle = GetTriangle(); //gets an object or class that has A,B< and C in it
             while (triangle != null)
             {
                 Console.WriteLine("TriangleTyper returned {0} for triangle {1}.", typer.GetTriangleType(triangle.A, triangle.B, triangle.C), triangle);
