@@ -63,12 +63,12 @@ namespace TriangleTyper2
             // Check to see if the numbers given is a triangle
             if (sideA <= 0 || sideB <= 0 || sideC <= 0)
             {
-                return "All sides must be greater than zero";
+                return "NotATriangle";
             }
 
             if ((sideA + sideB) <= sideC || (sideA + sideC) <= sideB || (sideB + sideC) <= sideA)
             {
-                return "two sides must be bigger than the third";
+                return "NotATriangle";
             }
 
             //--- it is a triangle, now check which kind
