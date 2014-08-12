@@ -10,11 +10,13 @@ namespace TriangeTesterTest
 {
     public class Class1
     {
+        private readonly TriangleTyper _typer = new TriangleTyper();
+
         [Test]
         public void AnyNonPositiveIntegerLengthSidesAreNotTriangles()
         {
             string expectedType = "Not a triangle";
-            string actualType = Program.triangleCheck(new [] {0L, 0L, 0L});
+            string actualType = _typer.triangleCheck(new [] {0L, 0L, 0L});
             Assert.AreEqual(expectedType, actualType);
         }
     }
