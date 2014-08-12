@@ -12,14 +12,14 @@ namespace TriangleTyper2Test
         // Each test must start with [Test]
 
         // Create a new instance of TriagleTyper2 to run the test wth
-        public Program.GetType Typer = new GetType();
+        private readonly GetType _typer = new GetType();
 
 
         [Test]
         public void EqualSidesShouldBeEquilateral()
         {
             string expectedType = "Equilateral";
-            string actualType = Typer.GetType(1, 1, 1);
+            string actualType = _typer.GetType(1, 1, 1);
             Assert.AreEqual(expectedType, actualType);
         }
 

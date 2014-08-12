@@ -5,7 +5,7 @@ namespace TriangleTyper2
 {
     class Program
     {
-        public static void Main(string[] args)
+        private static void Main(string[] args)
         {
             /*
              * TriangleTyper.GetType() is a function that returns the type of a triangle -- equilateral, isosceles, or scalene.
@@ -36,7 +36,6 @@ namespace TriangleTyper2
                 Console.WriteLine("The type of your triangle is: " + theResults + "\n");
                 //input = Console.ReadLine();
             }
-            Console.WriteLine("All done");
             Console.ReadKey();
         }
         
