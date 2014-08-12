@@ -9,7 +9,7 @@ using TriangleTyperUtils;
 
 namespace TriangleTyperUtilsTests
 {
-    [TextFixture]
+    [TestFixture]
     public class TriangleTyperTests
     {
         private readonly TriangleTyper _typer = new TriangleTyper();
