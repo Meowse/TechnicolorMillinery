@@ -17,7 +17,8 @@ namespace TriangeTester
             {
                 long[] values = ParseInput(input);
                 //Console.WriteLine("Before triangleCheck");
-                triangleCheck(values);
+//                triangleCheck(values);
+                Console.WriteLine("Result is: " + triangleCheck(values));
                 //Console.WriteLine("After triangleCheck");
                 //DisplayOutput(values);
 
@@ -70,13 +71,13 @@ namespace TriangeTester
             switch (numberOfEqualSides)
             {
                 case 0:
-                    Console.WriteLine("Scalene Triangle");
+//                    Console.WriteLine("Scalene Triangle");
                     return "Scalene Triangle";
                 case 1:
-                    Console.WriteLine("Isosceles Triangle");
+//                    Console.WriteLine("Isosceles Triangle");
                     return "Isosceles Triangle";
                 case 2:
-                    Console.WriteLine("Equalateral Triangle");
+//                    Console.WriteLine("Equalateral Triangle");
                     return "Equalateral Triangle";
                 default:
                     return "Unkown Triangle";
