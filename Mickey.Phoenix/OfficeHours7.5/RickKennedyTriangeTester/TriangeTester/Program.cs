@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TriangeTester
 {
-    internal class Program
+    public class Program
     {
         private static void Main(string[] args)
         {
@@ -37,7 +37,7 @@ namespace TriangeTester
             Console.WriteLine("Triangle side lengths: " + String.Join(", ", values));
         }
 
-        private static string triangleCheck(long[] values)
+        public static string triangleCheck(long[] values)
         {
             long sideA = values[0];
             long sideB = values[1];
