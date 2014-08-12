@@ -13,6 +13,7 @@ namespace CalculatorBrain
         private decimal number;
         private string display;
         private char operation;
+        private const string EqualDisplay = "The value is now: ";
 
 
         public bool DecimalValueEntered(string value)
@@ -39,22 +40,10 @@ namespace CalculatorBrain
             this.number = decimal.Parse(inputNumber);
         }
 
-        // The current state of the calculator will have to be stored somehow
-        // in instance variables, here, declared directly inside the "Calculator"
-        // scope.
-
-        /*
-         * Valid inputs:
-         * '0' -- input the digit 0
-         * ...
-         * '9' -- input the digit 9
-         * '+' -- add
-         * '-' -- subtract
-         * '*' -- multiply
-         * '/' -- divide
-         * '=' -- perform the current calculation
-         * 'c' -- clear
-         */
+        public decimal getNumber()
+        {
+            return this.number;
+        }
 
         public void setOperation(string aOperation)
         {
@@ -91,8 +80,8 @@ namespace CalculatorBrain
                     break;
 
                 case '=':
-                    //ClearDisplay();
-                    SetDisplay("The value is now: " + number.ToString());
+                    ClearDisplay();
+                    SetDisplay(number.ToString());
                     break;
 
                 case 'c':
@@ -112,7 +101,6 @@ namespace CalculatorBrain
         {
             display += setDisplayValue;
         }
-
 
         public string GetDisplay(Calculator calcObject)
         {
@@ -153,8 +141,7 @@ namespace CalculatorBrain
 
             else
             {
-                ClearDisplay();
-                SetDisplay("Cannot Divide By Zero");
+                SetDisplay(" Cannot Divide By Zero");
             }
         }
 

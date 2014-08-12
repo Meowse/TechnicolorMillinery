@@ -11,20 +11,22 @@ namespace CalculatorConsoleApplication
     class CalculatorConsole
     {
         private static String _input;
-
-        static void Main(string[] args)
-        {
+      
+        static void Main()
+        {   
             Calculator aCalculator = new Calculator();
-            aCalculator.SetDisplay("Type 'Exit' to exit." + " Other than 'Exit', valid inputs are: digits 0 - 9, '+','-','*','/','=', or 'c' ");
+            aCalculator.setNumber("0");
+            aCalculator.SetDisplay("Type 'Exit' to exit.  Otherwise, enter a number or 'c' to clear");
             Console.WriteLine(aCalculator.GetDisplay(aCalculator));
+            Console.WriteLine();
+            Console.WriteLine("Current Value: " + aCalculator.getNumber());
             aCalculator.ClearDisplay();
  
             do
             {
               _input = Console.ReadLine().Trim();  //will bomb if null
-                
-                if (_input != "Exit")
-                {
+              verifyExit(_input);
+              verifyClear(_input, aCalculator);
                     performNumberVerification(aCalculator, _input);
                     aCalculator.setNumber(_input);
                     aCalculator.SetDisplay(_input);
@@ -33,27 +35,24 @@ namespace CalculatorConsoleApplication
                     do
                     {
                         _input = Console.ReadLine().Trim();
+                        verifyExit(_input);
+                        verifyClear(_input, aCalculator);
                         validateOperator(aCalculator);
                         aCalculator.setOperation(_input);
                         if (_input != "c" && _input != "=")
                         {
                             Console.WriteLine("Enter a Number");
                             _input = Console.ReadLine().Trim();
+                            verifyExit(_input);
+                            verifyClear(_input, aCalculator);
                             performNumberVerification(aCalculator, _input);
                         }
 
                         aCalculator.PerformOperation(_input);
-                        Console.WriteLine("Operations: " + aCalculator.GetDisplay(aCalculator) + ". What do you want to do next?");
+                        Console.WriteLine(aCalculator.GetDisplay(aCalculator) + ". What do you want to do next?");
                     } while (_input != "Exit");
 
-
-                    //aCalculator.Operation(_input);
-                    //take value and wait for User input to perform operation
-
-                    //var response = TriangleTyper.GetTriangleType(long.Parse(arrayOfInputs[0]), long.Parse(arrayOfInputs[1]), long.Parse(arrayOfInputs[2]));
-                    //Console.WriteLine(response);
-                }
-                
+          
             } while (_input != "Exit");
 
         }
@@ -66,6 +65,8 @@ namespace CalculatorConsoleApplication
             {
                 Console.WriteLine("Decimal Number Only");
                 _input = Console.ReadLine().Trim();
+                verifyExit(_input);
+                verifyClear(_input, aCalculator);
                 digitEntered = aCalculator.DecimalValueEntered(_input);
 
             }
@@ -81,17 +82,45 @@ namespace CalculatorConsoleApplication
                 Console.WriteLine(tempCalculator.GetDisplay(tempCalculator));
 
                 _input = Console.ReadLine().Trim();
+                verifyExit(_input);
+                verifyClear(_input, tempCalculator);
                 
             }
+        }
 
+        private static void verifyExit(string input)
+        {
+            if (input.ToLower().Trim().Equals("exit"))
+            {
+                Environment.Exit(0);
+            }
+        }
+
+        private static void verifyClear(string input, Calculator aCalculator)
+        {
+            if (input.ToLower().Trim().Equals("c"))
+            {
+                aCalculator.ClearMemory();
+                aCalculator.ClearDisplay();
+                Main();
+            }
         }
 
         private static bool checkOperator(string input)
         {
             bool stop = false;
-            char temp = Convert.ToChar(input);
+            try
+            {
+                Convert.ToChar(input);
+            }
+            catch (Exception)
+            {
 
-            switch (temp)
+                return false;
+            }
+
+
+            switch (Convert.ToChar(input))
             {
 
                 case '+':
