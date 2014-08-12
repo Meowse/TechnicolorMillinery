@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A453F38E-1A66-452D-BA82-C37D9CFA743F}</ProjectGuid>
+    <ProjectGuid>{CBFED5E4-0ED4-4DAE-9655-504D0AD00F7F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TriangeTesterTest</RootNamespace>
-    <AssemblyName>TriangeTesterTest</AssemblyName>
+    <RootNamespace>TriangleTyperUtilsTests</RootNamespace>
+    <AssemblyName>TriangleTyperUtilsTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,9 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\NUnit-2.6.3\bin\framework\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files (x86)\NUnit-2.6.3\bin\framework\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,13 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="TriangleTyperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TriangeTester\TriangeTester.csproj">
-      <Project>{57290e3b-2f4e-4a08-98a2-79e0121d3421}</Project>
-      <Name>TriangeTester</Name>
+    <ProjectReference Include="..\..\TriangleTyperUtils\TriangleTyperUtils.csproj">
+      <Project>{12C2890A-5042-4EBC-B7C1-293E05ACA821}</Project>
+      <Name>TriangleTyperUtils</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
