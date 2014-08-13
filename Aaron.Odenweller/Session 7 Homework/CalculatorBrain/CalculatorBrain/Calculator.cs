@@ -15,6 +15,11 @@ namespace CalculatorBrain
         private char operation;
         private const string EqualDisplay = "The value is now: ";
 
+        public Calculator(decimal value)
+        {
+            this.number = value;
+            SetDisplay(getNumber().ToString());
+        }
 
         public bool DecimalValueEntered(string value)
         {
@@ -87,7 +92,8 @@ namespace CalculatorBrain
                 case 'c':
                     ClearMemory();
                     ClearDisplay();
-                    //SetDisplay("This has been cleared.  The value of the calculator is now: " + number.ToString());
+                    setNumber("0");
+                    SetDisplay(getNumber().ToString());
                     break;
 
                 default:
