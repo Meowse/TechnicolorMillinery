@@ -8,6 +8,8 @@ namespace CalculatorBrain
 {
     public class Calculator
     {
+        private static string displayvalue = "0";
+
         // The current state of the calculator will have to be stored somehow
         // in instance variables, here, declared directly inside the "Calculator"
         // scope.
@@ -26,6 +28,7 @@ namespace CalculatorBrain
          */
         public void ProvideInput(char input)
         {
+
         }
 
         public string GetDisplay()
