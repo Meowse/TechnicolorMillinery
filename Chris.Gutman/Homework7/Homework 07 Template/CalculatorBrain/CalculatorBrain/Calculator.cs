@@ -12,6 +12,8 @@ namespace CalculatorBrain
     {
         private RegexOptions reoptions = new RegexOptions();
         public static string displayvalue = "0";
+        public static decimal savednumber = 0;
+        private static string internal_state = "waiting";
 
         // The current state of the calculator will have to be stored somehow
         // in instance variables, here, declared directly inside the "Calculator"
@@ -31,17 +33,86 @@ namespace CalculatorBrain
          */
         public void ProvideInput(char input)
         {
-            const string mystring = @"(.+)?(\.)(.+)?";
+
+// Use a regular expression to recognize when a '.' has already been placed inside the string
+
+            string mystring = @"(.+)?(\.)(.+)?";
             reoptions = RegexOptions.Singleline | RegexOptions.IgnoreCase;
             Regex re = new Regex(mystring);
             Match rematch = re.Match(displayvalue);
+
+// 
+
             if ((rematch.Success) & (input == '.'))
             {
 
             }
-            else
+            else if (input == '+')
             {
+                internal_state = "add";
+                savednumber = Convert.ToDecimal(displayvalue);
+                displayvalue = displayvalue + input;
+            }
+            else if (input == '-')
+            {
+                internal_state = "subtract";
+                savednumber = Convert.ToDecimal(displayvalue);
+                displayvalue = displayvalue + input;
+
+            }
+            else if (input == '*')
+            {
+                internal_state = "multiply";
+                savednumber = Convert.ToDecimal(displayvalue);
+                displayvalue = displayvalue + input;
+
+            }
+            else if (input == '/')
+            {
+                internal_state = "divide";
+                savednumber = Convert.ToDecimal(displayvalue);
+                displayvalue = displayvalue + input;
+
+            }
+            else if (input == 'c')
+            {
+                displayvalue = "0";
+                internal_state = "waiting";
+            }
+            else if((internal_state == "waiting")&& (displayvalue != "0"))
+            {
+
                 displayvalue = displayvalue + input.ToString();
+            }
+            else if(internal_state == "waiting")
+            {
+                displayvalue = input.ToString();
+            }
+            else if (internal_state == "add")
+            {
+                savednumber = savednumber + Convert.ToDecimal(input.ToString());
+                displayvalue = savednumber.ToString();
+            }
+            else if (internal_state == "subtract")
+            {
+                savednumber = savednumber - Convert.ToDecimal(input.ToString());
+                displayvalue = savednumber.ToString();
+
+            }
+            else if (internal_state == "multiply")
+            {
+                savednumber = savednumber * Convert.ToDecimal(input.ToString());
+                displayvalue = savednumber.ToString();
+
+            }
+            else if ((internal_state == "divide") && (Convert.ToDecimal(input.ToString()) != 0))
+            {
+                savednumber = savednumber / Convert.ToDecimal(input.ToString());
+                displayvalue = savednumber.ToString();
+
+            }
+            {
+                
             }
 
         }
