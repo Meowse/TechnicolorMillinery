@@ -22,6 +22,15 @@ namespace ConsoleApplication1
             string mystring;
             var J = 0;
             var i = 0;
+
+// Basic principle of operation: use modulo arithmatic. 
+            //larray is used for the corresponding division (base 26).
+            //the remainder is factored again in the next pass of the loop.
+            //the quotient is used as an index into the names array to determine the column entries.
+            //use int64 to simplify cast typing and for consistancy with methods available for readline.
+            //i = 10 forces exit from the  loop.
+            //second and thrid if loops remove A's prefixed to the result.
+
             while (true)
             {
                 Console.WriteLine("Please enter an integer to convert to a spreadsheet column: \n ");
