@@ -17,10 +17,10 @@ namespace traingletypertest
         [Test]
     public void EquilaterlaTriangle()
     {
-        line a = 3;
-        line b = 3;
-        line c = 3;
-        String type = TriangleTyperTest.GetType(a, b, c);
+        Line a = 3;
+        Line b = 3;
+        Line c = 3;
+        String type = TriangleTyperTest.GetTraingleType(a, b, c);
         const string expected = "Equilateral";
         Assert.AreEqual(expected, type);
     }
@@ -31,7 +31,8 @@ namespace traingletypertest
         line = -1;
         line = -1;
         line = -1;
-        string type = TriangleTyperTest.GetType(a, b, c);
+        var traingleType = TriangleTyperTest.GetTraingleType(a, b, c);
+        string type = traingleType;
         const string expected = "notATriangle";
         Assert.AreEqual(expected, type);
     }
@@ -39,10 +40,10 @@ namespace traingletypertest
     [Test]
     public void TriangleZero()
     {
-        line a = 0;
-        line b = 0;
-        line c = 0;
-        string type = TriangleTyperTest.GetType(a, b, c);
+        Line a = 0;
+        Line b = 0;
+        Line c = 0;
+        string type = TriangleTyperTest.GetTraingleType(a, b, c);
         const string expected = "notATriangle";
         Assert.AreEqual(expected, type);
     }
@@ -50,10 +51,10 @@ namespace traingletypertest
     [Test]
     public void InvalidTriangleOutOfRange()
     {
-        line a = 1;
-        line b = 2;
-        line c = 3;
-        string type = TriangleTyperTest.GetType(a, b, c);
+        Line a = 1;
+        Line b = 2;
+        Line c = 3;
+        string type = TriangleTyperTest.GetTraingleType(a, b, c);
         const string expected = "notATriangle";
         Assert.AreEqual(expected, type);
     }
@@ -61,10 +62,10 @@ namespace traingletypertest
     [Test]
     public void IsocelesTriangle()
     {
-        line a = 2;
-        line b = 2;
-        line c = 3;
-        string type = TriangleTyperTest.GetType(a, b, c);
+        Line a = 2;
+        Line b = 2;
+        Line c = 3;
+        string type = TriangleTyperTest.GetTraingleType(a, b, c);
         const string  expected = "Isosceles";
         Assert.AreEqual(expected, type);
     }
@@ -72,12 +73,19 @@ namespace traingletypertest
     [Test]
     public void ScaleneTriangle()
     {
-        line a = 2;
-        line b = 3;
-        line c = 4;
-        string type = TriangleTyperTest.GetType(a, b, c);
+        Line a = 2;
+        Line b = 3;
+        Line c = 4;
+        string type = TriangleTyperTest.GetTraingleType(a, b, c);
         const string expected = "Scalene";
         Assert.AreEqual(expected, type);
     }
+
+    public static string GetTraingleType(Line a, Line b, Line c)
+    {
+        return "Equilateral";
+    }
+
+    public int line { get; set; }
     }
 }
