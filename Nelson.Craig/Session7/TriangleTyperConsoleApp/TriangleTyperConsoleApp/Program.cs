@@ -13,17 +13,21 @@ namespace TriangleTyperConsoleApp
         {
             TriangleTyper typer = new TriangleTyper();
             Triangle triangle = GetTriangle();
-            while (triangle != null)
-            {
-                Console.WriteLine("TriangleTyper returned {0} for triangle {1}.", typer.GetTriangleType(triangle.A, triangle.B, triangle.C), triangle);
-            }
+        //    while (triangle != null)
+        //    {
+        //        Console.WriteLine("TriangleTyper returned {0} for triangle {1}.", typer.GetTriangleType(triangle.A, triangle.B, triangle.C), triangle);
+        //        Console.ReadKey();
+        //    }
         }
 
         private static Triangle GetTriangle()
         {
-//            Console.WriteLine("Please enter a triangle with whole-number sides:");
-//            string input = Console.ReadLine();
-//            string[] inputs = input.Split(new [] {",", " "}, StringSplitOptions.RemoveEmptyEntries);
+            Console.WriteLine("Please enter a triangle with whole-number sides:");
+            string input = Console.ReadLine();
+            if (input != null)
+            {
+                string[] inputs = input.Split(new[] { ",", " " }, StringSplitOptions.RemoveEmptyEntries);
+            }
             return new Triangle();
         }
     }

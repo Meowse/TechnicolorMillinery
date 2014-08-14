@@ -15,7 +15,7 @@ namespace TriangleTyperUtils
                 return "NotATriangle";
             }
 
-            if ((a + b <= c) || (b + c <= a) || (c + a <= b))
+            if ((a + b <= c) || (b + c <= +a) || (c + a <= +b))
             {
                 return "NotATriangle";
             }
