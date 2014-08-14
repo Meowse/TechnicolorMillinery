@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
+using TriangleTyperUtils;
 
 namespace TriangleTyper2Test
 {
@@ -11,8 +12,8 @@ namespace TriangleTyper2Test
     {
         // Each test must start with [Test]
 
-        // Create a new instance of TriagleTyper2 to run the test wth
-        private readonly GetType _typer = new GetType();
+        // Create a new instance of TriangleTyper2 to run the test wth
+        private readonly TriangleTyper _typer = new TriangleTyper();
 
 
         [Test]

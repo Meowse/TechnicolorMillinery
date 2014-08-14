@@ -8,10 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Greet_Me___HW_Part_1
+namespace Homework_3_Part_3
 {
     public partial class Form1 : Form
     {
+        private int addToText;
+
         public Form1()
         {
             InitializeComponent();
@@ -19,15 +21,15 @@ namespace Greet_Me___HW_Part_1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            string textgreetname = greetName.Text;
-            MessageBox.Show("Hello " + textgreetname + " !!");
-        }
+            addToText++;
+            displayNumber.Text = addToText.ToString();
+            if (addToText >= 10)
+            {
+                MessageBox.Show("Number too big!");
+                addToText = 0;
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-      
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,14 +40,29 @@ namespace CalculatorBrain
             }
             else
             {
-                CurrValu = CurrValu + input;
+                if (CurrValu == "0")
+                {
+                    CurrValu = input.ToString();
+                }
+                else
+                {
+                    CurrValu = CurrValu + input;
+                }
             }
         }
 
         public string GetDisplay()
         {
             //return "0";
-            decimal CurrValuAsNumber = decimal.Parse(CurrValu);
+            NumberStyles style;
+            style = NumberStyles.None;
+            decimal CurrValuAsNumber;
+
+            if (CurrValu.Contains("."))
+            {
+                return CurrValu;
+            }
+            CurrValuAsNumber = decimal.Parse(CurrValu, style );
             return CurrValuAsNumber.ToString();
         }
     }

@@ -8,26 +8,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Greet_Me___HW_Part_1
+namespace Homework_3_Part_2
 {
     public partial class Form1 : Form
     {
+        private int addToText;
         public Form1()
+         
         {
             InitializeComponent();
+            
+        }
+
+        private void Form1_Load(object sender, EventArgs e){
+           
+               addToText =0;
+            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            string textgreetname = greetName.Text;
-            MessageBox.Show("Hello " + textgreetname + " !!");
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-      
+            addToText++;
+            displayNum.Text = addToText.ToString();
         }
     }
 }

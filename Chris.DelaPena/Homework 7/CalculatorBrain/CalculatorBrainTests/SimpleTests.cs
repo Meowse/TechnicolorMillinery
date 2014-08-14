@@ -1,4 +1,10 @@
-﻿using CalculatorBrain;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Threading.Tasks;
+using CalculatorBrain;
 using NUnit.Framework;
 
 namespace CalculatorBrainTests
@@ -6,7 +12,6 @@ namespace CalculatorBrainTests
     [TestFixture]
     public class SimpleTests
     {
-        // default number tests
         [Test]
         public void ShouldDisplayZeroByDefault()
         {
@@ -24,7 +29,6 @@ namespace CalculatorBrainTests
             Assert.AreEqual("0", calculator.GetDisplay());
         }
 
-        // numbers tests
         [Test]
         public void ShouldDisplaySingleDigit()
         {
@@ -33,64 +37,6 @@ namespace CalculatorBrainTests
             Assert.AreEqual("1", calculator.GetDisplay());
         }
 
-        [Test]
-        public void ShouldAcceptMultiDigitNumbers()
-        {
-            var calculator = new Calculator();
-            calculator.ProvideInput('3');
-            Assert.AreEqual("3", calculator.GetDisplay());
-            calculator.ProvideInput('1');
-            Assert.AreEqual("31", calculator.GetDisplay());
-        }
-
-        [Test]
-        public void ShouldIgnoreLeadingZeroes()
-        {
-            var calculator = new Calculator();
-            calculator.ProvideInput('0');
-            Assert.AreEqual("0", calculator.GetDisplay());
-            calculator.ProvideInput('0');
-            Assert.AreEqual("0", calculator.GetDisplay());
-            calculator.ProvideInput('3');
-            Assert.AreEqual("3", calculator.GetDisplay());
-            calculator.ProvideInput('0');
-            Assert.AreEqual("30", calculator.GetDisplay());
-        }
-
-        [Test]
-        public void ShouldAcceptDecimalNumbers()
-        {
-            var calculator = new Calculator();
-            calculator.ProvideInput('3');
-            Assert.AreEqual("3", calculator.GetDisplay());
-            calculator.ProvideInput('1');
-            Assert.AreEqual("31", calculator.GetDisplay());
-            calculator.ProvideInput('.');
-            Assert.AreEqual("31.", calculator.GetDisplay());  
-            calculator.ProvideInput('7');
-            Assert.AreEqual("31.7", calculator.GetDisplay());
-        }
-
-        [Test]
-        public void ShouldIgnoreDecimalPointsAfterTheFirst()
-        {
-            var calculator = new Calculator();
-            calculator.ProvideInput('3');
-            Assert.AreEqual("3", calculator.GetDisplay());
-            calculator.ProvideInput('.');
-            Assert.AreEqual("3.", calculator.GetDisplay());   // need to put the decimal in now 
-            calculator.ProvideInput('1');
-            Assert.AreEqual("3.1", calculator.GetDisplay());
-            calculator.ProvideInput('.');
-            Assert.AreEqual("3.1", calculator.GetDisplay());
-            calculator.ProvideInput('7');
-            Assert.AreEqual("3.17", calculator.GetDisplay());
-        }
-
-        
-        
-        
-        // addition tests
         [Test] public void ShouldAddSmallSingleDigits()
         {
             var calculator = new Calculator();
@@ -116,26 +62,15 @@ namespace CalculatorBrainTests
         }
 
         [Test]
-        public void ShouldNotChangeJustBecauseGetDisplayIsCalled()
+        public void ShouldAcceptMultiDigitNumbers()
         {
             var calculator = new Calculator();
+            calculator.ProvideInput('3');
+            Assert.AreEqual("3", calculator.GetDisplay());
             calculator.ProvideInput('1');
-            Assert.AreEqual("1", calculator.GetDisplay());
-            calculator.ProvideInput('+');
-            Assert.AreEqual("1", calculator.GetDisplay());
-            Assert.AreEqual("1", calculator.GetDisplay());
-            Assert.AreEqual("1", calculator.GetDisplay());
-            calculator.ProvideInput('2');
-            Assert.AreEqual("2", calculator.GetDisplay());
-            Assert.AreEqual("2", calculator.GetDisplay());
-            Assert.AreEqual("2", calculator.GetDisplay());
-            calculator.ProvideInput('=');
-            Assert.AreEqual("3", calculator.GetDisplay());
-            Assert.AreEqual("3", calculator.GetDisplay());
-            Assert.AreEqual("3", calculator.GetDisplay());                    
+            Assert.AreEqual("31", calculator.GetDisplay());
         }
 
-        // Subtraction Tests
         [Test]
         public void CanSubtractSingleDigitNumbers()
         {
@@ -166,5 +101,24 @@ namespace CalculatorBrainTests
             Assert.AreEqual("69", calculator.GetDisplay());
         }
 
+        [Test]
+        public void ShouldNotChangeJustBecauseGetDisplayIsCalled()
+        {
+            var calculator = new Calculator();
+            calculator.ProvideInput('1');
+            Assert.AreEqual("1", calculator.GetDisplay());
+            calculator.ProvideInput('+');
+            Assert.AreEqual("1", calculator.GetDisplay());
+            Assert.AreEqual("1", calculator.GetDisplay());
+            Assert.AreEqual("1", calculator.GetDisplay());
+            calculator.ProvideInput('2');
+            Assert.AreEqual("2", calculator.GetDisplay());
+            Assert.AreEqual("2", calculator.GetDisplay());
+            Assert.AreEqual("2", calculator.GetDisplay());
+            calculator.ProvideInput('=');
+            Assert.AreEqual("3", calculator.GetDisplay());
+            Assert.AreEqual("3", calculator.GetDisplay());
+            Assert.AreEqual("3", calculator.GetDisplay());                    
+        }
     }
 }
