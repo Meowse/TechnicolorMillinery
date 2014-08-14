@@ -12,11 +12,11 @@ namespace ConsoleApplication1
 
         private static void Main(string[] args)
         {
-            Int64[] larray = {456976, 17576, 676, 26, 1}; //26^4, 26^3, 26^2, 26^1, 26^0
+            Int64[] larray = {1,26,676,17576,456976}; //26^4, 26^3, 26^2, 26^1, 26^0
             Int64[] header = new Int64[5];
             string[] names = new string[27]
             {
-                "","A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
+                "", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
                 "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
             };
             string mystring;
@@ -35,33 +35,34 @@ namespace ConsoleApplication1
             {
                 Console.WriteLine("Please enter an integer to convert to a spreadsheet column: \n ");
                 Int64 n = Convert.ToInt64(Console.ReadLine());
-
-                for ( i = 0; i <= 4; i++)
+                
+                for (i = 4; i >= 0; i--)
                 {
-                    if ((Convert.ToInt64(larray[i])) <= n)
+                    if ((Convert.ToInt64(larray[i])) < n)
                     {
-                        header[i] = n/larray[i];
-                        n = (n - header[i]*(larray[i]));
+                        header[i] = n / (larray[i]);
+                        n = (n - header[i] * (larray[i]));
+                    }
+                    else if ((Convert.ToInt64(larray[i])) == n)
+                    {
+                        header[i] = larray[i];
+                        n = 0;
                     }
                     else
                     {
-                        header[i] = 0;
-                    }
-                }
-
-                for(i = 0;i<=4;i++)
-                {
-                    if (header[i] != 0)
-                    {
-                        J = i;
-                        i = 10;
+                        header[i] = -1;
                     }
                 }
 
                 mystring = "";
-                for (i = J; i<=4; i++)
+
+                for (i = 4; i>=0; i--)
                 {
-                    mystring = mystring + names[header[i]];
+                    if (header[i] != -1)
+                    {
+                        mystring = mystring + names[header[i]];    
+                    }
+                    
                 }
 
                 Console.WriteLine(header[0] + " ," + header[1] + " ," + header[2] + " ," + header[3] + " ," + header[4]);
