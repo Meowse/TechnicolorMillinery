@@ -1,0 +1,8 @@
+changed the math to substruct instead of add.  Then switch the symbols for "less than equal to" into "greater than equal to" 
+
+
+From
+	if ((a + b <= c) || (b + c <= a) || (c + a <= b))
+
+To
+        if ((a - b >= c) || (b - c >= a) || (c - a >= b))
