@@ -120,6 +120,13 @@ namespace WindowsFormsApplication1
             _calculator.ProvideInput('c');
             Displaybox.Text = _calculator.GetDisplay();
         }
+
+        private void equals_click(object sender, EventArgs e)
+        {
+            _calculator.ProvideInput('=');
+            Displaybox.Text = _calculator.GetDisplay();
+
+        }
     }
    
 }

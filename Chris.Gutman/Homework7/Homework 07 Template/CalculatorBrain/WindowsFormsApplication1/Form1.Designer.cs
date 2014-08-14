@@ -176,6 +176,7 @@
             this.equals.TabIndex = 0;
             this.equals.Text = "=";
             this.equals.UseVisualStyleBackColor = true;
+            this.equals.Click += new System.EventHandler(this.equals_click);
             // 
             // plus
             // 

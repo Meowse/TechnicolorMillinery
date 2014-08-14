@@ -15,8 +15,8 @@ namespace CalculatorBrainTests
         [Test]
         public void ShouldDisplayZeroByDefault()
         {
-            var calculator = new Calculator();
-            Assert.AreEqual("0", calculator.GetDisplay());
+            var _calculator = new Calculator();
+            Assert.AreEqual("0", _calculator.GetDisplay());
         }
 
         [Test]
