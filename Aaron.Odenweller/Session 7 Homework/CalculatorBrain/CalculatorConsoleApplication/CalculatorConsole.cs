@@ -14,12 +14,9 @@ namespace CalculatorConsoleApplication
       
         static void Main()
         {   
-            Calculator aCalculator = new Calculator();
-            aCalculator.setNumber("0");
-            aCalculator.SetDisplay("Type 'Exit' to exit.  Otherwise, enter a number or 'c' to clear");
+            Calculator aCalculator = new Calculator(0);
             Console.WriteLine(aCalculator.GetDisplay(aCalculator));
             Console.WriteLine();
-            Console.WriteLine("Current Value: " + aCalculator.getNumber());
             aCalculator.ClearDisplay();
  
             do

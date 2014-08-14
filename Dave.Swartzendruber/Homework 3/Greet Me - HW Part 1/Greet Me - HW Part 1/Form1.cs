@@ -19,16 +19,15 @@ namespace Greet_Me___HW_Part_1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string name;
-            Console.Write("Please enter your name:");
-            name = Console.ReadLine();
-            Console.WriteLine("Happy Birthday {0}!", name);
-            Console.ReadLine(); 
+            
+            string textgreetname = greetName.Text;
+            MessageBox.Show("Hello " + textgreetname + " !!");
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+      
         }
     }
 }

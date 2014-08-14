@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangleTyper2", "TriangleTyper2\TriangleTyper2.csproj", "{ABA9FDCA-098C-4C49-B5CE-D5974A4BC35E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangleTyper2Test", "TriangleTyper2Test\TriangleTyper2Test.csproj", "{C6AABCB4-19C6-4804-A4D9-F2505302D849}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangleTyperUtils", "TriangleTyperUtils\TriangleTyperUtils.csproj", "{A554E5CC-AAC5-49C5-AD52-FB353194D231}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C6AABCB4-19C6-4804-A4D9-F2505302D849}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6AABCB4-19C6-4804-A4D9-F2505302D849}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6AABCB4-19C6-4804-A4D9-F2505302D849}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A554E5CC-AAC5-49C5-AD52-FB353194D231}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A554E5CC-AAC5-49C5-AD52-FB353194D231}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A554E5CC-AAC5-49C5-AD52-FB353194D231}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A554E5CC-AAC5-49C5-AD52-FB353194D231}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

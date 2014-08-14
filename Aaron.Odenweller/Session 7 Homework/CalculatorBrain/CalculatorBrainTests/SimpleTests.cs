@@ -15,110 +15,110 @@ namespace CalculatorBrainTests
         [Test]
         public void ShouldDisplayZeroByDefault()
         {
-            var calculator = new Calculator();
-            Assert.AreEqual("0", calculator.GetDisplay());
+            var aCalculator = new Calculator(0);
+            Assert.AreEqual("0", aCalculator.GetDisplay(aCalculator));
         }
 
         [Test]
         public void ShouldDisplayZeroAfterClear()
         {
-            var calculator = new Calculator();
-            calculator.ProvideInput('1');
-            calculator.ProvideInput('+');
-            calculator.ProvideInput('c');
-            Assert.AreEqual("0", calculator.GetDisplay());
+            var aCalculator = new Calculator(0);
+            aCalculator.setNumber("1");
+            aCalculator.SetDisplay(aCalculator.getNumber().ToString());
+            aCalculator.setOperation("+");
+            aCalculator.PerformOperation("1");
+            aCalculator.setOperation("c");
+            aCalculator.PerformOperation("c");
+            Assert.AreEqual("0", aCalculator.GetDisplay(aCalculator));
         }
 
         [Test]
         public void ShouldDisplaySingleDigit()
         {
-            var calculator = new Calculator();
-            calculator.ProvideInput('1');
-            Assert.AreEqual("1", calculator.GetDisplay());
+            var aCalculator = new Calculator(0);
+            aCalculator.setNumber("1");
+            aCalculator.ClearDisplay();
+            aCalculator.SetDisplay(aCalculator.getNumber().ToString());
+            Assert.AreEqual("1", aCalculator.GetDisplay(aCalculator));
         }
 
-        [Test] public void ShouldAddSmallSingleDigits()
+        [Test]
+        public void ShouldAddSmallSingleDigits()
         {
-            var calculator = new Calculator();
-            calculator.ProvideInput('1');
-            Assert.AreEqual("1", calculator.GetDisplay());
-            calculator.ProvideInput('+');
-            Assert.AreEqual("1", calculator.GetDisplay());
-            calculator.ProvideInput('2');
-            Assert.AreEqual("2", calculator.GetDisplay());
-            calculator.ProvideInput('=');
-            Assert.AreEqual("3", calculator.GetDisplay());
+            var aCalculator = new Calculator(0);
+            aCalculator.setNumber("1");
+            Assert.AreEqual("1", aCalculator.getNumber().ToString());
+            aCalculator.setOperation("+");
+            aCalculator.PerformOperation("2");
+            Assert.AreEqual("3", aCalculator.getNumber().ToString());
+
         }
 
         [Test]
         public void ShouldAddLargeSingleDigitsIntoDoubleDigits()
         {
-            var calculator = new Calculator();
-            calculator.ProvideInput('9');
-            calculator.ProvideInput('+');
-            calculator.ProvideInput('8');
-            calculator.ProvideInput('=');
-            Assert.AreEqual("17", calculator.GetDisplay());
+            var aCalculator = new Calculator(0);
+            aCalculator.setNumber("9");
+            Assert.AreEqual("9", aCalculator.getNumber().ToString());
+            aCalculator.setOperation("+");
+            aCalculator.PerformOperation("8");
+            Assert.AreEqual("17", aCalculator.getNumber().ToString());
         }
 
         [Test]
         public void ShouldAcceptMultiDigitNumbers()
         {
-            var calculator = new Calculator();
-            calculator.ProvideInput('3');
-            Assert.AreEqual("3", calculator.GetDisplay());
-            calculator.ProvideInput('1');
-            Assert.AreEqual("31", calculator.GetDisplay());
+            var aCalculator = new Calculator(0);
+            aCalculator.ClearDisplay();
+            aCalculator.setNumber("901");
+            aCalculator.SetDisplay(aCalculator.getNumber().ToString());
+            Assert.AreEqual("901", aCalculator.GetDisplay(aCalculator).ToString());
         }
 
         [Test]
         public void CanSubtractSingleDigitNumbers()
         {
-            var calculator = new Calculator();
-            calculator.ProvideInput('7');
-            Assert.AreEqual("7", calculator.GetDisplay());
-            calculator.ProvideInput('-');
-            Assert.AreEqual("7", calculator.GetDisplay());
-            calculator.ProvideInput('2');
-            Assert.AreEqual("2", calculator.GetDisplay());
-            calculator.ProvideInput('=');
-            Assert.AreEqual("5", calculator.GetDisplay());
+            var aCalculator = new Calculator(0);
+            aCalculator.setNumber("9");
+            Assert.AreEqual("9", aCalculator.getNumber().ToString());
+            aCalculator.setOperation("-");
+            aCalculator.PerformOperation("3");
+            Assert.AreEqual("6", aCalculator.getNumber().ToString());
         }
 
         [Test]
         public void CanSubtractMultiDigitNumbers()
         {
-            var calculator = new Calculator();
-            calculator.ProvideInput('7');
-            Assert.AreEqual("7", calculator.GetDisplay());
-            calculator.ProvideInput('1');
-            Assert.AreEqual("71", calculator.GetDisplay());
-            calculator.ProvideInput('-');
-            Assert.AreEqual("71", calculator.GetDisplay());
-            calculator.ProvideInput('2');
-            Assert.AreEqual("2", calculator.GetDisplay());
-            calculator.ProvideInput('=');
-            Assert.AreEqual("69", calculator.GetDisplay());
+            var aCalculator = new Calculator(0);
+            aCalculator.setNumber("100");
+            Assert.AreEqual("100", aCalculator.getNumber().ToString());
+            aCalculator.setOperation("-");
+            aCalculator.PerformOperation("45");
+            Assert.AreEqual("55", aCalculator.getNumber().ToString());
         }
 
         [Test]
         public void ShouldNotChangeJustBecauseGetDisplayIsCalled()
         {
-            var calculator = new Calculator();
-            calculator.ProvideInput('1');
-            Assert.AreEqual("1", calculator.GetDisplay());
-            calculator.ProvideInput('+');
-            Assert.AreEqual("1", calculator.GetDisplay());
-            Assert.AreEqual("1", calculator.GetDisplay());
-            Assert.AreEqual("1", calculator.GetDisplay());
-            calculator.ProvideInput('2');
-            Assert.AreEqual("2", calculator.GetDisplay());
-            Assert.AreEqual("2", calculator.GetDisplay());
-            Assert.AreEqual("2", calculator.GetDisplay());
-            calculator.ProvideInput('=');
-            Assert.AreEqual("3", calculator.GetDisplay());
-            Assert.AreEqual("3", calculator.GetDisplay());
-            Assert.AreEqual("3", calculator.GetDisplay());                    
+            var aCalculator = new Calculator(0);
+            aCalculator.ClearDisplay();
+            aCalculator.setNumber("901");
+            aCalculator.SetDisplay(aCalculator.getNumber().ToString());
+            Assert.AreEqual("901", aCalculator.GetDisplay(aCalculator).ToString());
+            Assert.AreEqual("901", aCalculator.GetDisplay(aCalculator).ToString());
+            Assert.AreEqual("901", aCalculator.GetDisplay(aCalculator).ToString());
+            aCalculator.setNumber("5");
+            aCalculator.ClearDisplay();
+            aCalculator.SetDisplay(aCalculator.getNumber().ToString());
+            Assert.AreEqual("5", aCalculator.GetDisplay(aCalculator).ToString());
+            Assert.AreEqual("5", aCalculator.GetDisplay(aCalculator).ToString());
+            Assert.AreEqual("5", aCalculator.GetDisplay(aCalculator).ToString());
+            aCalculator.setNumber("10");
+            aCalculator.ClearDisplay();
+            aCalculator.SetDisplay(aCalculator.getNumber().ToString());
+            Assert.AreEqual("10", aCalculator.GetDisplay(aCalculator).ToString());
+            Assert.AreEqual("10", aCalculator.GetDisplay(aCalculator).ToString());
+            Assert.AreEqual("10", aCalculator.GetDisplay(aCalculator).ToString());
         }
     }
 }
