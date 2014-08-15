@@ -146,7 +146,10 @@ namespace CalculatorBrain
                     _totalValue = _totalValue + convertValueToDecimal(_currentValue);
                     _currentValue = _totalValue.ToString();
                     break;
+                
                 default:
+                    
+                    Console.WriteLine("Error - Character not recognize");
                     break;
 
 
@@ -157,6 +160,7 @@ namespace CalculatorBrain
 
         public string GetDisplay()
         {
+            
             decimal currentValueAsDecimal = decimal.Parse(_currentValue);
             return currentValueAsDecimal.ToString();
         }
@@ -167,5 +171,6 @@ namespace CalculatorBrain
             return convertedValue;
 
         }
+
     }
 }
