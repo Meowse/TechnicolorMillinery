@@ -12,7 +12,7 @@ namespace TriangleTyper2Test
     {
         // Each test must start with [Test]
 
-        // Create a new instance of TriangleTyper2 to run the test wth
+        // Create a new instance of TriangleTyper to run the test wth
         private readonly TriangleTyper _typer = new TriangleTyper();
 
 

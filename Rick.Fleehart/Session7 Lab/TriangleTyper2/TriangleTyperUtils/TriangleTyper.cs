@@ -13,7 +13,7 @@ namespace TriangleTyperUtils
             return inputs.Select(int.Parse).ToArray();
         }
 
-        public string GetType(Int32 sideA, Int32 sideB, Int32 sideC)
+        public static string GetType(Int32 sideA, Int32 sideB, Int32 sideC)
         {
 
             /* “equilateral” = all 3 sides are the same length
