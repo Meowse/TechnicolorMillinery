@@ -1,12 +1,15 @@
-﻿namespace CalculatorBrain
+﻿using System.ComponentModel;
+using System.Diagnostics;
+
+namespace CalculatorBrain
 {
     public class Calculator
     {
-        private string _currentValue = "";
-        // The current state of the calculator will have to be stored somehow
-        // in instance variables, here, declared directly inside the "Calculator"
-        // scope.
-
+        private string _currentValue = "0";
+        private string _storedValue = "";
+        public bool _hasDecimal = false;
+        private bool _AppendState = true;
+        private bool _AddState = false;
         /*
          * Valid inputs:
          * '0' -- input the digit 0
@@ -19,53 +22,90 @@
          * '=' -- perform the current calculation
          * 'c' -- clear
          */
-        public void ProvideInput(string input)
+
+        private void AppendInput(char characterinput)
+        {
+            _currentValue = _currentValue + characterinput.ToString();
+        }
+
+        private void OperatorInput(char operate)
+        {
+            
+        }
+        public void ProvideInput(char input)
         {
             switch (input)
             {
-                case "c":
-                    _currentValue = "0";
+                case 'c':
+                    _currentValue = _currentValue + "0";
                     break;
-                case ".":
-                    _currentValue = ".";
+                case '.':
+                    if (_hasDecimal == false)
+                    {
+                        _currentValue = _currentValue + ".";
+                        _hasDecimal = true;
+                    }
+                    else
+                    {
+                        _currentValue = "";
+                        
+                    }
                     break;
-                case "1":
-                    _currentValue = "1";
+                case '0':
+                    AppendInput(input);
                     break;
-                case "2":
-                    _currentValue = "2";
+                case '1':
+                    AppendInput(input);
                     break;
-                case "3":
-                    _currentValue = "3";
+                case '2':
+                    AppendInput(input);
                     break;
-                case "4":
-                    _currentValue = "4";
+                case '3':
+                    AppendInput(input);
                     break;
-                case "5":
-                    _currentValue = "5";
+                case '4':
+                    AppendInput(input);
                     break;
-                case "6":
-                    _currentValue = "6";
+                case '5':
+                    AppendInput(input);
                     break;
-                case "7":
-                    _currentValue = "7";
+                case '6':
+                    AppendInput(input);
                     break;
-                case "8":
-                    _currentValue = "8";
+                case '7':
+                    AppendInput(input);
                     break;
-                case "9":
-                    _currentValue = "9";
+                case '8':
+                    AppendInput(input);
                     break;
-
+                case '9':
+                    AppendInput(input);
+                    break;
+                case '+':
+                    _AppendState = false;
+                    _AddState = true;
+                    _currentValue = "+";
+                    break;
                 default:
                     break;
             }
+
+                GetDisplay();
+            
+            
         }
 
         public string GetDisplay()
         {
-            decimal currentValueAsNumber = decimal.Parse(_currentValue);
-            return currentValueAsNumber.ToString();
+            if (_currentValue != null)
+            {
+                decimal currentValueAsNumber = decimal.Parse(_currentValue);
+                return currentValueAsNumber.ToString();
+            }
+            else
+            {
+                return "";
+            }
         }
 
     }

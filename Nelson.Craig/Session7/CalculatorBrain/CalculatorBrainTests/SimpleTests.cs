@@ -12,106 +12,106 @@ namespace CalculatorBrainTests
     [TestFixture]
     public class SimpleTests
     {
-        public var Calculator = new Calculator();
+        public Calculator Calculator = new Calculator();
         [Test]
         public void ShouldDisplayZeroByDefault()
         {
-            Assert.AreEqual("0", Calculator.GetDisplay());
+            Assert.AreEqual("0", CalculatorBrain.Calculator.GetDisplay());
         }
 
         [Test]
         public void ShouldDisplayZeroAfterClear()
         {
-            Calculator.ProvideInput('1');
-            Calculator.ProvideInput('+');
-            Calculator.ProvideInput('c');
-            Assert.AreEqual("0", Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('1');
+            CalculatorBrain.Calculator.ProvideInput('+');
+            CalculatorBrain.Calculator.ProvideInput('c');
+            Assert.AreEqual("0", CalculatorBrain.Calculator.GetDisplay());
         }
 
         [Test]
         public void ShouldDisplaySingleDigit()
         {
-            Calculator.ProvideInput('1');
-            Assert.AreEqual("1", Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('1');
+            Assert.AreEqual("1", CalculatorBrain.Calculator.GetDisplay());
         }
 
         [Test] public void ShouldAddSmallSingleDigits()
         {
             
-            Calculator.ProvideInput('1');
-            Assert.AreEqual("1", Calculator.GetDisplay());
-            Calculator.ProvideInput('+');
-            Assert.AreEqual("1", Calculator.GetDisplay());
-            Calculator.ProvideInput('2');
-            Assert.AreEqual("2", Calculator.GetDisplay());
-            Calculator.ProvideInput('=');
-            Assert.AreEqual("3", Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('1');
+            Assert.AreEqual("1", CalculatorBrain.Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('+');
+            Assert.AreEqual("1", CalculatorBrain.Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('2');
+            Assert.AreEqual("2", CalculatorBrain.Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('=');
+            Assert.AreEqual("3", CalculatorBrain.Calculator.GetDisplay());
         }
 
         [Test]
         public void ShouldAddLargeSingleDigitsIntoDoubleDigits()
         {
-            Calculator.ProvideInput('9');
-            Calculator.ProvideInput('+');
-            Calculator.ProvideInput('8');
-            Calculator.ProvideInput('=');
-            Assert.AreEqual("17", Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('9');
+            CalculatorBrain.Calculator.ProvideInput('+');
+            CalculatorBrain.Calculator.ProvideInput('8');
+            CalculatorBrain.Calculator.ProvideInput('=');
+            Assert.AreEqual("17", CalculatorBrain.Calculator.GetDisplay());
         }
 
         [Test]
         public void ShouldAcceptMultiDigitNumbers()
         {
-            Calculator.ProvideInput('3');
-            Assert.AreEqual("3", Calculator.GetDisplay());
-            Calculator.ProvideInput('1');
-            Assert.AreEqual("31", Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('3');
+            Assert.AreEqual("3", CalculatorBrain.Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('1');
+            Assert.AreEqual("31", CalculatorBrain.Calculator.GetDisplay());
         }
 
         [Test]
         public void CanSubtractSingleDigitNumbers()
         {
-            Calculator.ProvideInput('7');
-            Assert.AreEqual("7", Calculator.GetDisplay());
-            Calculator.ProvideInput('-');
-            Assert.AreEqual("7", Calculator.GetDisplay());
-            Calculator.ProvideInput('2');
-            Assert.AreEqual("2", Calculator.GetDisplay());
-            Calculator.ProvideInput('=');
-            Assert.AreEqual("5", Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('7');
+            Assert.AreEqual("7", CalculatorBrain.Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('-');
+            Assert.AreEqual("7", CalculatorBrain.Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('2');
+            Assert.AreEqual("2", CalculatorBrain.Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('=');
+            Assert.AreEqual("5", CalculatorBrain.Calculator.GetDisplay());
         }
 
         [Test]
         public void CanSubtractMultiDigitNumbers()
         {
-            Calculator.ProvideInput('7');
-            Assert.AreEqual("7", Calculator.GetDisplay());
-            Calculator.ProvideInput('1');
-            Assert.AreEqual("71", Calculator.GetDisplay());
-            Calculator.ProvideInput('-');
-            Assert.AreEqual("71", Calculator.GetDisplay());
-            Calculator.ProvideInput('2');
-            Assert.AreEqual("2", Calculator.GetDisplay());
-            Calculator.ProvideInput('=');
-            Assert.AreEqual("69", Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('7');
+            Assert.AreEqual("7", CalculatorBrain.Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('1');
+            Assert.AreEqual("71", CalculatorBrain.Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('-');
+            Assert.AreEqual("71", CalculatorBrain.Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('2');
+            Assert.AreEqual("2", CalculatorBrain.Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('=');
+            Assert.AreEqual("69", CalculatorBrain.Calculator.GetDisplay());
         }
 
         [Test]
         public void ShouldNotChangeJustBecauseGetDisplayIsCalled()
         {
-            Calculator.ProvideInput('1');
-            Assert.AreEqual("1", Calculator.GetDisplay());
-            Calculator.ProvideInput('+');
-            Assert.AreEqual("1", Calculator.GetDisplay());
-            Assert.AreEqual("1", Calculator.GetDisplay());
-            Assert.AreEqual("1", Calculator.GetDisplay());
-            Calculator.ProvideInput('2');
-            Assert.AreEqual("2", Calculator.GetDisplay());
-            Assert.AreEqual("2", Calculator.GetDisplay());
-            Assert.AreEqual("2", Calculator.GetDisplay());
-            Calculator.ProvideInput('=');
-            Assert.AreEqual("3", Calculator.GetDisplay());
-            Assert.AreEqual("3", Calculator.GetDisplay());
-            Assert.AreEqual("3", Calculator.GetDisplay());                    
+            CalculatorBrain.Calculator.ProvideInput('1');
+            Assert.AreEqual("1", CalculatorBrain.Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('+');
+            Assert.AreEqual("1", CalculatorBrain.Calculator.GetDisplay());
+            Assert.AreEqual("1", CalculatorBrain.Calculator.GetDisplay());
+            Assert.AreEqual("1", CalculatorBrain.Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('2');
+            Assert.AreEqual("2", CalculatorBrain.Calculator.GetDisplay());
+            Assert.AreEqual("2", CalculatorBrain.Calculator.GetDisplay());
+            Assert.AreEqual("2", CalculatorBrain.Calculator.GetDisplay());
+            CalculatorBrain.Calculator.ProvideInput('=');
+            Assert.AreEqual("3", CalculatorBrain.Calculator.GetDisplay());
+            Assert.AreEqual("3", CalculatorBrain.Calculator.GetDisplay());
+            Assert.AreEqual("3", CalculatorBrain.Calculator.GetDisplay());                    
         }
     }
 }
