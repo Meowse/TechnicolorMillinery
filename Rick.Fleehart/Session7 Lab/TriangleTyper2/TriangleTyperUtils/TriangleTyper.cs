@@ -16,6 +16,7 @@ namespace TriangleTyperUtils
 
         public int[] ParseInput(string userInput)
         {
+            Console.WriteLine("Parsing input in TriangleTyper \"{0}\"", Id);
             string[] inputs = userInput.Split(new[] { " ", "," }, StringSplitOptions.RemoveEmptyEntries);
             return inputs.Select(int.Parse).ToArray();
         }
@@ -51,7 +52,7 @@ namespace TriangleTyperUtils
             if ((sideA == sideB) && (sideB == sideC))
             {
                 // “equilateral” = all 3 sides are the same length
-                return "equilateral";
+                return "Equilateral";
             }
 
 

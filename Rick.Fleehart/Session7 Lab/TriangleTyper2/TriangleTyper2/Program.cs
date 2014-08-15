@@ -23,14 +23,19 @@ namespace TriangleTyper2
             string input = "";
             //int[] theNumbers = ParseInput(input); // returns an array of the integers entered.
             
+            var triangleTyper = new TriangleTyper("some id");
 
             // take the input check what kind of triangle it is
-            while (input != "exit")
+            while (true)
             {
                 input = Console.ReadLine();
-                int[] theNumbers = TriangleTyper.StaticParseInput(input); // returns an array of the integers entered: theNumbers[x].
+                if (string.Equals(input, "exit"))
+                {
+                    break;
+                }
+                int[] theNumbers = triangleTyper.ParseInput(input); // returns an array of the integers entered: theNumbers[x].
 
-                string theResults = TriangleTyper.StaticGetType(theNumbers[0], theNumbers[1], theNumbers[2]);
+                string theResults = triangleTyper.GetType(theNumbers[0], theNumbers[1], theNumbers[2]);
                 //GetType() does all the work
 
                 Console.WriteLine("the sides were: " + theNumbers[0] + " - " + theNumbers[1] + " - " + theNumbers[2]);
