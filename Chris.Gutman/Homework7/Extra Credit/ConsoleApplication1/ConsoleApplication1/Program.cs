@@ -61,9 +61,9 @@ namespace ConsoleApplication1
                     { 
                         header[i] = (n-1) / (larray[i]);   // do the division. A little mind mapping here works.
                         n = (n - (header[i]) * (larray[i]));
-                        if (n == 0)
+                        if (n == 0)//no remainder left
                         {
-                            finished_f = true;
+                            finished_f = true; //no remainder left. signal loop through the rest...
                         }
                     }
                 }
@@ -71,7 +71,6 @@ namespace ConsoleApplication1
                 {
                     header[i] = larray[i];
                     n = 0;
-                    //finished_f = true;
                 }
                 else
                 {
@@ -85,7 +84,7 @@ namespace ConsoleApplication1
 
             for (i = 4; i >= 0; i--)
             {
-                if (header[i] != -1)
+                if (header[i] != -1)// do not prefix the string with uneeded leading "zeros" (i.e. A's)
                 {
                     mystring = mystring + names[header[i]];
                 }
