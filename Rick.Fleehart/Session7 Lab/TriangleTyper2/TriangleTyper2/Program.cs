@@ -28,9 +28,9 @@ namespace TriangleTyper2
             while (input != "exit")
             {
                 input = Console.ReadLine();
-                int[] theNumbers = TriangleTyper.ParseInput(input); // returns an array of the integers entered: theNumbers[x].
+                int[] theNumbers = TriangleTyper.StaticParseInput(input); // returns an array of the integers entered: theNumbers[x].
 
-                string theResults = TriangleTyper.GetType(theNumbers[0], theNumbers[1], theNumbers[2]);
+                string theResults = TriangleTyper.StaticGetType(theNumbers[0], theNumbers[1], theNumbers[2]);
                 //GetType() does all the work
 
                 Console.WriteLine("the sides were: " + theNumbers[0] + " - " + theNumbers[1] + " - " + theNumbers[2]);
