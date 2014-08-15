@@ -8,6 +8,9 @@ namespace CalculatorBrain
 {
     public class Calculator
     {
+        private string CurrValu = "0";
+
+        
         // The current state of the calculator will have to be stored somehow
         // in instance variables, here, declared directly inside the "Calculator"
         // scope.
@@ -26,11 +29,26 @@ namespace CalculatorBrain
          */
         public void ProvideInput(char input)
         {
+            if (input == 'c')
+            {
+                CurrValu = "0";
+            }
+            else if (input == '.' && CurrValu.Contains("."))
+            {
+                
+
+            }
+            else
+            {
+                {
+                    CurrValu = CurrValu + input;
+                }
+            }
         }
 
         public string GetDisplay()
         {
-            return "0";
+           // return "0";
         }
     }
 }
