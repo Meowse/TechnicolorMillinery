@@ -71,7 +71,7 @@ namespace CalculatorForms
 
         private void DecimalButton_Click(object sender, EventArgs e)
         {
-            if (_myCalculator._hasDecimal == false)
+            if (_myCalculator.HasDecimal == false)
             {
                 HandleInput('.');
             }
@@ -81,6 +81,16 @@ namespace CalculatorForms
         private void button1_Click(object sender, EventArgs e)
         {
             HandleInput('c');
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            HandleInput('+');
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            HandleInput('=');
         }
     }
 }

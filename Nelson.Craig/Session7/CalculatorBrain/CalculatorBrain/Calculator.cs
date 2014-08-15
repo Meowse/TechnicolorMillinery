@@ -1,5 +1,8 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
+using System.Runtime.InteropServices;
 
 namespace CalculatorBrain
 {
@@ -7,9 +10,10 @@ namespace CalculatorBrain
     {
         private string _currentValue = "0";
         private string _storedValue = "";
-        public bool _hasDecimal = false;
-        private bool _AppendState = true;
-        private bool _AddState = false;
+        private string _operator = "";
+        public bool HasDecimal = false;
+        private bool _appendState = true;
+        private bool _addState = false;
         /*
          * Valid inputs:
          * '0' -- input the digit 0
@@ -25,12 +29,27 @@ namespace CalculatorBrain
 
         private void AppendInput(char characterinput)
         {
-            _currentValue = _currentValue + characterinput.ToString();
+            _appendState = true;
+            _currentValue = _currentValue + characterinput;
+        }
+        private void ApplyOperator()
+        {
+            if (_operator == "+")
+            {
+                int result = 0;
+                result = Convert.ToInt32(_currentValue) + Convert.ToInt32(_storedValue);
+                _storedValue = _currentValue;
+                _currentValue = result.ToString();
+            }
+
         }
 
         private void OperatorInput(char operate)
         {
-            
+            _storedValue = _currentValue;
+            _currentValue = "";
+            _operator = "+";
+
         }
         public void ProvideInput(char input)
         {
@@ -38,13 +57,13 @@ namespace CalculatorBrain
             {
                 case 'c':
                     _currentValue = "0";
-                    _hasDecimal = false
+                    HasDecimal = false;
                     break;
                 case '.':
-                    if (_hasDecimal == false)
+                    if (HasDecimal == false)
                     {
                         _currentValue = _currentValue + ".";
-                        _hasDecimal = true;
+                        HasDecimal = true;
                     }
                     else
                     {
@@ -83,31 +102,39 @@ namespace CalculatorBrain
                     AppendInput(input);
                     break;
                 case '+':
-                    _AppendState = false;
-                    _AddState = true;
-                    _currentValue = "+";
+                    _appendState = false;
+                    _addState = true;
+                    OperatorInput('+');
                     break;
-                default:
+                case '=':
+                    ApplyOperator();
                     break;
             }
 
-                GetDisplay();
+            GetDisplay();
             
-            
+
+
         }
 
+    
         public string GetDisplay()
         {
             if (_currentValue != null)
             {
-                decimal currentValueAsNumber = decimal.Parse(_currentValue);
-                return currentValueAsNumber.ToString();
-            }
-            else
-            {
-                return "";
-            }
-        }
+                if (_appendState)
+                {
+                    decimal currentValueAsNumber = decimal.Parse(_currentValue);
+                    return currentValueAsNumber.ToString(CultureInfo.InvariantCulture);
+                }
+                else
+                {
 
+                    return _operator.ToString();
+                }
+                
+            }
+            return "";
+        }
     }
 }
