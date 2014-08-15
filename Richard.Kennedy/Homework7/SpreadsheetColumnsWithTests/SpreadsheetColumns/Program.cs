@@ -14,22 +14,11 @@ namespace SpreadsheetColumns
             string input = Console.ReadLine();
             while (input != "exit")
             {
-                int divisor = Convert.ToInt32(input);
-                int columnNumber = divisor;
-                string columnLetter = "";
-                int modulus = 0;
-
-                while (divisor > 0)
-                {
-                    modulus = (divisor - 1) % 26;
-                    columnLetter = (char)(65 + modulus) + columnLetter;
-                    divisor = (int)((divisor - modulus) / 26);
-                }
-                //return columnLetter;
-                Console.WriteLine("Column " + columnNumber + " is column letter " + columnLetter + "\n");
+                int columnNumber = Convert.ToInt32(input);
+                var columnHeading = CalculateColumnLetter.GetColumnHeading(columnNumber);
+                Console.WriteLine("Column " + columnNumber + " is column letter " + columnHeading + "\n");
                 input = Console.ReadLine();
             } 
         }
-
     }
 }
