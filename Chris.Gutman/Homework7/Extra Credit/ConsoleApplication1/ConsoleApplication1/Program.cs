@@ -53,11 +53,17 @@ namespace ConsoleApplication1
                 
                 if ((Convert.ToInt64(larray[i])) <= n)
                 {
+                    if (i == 0)
+                    {
+                        header[i] = n;
+                    }
+                    else { 
                     header[i] = (n-1) / (larray[i]);
                     n = (n - (header[i]) * (larray[i]));
                     if (n == 0)
                     {
                         finished_f = true;
+                    }
                     }
                 }
                 else if (finished_f == true) //((Convert.ToInt64(larray[i])) == n)
