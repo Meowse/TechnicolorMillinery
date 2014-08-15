@@ -37,7 +37,8 @@ namespace CalculatorBrain
             switch (input)
             {
                 case 'c':
-                    _currentValue = _currentValue + "0";
+                    _currentValue = "0";
+                    _hasDecimal = false
                     break;
                 case '.':
                     if (_hasDecimal == false)

@@ -16,7 +16,7 @@ namespace CalculatorForms
         private void HandleInput(char input)
         {
             _myCalculator.ProvideInput(input);
-            TextDisplay.Text = TextDisplay.Text + input.ToString();
+            TextDisplay.Text = _myCalculator.GetDisplay();
         }
 
         private void OneButton_Click(object sender, EventArgs e)
@@ -76,6 +76,11 @@ namespace CalculatorForms
                 HandleInput('.');
             }
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HandleInput('c');
         }
     }
 }
