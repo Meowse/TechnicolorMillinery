@@ -53,20 +53,21 @@ namespace ConsoleApplication1
                 
                 if ((Convert.ToInt64(larray[i])) <= n)
                 {
-                    if (i == 0)
+                    if (i == 0)    //dont need to do division for the 26^0 case. Just set the output = remainder.
                     {
                         header[i] = n;
                     }
-                    else { 
-                    header[i] = (n-1) / (larray[i]);
-                    n = (n - (header[i]) * (larray[i]));
-                    if (n == 0)
-                    {
-                        finished_f = true;
-                    }
+                    else 
+                    { 
+                        header[i] = (n-1) / (larray[i]);   // do the division. A little mind mapping here works.
+                        n = (n - (header[i]) * (larray[i]));
+                        if (n == 0)
+                        {
+                            finished_f = true;
+                        }
                     }
                 }
-                else if (finished_f == true) //((Convert.ToInt64(larray[i])) == n)
+                else if (finished_f == true) //here we performed a division, and there was no remainder left.
                 {
                     header[i] = larray[i];
                     n = 0;
@@ -74,11 +75,13 @@ namespace ConsoleApplication1
                 }
                 else
                 {
-                    header[i] = -1;
+                    header[i] = -1;//prefix the output with something recognizable that can be removed when we concat the output string.
                 }
             }
 
             mystring = "";
+
+            //Concat the string and return with it...
 
             for (i = 4; i >= 0; i--)
             {
