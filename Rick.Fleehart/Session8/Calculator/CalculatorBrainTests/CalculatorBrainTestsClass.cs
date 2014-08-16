@@ -41,11 +41,17 @@ namespace CalculatorBrainTests
             var calculator = new CalculatorBrainGuts.CalculatorBrain();
             calculator.ProvideInput('1');
             Assert.AreEqual("1", calculator.GetDisplay());
+
             calculator.ProvideInput('+');
-            Assert.AreEqual("1", calculator.GetDisplay());
+            Assert.AreEqual("+", calculator.GetDisplay());
+
             calculator.ProvideInput('2');
             Assert.AreEqual("2", calculator.GetDisplay());
+
             calculator.ProvideInput('=');
+            Assert.AreEqual("=", calculator.GetDisplay());
+
+            calculator.ProvideInput('3');
             Assert.AreEqual("3", calculator.GetDisplay());
         }
 
@@ -66,6 +72,7 @@ namespace CalculatorBrainTests
             var calculator = new CalculatorBrainGuts.CalculatorBrain();
             calculator.ProvideInput('3');
             Assert.AreEqual("3", calculator.GetDisplay());
+
             calculator.ProvideInput('1');
             Assert.AreEqual("31", calculator.GetDisplay());
         }
@@ -76,10 +83,13 @@ namespace CalculatorBrainTests
             var calculator = new CalculatorBrainGuts.CalculatorBrain();
             calculator.ProvideInput('7');
             Assert.AreEqual("7", calculator.GetDisplay());
+
             calculator.ProvideInput('-');
             Assert.AreEqual("7", calculator.GetDisplay());
+
             calculator.ProvideInput('2');
             Assert.AreEqual("2", calculator.GetDisplay());
+
             calculator.ProvideInput('=');
             Assert.AreEqual("5", calculator.GetDisplay());
         }
@@ -90,12 +100,16 @@ namespace CalculatorBrainTests
             var calculator = new CalculatorBrainGuts.CalculatorBrain();
             calculator.ProvideInput('7');
             Assert.AreEqual("7", calculator.GetDisplay());
+
             calculator.ProvideInput('1');
             Assert.AreEqual("71", calculator.GetDisplay());
+
             calculator.ProvideInput('-');
             Assert.AreEqual("71", calculator.GetDisplay());
+
             calculator.ProvideInput('2');
             Assert.AreEqual("2", calculator.GetDisplay());
+
             calculator.ProvideInput('=');
             Assert.AreEqual("69", calculator.GetDisplay());
         }
@@ -106,14 +120,17 @@ namespace CalculatorBrainTests
             var calculator = new CalculatorBrainGuts.CalculatorBrain();
             calculator.ProvideInput('1');
             Assert.AreEqual("1", calculator.GetDisplay());
+
             calculator.ProvideInput('+');
             Assert.AreEqual("1", calculator.GetDisplay());
             Assert.AreEqual("1", calculator.GetDisplay());
             Assert.AreEqual("1", calculator.GetDisplay());
+
             calculator.ProvideInput('2');
             Assert.AreEqual("2", calculator.GetDisplay());
             Assert.AreEqual("2", calculator.GetDisplay());
             Assert.AreEqual("2", calculator.GetDisplay());
+
             calculator.ProvideInput('=');
             Assert.AreEqual("3", calculator.GetDisplay());
             Assert.AreEqual("3", calculator.GetDisplay());

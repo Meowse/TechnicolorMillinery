@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Calculator;
 
 namespace CalculatorBrainGuts
 {
@@ -29,10 +30,10 @@ namespace CalculatorBrainGuts
             // accepts one char at a time 
         }
 
-        public string GetDisplay(char theInput)
+        public string GetDisplay()
         {
-            
-           
+
+            return CalculatorForm.DisplayResults.Text;
         } 
     }
 }

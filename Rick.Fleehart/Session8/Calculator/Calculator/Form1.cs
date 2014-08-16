@@ -16,9 +16,9 @@ namespace Calculator
             InitializeComponent();
         }
 
-        private string buttonZero_Click(object sender, EventArgs e)
+        public string buttonZero_Click(object sender, EventArgs e)
         {
-            return DisplayResults.text = "0";
+            return DisplayResults.Text = "0";
         }
 
         private void DisplayResults_TextChanged(object sender, EventArgs e)

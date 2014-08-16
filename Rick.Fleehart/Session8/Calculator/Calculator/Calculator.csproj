@@ -74,12 +74,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CalculatorBrainGuts\CalculatorBrainGuts.csproj">
-      <Project>{e31519f2-51db-40ba-9e51-04c61657fa6f}</Project>
-      <Name>CalculatorBrainGuts</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
