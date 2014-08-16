@@ -7,16 +7,10 @@ namespace TriangleTyperUtils
 {
     public class TriangleTyper
     {
-        public string Id { get; set; }
-
-        public TriangleTyper(string id)
-        {
-            Id = id;
-        }
-
+     
         public int[] ParseInput(string userInput)
         {
-            Console.WriteLine("Parsing input in TriangleTyper \"{0}\"", Id);
+            Console.WriteLine("Parsing input in TriangleTyper");
             string[] inputs = userInput.Split(new[] { " ", "," }, StringSplitOptions.RemoveEmptyEntries);
             return inputs.Select(int.Parse).ToArray();
         }
@@ -59,13 +53,13 @@ namespace TriangleTyperUtils
             if (((sideA == sideB) && (sideC != sideA)) || ((sideB == sideC) && (sideA != sideB)))
             {
                 //“isosceles” = 2 sides are the same length, and the third is different
-                return "isosceles";
+                return "Isosceles";
             }
 
             if ((sideA != sideB) && (sideB != sideC))
             {
                 //“scalene” = all 3 sides are different lengths.
-                return "scalene";
+                return "Scalene";
             }
 
             return "Unknown"; // default
@@ -108,20 +102,20 @@ namespace TriangleTyperUtils
             if ((sideA == sideB) && (sideB == sideC))
             {
                 // “equilateral” = all 3 sides are the same length
-                return "equilateral";
+                return "Equilateral";
             }
 
 
             if (((sideA == sideB) && (sideC != sideA)) || ((sideB == sideC) && (sideA != sideB)))
             {
                 //“isosceles” = 2 sides are the same length, and the third is different
-                return "isosceles";
+                return "Isosceles";
             }
 
             if ((sideA != sideB) && (sideB != sideC))
             {
                 //“scalene” = all 3 sides are different lengths.
-                return "scalene";
+                return "Scalene";
             }
 
             return "Unknown"; // default

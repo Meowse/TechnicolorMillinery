@@ -23,7 +23,7 @@ namespace TriangleTyper2
             string input = "";
             //int[] theNumbers = ParseInput(input); // returns an array of the integers entered.
             
-            var triangleTyper = new TriangleTyper("some id");
+            var triangleTyper = new TriangleTyper();
 
             // take the input check what kind of triangle it is
             while (true)
