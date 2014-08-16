@@ -68,5 +68,30 @@ namespace SimpleCalculator
         {
             GetInput('.');
         }
+        private void btnEql_clicked(object sender, EventArgs e)
+        {
+            GetInput('=');
+        }
+        private void btnPlus_clicked(object sender, EventArgs e)
+        {
+            GetInput('+');
+        }
+        private void btnMinus_clicked(object sender, EventArgs e)
+        {
+            GetInput('-');
+        }
+        private void btnMultiply_clicked(object sender, EventArgs e)
+        {
+            GetInput('*');
+        }
+        private void btnDivide_clicked(object sender, EventArgs e)
+        {
+            GetInput('/');
+        }
+
+        private void btnClicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

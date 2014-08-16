@@ -87,11 +87,12 @@ namespace CalculatorBrainTests
             Assert.AreEqual("3.17", calculator.GetDisplay());
         }
 
-        
-        
-        
+
+
+
         // addition tests
-        [Test] public void ShouldAddSmallSingleDigits()
+        [Test]
+        public void ShouldAddSmallSingleDigits()
         {
             var calculator = new Calculator();
             calculator.ProvideInput('1');
@@ -132,7 +133,7 @@ namespace CalculatorBrainTests
             calculator.ProvideInput('=');
             Assert.AreEqual("3", calculator.GetDisplay());
             Assert.AreEqual("3", calculator.GetDisplay());
-            Assert.AreEqual("3", calculator.GetDisplay());                    
+            Assert.AreEqual("3", calculator.GetDisplay());
         }
 
         // Subtraction Tests
