@@ -6,7 +6,7 @@ namespace TriangleTyper2
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             /*
              * TriangleTyper.GetType() is a function that returns the type of a triangle -- equilateral, isosceles, or scalene.
@@ -23,19 +23,14 @@ namespace TriangleTyper2
             string input = "";
             //int[] theNumbers = ParseInput(input); // returns an array of the integers entered.
             
-            var triangleTyper = new TriangleTyper();
 
             // take the input check what kind of triangle it is
-            while (true)
+            while (input != "exit")
             {
                 input = Console.ReadLine();
-                if (string.Equals(input, "exit"))
-                {
-                    break;
-                }
-                int[] theNumbers = triangleTyper.ParseInput(input); // returns an array of the integers entered: theNumbers[x].
+                int[] theNumbers = TriangleTyper.ParseInput(input); // returns an array of the integers entered: theNumbers[x].
 
-                string theResults = triangleTyper.GetType(theNumbers[0], theNumbers[1], theNumbers[2]);
+                string theResults = TriangleTyper.GetType(theNumbers[0], theNumbers[1], theNumbers[2]);
                 //GetType() does all the work
 
                 Console.WriteLine("the sides were: " + theNumbers[0] + " - " + theNumbers[1] + " - " + theNumbers[2]);

@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3439B402-D3AC-4F54-B890-EEF180378C4A}</ProjectGuid>
+    <ProjectGuid>{9549F2ED-75FB-4DC0-8439-42333A452FB2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CalculatorForms</RootNamespace>
-    <AssemblyName>CalculatorForms</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>Calculator</RootNamespace>
+    <AssemblyName>Calculator</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -75,12 +75,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CalculatorBrain\CalculatorBrain.csproj">
-      <Project>{4402aa1c-6c0d-43da-9d76-79b34c834c59}</Project>
-      <Name>CalculatorBrain</Name>
+    <ProjectReference Include="..\CalculatorBrainGuts\CalculatorBrainGuts.csproj">
+      <Project>{e31519f2-51db-40ba-9e51-04c61657fa6f}</Project>
+      <Name>CalculatorBrainGuts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

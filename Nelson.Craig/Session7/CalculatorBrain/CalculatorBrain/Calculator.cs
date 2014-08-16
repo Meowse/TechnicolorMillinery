@@ -1,12 +1,19 @@
-﻿namespace CalculatorBrain
+﻿using System;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Globalization;
+using System.Runtime.InteropServices;
+
+namespace CalculatorBrain
 {
     public class Calculator
     {
-        private string _currentValue = "";
-        // The current state of the calculator will have to be stored somehow
-        // in instance variables, here, declared directly inside the "Calculator"
-        // scope.
-
+        private string _currentValue = "0";
+        private string _storedValue = "";
+        private string _operator = "";
+        public bool HasDecimal = false;
+        private bool _appendState = true;
+        private bool _addState = false;
         /*
          * Valid inputs:
          * '0' -- input the digit 0
@@ -19,54 +26,115 @@
          * '=' -- perform the current calculation
          * 'c' -- clear
          */
-        public void ProvideInput(string input)
+
+        private void AppendInput(char characterinput)
+        {
+            _appendState = true;
+            _currentValue = _currentValue + characterinput;
+        }
+        private void ApplyOperator()
+        {
+            if (_operator == "+")
+            {
+                int result = 0;
+                result = Convert.ToInt32(_currentValue) + Convert.ToInt32(_storedValue);
+                _storedValue = _currentValue;
+                _currentValue = result.ToString();
+            }
+
+        }
+
+        private void OperatorInput(char operate)
+        {
+            _storedValue = _currentValue;
+            _currentValue = "";
+            _operator = "+";
+
+        }
+        public void ProvideInput(char input)
         {
             switch (input)
             {
-                case "c":
+                case 'c':
                     _currentValue = "0";
+                    HasDecimal = false;
                     break;
-                case ".":
-                    _currentValue = ".";
+                case '.':
+                    if (HasDecimal == false)
+                    {
+                        _currentValue = _currentValue + ".";
+                        HasDecimal = true;
+                    }
+                    else
+                    {
+                        _currentValue = "";
+                        
+                    }
                     break;
-                case "1":
-                    _currentValue = "1";
+                case '0':
+                    AppendInput(input);
                     break;
-                case "2":
-                    _currentValue = "2";
+                case '1':
+                    AppendInput(input);
                     break;
-                case "3":
-                    _currentValue = "3";
+                case '2':
+                    AppendInput(input);
                     break;
-                case "4":
-                    _currentValue = "4";
+                case '3':
+                    AppendInput(input);
                     break;
-                case "5":
-                    _currentValue = "5";
+                case '4':
+                    AppendInput(input);
                     break;
-                case "6":
-                    _currentValue = "6";
+                case '5':
+                    AppendInput(input);
                     break;
-                case "7":
-                    _currentValue = "7";
+                case '6':
+                    AppendInput(input);
                     break;
-                case "8":
-                    _currentValue = "8";
+                case '7':
+                    AppendInput(input);
                     break;
-                case "9":
-                    _currentValue = "9";
+                case '8':
+                    AppendInput(input);
                     break;
-
-                default:
+                case '9':
+                    AppendInput(input);
+                    break;
+                case '+':
+                    _appendState = false;
+                    _addState = true;
+                    OperatorInput('+');
+                    break;
+                case '=':
+                    ApplyOperator();
                     break;
             }
+
+            GetDisplay();
+            
+
+
         }
 
+    
         public string GetDisplay()
         {
-            decimal currentValueAsNumber = decimal.Parse(_currentValue);
-            return currentValueAsNumber.ToString();
-        }
+            if (_currentValue != null)
+            {
+                if (_appendState)
+                {
+                    decimal currentValueAsNumber = decimal.Parse(_currentValue);
+                    return currentValueAsNumber.ToString(CultureInfo.InvariantCulture);
+                }
+                else
+                {
 
+                    return _operator.ToString();
+                }
+                
+            }
+            return "";
+        }
     }
 }

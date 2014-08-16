@@ -12,16 +12,18 @@ namespace CalculatorBrainTests
     [TestFixture]
     public class SimpleTests
     {
-        public var Calculator = new Calculator();
+        
         [Test]
         public void ShouldDisplayZeroByDefault()
         {
+            var Calculator = new Calculator();
             Assert.AreEqual("0", Calculator.GetDisplay());
         }
 
         [Test]
         public void ShouldDisplayZeroAfterClear()
         {
+            var Calculator = new Calculator();
             Calculator.ProvideInput('1');
             Calculator.ProvideInput('+');
             Calculator.ProvideInput('c');
@@ -31,13 +33,14 @@ namespace CalculatorBrainTests
         [Test]
         public void ShouldDisplaySingleDigit()
         {
+            var Calculator = new Calculator();
             Calculator.ProvideInput('1');
             Assert.AreEqual("1", Calculator.GetDisplay());
         }
 
         [Test] public void ShouldAddSmallSingleDigits()
         {
-            
+            var Calculator = new Calculator();
             Calculator.ProvideInput('1');
             Assert.AreEqual("1", Calculator.GetDisplay());
             Calculator.ProvideInput('+');
@@ -51,6 +54,7 @@ namespace CalculatorBrainTests
         [Test]
         public void ShouldAddLargeSingleDigitsIntoDoubleDigits()
         {
+            var Calculator = new Calculator();
             Calculator.ProvideInput('9');
             Calculator.ProvideInput('+');
             Calculator.ProvideInput('8');
@@ -61,6 +65,7 @@ namespace CalculatorBrainTests
         [Test]
         public void ShouldAcceptMultiDigitNumbers()
         {
+            var Calculator = new Calculator();
             Calculator.ProvideInput('3');
             Assert.AreEqual("3", Calculator.GetDisplay());
             Calculator.ProvideInput('1');
@@ -70,6 +75,7 @@ namespace CalculatorBrainTests
         [Test]
         public void CanSubtractSingleDigitNumbers()
         {
+            var Calculator = new Calculator();
             Calculator.ProvideInput('7');
             Assert.AreEqual("7", Calculator.GetDisplay());
             Calculator.ProvideInput('-');
@@ -83,6 +89,7 @@ namespace CalculatorBrainTests
         [Test]
         public void CanSubtractMultiDigitNumbers()
         {
+            var Calculator = new Calculator();
             Calculator.ProvideInput('7');
             Assert.AreEqual("7", Calculator.GetDisplay());
             Calculator.ProvideInput('1');
@@ -98,6 +105,7 @@ namespace CalculatorBrainTests
         [Test]
         public void ShouldNotChangeJustBecauseGetDisplayIsCalled()
         {
+            var Calculator = new Calculator();
             Calculator.ProvideInput('1');
             Assert.AreEqual("1", Calculator.GetDisplay());
             Calculator.ProvideInput('+');
