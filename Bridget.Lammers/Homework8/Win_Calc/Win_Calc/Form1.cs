@@ -12,10 +12,9 @@ namespace Win_Calc
 {
     public partial class Form1 : Form
     {
-
-        double value = 0;
-        string operation = "0";
-        bool operation_pressed = false;
+        private double value = 0;
+        private string operation = "0";
+        private bool operation_pressed = false;
 
         public Form1()
         {
