@@ -7,6 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorBrainTests", "CalculatorBrainTests\CalculatorBrainTests.csproj", "{B49E4EA8-3BAF-4F12-BD91-34CB8509703E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorBrainGuts", "CalculatorBrainGuts\CalculatorBrainGuts.csproj", "{E31519F2-51DB-40BA-9E51-04C61657FA6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D653B3BE-C195-4B2F-9A4F-0BF42985213C}"
+	ProjectSection(SolutionItems) = preProject
+		CalculatorBrain ToDo.txt = CalculatorBrain ToDo.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +28,10 @@ Global
 		{B49E4EA8-3BAF-4F12-BD91-34CB8509703E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B49E4EA8-3BAF-4F12-BD91-34CB8509703E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B49E4EA8-3BAF-4F12-BD91-34CB8509703E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E31519F2-51DB-40BA-9E51-04C61657FA6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E31519F2-51DB-40BA-9E51-04C61657FA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E31519F2-51DB-40BA-9E51-04C61657FA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E31519F2-51DB-40BA-9E51-04C61657FA6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

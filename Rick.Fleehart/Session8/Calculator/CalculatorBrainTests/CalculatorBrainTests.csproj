@@ -47,6 +47,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CalculatorBrainGuts\CalculatorBrainGuts.csproj">
+      <Project>{e31519f2-51db-40ba-9e51-04c61657fa6f}</Project>
+      <Name>CalculatorBrainGuts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Calculator\Calculator.csproj">
       <Project>{9549f2ed-75fb-4dc0-8439-42333a452fb2}</Project>
       <Name>Calculator</Name>

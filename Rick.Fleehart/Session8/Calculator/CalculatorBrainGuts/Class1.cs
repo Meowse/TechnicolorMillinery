@@ -26,11 +26,13 @@ namespace CalculatorBrainGuts
 
         public void ProvideInput(char input)
         {
+            // accepts one char at a time 
         }
 
-        public string GetDisplay()
+        public string GetDisplay(char theInput)
         {
-            return "0";
-        }
+            
+           
+        } 
     }
 }
