@@ -69,6 +69,7 @@ namespace CalculatorBrainTests
             Assert.AreEqual("3", _calculator.GetDisplay());
             _calculator.ProvideInput('1');
             Assert.AreEqual("31", _calculator.GetDisplay());
+            _calculator.ProvideInput('c');
         }
 
         [Test]
