@@ -8,9 +8,26 @@ namespace CalculatorBrain
         private decimal num1, num2, calcValu;
         private char operation;
 
+        // State variables for the internal calculator state
+        private bool hasOperation;
+        private bool isEnteringSecondNumber;
+
         // The current state of the calculator will have to be stored somehow
         // in instance variables, here, declared directly inside the "Calculator"
         // scope.
+
+        // States of the calculator:
+        // 1) The user hasn't entered anything: display "0"
+        // 2) The user is entering the first number: 
+        //      (hasOperation = false, isEnteringSecondNumber = false)
+        //      display that (first) number
+        // 3) The user has entered an operator:
+        //      (hasOperation = true, isEnteringSecondNumber = false)
+        //      display that (first) number
+        // 4) The user is entering the second number:
+        //      (hasOperation = true, isEnteringSecondNumber = true)
+        //      display that (second) number
+
 
         /*
          * Valid inputs:
@@ -30,14 +47,11 @@ namespace CalculatorBrain
             {
                 CurrValu = "0";
             }
-            else if (input == '.' && CurrValu.Contains("."))
-            {
-                // do nothing already has the decimal point
-            }
             else if (input == '+' || input == '-' || input == '*' || input == '/' )
             {
                 num1 = decimal.Parse(CurrValu);
                 operation = input;
+                hasOperation = true;
 //                CurrValu = "0";
             }
             else if (input == '=')
@@ -65,22 +79,38 @@ namespace CalculatorBrain
                         break;
                 }
             }
-            else
+            else // Entering a number
             {
-                if (CurrValu == "0")
+                // When we go from "not yet entering a second number" to
+                // "entering a second number", we need to clear out CurrValu
+                // and start adding the digits to it from scratch.
+                if (hasOperation && !isEnteringSecondNumber)
                 {
-                    if (input == '.')
-                    {
-                        CurrValu = CurrValu + input;
-                    }
-                    else
-                    {
-                        CurrValu = input.ToString();
-                    }
+                    isEnteringSecondNumber = true;
+                    CurrValu = "0";
+                }
+
+                if (input == '.' && CurrValu.Contains("."))
+                {
+                    // do nothing already has the decimal point
                 }
                 else
                 {
-                    CurrValu = CurrValu + input;
+                    if (CurrValu == "0")
+                    {
+                        if (input == '.')
+                        {
+                            CurrValu = CurrValu + input;
+                        }
+                        else
+                        {
+                            CurrValu = input.ToString();
+                        }
+                    }
+                    else
+                    {
+                        CurrValu = CurrValu + input;
+                    }
                 }
             }
         }
