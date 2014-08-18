@@ -23,6 +23,7 @@ namespace WindowsFormsApplication1
         public Form1()
         {
             InitializeComponent();
+            Displaybox.Text = "0";
         }
 
         private void Button1_click(object sender, EventArgs e)

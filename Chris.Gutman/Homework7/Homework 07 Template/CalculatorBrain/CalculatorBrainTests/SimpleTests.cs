@@ -121,5 +121,21 @@ namespace CalculatorBrainTests
             Assert.AreEqual("3", _calculator.GetDisplay());
             Assert.AreEqual("3", _calculator.GetDisplay());                    
         }
+
+        [Test]
+        public void ShouldAddThreeNumbers()
+        {
+            var _calculator = new Calculator();
+            _calculator.ProvideInput('c');
+            _calculator.ProvideInput('6');
+            _calculator.ProvideInput('+');
+            _calculator.ProvideInput('6');
+            _calculator.ProvideInput('+');
+            Assert.AreEqual("12",_calculator.GetDisplay());
+            _calculator.ProvideInput('1');
+            _calculator.ProvideInput('0');
+            _calculator.ProvideInput('=');
+            Assert.AreEqual("22", _calculator.GetDisplay());
+        }
     }
 }

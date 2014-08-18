@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
@@ -10,11 +12,15 @@ namespace CalculatorBrain
 {
     public class Calculator
     {
-        private RegexOptions reoptions = new RegexOptions();
-        public static string displayvalue = "0";
-        public static decimal savednumber = 0;
-        private static string internal_state = "waiting";
-        private static string input_state = "reset";
+        public enum CalculatorState { Waiting, Adding, Subtracting, Multiplying, Dividing}
+
+
+        public enum InputState {EnteringFirstNo, UsingSavedNo, EnteringSecondNo}
+        public static string Displayvalue = "0";
+        public static decimal Savednumber = 0;
+        public static InputState Inputstate = InputState.EnteringFirstNo;
+        public static CalculatorState Calcstate = CalculatorState.Waiting;
+        public static bool Lastopcomplete = true;
 
         // The current state of the calculator will have to be stored somehow
         // in instance variables, here, declared directly inside the "Calculator"
@@ -35,139 +41,240 @@ namespace CalculatorBrain
         public void ProvideInput(char input)
         {
 
-// Use a regular expression to recognize when a '.' has already been placed inside the string
 
-            string mystring = @"(.+)?(\.)(.+)?";
-            reoptions = RegexOptions.Singleline | RegexOptions.IgnoreCase;
-            Regex re = new Regex(mystring);
-            Match rematch = re.Match(displayvalue);
+ //Replace regular expression with .net string method '.Contains'
 
-// 
-
-            if ((rematch.Success) & (input == '.'))
+            if ((Displayvalue.Contains(".")) & (input == '.'))
             {
-
-            }
-            else if ((input == '+'))
-            {
-                ProcessOperation();
-                internal_state = "add";
-                savednumber = Convert.ToDecimal(displayvalue);
-                input_state = "reset";
-
-//                displayvalue = displayvalue + input;
-            }
-            else if (input == '-')
-            {
-                ProcessOperation();
-                internal_state = "subtract";
-                savednumber = Convert.ToDecimal(displayvalue);
-                input_state = "reset";
-
-//                displayvalue = displayvalue + input;
-
-            }
-            else if (input == '*')
-            {
-                ProcessOperation();
-                internal_state = "multiply";
-                savednumber = Convert.ToDecimal(displayvalue);
-                input_state = "reset";
-
-//                displayvalue = displayvalue + input;
-
-            }
-            else if (input == '/')
-            {
-                ProcessOperation();
-                internal_state = "divide";
-                savednumber = Convert.ToDecimal(displayvalue);
-                input_state = "reset";
-
-//                displayvalue = displayvalue + input;
-
-            }
-            else if (input == 'c')
-            {
-                displayvalue = "0";
-                internal_state = "waiting";
-                input_state = "reset";
-            }
-            else if (input == '=')
-            {
-                ProcessOperation();
-                internal_state = "waiting";
-                displayvalue = savednumber.ToString();
-                input_state = "reset";
-            }
-            else if((input_state == "waiting"))
-            {
-                displayvalue = displayvalue + input.ToString();
-            }
-            else if(input_state == "reset")
-            {
-                displayvalue = input.ToString();
-                input_state = "waiting";
-            }
-            else if (internal_state == "add")
-            {
-                ProcessOperation();
-                internal_state = "waiting";
-                displayvalue = savednumber.ToString();
-                input_state = "reset";
-            }
-            else if (internal_state == "subtract")
-            {
-                ProcessOperation();
-                internal_state = "waiting";
-                displayvalue = savednumber.ToString();
-                input_state = "reset";
-            }
-            else if (internal_state == "multiply")
-            {
-                ProcessOperation();
-                internal_state = "waiting";
-                displayvalue = savednumber.ToString();
-                input_state = "reset";
-            }
-            else if ((internal_state == "divide") && (Convert.ToDecimal(input.ToString()) != 0))
-            {
-                ProcessOperation();
-                internal_state = "waiting";
-                displayvalue = savednumber.ToString();
-                input_state = "reset";
-            }
-            else 
-            {
-//                displayvalue = savednumber.ToString();
+                return;
             }
 
+//State Machine. (Switch over and try to use an enum for this).
+
+            ProcessStateMachine(input);
+        }
+        private void ProcessStateMachine(char input)
+        {   
+            const string integermatchstring = @"\d|\.";
+            const string operationmatchstring = @"[\+\-=\*/]";
+            var reoptions = RegexOptions.Singleline | RegexOptions.IgnoreCase;
+
+// if the input is 'c' reset everything and return
+
+            if (input == 'c')
+            {
+                Inputstate = InputState.EnteringFirstNo;
+                Calcstate = CalculatorState.Waiting;
+                Displayvalue = "0";
+                Lastopcomplete = true;
+                Savednumber = 0;
+                return;
+            }
+
+// Regular expression looks to match the input to any single character integer or '.'
+
+            var re = new Regex(integermatchstring);
+            var rematch = re.Match(input.ToString());
+            var inputIsSingleCharInteger = rematch.Success;
+
+// Regular expression looks to match the input to any single character operator
+
+            var ret =  new Regex(operationmatchstring);
+            var retmatch = ret.Match(input.ToString());
+            var inputIsSingleCharOperator = retmatch.Success;
+
+//
+            switch (Inputstate)
+            {
+                    case InputState.EnteringFirstNo:
+
+                    if (inputIsSingleCharInteger)
+                    {
+                        Displayvalue = (Displayvalue=="0")?  input.ToString(): (Displayvalue + input.ToString());
+                        return;
+                    }
+                    else if (inputIsSingleCharOperator)
+                    {
+                        if (Displayvalue != "")
+                        {
+                            Savednumber = Convert.ToDecimal(Displayvalue);
+                        }
+                        else
+                        {
+                            Savednumber = 0;
+                        }
+                        Lastopcomplete = true;
+                        switch (input)
+                        {
+                        case '+':
+                            Calcstate = CalculatorState.Adding;
+                            Inputstate = InputState.EnteringSecondNo;
+
+                            break;
+                        case '-':
+                            Calcstate = CalculatorState.Subtracting;
+                            Inputstate = InputState.EnteringSecondNo;
+
+                            break;
+                        case '*':
+                            Calcstate = CalculatorState.Multiplying;
+                            Inputstate = InputState.EnteringSecondNo;
+                           
+                            break;
+                        case '/':
+                            Calcstate = CalculatorState.Dividing;
+                            Inputstate = InputState.EnteringSecondNo;                            
+                            
+                            break;
+                        case '=':
+                                Lastopcomplete = false;
+                            break;
+                        }
+                    }
+                    break;
+
+                    case (InputState.EnteringSecondNo):
+                    if (inputIsSingleCharInteger)
+                    {
+                        if (Lastopcomplete)
+                        {
+                            Displayvalue = input.ToString();
+                            Lastopcomplete = false;
+                        }
+                        else
+                        {
+                            Displayvalue = Displayvalue + input;
+                        }
+                        return;
+                    }
+                    else if (inputIsSingleCharOperator)
+                    {
+                        Inputstate = InputState.UsingSavedNo;
+                        Lastopcomplete = true;
+                        switch (input)
+                        {
+
+                        case '+':
+                            ProcessOperation();
+                            Calcstate = CalculatorState.Adding;
+                            Displayvalue = Savednumber.ToString();
+                            break;
+                        case '-':
+                            ProcessOperation();
+                            Calcstate = CalculatorState.Subtracting;
+                            Displayvalue = Savednumber.ToString();
+                            break;
+                        case '*':
+                            ProcessOperation();
+                            Calcstate = CalculatorState.Multiplying;
+                            Displayvalue = Savednumber.ToString();
+                            break;
+                        case '/':
+                            ProcessOperation();
+                            Calcstate = CalculatorState.Dividing;
+                            Displayvalue = Savednumber.ToString();
+                            break;
+                        case '=':
+                            ProcessOperation();
+                            Calcstate = CalculatorState.Waiting;
+                            Displayvalue = Savednumber.ToString();
+                            Inputstate = InputState.EnteringFirstNo;
+                            break;
+                        }
+                    }
+                    break;
+                    
+                    case  InputState.UsingSavedNo:
+                    if (inputIsSingleCharInteger)
+                    {
+                        if (Lastopcomplete)
+                        {
+                            Displayvalue = input.ToString();
+                            Lastopcomplete = false;
+                        }
+                        else
+                        {
+                            Displayvalue = Displayvalue + input;
+                        }
+                        return;
+                    }
+                    else if (inputIsSingleCharOperator)
+                    {
+                        Inputstate = InputState.UsingSavedNo;
+                        Lastopcomplete = true;
+                        switch (input)
+                        {
+                        case '+':
+                            ProcessOperation();
+                            Calcstate = CalculatorState.Adding;
+                            Displayvalue = Savednumber.ToString();
+                            break;
+                        case '-':
+                            ProcessOperation();
+                            Calcstate = CalculatorState.Subtracting;
+                            Displayvalue = Savednumber.ToString();
+                            break;
+                        case '*':
+                            ProcessOperation();
+                            Calcstate = CalculatorState.Multiplying;
+                            Displayvalue = Savednumber.ToString();
+                            break;
+                        case '/':
+                            ProcessOperation();
+                            Calcstate = CalculatorState.Dividing;
+                            Displayvalue = Savednumber.ToString();
+                            break;
+                        case '=':
+                            ProcessOperation();
+                            Calcstate = CalculatorState.Waiting;
+                            Inputstate = InputState.EnteringFirstNo;
+                            Displayvalue = Savednumber.ToString();
+                            break;
+                        }
+                    }
+                    break;
+             }
         }
 
         public string GetDisplay()
         {
-            return displayvalue;
+            return Displayvalue;
         }
 
         public void ProcessOperation()
         {
-            if (internal_state == "add")
+            switch (Calcstate)
             {
-                savednumber = savednumber + Convert.ToDecimal(displayvalue);
-            }
-            else if (internal_state == "subtract")
-            {
-                savednumber = savednumber - Convert.ToDecimal(displayvalue);
-            }
-            else if (internal_state == "multiply")
-            {
-                savednumber = savednumber * Convert.ToDecimal(displayvalue);
-            }
-            else if ((internal_state == "divide") && (displayvalue != "0"))
-            {
-                savednumber = savednumber / Convert.ToDecimal(displayvalue);
+                case CalculatorState.Adding:
+                    Savednumber = Savednumber + Convert.ToDecimal(Displayvalue);
+                    break;
+
+                case CalculatorState.Subtracting:
+                    Savednumber = Savednumber - Convert.ToDecimal(Displayvalue);
+                    break;
+
+                case CalculatorState.Multiplying:
+                    Savednumber = Savednumber * Convert.ToDecimal(Displayvalue);
+                    break;
+
+                    case CalculatorState.Dividing:
+                    if (Displayvalue != "0")
+                    {
+                        Savednumber = Savednumber/Convert.ToDecimal(Displayvalue);
+                    }
+                    else
+                    {
+                        Displayvalue = "Error";
+                        Savednumber = 0;
+                    }
+                    break;
+
+
             }
 
+
+               
+            
         }
     }
 }
