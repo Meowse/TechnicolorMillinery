@@ -18,9 +18,9 @@ namespace CalculatorBrainTests
         public void ShouldDisplayZeroAfterClear()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('1');
-            calculator.ProvideInput('+');
-            calculator.ProvideInput('c');
+            calculator.ProcessInput('1');
+            calculator.ProcessInput('+');
+            calculator.ProcessInput('c');
             Assert.AreEqual("0", calculator.GetDisplay());
         }
 
@@ -29,7 +29,7 @@ namespace CalculatorBrainTests
         public void ShouldDisplaySingleDigit()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('1');
+            calculator.ProcessInput('1');
             Assert.AreEqual("1", calculator.GetDisplay());
         }
 
@@ -37,9 +37,9 @@ namespace CalculatorBrainTests
         public void ShouldAcceptMultiDigitNumbers()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('3');
+            calculator.ProcessInput('3');
             Assert.AreEqual("3", calculator.GetDisplay());
-            calculator.ProvideInput('1');
+            calculator.ProcessInput('1');
             Assert.AreEqual("31", calculator.GetDisplay());
         }
 
@@ -47,13 +47,13 @@ namespace CalculatorBrainTests
         public void ShouldIgnoreLeadingZeroes()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('0');
+            calculator.ProcessInput('0');
             Assert.AreEqual("0", calculator.GetDisplay());
-            calculator.ProvideInput('0');
+            calculator.ProcessInput('0');
             Assert.AreEqual("0", calculator.GetDisplay());
-            calculator.ProvideInput('3');
+            calculator.ProcessInput('3');
             Assert.AreEqual("3", calculator.GetDisplay());
-            calculator.ProvideInput('0');
+            calculator.ProcessInput('0');
             Assert.AreEqual("30", calculator.GetDisplay());
         }
 
@@ -61,13 +61,13 @@ namespace CalculatorBrainTests
         public void ShouldAcceptDecimalNumbers()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('3');
+            calculator.ProcessInput('3');
             Assert.AreEqual("3", calculator.GetDisplay());
-            calculator.ProvideInput('1');
+            calculator.ProcessInput('1');
             Assert.AreEqual("31", calculator.GetDisplay());
-            calculator.ProvideInput('.');
+            calculator.ProcessInput('.');
             Assert.AreEqual("31.", calculator.GetDisplay());  
-            calculator.ProvideInput('7');
+            calculator.ProcessInput('7');
             Assert.AreEqual("31.7", calculator.GetDisplay());
         }
 
@@ -75,15 +75,15 @@ namespace CalculatorBrainTests
         public void ShouldIgnoreDecimalPointsAfterTheFirst()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('3');
+            calculator.ProcessInput('3');
             Assert.AreEqual("3", calculator.GetDisplay());
-            calculator.ProvideInput('.');
+            calculator.ProcessInput('.');
             Assert.AreEqual("3.", calculator.GetDisplay());   // need to put the decimal in now 
-            calculator.ProvideInput('1');
+            calculator.ProcessInput('1');
             Assert.AreEqual("3.1", calculator.GetDisplay());
-            calculator.ProvideInput('.');
+            calculator.ProcessInput('.');
             Assert.AreEqual("3.1", calculator.GetDisplay());
-            calculator.ProvideInput('7');
+            calculator.ProcessInput('7');
             Assert.AreEqual("3.17", calculator.GetDisplay());
         }
 
@@ -95,13 +95,13 @@ namespace CalculatorBrainTests
         public void ShouldAddSmallSingleDigits()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('1');
+            calculator.ProcessInput('1');
             Assert.AreEqual("1", calculator.GetDisplay());
-            calculator.ProvideInput('+');
+            calculator.ProcessInput('+');
             Assert.AreEqual("1", calculator.GetDisplay());
-            calculator.ProvideInput('2');
+            calculator.ProcessInput('2');
             Assert.AreEqual("2", calculator.GetDisplay());
-            calculator.ProvideInput('=');
+            calculator.ProcessInput('=');
             Assert.AreEqual("3", calculator.GetDisplay());
         }
 
@@ -109,10 +109,10 @@ namespace CalculatorBrainTests
         public void ShouldAddLargeSingleDigitsIntoDoubleDigits()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('9');
-            calculator.ProvideInput('+');
-            calculator.ProvideInput('8');
-            calculator.ProvideInput('=');
+            calculator.ProcessInput('9');
+            calculator.ProcessInput('+');
+            calculator.ProcessInput('8');
+            calculator.ProcessInput('=');
             Assert.AreEqual("17", calculator.GetDisplay());
         }
 
@@ -120,17 +120,17 @@ namespace CalculatorBrainTests
         public void ShouldNotChangeJustBecauseGetDisplayIsCalled()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('1');
+            calculator.ProcessInput('1');
             Assert.AreEqual("1", calculator.GetDisplay());
-            calculator.ProvideInput('+');
+            calculator.ProcessInput('+');
             Assert.AreEqual("1", calculator.GetDisplay());
             Assert.AreEqual("1", calculator.GetDisplay());
             Assert.AreEqual("1", calculator.GetDisplay());
-            calculator.ProvideInput('2');
+            calculator.ProcessInput('2');
             Assert.AreEqual("2", calculator.GetDisplay());
             Assert.AreEqual("2", calculator.GetDisplay());
             Assert.AreEqual("2", calculator.GetDisplay());
-            calculator.ProvideInput('=');
+            calculator.ProcessInput('=');
             Assert.AreEqual("3", calculator.GetDisplay());
             Assert.AreEqual("3", calculator.GetDisplay());
             Assert.AreEqual("3", calculator.GetDisplay());
@@ -141,13 +141,13 @@ namespace CalculatorBrainTests
         public void CanSubtractSingleDigitNumbers()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('7');
+            calculator.ProcessInput('7');
             Assert.AreEqual("7", calculator.GetDisplay());
-            calculator.ProvideInput('-');
+            calculator.ProcessInput('-');
             Assert.AreEqual("7", calculator.GetDisplay());
-            calculator.ProvideInput('2');
+            calculator.ProcessInput('2');
             Assert.AreEqual("2", calculator.GetDisplay());
-            calculator.ProvideInput('=');
+            calculator.ProcessInput('=');
             Assert.AreEqual("5", calculator.GetDisplay());
         }
 
@@ -155,17 +155,85 @@ namespace CalculatorBrainTests
         public void CanSubtractMultiDigitNumbers()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('7');
+            calculator.ProcessInput('7');
             Assert.AreEqual("7", calculator.GetDisplay());
-            calculator.ProvideInput('1');
+            calculator.ProcessInput('1');
             Assert.AreEqual("71", calculator.GetDisplay());
-            calculator.ProvideInput('-');
+            calculator.ProcessInput('-');
             Assert.AreEqual("71", calculator.GetDisplay());
-            calculator.ProvideInput('2');
+            calculator.ProcessInput('2');
             Assert.AreEqual("2", calculator.GetDisplay());
-            calculator.ProvideInput('=');
+            calculator.ProcessInput('=');
             Assert.AreEqual("69", calculator.GetDisplay());
         }
 
+        [Test]
+        public void ShouldClearEverything()
+        {
+            var calculator = new Calculator();
+            calculator.ProcessInput('1');
+            Assert.AreEqual("1", calculator.GetDisplay());
+            calculator.ProcessInput('+');
+            Assert.AreEqual("1", calculator.GetDisplay());
+            calculator.ProcessInput('2');
+            Assert.AreEqual("2", calculator.GetDisplay());
+            calculator.ProcessInput('=');
+            Assert.AreEqual("3", calculator.GetDisplay());
+            calculator.ProcessInput('c');
+            Assert.AreEqual("0", calculator.GetDisplay());
+            calculator.ProcessInput('1');
+            Assert.AreEqual("1", calculator.GetDisplay());
+            calculator.ProcessInput('+');
+            Assert.AreEqual("1", calculator.GetDisplay());
+            calculator.ProcessInput('2');
+            Assert.AreEqual("2", calculator.GetDisplay());
+            calculator.ProcessInput('=');
+            Assert.AreEqual("3", calculator.GetDisplay());
+        }
+
+        [Test]
+        public void ShouldDoMultipleSequentialCalculations()
+        {
+            var calculator = new Calculator();
+            calculator.ProcessInput('1');
+            Assert.AreEqual("1", calculator.GetDisplay());
+            calculator.ProcessInput('+');
+            Assert.AreEqual("1", calculator.GetDisplay());
+            calculator.ProcessInput('2');
+            Assert.AreEqual("2", calculator.GetDisplay());
+            calculator.ProcessInput('=');
+            Assert.AreEqual("3", calculator.GetDisplay());
+            calculator.ProcessInput('4');
+            Assert.AreEqual("4", calculator.GetDisplay());
+            calculator.ProcessInput('+');
+            Assert.AreEqual("4", calculator.GetDisplay());
+            calculator.ProcessInput('5');
+            Assert.AreEqual("5", calculator.GetDisplay());
+            calculator.ProcessInput('=');
+            Assert.AreEqual("9", calculator.GetDisplay());
+        }
+
+        [Test]
+        public void ShouldDoMultipleSequentialCalculationsBetter()
+        {
+            AssertCalculatorInteraction(new object[]
+            {
+                // First operation
+                '1', "1",
+                '+', "1",
+                '2', "2",
+                '=', "3",
+                // Second operation
+                '4', "4",
+                '+', "4",
+                '5', "5",
+                '=', "9",
+            });
+        }
+
+        private void AssertCalculatorInteraction(object[] testSpecification)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

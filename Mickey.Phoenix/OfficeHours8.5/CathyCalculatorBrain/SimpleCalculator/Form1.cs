@@ -15,7 +15,7 @@ namespace SimpleCalculator
 
         public void GetInput(char input)
         {
-            _calc.ProvideInput(input);
+            _calc.ProcessInput(input);
             txtBxDisplay.Text = _calc.GetDisplay();
         }
 
