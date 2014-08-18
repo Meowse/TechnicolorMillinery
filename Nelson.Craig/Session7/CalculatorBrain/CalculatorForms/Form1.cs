@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using CalculatorBrain;
 
@@ -11,6 +10,7 @@ namespace CalculatorForms
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void HandleInput(char input)
@@ -92,5 +92,30 @@ namespace CalculatorForms
         {
             HandleInput('=');
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            HandleInput('-');
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            HandleInput('*');
+        }
+
+        private void divideButton_Click(object sender, EventArgs e)
+        {
+            HandleInput('/');
+            
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show("You pressed the " + e.KeyCode.ToString() + "key");
+        }
+
+        
+
+       
     }
 }

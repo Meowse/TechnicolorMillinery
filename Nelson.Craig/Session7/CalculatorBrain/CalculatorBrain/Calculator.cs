@@ -1,8 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.Globalization;
-using System.Runtime.InteropServices;
 
 namespace CalculatorBrain
 {
@@ -13,7 +10,7 @@ namespace CalculatorBrain
         private string _operator = "";
         public bool HasDecimal = false;
         private bool _appendState = true;
-        private bool _addState = false;
+        //private bool _addState = false;
         /*
          * Valid inputs:
          * '0' -- input the digit 0
@@ -34,10 +31,28 @@ namespace CalculatorBrain
         }
         private void ApplyOperator()
         {
+            int result;
             if (_operator == "+")
             {
-                int result = 0;
                 result = Convert.ToInt32(_currentValue) + Convert.ToInt32(_storedValue);
+                _storedValue = _currentValue;
+                _currentValue = result.ToString();
+            }
+            if (_operator == "-")
+            {
+                result = Convert.ToInt32(_storedValue) - Convert.ToInt32(_currentValue); 
+                _storedValue = _currentValue;
+                _currentValue = result.ToString();
+            }
+            if (_operator == "*")
+            {
+                result = Convert.ToInt32(_storedValue) * Convert.ToInt32(_currentValue);
+                _storedValue = _currentValue;
+                _currentValue = result.ToString();
+            }
+            if (_operator == "/")
+            {
+                result = Convert.ToInt32(_storedValue) / Convert.ToInt32(_currentValue);
                 _storedValue = _currentValue;
                 _currentValue = result.ToString();
             }
@@ -48,7 +63,7 @@ namespace CalculatorBrain
         {
             _storedValue = _currentValue;
             _currentValue = "";
-            _operator = "+";
+            _operator = operate.ToString();
 
         }
         public void ProvideInput(char input)
@@ -103,8 +118,20 @@ namespace CalculatorBrain
                     break;
                 case '+':
                     _appendState = false;
-                    _addState = true;
+                    //_addState = true;
                     OperatorInput('+');
+                    break;
+                case '-':
+                    _appendState = false;
+                    OperatorInput('-');
+                    break;
+                case '*':
+                    _appendState = false;
+                    OperatorInput('*');
+                    break;
+                case '/':
+                    _appendState = false;
+                    OperatorInput('/');
                     break;
                 case '=':
                     ApplyOperator();
