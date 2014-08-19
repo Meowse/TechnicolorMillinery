@@ -23,6 +23,7 @@ namespace CalculatorBrainTests
         public void ShouldDisplayZeroAfterClear()
         {
             var _calculator = new Calculator();
+            _calculator.ProvideInput('c');
             _calculator.ProvideInput('1');
             _calculator.ProvideInput('+');
             _calculator.ProvideInput('c');
@@ -33,6 +34,7 @@ namespace CalculatorBrainTests
         public void ShouldDisplaySingleDigit()
         {
             var _calculator = new Calculator();
+            _calculator.ProvideInput('c');
             _calculator.ProvideInput('1');
             Assert.AreEqual("1", _calculator.GetDisplay());
         }
@@ -40,6 +42,7 @@ namespace CalculatorBrainTests
         [Test] public void ShouldAddSmallSingleDigits()
         {
             var _calculator = new Calculator();
+            _calculator.ProvideInput('c');
             _calculator.ProvideInput('1');
             Assert.AreEqual("1", _calculator.GetDisplay());
             _calculator.ProvideInput('+');
@@ -54,6 +57,7 @@ namespace CalculatorBrainTests
         public void ShouldAddLargeSingleDigitsIntoDoubleDigits()
         {
             var _calculator = new Calculator();
+            _calculator.ProvideInput('c');
             _calculator.ProvideInput('9');
             _calculator.ProvideInput('+');
             _calculator.ProvideInput('8');
@@ -65,6 +69,7 @@ namespace CalculatorBrainTests
         public void ShouldAcceptMultiDigitNumbers()
         {
             var _calculator = new Calculator();
+            _calculator.ProvideInput('c');
             _calculator.ProvideInput('3');
             Assert.AreEqual("3", _calculator.GetDisplay());
             _calculator.ProvideInput('1');
@@ -76,6 +81,7 @@ namespace CalculatorBrainTests
         public void CanSubtractSingleDigitNumbers()
         {
             var _calculator = new Calculator();
+            _calculator.ProvideInput('c');
             _calculator.ProvideInput('7');
             Assert.AreEqual("7", _calculator.GetDisplay());
             _calculator.ProvideInput('-');
