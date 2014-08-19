@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using CalculatorBrain;
 
@@ -7,6 +8,8 @@ namespace CalculatorForms
     public partial class Form1 : Form
     {
         readonly Calculator _myCalculator = new Calculator();
+        List<string> ofMathsList = new List<string>();
+
         public Form1()
         {
             InitializeComponent();
@@ -15,8 +18,32 @@ namespace CalculatorForms
 
         private void HandleInput(char input)
         {
+            
             _myCalculator.ProvideInput(input);
             TextDisplay.Text = _myCalculator.GetDisplay();
+            ofMathsList.Add(_myCalculator.GetDisplay());
+            HandleAggregate(input);
+        }
+
+        private void HandleAggregate(char input)
+        {
+            if (input == 'c')
+            {
+                ofMathsList.Clear();
+                labelFullCalc.Text = "";
+            }
+            else
+            if (input == '=')
+            {
+                ofMathsList.Clear();
+                labelFullCalc.Text = _myCalculator.GetDisplay();
+            }            
+            else
+            {
+                ofMathsList.Add(input.ToString());
+                labelFullCalc.Text = labelFullCalc.Text + ofMathsList[ofMathsList.Count - 1];               
+            }
+            
         }
 
         private void OneButton_Click(object sender, EventArgs e)
@@ -108,14 +135,6 @@ namespace CalculatorForms
             HandleInput('/');
             
         }
-
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            MessageBox.Show("You pressed the " + e.KeyCode.ToString() + "key");
-        }
-
-        
-
        
     }
 }

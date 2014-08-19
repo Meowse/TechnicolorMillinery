@@ -11,18 +11,6 @@ namespace CalculatorBrain
         public bool HasDecimal = false;
         private bool _appendState = true;
         //private bool _addState = false;
-        /*
-         * Valid inputs:
-         * '0' -- input the digit 0
-         * ...
-         * '9' -- input the digit 9
-         * '+' -- add
-         * '-' -- subtract
-         * '*' -- multiply
-         * '/' -- divide
-         * '=' -- perform the current calculation
-         * 'c' -- clear
-         */
 
         private void AppendInput(char characterinput)
         {
@@ -31,7 +19,7 @@ namespace CalculatorBrain
         }
         private void ApplyOperator()
         {
-            int result;
+            decimal result;
             if (_operator == "+")
             {
                 result = Convert.ToInt32(_currentValue) + Convert.ToInt32(_storedValue);
@@ -139,12 +127,9 @@ namespace CalculatorBrain
             }
 
             GetDisplay();
-            
-
 
         }
 
-    
         public string GetDisplay()
         {
             if (_currentValue != null)
@@ -156,10 +141,8 @@ namespace CalculatorBrain
                 }
                 else
                 {
-
                     return _operator.ToString();
-                }
-                
+                }               
             }
             return "";
         }
