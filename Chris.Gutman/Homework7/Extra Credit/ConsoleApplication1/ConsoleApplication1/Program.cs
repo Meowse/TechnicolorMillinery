@@ -15,13 +15,13 @@ namespace ConsoleApplication1
         private static void Main(string[] args)
         {
 
-            const string matchstring = @"^\d(\d+)?$"; // at least one digit, nothing more.
+            const string matchstring = @"^(\d){1,7}$"; // at least one digit, nothing more. Limit to 7.
             var reoptions = RegexOptions.Singleline | RegexOptions.IgnoreCase;
             var re = new Regex(matchstring);
             
             while (true)
             {
-                Console.WriteLine("Please enter an integer to convert to a spreadsheet column, or 'exit': \n");
+                Console.WriteLine("Please enter an integer (7 max) to convert to a spreadsheet column, or 'exit': \n");
                 var readLine = Console.ReadLine();
                 if (readLine != null)
                 {
