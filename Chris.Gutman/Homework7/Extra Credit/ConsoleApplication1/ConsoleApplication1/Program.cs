@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ConsoleApplication1
@@ -14,17 +15,35 @@ namespace ConsoleApplication1
         private static void Main(string[] args)
         {
 
-
+            const string matchstring = @"^\d(\d+)?$"; // at least one digit, nothing more.
+            var reoptions = RegexOptions.Singleline | RegexOptions.IgnoreCase;
+            var re = new Regex(matchstring);
+            
             while (true)
             {
-                Console.WriteLine("Please enter an integer to convert to a spreadsheet column: \n");
-                Int64 n = Convert.ToInt64(Console.ReadLine());
-
-                string outputstring = getcolumn(n);
-
-                Console.WriteLine(header[4] + " ," + header[3] + " ," + header[2] + " ," + header[1] + " ," + header[0]);
-                Console.WriteLine(outputstring);
-
+                Console.WriteLine("Please enter an integer to convert to a spreadsheet column, or 'exit': \n");
+                var readLine = Console.ReadLine();
+                if (readLine != null)
+                {
+                    var rematch = re.Match(readLine);
+                
+                    if (rematch.Success)
+                    { 
+                        Int64 n = Convert.ToInt64(readLine);
+                        string outputstring = getcolumn(n);
+//                        Console.WriteLine(header[4] + " ," + header[3] + " ," + header[2] + " ," + header[1] + " ," + header[0]);
+                        Console.WriteLine(outputstring);
+                    }
+                    else if (readLine == "exit")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("error, please try again (type any key to continue)");
+                        Console.ReadKey();  
+                    }
+                }
             }
         }
 
