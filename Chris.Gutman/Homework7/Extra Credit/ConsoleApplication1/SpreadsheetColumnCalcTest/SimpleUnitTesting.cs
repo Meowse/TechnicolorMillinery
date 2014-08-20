@@ -40,5 +40,26 @@ namespace SpreadsheetColumnCalcTest
             Assert.AreEqual("BA", ssCalculator.getcolumn(53));
         }
 
+        [Test]
+
+        public void handleprettymuchseverything()
+        {
+            Int64 n = 0;
+            Int64 n0 = 0;
+            Int64 m;
+            while (n0 < 10000000)
+            {             
+                n0 = n0 + 1;
+                n = n0;
+                string mystring = "";
+                while (n != 0)
+                {
+                    m = (n-1)%26;
+                    n = (n - m)/26;
+                    mystring = ((char)(m + 65)).ToString()+ mystring;
+                }
+                Assert.AreEqual(mystring, ssCalculator.getcolumn(n0));
+            }
+        }
     }
 }
