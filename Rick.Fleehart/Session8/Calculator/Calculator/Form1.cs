@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-// CS from the Form ---------------------------------
+// CS in the Form ---------------------------------
 
 namespace Calculator
 {
@@ -17,6 +17,15 @@ namespace Calculator
         {
             InitializeComponent();
         }
+        
+        private char firstInput;   //first number entered
+        private char secondInput;  //Second number entered
+
+        private char Operator;  // the + - * / c ce operators
+        private string currentState;  //saves state: nothing, first, second, operator
+
+        private string currentDisplay;  //what should be on the secreen, not sure if this is needed
+         
 
         public void DisplayToScreen(char theInput)
         {
@@ -26,6 +35,8 @@ namespace Calculator
 
         public void DoStuffToinput(char theInput)
         {
+
+           
             // save inputs and do calculations
             DisplayToScreen(theInput);
         }
