@@ -60,8 +60,20 @@ namespace SpreadsheetColumnCalcTest
 
         public void Handlesmaxinput()
         {
-            // the expected value is 19*511758 + 14*11241 + 15*702 + 26*26 + 9 ~ "SNOZI"
+            // the expected value is 19*511758 + 14*18954 + 15*702 + 26*26 + 9 = 9999999   ~ "SNOZI"
             Assert.AreEqual("SNOZI", ssCalculator.getcolumn(9999999));
+            Int64 n = 9999999;
+            Int64 m;
+            string mystring = "";
+            while (n != 0)
+            {
+                m = (n - 1) % 26;
+                n = (n - m) / 26;
+                mystring = ((char)(m + 65)).ToString() + mystring;
+            }
+            Assert.AreEqual(mystring, ssCalculator.getcolumn(9999999));
+
+
         }
     }
 }
