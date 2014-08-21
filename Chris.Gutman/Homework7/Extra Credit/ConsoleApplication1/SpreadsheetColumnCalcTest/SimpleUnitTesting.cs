@@ -23,12 +23,7 @@ namespace SpreadsheetColumnCalcTest
             Assert.AreEqual("J", ssCalculator.getcolumn(10));
         }
 
-        [Test]
 
-        public void Handlesmaxinput()
-        {
-            Assert.AreEqual("UVXWI",ssCalculator.getcolumn(9999999));    
-        }
 
         [Test]
 
@@ -42,7 +37,7 @@ namespace SpreadsheetColumnCalcTest
 
         [Test]
 
-        public void handleprettymuchseverything()
+        public void handlesalmosteverything()
         {
             Int64 n = 0;
             Int64 n0 = 0;
@@ -60,6 +55,13 @@ namespace SpreadsheetColumnCalcTest
                 }
                 Assert.AreEqual(mystring, ssCalculator.getcolumn(n0));
             }
+        }
+        [Test]
+
+        public void Handlesmaxinput()
+        {
+            // the expected value is 19*511758 + 14*11241 + 15*702 + 26*26 + 9 ~ "SNOZI"
+            Assert.AreEqual("SNOZI", ssCalculator.getcolumn(9999999));
         }
     }
 }
