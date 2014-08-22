@@ -49,29 +49,30 @@ namespace ConsoleApplication1
 
         public static string getcolumn(Int64 n)
         {
-            Int64[] larray = { 1, 26, 702, 18954, 511758 }; //26^4, 26^3, 26^2, 26^1, 26^0
+
+// Arrays needed
+
+            Int64[] larray = { 1, 26, 702, 18954, 511758 }; //1 Z ZZ ZZZ ZZZZ
             string temp = "";
-            string[] names = new string[27]  //could also use ascii. let's do it this way this time...
+            var names = new string[27]  //could also use ascii. Decided to do it this way...
             {
                 "", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
                 "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
             };
-            string[] grandfinale = new string[4]
+            var finale = new string[4]
             {
                 "A", "AA", "AAA", "AAAA"   
             };
-            
-            var i = 0;
-            bool finished_f = false;
-            bool firstpass = false;
 
-            // Basic principle of operation: use modulo arithmatic. 
-            //larray is used for the corresponding division (base 26).
-            //the remainder is factored again in the next pass of the loop.
-            //the quotient is used as an index into the names array to determine the column entries.
-            //use int64 to simplify cast typing and for consistancy with methods available for readline.
-            
+// Initializations            
+
+            var i = 0;
+            var finished_f = false;
+            var firstpass = false;
             string mystring = "";
+
+// This for  loop performs successive divsions by based on 26.
+
             for (i = 4; i >= 0; i--)
             {
                 
@@ -84,39 +85,48 @@ namespace ConsoleApplication1
                         mystring = mystring + names[header[i]];
                     }
                     else 
-                    { 
-                        header[i] = (n-1) / (larray[i]);   // do the division and round to nearest.
-                        n = (n - (header[i] * larray[i]));  // remainder
+                    {
+                        // normal case: do the division and round to nearest.
 
-                        if ((n == 0 )&&(i!=0))//no remainder left
+                        header[i] = (n-1) / (larray[i]);
+
+                        // remainder
+
+                        n = (n - (header[i] * larray[i])); 
+
+                        //if there is no remainder left, we're finished and just append the rest with whats in finale[]
+
+                        if ((n == 0) && (i != 0))
                         {
-                            finished_f = true; //no remainder left. we're done early. signal loop through the rest...
-                            temp = grandfinale[i-1];
+                            finished_f = true; 
+                            temp = finale[i-1];
                         }
-                        else if ((i != 0) && (Convert.ToInt64(larray[i - 1]) > n))
-                        {
 
-    // In this case, we have run across a need to borrow from position i. Unfortunately, we aren't
-    // borrowing from a prior  position, so if additional borrowing has to happen, 
-    // it won't.....  uhggg, what a project!! I would like to up my original estimate from 
-    // 1 point to 5 points!! This does, however, capture the max value case, 9999999, which is SN 'O' ZI.
+                        // otherwise, the normal situation is to append the string using names[]
 
-                            header[i] = header[i] - 1;
-                            header[i - 1] = 26;
-                            mystring = mystring + names[header[i]] + names[header[i - 1]];
-                            i = i - 1;
-                        }
                         else
                         {
                             mystring = mystring + names[header[i]];
                         }
                     }
-                    
+
                 }
+
+// the minimum a digit can take is A, or one. There is no zero. If the remainder is less than the divisor, the required digit is Z
+
+                else if ((Convert.ToInt64(larray[i]) > n)&& (i>=1)&&(firstpass == true)&&(n!=0))
+                {
+                    mystring = mystring + names[26];
+
+                }
+
+
+// Here, we prepend the output with something recognizable that can be removed when we concat the output string.
+
                 else if ((finished_f == false) && (firstpass == false))
                 {
                     header[i] = -1;
-                   //prefix the output with something recognizable that can be removed when we concat the output string.
+                   //
                 }
             }
 
