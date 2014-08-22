@@ -23,6 +23,24 @@ namespace CalculatorBrainGuts
          * '/' -- divide
          * '=' -- perform the current calculation
          * 'c' -- clear
+         * 
+         * Calculator app notes
+            char firstInput;
+            char secondInput;
+            char Operator;
+            string currentState;  saves state: nothing, first, second, operator
+            string currentDisplay;
+            DisplayIt(currentDisplay);
+            DisplayIt(string toDisplay) { 
+                ScreenDisplay.text = toDisplay;
+            }
+            Button push: 0-9   Numbers 
+            Button push: c   Clear
+            Button push: +   Addition
+            Button push: -   Subtract
+            Button push: /   Divide
+            Button push: *   Multiply
+            Button push: .  Decimal
          */
 
         public void ProvideInput(char input)
