@@ -88,6 +88,20 @@ namespace CalculatorBrainTests
         }
 
 
+        [Test]
+        public void ShouldIgnoreDecimalPointsAfterTheFirstBetter()
+        {
+            AssertCalculatorInteraction(new object[]
+            {
+                // First operation
+                '3', "3",
+                '.', "3.",
+                '1', "3.1",
+                '.', "3.1",
+                '7', "3.17"
+            });
+        }
+
 
 
         // addition tests
@@ -214,6 +228,32 @@ namespace CalculatorBrainTests
         }
 
         [Test]
+        public void NotGettingAwayWithAnything()
+        {
+            var calculator = new Calculator();
+            calculator.ProcessInput('1');
+            Assert.AreEqual("1", calculator.GetDisplay());
+            calculator.ProcessInput('+');
+            Assert.AreEqual("1", calculator.GetDisplay());
+            calculator.ProcessInput('7');
+            Assert.AreEqual("7", calculator.GetDisplay());
+            calculator.ProcessInput('=');
+            Assert.AreEqual("8", calculator.GetDisplay());
+        }
+
+        [Test]
+        public void GettingAwayWithSomething()
+        {
+            AssertCalculatorInteraction(new object[]
+            {
+                '1', "1",
+                '+', "1",
+                '7', "7",
+                '=', "8"
+            });
+        }
+
+        [Test]
         public void ShouldDoMultipleSequentialCalculationsBetter()
         {
             AssertCalculatorInteraction(new object[]
@@ -231,9 +271,78 @@ namespace CalculatorBrainTests
             });
         }
 
+        // Test helper methods are great:
+        //     They make your tests easier to write,
+        //     easier to maintain, and
+        //     easier to read (by hiding irrelevant details
+        //     and making the meaningful parts more visible)
+        //
+        // Test helper methods are awful:
+        //     They make it harder for someone new to the
+        //         project to understand the test's intent,
+        //     easier to have bugs creep into your tests,
+        //     and harder to go directly to the line that has
+        //        the problem.
+        /**
+         * testSpecification is an array containing alternating chars (inputs
+         * to the calculator) and strings (expected display values for the
+         * calculator after each input).
+         */
         private void AssertCalculatorInteraction(object[] testSpecification)
         {
-            throw new System.NotImplementedException();
+            // validate testSpecification and convert it into a list of TestExpectations.
+            //     each TestExpectation is a pair of a char and a string
+            //     
+            // loop through the list of TestExpectations.  For each one:
+            //     take its character and call calculator.ProcessInput(theCharacter)
+            //     take its string and assert that it matches the calculator's 
+            //         output
+
+            // string myStr = "Hello";
+            // myStr += " World";
+            // myStr will be "Hello World".
+
+            // foo = foo + something;
+            // foo += something;
+
+            // bar = bar - somethingElse;
+            // bar -= somethingElse;
+
+            // int size = (int)(object)"2";
+
+            // for (int i = 1; i <= 16; i *= 2)
+            // {
+            //     Console.WriteLine(i);
+            // }
+
+            // for (int i = 0; i < testSpecification.Length; i++)
+            // for (int i = 0; i < testSpecification.Length; i += 1)
+            // for (int i = 0; i < testSpecification.Length; i = i + 1)
+
+            if (testSpecification.Length%2 != 0)
+            {
+                Assert.Fail("INVALID TEST: odd-length test specification");
+            }
+
+            var calculator = new Calculator();
+
+            //for (int i = 0; i < (testSpecification.Length - 2); i += 2)
+            for (int i = 0; i < testSpecification.Length; i += 2)
+            {
+                var input = (char)testSpecification[i];
+                var expectedDisplay = (string)testSpecification[i + 1];
+                calculator.ProcessInput(input);
+
+                string errorMessage = string.Format(
+                    "Unexpected result after input \"{0}\" (zero-based input #{1})",
+                    input,
+                    (i / 2));
+
+                Assert.AreEqual(
+                    expectedDisplay,
+                    calculator.GetDisplay(),
+                    errorMessage);
+            }
         }
     }
 }
