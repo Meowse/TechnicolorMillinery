@@ -47,6 +47,8 @@
             this.buttonDiv = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonCE = new System.Windows.Forms.Button();
+            this.OperationDisplay = new System.Windows.Forms.Label();
+            this.RunningDisplay = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -165,6 +167,7 @@
             this.DisplayResults.Name = "DisplayResults";
             this.DisplayResults.Size = new System.Drawing.Size(199, 20);
             this.DisplayResults.TabIndex = 11;
+            this.DisplayResults.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.DisplayResults.TextChanged += new System.EventHandler(this.DisplayResults_TextChanged);
             // 
             // buttonEquals
@@ -237,11 +240,30 @@
             this.buttonCE.UseVisualStyleBackColor = true;
             this.buttonCE.Click += new System.EventHandler(this.buttonCE_Click);
             // 
+            // OperationDisplay
+            // 
+            this.OperationDisplay.AutoSize = true;
+            this.OperationDisplay.Location = new System.Drawing.Point(33, 37);
+            this.OperationDisplay.Name = "OperationDisplay";
+            this.OperationDisplay.Size = new System.Drawing.Size(13, 13);
+            this.OperationDisplay.TabIndex = 19;
+            this.OperationDisplay.Text = "  ";
+            // 
+            // RunningDisplay
+            // 
+            this.RunningDisplay.Location = new System.Drawing.Point(28, 8);
+            this.RunningDisplay.Name = "RunningDisplay";
+            this.RunningDisplay.Size = new System.Drawing.Size(199, 20);
+            this.RunningDisplay.TabIndex = 20;
+            this.RunningDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(255, 231);
+            this.Controls.Add(this.RunningDisplay);
+            this.Controls.Add(this.OperationDisplay);
             this.Controls.Add(this.buttonCE);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonDiv);
@@ -292,6 +314,8 @@
         private System.Windows.Forms.Button buttonDiv;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonCE;
+        private System.Windows.Forms.Label OperationDisplay;
+        private System.Windows.Forms.TextBox RunningDisplay;
     }
 }
 
