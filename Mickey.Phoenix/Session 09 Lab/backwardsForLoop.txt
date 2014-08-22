@@ -1,0 +1,4 @@
+// Write a for-loop that counts backwards from 100 by 7's
+for (i = 0; i < 100; i += 7) {
+	// fooled ya!
+}
