@@ -22,9 +22,8 @@ namespace Calculator
         private char secondInput;  //Second number entered
 
         private char Operator;  // the + - * / c ce operators
-        private string currentState;  //saves state: nothing, first, second, operator
+        private string _runningTotal;  //Running Total as the calculator goes.
 
-        private string currentDisplay;  //what should be on the screen, not sure if this is needed
         private string _theRunningDisplay;
          
         
