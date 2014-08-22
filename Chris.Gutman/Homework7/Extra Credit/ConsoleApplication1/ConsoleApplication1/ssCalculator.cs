@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using NUnit.Framework.Constraints;
 
 namespace ConsoleApplication1
 {
@@ -48,65 +49,89 @@ namespace ConsoleApplication1
 
         public static string getcolumn(Int64 n)
         {
-            Int64[] larray = { 1, 26, 676, 17576, 456976 }; //26^4, 26^3, 26^2, 26^1, 26^0
 
-            string[] names = new string[27]  //could also use ascii. let's do it this way this time...
+// Arrays needed
+
+            Int64[] larray = { 1, 26, 702, 18954, 511758 }; //1 Z ZZ ZZZ ZZZZ
+            string temp = "";
+            var names = new string[27]  //could also use ascii. Decided to do it this way...
             {
                 "", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
                 "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
             };
-            
-            var i = 0;
-            bool finished_f = false;
+            var finale = new string[4]
+            {
+                "A", "AA", "AAA", "AAAA"   
+            };
 
-            // Basic principle of operation: use modulo arithmatic. 
-            //larray is used for the corresponding division (base 26).
-            //the remainder is factored again in the next pass of the loop.
-            //the quotient is used as an index into the names array to determine the column entries.
-            //use int64 to simplify cast typing and for consistancy with methods available for readline.
+// Initializations            
+
+            var i = 0;
+            var finished_f = false;
+            var firstpass = false;
+            string mystring = "";
+
+// This for  loop performs successive divsions by based on 26.
 
             for (i = 4; i >= 0; i--)
             {
                 
-                if ((Convert.ToInt64(larray[i])) <= n)
+                if (((Convert.ToInt64(larray[i]) <= n)))
                 {
-                    if (i == 0)    //dont need to do division for the 26^0 case. Just set the output = remainder.
+                    firstpass = true;
+                    if ((i == 0)&& (finished_f == false))    //dont need to do division for the 26^0 case. Just set the output = remainder.
                     {
                         header[i] = n;
+                        mystring = mystring + names[header[i]];
                     }
                     else 
-                    { 
-                        header[i] = (n-1) / (larray[i]);   // do the division and round to nearest.
-                        n = (n - (header[i]) * (larray[i]));  // remainder
-                        if (n == 0)//no remainder left
+                    {
+                        // normal case: do the division and round to nearest.
+
+                        header[i] = (n-1) / (larray[i]);
+
+                        // remainder
+
+                        n = (n - (header[i] * larray[i])); 
+
+                        //if there is no remainder left, we're finished and just append the rest with whats in finale[]
+
+                        if ((n == 0) && (i != 0))
                         {
-                            finished_f = true; //no remainder left. we're done early. signal loop through the rest...
+                            finished_f = true; 
+                            temp = finale[i-1];
+                        }
+
+                        // otherwise, the normal situation is to append the string using names[]
+
+                        else
+                        {
+                            mystring = mystring + names[header[i]];
                         }
                     }
+
                 }
-                else if (finished_f == true) //There was no remainder left.
+
+// the minimum a digit can take is A, or one. There is no zero. If the remainder is less than the divisor, the required digit is Z
+
+                else if ((Convert.ToInt64(larray[i]) > n)&& (i>=1)&&(firstpass == true)&&(n!=0))
                 {
-                    header[i] = larray[i];
-                    n = 0;
+                    mystring = mystring + names[26];
+
                 }
-                else
+
+
+// Here, we prepend the output with something recognizable that can be removed when we concat the output string.
+
+                else if ((finished_f == false) && (firstpass == false))
                 {
-                    header[i] = -1;//prefix the output with something recognizable that can be removed when we concat the output string.
+                    header[i] = -1;
+                   //
                 }
             }
 
-            string mystring = "";
+            mystring = mystring + temp;
 
-            //Concat the string and return with it...
-
-            for (i = 4; i >= 0; i--)
-            {
-                if (header[i] != -1)// do not prefix the string with uneeded leading "zeros" (i.e. A's)
-                {
-                    mystring = mystring + names[header[i]];
-                }
-
-            }
             return mystring;
         }
     }
