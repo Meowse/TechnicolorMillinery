@@ -1,0 +1,3 @@
+I think it may be this!:
+
+for (int i = 100; i>=0; i-=7){};

@@ -1,0 +1,6 @@
+// test to determine if a person can make a basic for loop that counts backwards from 100 by 7s.
+
+for (int i=100; i>=0; i-=7)
+{
+Console.Writeline()
+}
