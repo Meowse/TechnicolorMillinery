@@ -24,21 +24,64 @@ namespace Calculator
         private char Operator;  // the + - * / c ce operators
         private string currentState;  //saves state: nothing, first, second, operator
 
-        private string currentDisplay;  //what should be on the secreen, not sure if this is needed
+        private string currentDisplay;  //what should be on the screen, not sure if this is needed
+        private string _theRunningDisplay;
          
-
+        
         public void DisplayToScreen(char theInput)
         {
             // put theInput into the field in the form
             DisplayResults.Text = theInput.ToString();
         }
 
+        public void DisplayToRunningDisplay(char theInput)
+        {
+            // add the new input to the current running chars, then display it all
+
+            //put a space before and after the operator only
+            if ((theInput.Equals('+')) || (theInput.Equals('-')) || (theInput.Equals('x')) || (theInput.Equals('/')) || (theInput.Equals('=')))
+            {
+                _theRunningDisplay = _theRunningDisplay + " " + theInput.ToString() + " ";
+            }
+            else
+            {
+                _theRunningDisplay = _theRunningDisplay + theInput.ToString();
+            }
+            
+
+            // put the (modified) Input into the top field that shows everything
+            RunningDisplay.Text = _theRunningDisplay;
+
+        }
+
+        public void ClearRunningDisplay()
+        {
+            // clears the field in the form and the running variable
+            RunningDisplay.Text = "";
+            _theRunningDisplay = ""; //clear the running display variable
+        }
+
+        public void ClearDisplayResults()
+        {
+            // clears the the bottom input field in
+            DisplayResults.Text = "";
+        }
+
         public void DoStuffToinput(char theInput)
         {
+            if (theInput.Equals('c'))
+            {
+                ClearDisplayResults();
+                ClearRunningDisplay();
 
+            }
+            else
+            {
+                DisplayToScreen(theInput);
+                DisplayToRunningDisplay(theInput);
+            }
            
-            // save inputs and do calculations
-            DisplayToScreen(theInput);
+      
         }
 
 
@@ -128,12 +171,12 @@ namespace Calculator
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            DoStuffToinput('0');
+            DoStuffToinput('c');
         }
 
         private void buttonCE_Click(object sender, EventArgs e)
         {
-            DoStuffToinput('0');
+            DoStuffToinput('e');
         }
 
 
