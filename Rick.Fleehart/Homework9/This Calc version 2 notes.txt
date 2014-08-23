@@ -1,0 +1,12 @@
+This version is version 1.
+
+It deals with single charector inputs from the buttons.
+It does the four operations +, -, *, /. 
+It does not do remainders of division at all, it will display the int portion.
+It does not do the CE to clear the last entry, the CE clears everything just like the C button does.
+
+
+Most of these will be added to version 2 in the Homework9 folder, or attempts made. 
+
+-Rick
+8/23/2014
