@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using CalculatorBrainGuts;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace CalculatorBrainTests
 {
@@ -13,7 +8,7 @@ namespace CalculatorBrainTests
         [Test]
         public void ShouldDisplayZeroByDefault()
         {
-            var calculator = new CalculatorBrainGuts.CalculatorBrain();
+            var calculator = new Calculator.CalculatorForm();
             Assert.AreEqual("0", calculator.GetDisplay());
         }
 
