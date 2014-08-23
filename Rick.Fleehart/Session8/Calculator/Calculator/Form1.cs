@@ -19,11 +19,11 @@ namespace Calculator
             InitializeComponent();
         }
         
-        private char _firstInput = '0';   //first number entered
-        private char _secondInput = '0';  //Second number entered
+        private Int32 _firstInput = 999;   //first number entered, 999 is default flag
+        private Int32 _secondInput = 999;  //Second number entered, 999 is default flag
 
         private char _operator = '0';  // the + - * / c ce operators
-        private string _runningTotal;  //Running Total as the calculator goes.
+        //private string _runningTotal;  //Running Total as the calculator goes.
 
         private string _theRunningDisplay;
          
@@ -71,15 +71,16 @@ namespace Calculator
 
         public void DealWithNumbers(char theInput)
         {
-            if (_firstInput.Equals('0'))
+            if (_firstInput.Equals(999))
             {
-                //if this is the first number entered, then fill the _firstInput variable
-                _firstInput = theInput; //first number entered
+                //if this is the first number entered x by defalt, then fill the _firstInput variable
+                _firstInput = Int32.Parse(theInput.ToString()); //convert from char to a number, first number entered
+         
             }
             else
             {
                 //if this is the second number entered, then fill the _secondInput variable
-                 _secondInput = theInput;  //Second number entered
+                _secondInput = Int32.Parse(theInput.ToString());  //convert from char to a number, Second number entered
             }
             
            
@@ -87,23 +88,56 @@ namespace Calculator
 
         public void DealWithEqualSign()
         {
-            decimal _calculatedValue = 9; //private by default to hold the calculation
+            decimal calculatedValue; //private by default to hold the calculation
+
+            switch (_operator)
+            {
+                    // assume the first and second variables are populated
+                case '+':
+                    // calc two ints into the decimal variable calculatedValue
+                    calculatedValue = _firstInput + _secondInput;
+                    break;
+
+                case '-':
+                    calculatedValue = _firstInput - _secondInput;
+                    break;
+
+                case 'x':
+                    calculatedValue = _firstInput * _secondInput;
+                    break;
+
+                case '/':
+                    // deal with divide by zero
+                    calculatedValue = _firstInput / _secondInput;
+                    break;
+
+                default:
+                    // just in case, will show like an error
+                    calculatedValue = 999;
+                    break;
+            }
 
 
             // show the calculated output in DisplayResults
-            DisplayResults.Text = _calculatedValue.ToString();
+            DisplayResults.Text = calculatedValue.ToString();
 
             // put the equals sign then [calculated results] in RunningDisplay
-            RunningDisplay.Text = "=";
+            _theRunningDisplay += '=';
 
             // put the [calculated results] in RunningDisplay -only works for single calculated values, so far
             // to deal with 2 or three digit results loop through the chars of the [calculated results]
-            RunningDisplay.Text = _calculatedValue.ToString();
+            _theRunningDisplay += calculatedValue.ToString();
 
-            //after calculating, clean-up: clear the first and second variables
-            _firstInput = '0'; //first number entered
-            _secondInput = '0';  //Second number entered
-            _operator = '0';
+            RunningDisplay.Text = _theRunningDisplay;
+
+            _theRunningDisplay = ""; //reset to default
+
+
+            //after calculating, clean-up: set the first, second and operator variables to 999, 0 or x as a flag
+            _firstInput  = 999; //first number entered, set to the nothing here flag of x
+            _secondInput = 0;   //Second number entered, set to the nothing here flag of x
+            _operator    = 'x'; // set to the nothing here flag of x
+             
 
         }
 
@@ -117,10 +151,10 @@ namespace Calculator
                 case '-':
                 case 'x':
                 case '/':
-                    _operator = theInput; // 
+                    _operator = theInput; // common char variable
                     DisplayToRunningDisplay(theInput); 
-                    // display the operator in the running display
-                    // do not show operators in RunningDisplay or the results screen
+                    // append the operator in the running display
+                    // do not show operators in bottom results screen
                     break;
 
                 case '=':
@@ -141,7 +175,7 @@ namespace Calculator
                     ClearRunningDisplay();
                     break;
 
-                // do stuff with the numbers
+                // do stuff with the numbers: DealWithNumbers(theInput)
                 case '0':
                 case '1':
                 case '2':
@@ -152,6 +186,8 @@ namespace Calculator
                 case '7':
                 case '8':
                 case '9':
+
+                    DealWithNumbers(theInput); // this stores the number, etc
 
                     DisplayToScreen(theInput);
                     DisplayToRunningDisplay(theInput);
