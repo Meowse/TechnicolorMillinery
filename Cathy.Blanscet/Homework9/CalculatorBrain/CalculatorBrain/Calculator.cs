@@ -6,7 +6,7 @@ namespace CalculatorBrain
     public class Calculator
     {
         private string _currValu = "0";
-        private decimal _num1, _num2;  //, calcValu;
+        private decimal _num1, _num2, _accumulator; //, calcValu;
         private char _operation;
 
         // The current state of the calculator will have to be stored somehow
@@ -63,9 +63,9 @@ namespace CalculatorBrain
             return CurrValuAsNumber.ToString();
         }
 
-        private decimal doCalculation()
+        private decimal DoCalculation()
         {
-            if (_operation == '/' && _num2 == 0)
+            if (_operation == '/' & _num2 == 0)
             {
                 return 0;
             }
@@ -91,15 +91,27 @@ namespace CalculatorBrain
 
         private void DoOperator(char input)
         {
-            _num1 = decimal.Parse(_currValu);
-            _operation = input;
-            _hasOperation = true;
+            if (_hasOperation & _startingSecondNumber)
+            {
+                _accumulator = DoCalculation();
+                _hasOperation = false; 
+                _startingSecondNumber = true;
+                //_startingSecondNumber = false;
+            }
+            else
+            {
+                _num1 = decimal.Parse(_currValu);
+                _operation = input;
+                _hasOperation = true;
+            }
         }
 
         private void DoEqualOperator()
         {
             _num2 = decimal.Parse(_currValu);
-            _currValu = doCalculation().ToString();
+            _accumulator = DoCalculation();
+            _currValu = _accumulator.ToString();
+            //_currValu = doCalculation().ToString();
             _isEqualSign = true;
             _hasOperation = false;
             _startingSecondNumber = false;
@@ -119,7 +131,7 @@ namespace CalculatorBrain
                 _currValu = "0";
             }
 
-            if (input == '.' && _currValu.Contains("."))
+            if (input == '.' & _currValu.Contains("."))
             {
                 // do nothing already has the decimal point
             }
