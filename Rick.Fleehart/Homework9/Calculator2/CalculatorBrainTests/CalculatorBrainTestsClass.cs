@@ -1,28 +1,26 @@
-﻿using Calculator;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using CalculatorBrainGuts;
 using NUnit.Framework;
 
 namespace CalculatorBrainTests
 {
-    //------------ calculator version 1 ------------
     [TestFixture]
     public class CalculatorTests
     {
-
-        /* these won't work because there is no method that returns calcualted data
-         * I have methods that calculate then display data onto the screen
-        */
-
         [Test]
         public void ShouldDisplayZeroByDefault()
         {
-            var calculator = new CalculatorForm();
-            Assert.AreEqual("0", calculator.DoStuffToinput());
+            var calculator = new CalculatorBrainGuts.CalculatorBrain();
+            Assert.AreEqual("0", calculator.GetDisplay());
         }
 
         [Test]
         public void ShouldDisplayZeroAfterClear()
         {
-            var calculator = new CalculatorForm();
+            var calculator = new CalculatorBrainGuts.CalculatorBrain();
             calculator.ProvideInput('1');
             calculator.ProvideInput('+');
             calculator.ProvideInput('c');
@@ -32,7 +30,7 @@ namespace CalculatorBrainTests
         [Test]
         public void ShouldDisplaySingleDigit()
         {
-            var calculator = new CalculatorForm();
+            var calculator = new CalculatorBrainGuts.CalculatorBrain();
             calculator.ProvideInput('1');
             Assert.AreEqual("1", calculator.GetDisplay());
         }
@@ -40,7 +38,7 @@ namespace CalculatorBrainTests
         [Test]
         public void ShouldAddSmallSingleDigits()
         {
-            var calculator = new CalculatorForm();
+            var calculator = new CalculatorBrainGuts.CalculatorBrain();
             calculator.ProvideInput('1');
             Assert.AreEqual("1", calculator.GetDisplay());
 
@@ -60,7 +58,7 @@ namespace CalculatorBrainTests
         [Test]
         public void ShouldAddLargeSingleDigitsIntoDoubleDigits()
         {
-            var calculator = new CalculatorForm();
+            var calculator = new CalculatorBrainGuts.CalculatorBrain();
             calculator.ProvideInput('9');
             calculator.ProvideInput('+');
             calculator.ProvideInput('8');
@@ -71,7 +69,7 @@ namespace CalculatorBrainTests
         [Test]
         public void ShouldAcceptMultiDigitNumbers()
         {
-            var calculator = new CalculatorForm();
+            var calculator = new CalculatorBrainGuts.CalculatorBrain();
             calculator.ProvideInput('3');
             Assert.AreEqual("3", calculator.GetDisplay());
 
@@ -82,7 +80,7 @@ namespace CalculatorBrainTests
         [Test]
         public void CanSubtractSingleDigitNumbers()
         {
-            var calculator = new CalculatorForm();
+            var calculator = new CalculatorBrainGuts.CalculatorBrain();
             calculator.ProvideInput('7');
             Assert.AreEqual("7", calculator.GetDisplay());
 
@@ -99,7 +97,7 @@ namespace CalculatorBrainTests
         [Test]
         public void CanSubtractMultiDigitNumbers()
         {
-            var calculator = new CalculatorForm();
+            var calculator = new CalculatorBrainGuts.CalculatorBrain();
             calculator.ProvideInput('7');
             Assert.AreEqual("7", calculator.GetDisplay());
 
@@ -119,7 +117,7 @@ namespace CalculatorBrainTests
         [Test]
         public void ShouldNotChangeJustBecauseGetDisplayIsCalled()
         {
-            var calculator = new CalculatorForm();
+            var calculator = new CalculatorBrainGuts.CalculatorBrain();
             calculator.ProvideInput('1');
             Assert.AreEqual("1", calculator.GetDisplay());
 

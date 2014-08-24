@@ -37,7 +37,6 @@ namespace Calculator
 
         public void DisplayToRunningDisplay(char theInput)
         {
-            /* disabled for version 1
             // add the new input to the current running chars, then display it all
 
             //put a space before and after the operator only
@@ -53,7 +52,7 @@ namespace Calculator
 
             // put the (modified) Input into the top field that shows everything
             RunningDisplay.Text = _theRunningDisplay;
-            */
+
         }
 
         public void ClearRunningDisplay()
@@ -69,26 +68,14 @@ namespace Calculator
             DisplayResults.Text = "0";
         }
 
-        public void ClearOperationDisplay()
-        {
-            OperationDisplay.Text = "";
-        }
-
-        public void DisplayOperationDisplay(char theInput)
-        {
-            OperationDisplay.Text = theInput.ToString();
-        }
-
 
         public void DealWithNumbers(char theInput)
         {
             if (_firstInput.Equals(999))
             {
-                //if this is the first number entered 999 by defalt, then fill the _firstInput variable
+                //if this is the first number entered x by defalt, then fill the _firstInput variable
                 _firstInput = Int32.Parse(theInput.ToString()); //convert from char to a number, first number entered
          
-                //clear the operator field
-                ClearOperationDisplay();
             }
             else
             {
@@ -134,11 +121,6 @@ namespace Calculator
             // show the calculated output in DisplayResults
             DisplayResults.Text = calculatedValue.ToString();
 
-
-            //show the operator in the small field to the left of the results display
-            DisplayOperationDisplay('=');
-
-            /* disable the running display for verion 1
             // put the equals sign then [calculated results] in RunningDisplay
             _theRunningDisplay += '=';
 
@@ -149,7 +131,7 @@ namespace Calculator
             RunningDisplay.Text = _theRunningDisplay;
 
             _theRunningDisplay = ""; //reset to default
-            */
+
 
             //after calculating, clean-up: set the first, second and operator variables to 999, 0 or x as a flag
             _firstInput  = 999; //first number entered, set to the nothing here flag of x
@@ -173,8 +155,6 @@ namespace Calculator
                     DisplayToRunningDisplay(theInput); 
                     // append the operator in the running display
                     // do not show operators in bottom results screen
-
-                    DisplayOperationDisplay(theInput);
                     break;
 
                 case '=':
@@ -186,7 +166,6 @@ namespace Calculator
                     //Clear entry
                     ClearDisplayResults();
                     ClearRunningDisplay();
-                    ClearOperationDisplay();
                     break;
 
                 case 'e':
@@ -194,7 +173,6 @@ namespace Calculator
                     // CE on the button, this should remove only the last char  
                     ClearDisplayResults();
                     ClearRunningDisplay();
-                    ClearOperationDisplay();
                     break;
 
                 // do stuff with the numbers: DealWithNumbers(theInput)
@@ -215,8 +193,6 @@ namespace Calculator
                     DisplayToRunningDisplay(theInput);
                     break;
 
-                case '.': //decimal point from keyboard - not functioning for version 1
-                    break;
 
                 // if it gets here then just display it for debugging
                 default:
@@ -285,7 +261,7 @@ namespace Calculator
 
         private void buttonDecimal_Click(object sender, EventArgs e)
         {
-            // DoStuffToinput('.'); // Decimal Point is disabled for version 1
+            DoStuffToinput('.');
         }
 
         private void buttonPlus_Click(object sender, EventArgs e)
