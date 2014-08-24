@@ -44,10 +44,11 @@ namespace HappybirthdayStarter
             //They will have to remain in here until I figure out a better way. I have a feeling the "better way" is 
             //to feature all the info in "standards" in a library that's referenced
 
-            string birthdaySong = "What day is today? \n" +
+            string birthdaySongwords = "What day is today? \n" +
                                   "It's " + name + "'s birthday!\n" +
             "What a day for a birthday!\n" +
             "Let's all have some cake.";
+ 
             
 
             string checkdate = enteredDate.Text;
@@ -77,11 +78,12 @@ namespace HappybirthdayStarter
 
                 if (currentMonth == birthMonth && currentDay == birthDay)
                 {
-                    while (age > 0)
-                    {
-                        MessageBox.Show(birthdaySong);
-                        age -= 1;
-                    }
+                   // while (age > 0)
+                    //{
+                        birthdaySong(age, birthdaySongwords);
+                        
+                       // age -= 1;
+                    //}
 
                 }
                 else
@@ -107,6 +109,17 @@ namespace HappybirthdayStarter
                 MessageBox.Show("Please enter your actual birthdate, or make this program better with your future spaceman magic.");              
             } 
 
+        }
+
+        public static string birthdaySong(int age, string birthdaySongwords)
+        {
+            while (age > 0)
+            {
+                birthdaySongwords += birthdaySongwords + "\n";
+                age -= 1;
+            }
+            MessageBox.Show(birthdaySongwords);
+            return (birthdaySongwords);
         }
 
         public static string ToBinary(Int64 Decimal)//blatantly stolen from office hours.
