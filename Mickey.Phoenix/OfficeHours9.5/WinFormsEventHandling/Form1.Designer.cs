@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 261);
             this.Name = "Form1";
-            this.Text = "Event-Handling Example";
+            this.Text = "WinForms Event-Handling Example";
             this.ResumeLayout(false);
 
         }

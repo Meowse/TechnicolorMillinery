@@ -15,6 +15,7 @@ namespace WinFormsEventHandling
         public Form1()
         {
             InitializeComponent();
+            Text += "!!!";
         }
     }
 }
