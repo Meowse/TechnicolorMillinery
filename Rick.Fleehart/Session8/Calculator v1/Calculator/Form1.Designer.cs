@@ -48,7 +48,8 @@
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonCE = new System.Windows.Forms.Button();
             this.OperationDisplay = new System.Windows.Forms.Label();
-            this.RunningDisplay = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -163,9 +164,10 @@
             // 
             // DisplayResults
             // 
-            this.DisplayResults.Location = new System.Drawing.Point(28, 34);
+            this.DisplayResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisplayResults.Location = new System.Drawing.Point(28, 26);
             this.DisplayResults.Name = "DisplayResults";
-            this.DisplayResults.Size = new System.Drawing.Size(199, 20);
+            this.DisplayResults.Size = new System.Drawing.Size(199, 29);
             this.DisplayResults.TabIndex = 11;
             this.DisplayResults.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.DisplayResults.TextChanged += new System.EventHandler(this.DisplayResults_TextChanged);
@@ -243,26 +245,38 @@
             // OperationDisplay
             // 
             this.OperationDisplay.AutoSize = true;
-            this.OperationDisplay.Location = new System.Drawing.Point(33, 37);
+            this.OperationDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OperationDisplay.Location = new System.Drawing.Point(33, 29);
             this.OperationDisplay.Name = "OperationDisplay";
-            this.OperationDisplay.Size = new System.Drawing.Size(13, 13);
+            this.OperationDisplay.Size = new System.Drawing.Size(20, 24);
             this.OperationDisplay.TabIndex = 19;
             this.OperationDisplay.Text = "  ";
             // 
-            // RunningDisplay
+            // label1
             // 
-            this.RunningDisplay.Location = new System.Drawing.Point(28, 8);
-            this.RunningDisplay.Name = "RunningDisplay";
-            this.RunningDisplay.Size = new System.Drawing.Size(199, 20);
-            this.RunningDisplay.TabIndex = 20;
-            this.RunningDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 202);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(134, 13);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Single digits are supported.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(26, 217);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(139, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Decimals are not supported.";
             // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(255, 231);
-            this.Controls.Add(this.RunningDisplay);
+            this.ClientSize = new System.Drawing.Size(255, 238);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.OperationDisplay);
             this.Controls.Add(this.buttonCE);
             this.Controls.Add(this.buttonClear);
@@ -287,7 +301,7 @@
             this.MinimizeBox = false;
             this.Name = "CalculatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Calc O Matic";
+            this.Text = "Simple Digit Calc Ver 1";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,7 +329,8 @@
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonCE;
         private System.Windows.Forms.Label OperationDisplay;
-        private System.Windows.Forms.TextBox RunningDisplay;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
