@@ -249,8 +249,10 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "Calc";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Keydownhandler);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -128,6 +128,16 @@ namespace WindowsFormsApplication1
             Displaybox.Text = _calculator.GetDisplay();
 
         }
+
+        private void Keydownhandler(object sender, KeyEventArgs e)
+        {
+            Keys ekey = e.KeyCode;
+            int mychar = e.KeyCode ^ e.KeyValue; 
+            Keys.KeyCode
+            _calculator.ProvideInput(mychar[0]);
+            Displaybox.Text = _calculator.GetDisplay();
+        } 
+        
     }
    
 }
