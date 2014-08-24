@@ -12,14 +12,14 @@ namespace CalculatorBrain
 {
     public class Calculator
     {
-        public enum CalculatorState { Waiting, Adding, Subtracting, Multiplying, Dividing}
+        public enum Operator { None, Addition, Subtraction, Multiplication, Division}
 
 
-        public enum InputState {EnteringFirstNo, UsingSavedNo, EnteringSecondNo}
+        public enum CurrentNumber {FirstNo, UsingAccumulator, SecondNo}
         public static string Displayvalue = "0";
-        public static decimal Savednumber = 0;
-        public static InputState Inputstate = InputState.EnteringFirstNo;
-        public static CalculatorState Calcstate = CalculatorState.Waiting;
+        public static decimal Accumulator = 0;
+        public static CurrentNumber CurrentNumberInUse = CurrentNumber.FirstNo;
+        public static Operator MostRecentOperator = Operator.None;
         public static bool Lastopcomplete = true;
 
         // The current state of the calculator will have to be stored somehow
@@ -55,40 +55,32 @@ namespace CalculatorBrain
         }
         private void ProcessStateMachine(char input)
         {   
-            const string integermatchstring = @"\d|\.";
-            const string operationmatchstring = @"[\+\-=\*/]";
+            const string decimalmatchstring = @"\d|\.";
+            const string operatormatchstring = @"[\+\-=\*/]";
             var reoptions = RegexOptions.Singleline | RegexOptions.IgnoreCase;
 
 // if the input is 'c' reset everything and return
 
-            if (input == 'c')
-            {
-                Inputstate = InputState.EnteringFirstNo;
-                Calcstate = CalculatorState.Waiting;
-                Displayvalue = "0";
-                Lastopcomplete = true;
-                Savednumber = 0;
-                return;
-            }
+            if(ProcessClear(input))return;
 
 // Regular expression looks to match the input to any single character integer or '.'
 
-            var re = new Regex(integermatchstring);
+            var re = new Regex(decimalmatchstring);
             var rematch = re.Match(input.ToString());
-            var inputIsSingleCharInteger = rematch.Success;
+            var inputIsSingleCharIntegerOrPeriod = rematch.Success;
 
 // Regular expression looks to match the input to any single character operator
 
-            var ret =  new Regex(operationmatchstring);
+            var ret =  new Regex(operatormatchstring);
             var retmatch = ret.Match(input.ToString());
             var inputIsSingleCharOperator = retmatch.Success;
 
 //
-            switch (Inputstate)
+            switch (CurrentNumberInUse)
             {
-                    case InputState.EnteringFirstNo:
+                    case CurrentNumber.FirstNo:
 
-                    if (inputIsSingleCharInteger)
+                    if (inputIsSingleCharIntegerOrPeriod)
                     {
                         Displayvalue = (Displayvalue=="0")?  input.ToString(): (Displayvalue + input.ToString());
                         return;
@@ -97,33 +89,33 @@ namespace CalculatorBrain
                     {
                         if (Displayvalue != "")
                         {
-                            Savednumber = Convert.ToDecimal(Displayvalue);
+                            Accumulator = Convert.ToDecimal(Displayvalue);
                         }
                         else
                         {
-                            Savednumber = 0;
+                            Accumulator = 0;
                         }
                         Lastopcomplete = true;
                         switch (input)
                         {
                         case '+':
-                            Calcstate = CalculatorState.Adding;
-                            Inputstate = InputState.EnteringSecondNo;
+                            MostRecentOperator = Operator.Addition;
+                            CurrentNumberInUse = CurrentNumber.SecondNo;
 
                             break;
                         case '-':
-                            Calcstate = CalculatorState.Subtracting;
-                            Inputstate = InputState.EnteringSecondNo;
+                            MostRecentOperator = Operator.Subtraction;
+                            CurrentNumberInUse = CurrentNumber.SecondNo;
 
                             break;
                         case '*':
-                            Calcstate = CalculatorState.Multiplying;
-                            Inputstate = InputState.EnteringSecondNo;
+                            MostRecentOperator = Operator.Multiplication;
+                            CurrentNumberInUse = CurrentNumber.SecondNo;
                            
                             break;
                         case '/':
-                            Calcstate = CalculatorState.Dividing;
-                            Inputstate = InputState.EnteringSecondNo;                            
+                            MostRecentOperator = Operator.Division;
+                            CurrentNumberInUse = CurrentNumber.SecondNo;                            
                             
                             break;
                         case '=':
@@ -133,8 +125,8 @@ namespace CalculatorBrain
                     }
                     break;
 
-                    case (InputState.EnteringSecondNo):
-                    if (inputIsSingleCharInteger)
+                    case (CurrentNumber.SecondNo):
+                    if (inputIsSingleCharIntegerOrPeriod)
                     {
                         if (Lastopcomplete)
                         {
@@ -149,43 +141,43 @@ namespace CalculatorBrain
                     }
                     else if (inputIsSingleCharOperator)
                     {
-                        Inputstate = InputState.UsingSavedNo;
+                        CurrentNumberInUse = CurrentNumber.UsingAccumulator;
                         Lastopcomplete = true;
                         switch (input)
                         {
 
                         case '+':
                             ProcessOperation();
-                            Calcstate = CalculatorState.Adding;
-                            Displayvalue = Savednumber.ToString();
+                            MostRecentOperator = Operator.Addition;
+                            Displayvalue = Accumulator.ToString();
                             break;
                         case '-':
                             ProcessOperation();
-                            Calcstate = CalculatorState.Subtracting;
-                            Displayvalue = Savednumber.ToString();
+                            MostRecentOperator = Operator.Subtraction;
+                            Displayvalue = Accumulator.ToString();
                             break;
                         case '*':
                             ProcessOperation();
-                            Calcstate = CalculatorState.Multiplying;
-                            Displayvalue = Savednumber.ToString();
+                            MostRecentOperator = Operator.Multiplication;
+                            Displayvalue = Accumulator.ToString();
                             break;
                         case '/':
                             ProcessOperation();
-                            Calcstate = CalculatorState.Dividing;
-                            Displayvalue = Savednumber.ToString();
+                            MostRecentOperator = Operator.Division;
+                            Displayvalue = Accumulator.ToString();
                             break;
                         case '=':
                             ProcessOperation();
-                            Calcstate = CalculatorState.Waiting;
-                            Displayvalue = Savednumber.ToString();
-                            Inputstate = InputState.EnteringFirstNo;
+                            MostRecentOperator = Operator.None;
+                            Displayvalue = Accumulator.ToString();
+                            CurrentNumberInUse = CurrentNumber.FirstNo;
                             break;
                         }
                     }
                     break;
                     
-                    case  InputState.UsingSavedNo:
-                    if (inputIsSingleCharInteger)
+                    case  CurrentNumber.UsingAccumulator:
+                    if (inputIsSingleCharIntegerOrPeriod)
                     {
                         if (Lastopcomplete)
                         {
@@ -200,40 +192,57 @@ namespace CalculatorBrain
                     }
                     else if (inputIsSingleCharOperator)
                     {
-                        Inputstate = InputState.UsingSavedNo;
+                        CurrentNumberInUse = CurrentNumber.UsingAccumulator;
                         Lastopcomplete = true;
                         switch (input)
                         {
                         case '+':
                             ProcessOperation();
-                            Calcstate = CalculatorState.Adding;
-                            Displayvalue = Savednumber.ToString();
+                            MostRecentOperator = Operator.Addition;
+                            Displayvalue = Accumulator.ToString();
                             break;
                         case '-':
                             ProcessOperation();
-                            Calcstate = CalculatorState.Subtracting;
-                            Displayvalue = Savednumber.ToString();
+                            MostRecentOperator = Operator.Subtraction;
+                            Displayvalue = Accumulator.ToString();
                             break;
                         case '*':
                             ProcessOperation();
-                            Calcstate = CalculatorState.Multiplying;
-                            Displayvalue = Savednumber.ToString();
+                            MostRecentOperator = Operator.Multiplication;
+                            Displayvalue = Accumulator.ToString();
                             break;
                         case '/':
                             ProcessOperation();
-                            Calcstate = CalculatorState.Dividing;
-                            Displayvalue = Savednumber.ToString();
+                            MostRecentOperator = Operator.Division;
+                            Displayvalue = Accumulator.ToString();
                             break;
                         case '=':
                             ProcessOperation();
-                            Calcstate = CalculatorState.Waiting;
-                            Inputstate = InputState.EnteringFirstNo;
-                            Displayvalue = Savednumber.ToString();
+                            MostRecentOperator = Operator.None;
+                            CurrentNumberInUse = CurrentNumber.FirstNo;
+                            Displayvalue = Accumulator.ToString();
                             break;
                         }
                     }
                     break;
              }
+        }
+
+        private bool ProcessClear(char input0)
+        {
+            if (input0 == 'c')
+            {
+                CurrentNumberInUse = CurrentNumber.FirstNo;
+                MostRecentOperator = Operator.None;
+                Displayvalue = "0";
+                Lastopcomplete = true;
+                Accumulator = 0;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public string GetDisplay()
@@ -243,29 +252,29 @@ namespace CalculatorBrain
 
         public void ProcessOperation()
         {
-            switch (Calcstate)
+            switch (MostRecentOperator)
             {
-                case CalculatorState.Adding:
-                    Savednumber = Savednumber + Convert.ToDecimal(Displayvalue);
+                case Operator.Addition:
+                    Accumulator = Accumulator + Convert.ToDecimal(Displayvalue);
                     break;
 
-                case CalculatorState.Subtracting:
-                    Savednumber = Savednumber - Convert.ToDecimal(Displayvalue);
+                case Operator.Subtraction:
+                    Accumulator = Accumulator - Convert.ToDecimal(Displayvalue);
                     break;
 
-                case CalculatorState.Multiplying:
-                    Savednumber = Savednumber * Convert.ToDecimal(Displayvalue);
+                case Operator.Multiplication:
+                    Accumulator = Accumulator * Convert.ToDecimal(Displayvalue);
                     break;
 
-                    case CalculatorState.Dividing:
+                    case Operator.Division:
                     if (Displayvalue != "0")
                     {
-                        Savednumber = Savednumber/Convert.ToDecimal(Displayvalue);
+                        Accumulator = Accumulator/Convert.ToDecimal(Displayvalue);
                     }
                     else
                     {
                         Displayvalue = "Error";
-                        Savednumber = 0;
+                        Accumulator = 0;
                     }
                     break;
 
