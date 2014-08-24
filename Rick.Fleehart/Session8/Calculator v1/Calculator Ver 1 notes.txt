@@ -1,0 +1,4 @@
+Calculator version 1 notes
+
+Rick is having a hard time getting the tests to work.
+Not sure how to reference the calculator part when it is not a separate project or class. There are differernt classes but they are all in the one calculator namespace
