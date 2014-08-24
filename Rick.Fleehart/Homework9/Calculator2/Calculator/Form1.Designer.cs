@@ -163,9 +163,10 @@
             // 
             // DisplayResults
             // 
-            this.DisplayResults.Location = new System.Drawing.Point(28, 34);
+            this.DisplayResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisplayResults.Location = new System.Drawing.Point(28, 24);
             this.DisplayResults.Name = "DisplayResults";
-            this.DisplayResults.Size = new System.Drawing.Size(199, 20);
+            this.DisplayResults.Size = new System.Drawing.Size(199, 29);
             this.DisplayResults.TabIndex = 11;
             this.DisplayResults.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.DisplayResults.TextChanged += new System.EventHandler(this.DisplayResults_TextChanged);
@@ -243,9 +244,10 @@
             // OperationDisplay
             // 
             this.OperationDisplay.AutoSize = true;
-            this.OperationDisplay.Location = new System.Drawing.Point(33, 37);
+            this.OperationDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OperationDisplay.Location = new System.Drawing.Point(33, 27);
             this.OperationDisplay.Name = "OperationDisplay";
-            this.OperationDisplay.Size = new System.Drawing.Size(13, 13);
+            this.OperationDisplay.Size = new System.Drawing.Size(20, 24);
             this.OperationDisplay.TabIndex = 19;
             this.OperationDisplay.Text = "  ";
             // 
@@ -256,6 +258,7 @@
             this.RunningDisplay.Size = new System.Drawing.Size(199, 20);
             this.RunningDisplay.TabIndex = 20;
             this.RunningDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.RunningDisplay.Visible = false;
             // 
             // CalculatorForm
             // 
@@ -287,7 +290,7 @@
             this.MinimizeBox = false;
             this.Name = "CalculatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Calc O Matic";
+            this.Text = "Single Digit Calc Ver 1";
             this.ResumeLayout(false);
             this.PerformLayout();
 
