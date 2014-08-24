@@ -23,9 +23,8 @@ namespace Calculator
         private Int32 _secondInput = 999;  //Second number entered, 999 is default flag
 
         private char _operator = '0';  // the + - * / c ce operators
-        //private string _runningTotal;  //Running Total as the calculator goes.
 
-        private string _theRunningDisplay;
+        //private string _theRunningDisplay;
          
         
         public void DisplayToScreen(char theInput)
@@ -35,36 +34,51 @@ namespace Calculator
             DisplayResults.Text = theInput.ToString();
         }
 
+        public void ShowOperationDisplay(char theInput)
+        {
+            //show the operator in the small field on the upper left of the results field
+            OperationDisplay.Text = theInput.ToString();
+        }
+
+        public void ClearOperationDisplay()
+        {
+            OperationDisplay.Text = "";
+        }
+        
+
         public void DisplayToRunningDisplay(char theInput)
         {
+            /* disabled for version 1
             // add the new input to the current running chars, then display it all
 
             //put a space before and after the operator only
             if ((theInput.Equals('+')) || (theInput.Equals('-')) || (theInput.Equals('x')) || (theInput.Equals('/')) || (theInput.Equals('=')))
             {
-                _theRunningDisplay = _theRunningDisplay + " " + theInput.ToString() + " ";
+                _theRunningDisplay = _theRunningDisplay + " " + theInput + " ";
             }
             else
             {
-                _theRunningDisplay = _theRunningDisplay + theInput.ToString();
+                _theRunningDisplay = _theRunningDisplay + theInput;
             }
             
 
             // put the (modified) Input into the top field that shows everything
             RunningDisplay.Text = _theRunningDisplay;
-
+            */
         }
 
         public void ClearRunningDisplay()
         {
+            /* disabled for version 1
             // clears the field in the form and the running variable
             RunningDisplay.Text = "0";
             _theRunningDisplay = ""; //clear the running display variable
+            */
         }
 
         public void ClearDisplayResults()
         {
-            // clears the the bottom input field in
+            // sets the DisplayResults input field to "0"
             DisplayResults.Text = "0";
         }
 
@@ -76,6 +90,8 @@ namespace Calculator
                 //if this is the first number entered x by defalt, then fill the _firstInput variable
                 _firstInput = Int32.Parse(theInput.ToString()); //convert from char to a number, first number entered
          
+                //clear the = from the operation display
+                ClearOperationDisplay();
             }
             else
             {
@@ -100,27 +116,34 @@ namespace Calculator
 
                 case '-':
                     calculatedValue = _firstInput - _secondInput;
+
                     break;
 
                 case 'x':
                     calculatedValue = _firstInput * _secondInput;
+
                     break;
 
                 case '/':
                     // deal with divide by zero
-                    calculatedValue = _firstInput / _secondInput;
+                    calculatedValue = (decimal) _firstInput / _secondInput;
+
                     break;
 
                 default:
                     // just in case, will show like an error
                     calculatedValue = 999;
+
                     break;
+
+                    
             }
 
 
             // show the calculated output in DisplayResults
             DisplayResults.Text = calculatedValue.ToString();
 
+            /* disabled for version 1
             // put the equals sign then [calculated results] in RunningDisplay
             _theRunningDisplay += '=';
 
@@ -131,7 +154,7 @@ namespace Calculator
             RunningDisplay.Text = _theRunningDisplay;
 
             _theRunningDisplay = ""; //reset to default
-
+            */
 
             //after calculating, clean-up: set the first, second and operator variables to 999, 0 or x as a flag
             _firstInput  = 999; //first number entered, set to the nothing here flag of x
@@ -146,26 +169,34 @@ namespace Calculator
         {
             switch (theInput)
             {
-                // do not show operators on screen but set the _operator switch to the operator
+                // do not show operators on screen but set the _operator switch to the operator char
                 case '+':
                 case '-':
                 case 'x':
                 case '/':
-                    _operator = theInput; // common char variable
+                    _operator = theInput; // char variable
                     DisplayToRunningDisplay(theInput); 
                     // append the operator in the running display
                     // do not show operators in bottom results screen
+
+                    // display the operator
+                    ShowOperationDisplay(theInput);
                     break;
 
                 case '=':
                     // the equal sign calculates everything
                     DealWithEqualSign();
+
+                    // display the operator
+                    ShowOperationDisplay(theInput);
                     break;
 
                 case 'c':
                     //Clear entry
                     ClearDisplayResults();
                     ClearRunningDisplay();
+
+                    ClearOperationDisplay();
                     break;
 
                 case 'e':
@@ -173,6 +204,8 @@ namespace Calculator
                     // CE on the button, this should remove only the last char  
                     ClearDisplayResults();
                     ClearRunningDisplay();
+
+                    ClearOperationDisplay();
                     break;
 
                 // do stuff with the numbers: DealWithNumbers(theInput)
@@ -186,13 +219,16 @@ namespace Calculator
                 case '7':
                 case '8':
                 case '9':
-
+                    // numbers 0-9 above all do this, below:
                     DealWithNumbers(theInput); // this stores the number, etc
 
                     DisplayToScreen(theInput);
                     DisplayToRunningDisplay(theInput);
                     break;
 
+                case '.':
+                    //can't deal with decimals in version 1
+                    break;
 
                 // if it gets here then just display it for debugging
                 default:
