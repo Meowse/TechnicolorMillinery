@@ -8,6 +8,25 @@ namespace ReadingAndImprovingCode
 {
     public class ExampleClass
     {
+
+
+        public string SomeOtherMethod(int arg1, int arg2)
+        {
+            String result = "";
+            if (arg2 < 6)
+            {
+                return result;
+            }
+            else
+            {
+                result = "arg1" + arg2;
+            }
+            if (result.Length > 5)
+            {
+                result = "Ooops...";
+            }
+            return result;
+        }
         public string SomeMethod(int arg1, int arg2)
         {
             String result = "";
