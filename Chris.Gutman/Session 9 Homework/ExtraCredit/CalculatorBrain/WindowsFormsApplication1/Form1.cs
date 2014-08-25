@@ -131,11 +131,14 @@ namespace WindowsFormsApplication1
 
         private void Keydownhandler(object sender, KeyEventArgs e)
         {
-            Keys ekey = e.KeyCode;
-            int mychar = e.KeyCode ^ e.KeyValue; 
-            Keys.KeyCode
-            _calculator.ProvideInput(mychar[0]);
+
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            _calculator.ProvideInput(e.KeyChar);
             Displaybox.Text = _calculator.GetDisplay();
+
         } 
         
     }

@@ -55,7 +55,7 @@ namespace CalculatorBrain
         }
         private void ProcessStateMachine(char input)
         {   
-            const string decimalmatchstring = @"\d|\.";
+            const string decimalmatchstring = @"[\d\.\b]";
             const string operatormatchstring = @"[\+\-=\*/]";
             var reoptions = RegexOptions.Singleline | RegexOptions.IgnoreCase;
 
@@ -82,7 +82,14 @@ namespace CalculatorBrain
 
                     if (inputIsSingleCharIntegerOrPeriod)
                     {
-                        Displayvalue = (Displayvalue=="0")?  input.ToString(): (Displayvalue + input.ToString());
+                        if (input == '\b')
+                        {
+                            Displayvalue = (Displayvalue.Length>0)? Displayvalue.Substring(0, Displayvalue.Length - 1): "";
+                        }
+                        else
+                        {
+                            Displayvalue = (Displayvalue == "0") ? input.ToString() : (Displayvalue + input.ToString());
+                        }
                         return;
                     }
                     else if (inputIsSingleCharOperator)
@@ -130,12 +137,27 @@ namespace CalculatorBrain
                     {
                         if (Lastopcomplete)
                         {
-                            Displayvalue = input.ToString();
-                            Lastopcomplete = false;
+                            if (input == '\b')
+                            {
+                                // do nothing
+                            }
+                            else
+                            {
+                                Displayvalue = input.ToString();
+                                Lastopcomplete = false;
+                            }
                         }
                         else
                         {
-                            Displayvalue = Displayvalue + input;
+                            if (input == '\b')
+                            {
+                                Displayvalue = (Displayvalue.Length > 0) ? Displayvalue.Substring(0, Displayvalue.Length - 1) : "";
+                            }
+                            else
+                            {
+                                Displayvalue = Displayvalue + input;
+                            }
+
                         }
                         return;
                     }
