@@ -160,8 +160,18 @@ namespace CalculatorBrain
 
         public string GetDisplay()
         {
-            
-            decimal currentValueAsDecimal = decimal.Parse(_currentValue);
+            decimal currentValueAsDecimal;
+            if (_currentValue == "")
+            {
+
+            }
+            else
+            {
+
+                currentValueAsDecimal = decimal.Parse(_currentValue);
+               
+            }
+
             return currentValueAsDecimal.ToString();
         }
 
