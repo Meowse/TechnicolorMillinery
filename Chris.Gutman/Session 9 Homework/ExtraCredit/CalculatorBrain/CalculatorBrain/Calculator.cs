@@ -155,7 +155,7 @@ namespace CalculatorBrain
                             }
                             else
                             {
-                                Displayvalue = Displayvalue + input;
+                                Displayvalue = Displayvalue + input.ToString();
                             }
 
                         }
@@ -208,7 +208,7 @@ namespace CalculatorBrain
                         }
                         else
                         {
-                            Displayvalue = Displayvalue + input;
+                            Displayvalue = Displayvalue + input.ToString();
                         }
                         return;
                     }
