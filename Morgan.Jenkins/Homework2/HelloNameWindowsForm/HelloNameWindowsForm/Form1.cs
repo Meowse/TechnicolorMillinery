@@ -18,10 +18,16 @@ namespace HelloNameWindowsForm
         }
 
         private void clickedOk(object sender, EventArgs e)
-        {
-            string name = namefield.Text;
-            string greeting = "Hello, " + name;
-            greetinglabel.Text = greeting;
+        {          
+            if(namefield.Text == "Mickey" || namefield.Text == "mickey")           
+            {                         
+                greetinglabel.Text = "Hello, Teacher!";
+            }
+            else
+            {
+                 string name = namefield.Text;
+                 greetinglabel.Text = "Hello, " + name;
+            }
         }
     }
 }

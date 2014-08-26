@@ -45,7 +45,6 @@ namespace Win_Calc
         private void buttonCE_Click(object sender, EventArgs e)
         {
             // Replace display with zero
-            equation.Text = ""; 
             result.Text = "0";
             _decimalPointEntered = false;
         }

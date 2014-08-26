@@ -52,7 +52,7 @@ namespace ConsoleApplication1
 
 // Arrays needed
 
-            Int64[] larray = { 1, 26, 702, 18954, 511758 }; //1 Z ZZ ZZZ ZZZZ
+            Int64[] larray = { 1, 26, 702, 18954, 511758 }; //A Z ZZ ZZZ ZZZZ
             string temp = "";
             var names = new string[27]  //could also use ascii. Decided to do it this way...
             {
@@ -71,7 +71,7 @@ namespace ConsoleApplication1
             var firstpass = false;
             string mystring = "";
 
-// This for  loop performs successive divsions by based on 26.
+// This for  loop performs successive divsions based on 26.
 
             for (i = 4; i >= 0; i--)
             {
@@ -118,6 +118,10 @@ namespace ConsoleApplication1
                 {
                     mystring = mystring + names[26];
 
+                }else if ((n==0)&&(firstpass ==true))
+                {
+                    finished_f = true; 
+                    temp = finale[i-1];
                 }
 
 
