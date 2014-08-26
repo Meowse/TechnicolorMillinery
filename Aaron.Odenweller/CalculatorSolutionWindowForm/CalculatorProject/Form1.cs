@@ -125,9 +125,24 @@ namespace CalculatorProject
                     _convertSign = false;
                     _operator = '\0';
                     _previousInput = "";
-                    btnDecimal.Enabled = true;
+                    btn0.Enabled = true;
+                    btn1.Enabled = true;
+                    btn2.Enabled = true;
+                    btn3.Enabled = true;
+                    btn4.Enabled = true;
+                    btn5.Enabled = true;
+                    btn6.Enabled = true;
+                    btn7.Enabled = true;
+                    btn8.Enabled = true;
+                    btn9.Enabled = true;
+                    btnDivide.Enabled = true;
+                    btnAdd.Enabled = true;
+                    btnSubtract.Enabled = true;
+                    btnMultiply.Enabled = true;
                     btnMakeNegative.Enabled = true;
-
+                    btnEquals.Enabled = true;
+                    btnEquals.Enabled = true;
+                    btnDecimal.Enabled = true;
                 }
 
                 else
