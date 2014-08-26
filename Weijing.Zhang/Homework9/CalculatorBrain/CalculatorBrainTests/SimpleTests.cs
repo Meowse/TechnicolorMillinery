@@ -120,5 +120,34 @@ namespace CalculatorBrainTests
             Assert.AreEqual("3", calculator.GetDisplay());
             Assert.AreEqual("3", calculator.GetDisplay());                    
         }
+
+        [Test]
+        public void MultipleOperationsSupport()
+        {
+            var calculator = new Calculator();
+            calculator.ProvideInput('1');
+            Assert.AreEqual("1", calculator.GetDisplay());
+            calculator.ProvideInput('+');
+            Assert.AreEqual("1", calculator.GetDisplay());
+            Assert.AreEqual("1", calculator.GetDisplay());
+            calculator.ProvideInput('1');
+            Assert.AreEqual("1", calculator.GetDisplay());
+            Assert.AreEqual("1", calculator.GetDisplay());
+            calculator.ProvideInput('+');
+            Assert.AreEqual("2", calculator.GetDisplay());
+            Assert.AreEqual("2", calculator.GetDisplay());
+            calculator.ProvideInput('1');
+            Assert.AreEqual("1", calculator.GetDisplay());
+            Assert.AreEqual("1", calculator.GetDisplay());
+            calculator.ProvideInput('*');
+            Assert.AreEqual("3", calculator.GetDisplay());
+            Assert.AreEqual("3", calculator.GetDisplay());
+            calculator.ProvideInput('3');
+            Assert.AreEqual("3", calculator.GetDisplay());
+            Assert.AreEqual("3", calculator.GetDisplay());
+            calculator.ProvideInput('=');
+            Assert.AreEqual("9", calculator.GetDisplay());
+            Assert.AreEqual("9", calculator.GetDisplay());
+        }
     }
 }
