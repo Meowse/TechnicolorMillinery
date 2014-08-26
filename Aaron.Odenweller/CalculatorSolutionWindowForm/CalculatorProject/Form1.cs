@@ -56,7 +56,7 @@ namespace CalculatorProject
         public void ProvideInput(string input)
         {
             decimal tempDec = 0;
-            try
+            try  // See if input is Decimal value
             {
                 if (_previousInput == "=")
                 {
@@ -64,7 +64,7 @@ namespace CalculatorProject
                     {
                         input = "C";
                     }
-                    
+                 
                 }
 
                 var tryDecimalNumber = Decimal.Parse(input);
@@ -105,7 +105,7 @@ namespace CalculatorProject
                 DecimalInput = false;
 
             }
-            catch
+            catch  // Run the operation
             {
                 this.DecimalInput = false;
 
@@ -228,71 +228,6 @@ namespace CalculatorProject
                         return true;
                     }
                 }
-            }
-            return false;
-        }
-
-        private bool SeeIfTheLast4InputsFitModel(string input)
-        {
-            decimal number;
-            char operation;
-            if (ListOfCalculatorInputs.Count() < 4)
-            {
-                return false;
-            }
-            int Last4Index = ListOfCalculatorInputs.Count() - 4;
-
-            if (Decimal.TryParse(ListOfCalculatorInputs[Last4Index], out number) && Char.TryParse(ListOfCalculatorInputs[Last4Index + 1], out operation) && Decimal.TryParse(ListOfCalculatorInputs[Last4Index + 2], out number) && Char.TryParse(ListOfCalculatorInputs[Last4Index + 3], out operation))
-            {
-                return true;
-            }
-            if (Char.TryParse(ListOfCalculatorInputs[Last4Index], out operation) && Decimal.TryParse(ListOfCalculatorInputs[Last4Index + 1], out number) && Decimal.TryParse(ListOfCalculatorInputs[Last4Index + 2], out number) && Char.TryParse(ListOfCalculatorInputs[Last4Index + 3], out operation))
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private bool SeeIfTheLast3InputsFitModel(string input)
-        {
-            ListOfCalculatorInputs.Add(input);
-
-            decimal number;
-            char operation;
-            if (ListOfCalculatorInputs.Count() < 3)
-            {
-                return false;
-            }
-            int Last3Index = ListOfCalculatorInputs.Count() - 3;
-
-            if (Decimal.TryParse(ListOfCalculatorInputs[Last3Index], out number) && Char.TryParse(ListOfCalculatorInputs[Last3Index + 1], out operation) && Decimal.TryParse(ListOfCalculatorInputs[Last3Index + 2], out number))
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private bool LastTwoInputsWereOperators(string previousInput, string input)
-        {
-            bool previousInputFound = false;
-            bool inputFound = false;
-
-            foreach (char c in _listOfOperators)
-            {
-                if (c.ToString() == previousInput && previousInput != "=")
-                {
-                    previousInputFound = true;
-                }
-                if (c.ToString() == input)
-                {
-                    inputFound = true;
-                }
-            }
-            if (previousInputFound == true && inputFound == true)
-            {
-                return true;
             }
             return false;
         }
@@ -497,7 +432,6 @@ namespace CalculatorProject
             ProvideInput(btnEquals.Text);
 
         }
-
 
     }
 }
