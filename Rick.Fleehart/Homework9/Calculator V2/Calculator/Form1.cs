@@ -27,6 +27,8 @@ namespace Calculator
         //Counting members of a list: list.Count
         //list.Clear()
 
+        private string _inputedNumbers; //the chars get assembled here
+
         //add each inputed char to one element of the list
         private List<decimal> _inputedNumbersList = new List<decimal>(); //All numbers go into this as a list
 
@@ -34,61 +36,29 @@ namespace Calculator
       
 
         // below are for version 1
-        private Int32 _firstInput = 999;   //first number entered, 999 is default flag
-        private Int32 _secondInput = 999;  //Second number entered, 999 is default flag
+        //private Int32 _firstInput = 999;   //first number entered, 999 is default flag
+        //private Int32 _secondInput = 999;  //Second number entered, 999 is default flag
+        //private char _operator = '0';  // the + - * / c ce are the allowed operators
 
-        private char _operator = '0';  // the + - * / c ce operators
-
-        //private string _theRunningDisplay;
-         
-        
-        public void DisplayToScreen(char theInput)
-        {
-           
-            // put theInput into the field in the form
-            DisplayResults.Text = theInput.ToString();
-        }
-
-        public void ShowOperationDisplay(char theInput)
-        {
-            //show the operator in the small field on the upper left of the results field
-            OperationDisplay.Text = theInput.ToString();
-        }
-
-        public void ClearOperationDisplay()
-        {
-            OperationDisplay.Text = "";
-        }
-        
-
-        public void ClearDisplayResults()
-        {
-            // sets the DisplayResults input field to "0"
-            DisplayResults.Text = "0";
-        }
 
 
         public void DealWithNumbers(char theInput)
         {
-            if (_firstInput.Equals(999))
+            if (_inputedNumbersList.Count == 0)
             {
-                //if this is the first number entered x by defalt, then fill the _firstInput variable
-                _firstInput = Int32.Parse(theInput.ToString()); //convert from char to a number, first number entered
-         
+                //this is the first number entered clear the operation display from last operation
                 //clear the = from the operation display
                 ClearOperationDisplay();
             }
-            else
-            {
-                //if this is the second number entered, then fill the _secondInput variable
-                _secondInput = Int32.Parse(theInput.ToString());  //convert from char to a number, Second number entered
-            }
-            
-           
+
+            _inputedNumbers += theInput.ToString(); //add the chars in to string until an perator is pressed
+ 
         }
 
         public void DealWithEqualSign()
         {
+            // the equals sign has been pressed calculate then clean up
+
             decimal calculatedValue; //private by default to hold the calculation
 
             switch (_operator)
@@ -96,7 +66,7 @@ namespace Calculator
                     // assume the first and second variables are populated
                 case '+':
                     // calc two ints into the decimal variable calculatedValue
-                    calculatedValue = _firstInput + _secondInput;
+                    calculatedValue = _inputedNumbersList.(1) + _inputedNumbersList(2);
                     break;
 
                 case '-':
@@ -110,28 +80,37 @@ namespace Calculator
                     break;
 
                 case '/':
-                    // deal with divide by zero
-                    calculatedValue = (decimal) _firstInput / _secondInput;
 
+                    // deal with divide by zero, only divide if both second input is not 0
+                    if (_secondInput != 0 )
+                    {   
+                        calculatedValue = (decimal) _firstInput/_secondInput;
+                    }
+                    else
+                    {
+                        // this is considered an error
+                        calculatedValue = 999999;
+                    }
+                    
                     break;
 
                 default:
                     // just in case, will show like an error
-                    calculatedValue = 999;
+                    calculatedValue = 999999;
 
                     break;
 
-                    
+
             }
 
 
             // show the calculated output in DisplayResults
             DisplayResults.Text = calculatedValue.ToString();
 
-            //after calculating, clean-up: set the first, second and operator variables to 999, 0 or x as a flag
-            _firstInput  = 999; //first number entered, set to the nothing here flag of x
-            _secondInput = 0;   //Second number entered, set to the nothing here flag of x
-            _operator    = 'x'; // set to the nothing here flag of x
+            //after calculating, clean-up: set the number and operator list variables
+            _inputedNumbersList.Clear(); //clear number entered, set to nothing
+           
+            _inputedOperatorsList.Clear(); // set to the nothing here flag of x
              
 
         }
@@ -146,12 +125,15 @@ namespace Calculator
                 case '-':
                 case 'x':
                 case '/':
-                    _operator = theInput; // char variable
-                     
+                    _inputedOperatorsList.Add(theInput);  //add operator to list
+
+                    // add to the list
+                    _inputedNumbersList.Add(decimal.Parse(_inputedNumbers));  //add current number into list
+
                     // do not show operators in bottom results screen
 
                     // display the operator
-                    ShowOperationDisplay(theInput);
+                    ShowOperationDisplay(_inputedNumbers.ToString() );
                     break;
 
                 case '=':
@@ -211,6 +193,31 @@ namespace Calculator
 
 
 
+        //--------- display and clear section -------------------------------
+        public void DisplayToScreen(char theInput)
+        {
+
+            // put theInput into the field in the form
+            DisplayResults.Text = theInput.ToString();
+        }
+
+        public void ShowOperationDisplay(char theInput)
+        {
+            //show the operator in the small field on the upper left of the results field
+            OperationDisplay.Text = theInput.ToString();
+        }
+
+        public void ClearOperationDisplay()
+        {
+            OperationDisplay.Text = "";
+        }
+
+
+        public void ClearDisplayResults()
+        {
+            // sets the DisplayResults input field to "0"
+            DisplayResults.Text = "0";
+        }
 
 
         // Below are the button click functions -----------------
