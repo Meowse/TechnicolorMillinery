@@ -48,8 +48,6 @@
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonCE = new System.Windows.Forms.Button();
             this.OperationDisplay = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -252,31 +250,11 @@
             this.OperationDisplay.TabIndex = 19;
             this.OperationDisplay.Text = "  ";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 202);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 13);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Single digits are supported.";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 217);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 13);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Decimals are not supported.";
-            // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(255, 238);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.OperationDisplay);
             this.Controls.Add(this.buttonCE);
             this.Controls.Add(this.buttonClear);
@@ -301,7 +279,7 @@
             this.MinimizeBox = false;
             this.Name = "CalculatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Simple Digit Calc Ver 1";
+            this.Text = "Calc Ver 2";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,8 +307,6 @@
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonCE;
         private System.Windows.Forms.Label OperationDisplay;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
     }
 }
 

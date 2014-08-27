@@ -18,7 +18,22 @@ namespace Calculator
         {
             InitializeComponent();
         }
-        
+
+        // lists, details at http://www.dotnetperls.com/list
+        // below is one way to do a list
+        //List<int> list = new List<int>();
+        //list.Add(2);
+        //list.Add(3);
+        //Counting members of a list: list.Count
+        //list.Clear()
+
+        //add each inputed char to one element of the list
+        private List<decimal> _inputedNumbersList = new List<decimal>(); //All numbers go into this as a list
+
+        private List<char> _inputedOperatorsList = new List<char>(); // all the operators go into this list
+      
+
+        // below are for version 1
         private Int32 _firstInput = 999;   //first number entered, 999 is default flag
         private Int32 _secondInput = 999;  //Second number entered, 999 is default flag
 
@@ -45,36 +60,6 @@ namespace Calculator
             OperationDisplay.Text = "";
         }
         
-
-        public void DisplayToRunningDisplay(char theInput)
-        {
-            /* disabled for version 1
-            // add the new input to the current running chars, then display it all
-
-            //put a space before and after the operator only
-            if ((theInput.Equals('+')) || (theInput.Equals('-')) || (theInput.Equals('x')) || (theInput.Equals('/')) || (theInput.Equals('=')))
-            {
-                _theRunningDisplay = _theRunningDisplay + " " + theInput + " ";
-            }
-            else
-            {
-                _theRunningDisplay = _theRunningDisplay + theInput;
-            }
-            
-
-            // put the (modified) Input into the top field that shows everything
-            RunningDisplay.Text = _theRunningDisplay;
-            */
-        }
-
-        public void ClearRunningDisplay()
-        {
-            /* disabled for version 1
-            // clears the field in the form and the running variable
-            RunningDisplay.Text = "0";
-            _theRunningDisplay = ""; //clear the running display variable
-            */
-        }
 
         public void ClearDisplayResults()
         {
@@ -143,19 +128,6 @@ namespace Calculator
             // show the calculated output in DisplayResults
             DisplayResults.Text = calculatedValue.ToString();
 
-            /* disabled for version 1
-            // put the equals sign then [calculated results] in RunningDisplay
-            _theRunningDisplay += '=';
-
-            // put the [calculated results] in RunningDisplay -only works for single calculated values, so far
-            // to deal with 2 or three digit results loop through the chars of the [calculated results]
-            _theRunningDisplay += calculatedValue.ToString();
-
-            RunningDisplay.Text = _theRunningDisplay;
-
-            _theRunningDisplay = ""; //reset to default
-            */
-
             //after calculating, clean-up: set the first, second and operator variables to 999, 0 or x as a flag
             _firstInput  = 999; //first number entered, set to the nothing here flag of x
             _secondInput = 0;   //Second number entered, set to the nothing here flag of x
@@ -175,8 +147,7 @@ namespace Calculator
                 case 'x':
                 case '/':
                     _operator = theInput; // char variable
-                    DisplayToRunningDisplay(theInput); 
-                    // append the operator in the running display
+                     
                     // do not show operators in bottom results screen
 
                     // display the operator
@@ -194,7 +165,6 @@ namespace Calculator
                 case 'c':
                     //Clear entry
                     ClearDisplayResults();
-                    ClearRunningDisplay();
 
                     ClearOperationDisplay();
                     break;
@@ -203,7 +173,6 @@ namespace Calculator
                     // -------------------- not functioning yet ------------------
                     // CE on the button, this should remove only the last char  
                     ClearDisplayResults();
-                    ClearRunningDisplay();
 
                     ClearOperationDisplay();
                     break;
@@ -223,7 +192,7 @@ namespace Calculator
                     DealWithNumbers(theInput); // this stores the number, etc
 
                     DisplayToScreen(theInput);
-                    DisplayToRunningDisplay(theInput);
+   
                     break;
 
                 case '.':
@@ -234,7 +203,7 @@ namespace Calculator
                 default:
                     
                     DisplayToScreen(theInput);
-                    DisplayToRunningDisplay(theInput);
+  
                     break;
             }
       
