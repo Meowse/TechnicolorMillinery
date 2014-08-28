@@ -85,15 +85,12 @@ namespace Calculator
                 case '7':
                 case '8':
                 case '9':
-                    // numbers 0-9 above all do this, below:
+                case '.':
+                    // numbers 0-9 and decimal above all do this, below:
                     DealWithNumbers(theInput); // this stores the number, etc
 
                     DisplayStringToScreen(_inputedNumbers); //_inputedNumbers is accumulation of chars
 
-                    break;
-
-                case '.':
-                    //can't deal with decimals
                     break;
 
                 // if it gets here then just display it for debugging
@@ -116,8 +113,14 @@ namespace Calculator
                 ClearOperationDisplay();
             }
 
-            _inputedNumbers = _inputedNumbers + theInput; //add the chars in to decimal until an operator is pressed
- 
+            if (theInput == '.' && _inputedNumbers.Contains('.'))
+            {
+                // do nothing, don't add the second decimal point
+            }
+            else 
+            { 
+                _inputedNumbers = _inputedNumbers + theInput; //add the chars in to decimal until an operator is pressed
+            }
         }
 
 
@@ -125,7 +128,7 @@ namespace Calculator
         {
             // the equals sign has been pressed calculate then clean up
 
-            decimal calculatedValue; //holds the calculation
+            decimal calculatedValue = 0; //holds the calculation
 
 
             // the first number is already in _firstInput and is added in DealWithNumbers()
@@ -153,8 +156,16 @@ namespace Calculator
                 case '/':
 
                     // needs to be able to deal with divide by zero
-  
-                    calculatedValue = (decimal) _firstInput/_secondInput;
+                    if (_secondInput == 0)
+                    {
+                        //do not calc
+                        calculatedValue = 99999999;
+                    }
+                    else
+                    {
+                        calculatedValue = (decimal)_firstInput / _secondInput;  
+                    }
+                    
        
                     break;
 
