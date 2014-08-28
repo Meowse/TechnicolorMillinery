@@ -52,86 +52,112 @@ namespace ConsoleApplication1
 
 // Arrays needed
 
-            Int64[] larray = { 1, 26, 702, 18954, 511758 }; //A Z ZZ ZZZ ZZZZ
+            Int64[] larray = {1, 27, 703, 18955, 511759}; //A Z ZZ ZZZ ZZZZ
+            Int64[] larray2 = {1, 26, 676, 17576, 456976}; // 20^0 26^1 26^2 26^3 26^4
             string temp = "";
-            var names = new string[27]  //could also use ascii. Decided to do it this way...
+            var names = new string[27] //could also use ascii. Decided to do it this way...
             {
                 "", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
                 "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
             };
             var finale = new string[4]
             {
-                "A", "AA", "AAA", "AAAA"   
+                "A", "AA", "AAA", "AAAA"
             };
 
 // Initializations            
 
             var i = 0;
+            var k = 0;
+            var k1 = 0;
             var finished_f = false;
-            var firstpass = false;
+            var donotaddfirst = false;
+            var firstpass = true;
             string mystring = "";
+            Int64 inputvar = n;
 
-// This for  loop performs successive divsions based on 26.
+/* This for  loop performs successive divsions based on Z, ZZ, ZZZ, and so on (i.e. larray[]).  There are 27 Z's, ZZ's, 
+ * before the shift from Z to AA, ZZ to AAA, etc.  Hence the coefficient, Ci in Ci*larray[i], where
+ * program input = sum over i(i=0 to 4) of {Ci*larray[i]} plus 1.
 
-            for (i = 4; i >= 0; i--)
+/* This is a bit of a tricky one. When the remainder is less than the power of 26 we are dividing by, 
+ */
+            for (k = 4; k > 0; k--)
             {
-                
-                if (((Convert.ToInt64(larray[i]) <= n)))
+                if (Convert.ToInt64(larray[k])<=n)
                 {
-                    firstpass = true;
-                    if ((i == 0)&& (finished_f == false))    //dont need to do division for the 26^0 case. Just set the output = remainder.
+                    n = n - larray[k];
+                    break;
+                }
+            }
+            k1 = k;
+            if ((Convert.ToInt64(larray2[k]) <= n)&&(k!=0))
+            {
+                for (k = 4; k > 0; k--)
+                {
+                    //if (n == larray2[k])
+                    //{
+                    //    return "A" + finale[k - 1];
+                    //}
+
+                    if (Convert.ToInt64(larray2[k]) <= n)
                     {
-                        header[i] = n;
+                        break;
+                    }
+                }
+            }
+            if (k1!=k)
+            {
+                donotaddfirst = true;
+            }
+            for (i=k; i >= 0; i--)
+            {                
+                if (((Convert.ToInt64(larray2[i]) <= n)&&finished_f==false))
+                {
+                    if (i == 0)    //dont need to do division for the 26^0 case. Just set the output = remainder.
+                    {
+                        header[i] = (firstpass == true)?   n : n + 1; 
+                        finished_f = true;
                         mystring = mystring + names[header[i]];
+                        
                     }
                     else 
                     {
                         // normal case: do the division and round to nearest.
 
-                        header[i] = (n-1) / (larray[i]);
-
-                        // remainder
-
-                        n = (n - (header[i] * larray[i])); 
-
+                        header[i] = n/larray2[i];
+                        n = (n - (header[i] * larray2[i]));
+                        if (donotaddfirst == false)
+                        {
+                            header[i] = header[i] + 1;
+                        }
+                        
                         //if there is no remainder left, we're finished and just append the rest with whats in finale[]
 
-                        if ((n == 0) && (i != 0))
+                        if (n == 0)
                         {
-                            finished_f = true; 
-                            temp = finale[i-1];
+                            finished_f = true;
+                            temp = finale[i - 1];
                         }
-
+                        mystring = mystring + names[header[i]];    
+                        
                         // otherwise, the normal situation is to append the string using names[]
-
-                        else
-                        {
-                            mystring = mystring + names[header[i]];
-                        }
                     }
-
+                    
                 }
-
-// the minimum a digit can take is A, or one. There is no zero. If the remainder is less than the divisor, the required digit is Z
-
-                else if ((Convert.ToInt64(larray[i]) > n)&& (i>=1)&&(firstpass == true)&&(n!=0))
+                else if ((Convert.ToInt64(larray2[i]) > n)&&(finished_f == false)&&(n!=0))
                 {
-                    mystring = mystring + names[26];
-
-                }else if ((n==0)&&(firstpass ==true))
+                    header[i] = 1;
+                    mystring = mystring + names[header[i]];
+                }
+                else if ((n == 0)&&(finished_f == false))
                 {
-                    finished_f = true; 
+                    finished_f = true;
+                    header[i] = n/larray2[i] + 1;
                     temp = finale[i-1];
+                    mystring = mystring + names[header[i]];
                 }
-
-
-// Here, we prepend the output with something recognizable that can be removed when we concat the output string.
-
-                else if ((finished_f == false) && (firstpass == false))
-                {
-                    header[i] = -1;
-                   //
-                }
+                firstpass = false;
             }
 
             mystring = mystring + temp;
