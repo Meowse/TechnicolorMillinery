@@ -19,101 +19,12 @@ namespace Calculator
             InitializeComponent();
         }
 
-        // lists, details at http://www.dotnetperls.com/list
-        // below is one way to do a list
-        //List<int> list = new List<int>();
-        //list.Add(2);
-        //list.Add(3);
-        //Counting members of a list: list.Count
-        //list.Clear()
+        private string _inputedNumbers = ""; //the chars get assembled here
 
-        private string _inputedNumbers; //the chars get assembled here
+        private char _operator = '0';  // the + - * / c ce are the allowed operators
 
-        //add each inputed char to one element of the list
-        private List<decimal> _inputedNumbersList = new List<decimal>(); //All numbers go into this as a list
-
-        private List<char> _inputedOperatorsList = new List<char>(); // all the operators go into this list
-      
-
-        // below are for version 1
-        //private Int32 _firstInput = 999;   //first number entered, 999 is default flag
-        //private Int32 _secondInput = 999;  //Second number entered, 999 is default flag
-        //private char _operator = '0';  // the + - * / c ce are the allowed operators
-
-
-
-        public void DealWithNumbers(char theInput)
-        {
-            if (_inputedNumbersList.Count == 0)
-            {
-                //this is the first number entered clear the operation display from last operation
-                //clear the = from the operation display
-                ClearOperationDisplay();
-            }
-
-            _inputedNumbers += theInput.ToString(); //add the chars in to string until an perator is pressed
- 
-        }
-
-        public void DealWithEqualSign()
-        {
-            // the equals sign has been pressed calculate then clean up
-
-            decimal calculatedValue; //private by default to hold the calculation
-
-            switch (_operator)
-            {
-                    // assume the first and second variables are populated
-                case '+':
-                    // calc two ints into the decimal variable calculatedValue
-                    calculatedValue = _inputedNumbersList.(1) + _inputedNumbersList(2);
-                    break;
-
-                case '-':
-                    calculatedValue = _firstInput - _secondInput;
-
-                    break;
-
-                case 'x':
-                    calculatedValue = _firstInput * _secondInput;
-
-                    break;
-
-                case '/':
-
-                    // deal with divide by zero, only divide if both second input is not 0
-                    if (_secondInput != 0 )
-                    {   
-                        calculatedValue = (decimal) _firstInput/_secondInput;
-                    }
-                    else
-                    {
-                        // this is considered an error
-                        calculatedValue = 999999;
-                    }
-                    
-                    break;
-
-                default:
-                    // just in case, will show like an error
-                    calculatedValue = 999999;
-
-                    break;
-
-
-            }
-
-
-            // show the calculated output in DisplayResults
-            DisplayResults.Text = calculatedValue.ToString();
-
-            //after calculating, clean-up: set the number and operator list variables
-            _inputedNumbersList.Clear(); //clear number entered, set to nothing
-           
-            _inputedOperatorsList.Clear(); // set to the nothing here flag of x
-             
-
-        }
+        private decimal _firstInput = 0;   //first number entered, 999 is default flag
+        private decimal _secondInput = 0;  //Second number entered, 999 is default flag
 
 
         public void DoStuffToinput(char theInput)
@@ -125,28 +36,30 @@ namespace Calculator
                 case '-':
                 case 'x':
                 case '/':
-                    _inputedOperatorsList.Add(theInput);  //add operator to list
 
-                    // add to the list
-                    _inputedNumbersList.Add(decimal.Parse(_inputedNumbers));  //add current number into list
+                    _firstInput = decimal.Parse(_inputedNumbers);
+                    // convert the string of numbers into a decimal real number
 
-                    // do not show operators in bottom results screen
+                    _inputedNumbers = ""; //clear the var for the next chars
+
+                    _operator = theInput; //set the operator variable
 
                     // display the operator
-                    ShowOperationDisplay(_inputedNumbers.ToString() );
+                    ShowOperationDisplay(_operator);
                     break;
 
                 case '=':
                     // the equal sign calculates everything
+
                     DealWithEqualSign();
 
-                    // display the operator
-                    ShowOperationDisplay(theInput);
                     break;
 
                 case 'c':
                     //Clear entry
                     ClearDisplayResults();
+
+                    ClearNumberVariables();
 
                     ClearOperationDisplay();
                     break;
@@ -155,6 +68,8 @@ namespace Calculator
                     // -------------------- not functioning yet ------------------
                     // CE on the button, this should remove only the last char  
                     ClearDisplayResults();
+
+                    ClearNumberVariables();
 
                     ClearOperationDisplay();
                     break;
@@ -173,30 +88,109 @@ namespace Calculator
                     // numbers 0-9 above all do this, below:
                     DealWithNumbers(theInput); // this stores the number, etc
 
-                    DisplayToScreen(theInput);
-   
+                    DisplayStringToScreen(_inputedNumbers); //_inputedNumbers is accumulation of chars
+
                     break;
 
                 case '.':
-                    //can't deal with decimals in version 1
+                    //can't deal with decimals
                     break;
 
                 // if it gets here then just display it for debugging
                 default:
-                    
-                    DisplayToScreen(theInput);
-  
+
+                    DisplayStringToScreen(_inputedNumbers);
+
                     break;
             }
-      
+
         }
+
+
+        public void DealWithNumbers(char theInput)
+        {
+            if (_firstInput == 0)
+            {
+                //this is the first number entered clear the operation display from last operation
+                //clear the = from the operation display
+                ClearOperationDisplay();
+            }
+
+            _inputedNumbers = _inputedNumbers + theInput; //add the chars in to decimal until an operator is pressed
+ 
+        }
+
+
+        public void DealWithEqualSign()
+        {
+            // the equals sign has been pressed calculate then clean up
+
+            decimal calculatedValue; //holds the calculation
+
+
+            // the first number is already in _firstInput and is added in DealWithNumbers()
+            _secondInput = decimal.Parse(_inputedNumbers);
+
+            switch (_operator)
+            {
+                 
+                case '+':
+                    // calc two ints into the decimal variable calculatedValue
+                    calculatedValue = _firstInput + _secondInput;
+
+                    break;
+
+                case '-':
+                    calculatedValue = _firstInput - _secondInput;
+
+                    break;
+
+                case 'x':
+                    calculatedValue = _firstInput * _secondInput;
+
+                    break;
+
+                case '/':
+
+                    // needs to be able to deal with divide by zero
+  
+                    calculatedValue = (decimal) _firstInput/_secondInput;
+       
+                    break;
+
+                default:
+                    // just in case, will show like an error
+                    calculatedValue = 99999999;
+
+                    break;
+
+            }
+
+
+            // show the calculated output in DisplayResults
+            DisplayResults.Text = calculatedValue.ToString();
+
+            ShowOperationDisplay('=');
+
+            ClearNumberVariables(); // clear out and reset
+        }
+
+
+        
 
 
 
         //--------- display and clear section -------------------------------
+        public void DisplayStringToScreen(string whatToDisplay)
+        {
+            // put whatToDisplay into the field in the form
+            DisplayResults.Text = whatToDisplay;
+        }
+
+
+
         public void DisplayToScreen(char theInput)
         {
-
             // put theInput into the field in the form
             DisplayResults.Text = theInput.ToString();
         }
@@ -217,6 +211,15 @@ namespace Calculator
         {
             // sets the DisplayResults input field to "0"
             DisplayResults.Text = "0";
+        }
+
+        public void ClearNumberVariables()
+        {
+            _inputedNumbers = "";
+            _secondInput    = 0;
+            _firstInput     = 0;
+            //_operator       ='0';
+
         }
 
 
