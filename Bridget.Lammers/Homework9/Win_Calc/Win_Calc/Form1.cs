@@ -15,6 +15,9 @@ namespace Win_Calc
         private double value = 0;
         private string operation = "0";
         private bool operation_pressed = false;
+        
+        //  Create List to store inputed numbers from the text box
+        private List<string> input_numbers_list = new List<string>();
 
         public Form1()
         {
@@ -28,8 +31,26 @@ namespace Win_Calc
                 result.Clear();
 
             operation_pressed = false;
+
             Button b = (Button) sender;
+
             result.Text = result.Text + b.Text;
+
+            //MessageBox.Show("b text" + b.Text);
+
+            //  Add inputed number to list 
+            input_numbers_list.Add(result.Text);
+
+            foreach (var value in input_numbers_list)
+            {
+                MessageBox.Show(value);
+            }
+            //MessageBox.Show(input_numbers[0]);
+
+            string listCount = input_numbers_list.Count.ToString();
+            MessageBox.Show("List Count: " + listCount);
+         
+
         }
 
         private void button17_Click(object sender, EventArgs e)
@@ -80,6 +101,11 @@ namespace Win_Calc
         {
             result.Text = "0";
             value = 0;
+        }
+
+        private void result_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

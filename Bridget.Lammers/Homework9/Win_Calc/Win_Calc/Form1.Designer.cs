@@ -257,6 +257,7 @@
             this.result.TabIndex = 18;
             this.result.Text = "0";
             this.result.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.result.TextChanged += new System.EventHandler(this.result_TextChanged);
             // 
             // equation
             // 
