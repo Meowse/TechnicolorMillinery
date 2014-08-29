@@ -179,7 +179,9 @@ namespace Calculator
 
 
             // show the calculated output in DisplayResults
-            DisplayResults.Text = calculatedValue.ToString();
+
+            
+            DisplayResults.Text = calculatedValue.ToString(); ;
 
             ShowOperationDisplay('=');
 
@@ -188,16 +190,13 @@ namespace Calculator
 
 
         
-
-
-
         //--------- display and clear section -------------------------------
         public void DisplayStringToScreen(string whatToDisplay)
         {
             // put whatToDisplay into the field in the form
+ 
             DisplayResults.Text = whatToDisplay;
         }
-
 
 
         public void DisplayToScreen(char theInput)

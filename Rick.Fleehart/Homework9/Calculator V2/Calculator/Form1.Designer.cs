@@ -163,9 +163,10 @@
             // DisplayResults
             // 
             this.DisplayResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DisplayResults.Location = new System.Drawing.Point(28, 26);
+            this.DisplayResults.Location = new System.Drawing.Point(28, 27);
+            this.DisplayResults.MaxLength = 32000;
             this.DisplayResults.Name = "DisplayResults";
-            this.DisplayResults.Size = new System.Drawing.Size(199, 29);
+            this.DisplayResults.Size = new System.Drawing.Size(158, 29);
             this.DisplayResults.TabIndex = 11;
             this.DisplayResults.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.DisplayResults.TextChanged += new System.EventHandler(this.DisplayResults_TextChanged);
@@ -244,7 +245,7 @@
             // 
             this.OperationDisplay.AutoSize = true;
             this.OperationDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OperationDisplay.Location = new System.Drawing.Point(33, 29);
+            this.OperationDisplay.Location = new System.Drawing.Point(197, 30);
             this.OperationDisplay.Name = "OperationDisplay";
             this.OperationDisplay.Size = new System.Drawing.Size(20, 24);
             this.OperationDisplay.TabIndex = 19;
@@ -298,7 +299,6 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button buttonZero;
         private System.Windows.Forms.Button buttonDecimal;
-        private System.Windows.Forms.TextBox DisplayResults;
         private System.Windows.Forms.Button buttonEquals;
         private System.Windows.Forms.Button buttonPlus;
         private System.Windows.Forms.Button buttonMinus;
@@ -307,6 +307,7 @@
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonCE;
         private System.Windows.Forms.Label OperationDisplay;
+        public System.Windows.Forms.TextBox DisplayResults;
     }
 }
 
