@@ -8,7 +8,7 @@ namespace CalculatorForms
     public partial class Form1 : Form
     {
         readonly Calculator _myCalculator = new Calculator();
-        List<string> ofMathsList = new List<string>();
+      
 
         public Form1()
         {
@@ -21,7 +21,7 @@ namespace CalculatorForms
             
             _myCalculator.ProvideInput(input);
             TextDisplay.Text = _myCalculator.GetDisplay();
-            ofMathsList.Add(_myCalculator.GetDisplay());
+            _myCalculator.ofMathsList.Add(_myCalculator.GetDisplay());
             HandleAggregate(input);
         }
 
@@ -29,19 +29,19 @@ namespace CalculatorForms
         {
             if (input == 'c')
             {
-                ofMathsList.Clear();
+                _myCalculator.ofMathsList.Clear();
                 labelFullCalc.Text = "";
             }
             else
             if (input == '=')
             {
-                ofMathsList.Clear();
+                _myCalculator.ofMathsList.Clear();
                 labelFullCalc.Text = _myCalculator.GetDisplay();
             }            
             else
             {
-                ofMathsList.Add(input.ToString());
-                labelFullCalc.Text = labelFullCalc.Text + ofMathsList[ofMathsList.Count - 1];               
+                _myCalculator.ofMathsList.Add(input.ToString());
+                labelFullCalc.Text = labelFullCalc.Text + _myCalculator.ofMathsList[_myCalculator.ofMathsList.Count - 1];               
             }
             
         }
@@ -134,6 +134,21 @@ namespace CalculatorForms
         {
             HandleInput('/');
             
+        }
+
+        private void OneButton_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            HandleInput(e.KeyChar);
+        }
+
+        private void equalButton_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            HandleInput(e.KeyChar);
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            HandleInput(e.KeyChar);
         }
        
     }

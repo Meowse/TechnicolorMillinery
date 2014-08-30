@@ -58,6 +58,7 @@
             this.OneButton.Text = "1";
             this.OneButton.UseVisualStyleBackColor = true;
             this.OneButton.Click += new System.EventHandler(this.OneButton_Click);
+            this.OneButton.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OneButton_KeyPress);
             // 
             // TwoButton
             // 
@@ -68,6 +69,7 @@
             this.TwoButton.Text = "2";
             this.TwoButton.UseVisualStyleBackColor = true;
             this.TwoButton.Click += new System.EventHandler(this.TwoButton_Click);
+            this.TwoButton.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OneButton_KeyPress);
             // 
             // ThreeButton
             // 
@@ -200,6 +202,7 @@
             this.equalButton.Text = "=";
             this.equalButton.UseVisualStyleBackColor = true;
             this.equalButton.Click += new System.EventHandler(this.button3_Click);
+            this.equalButton.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.equalButton_KeyPress);
             // 
             // minusButton
             // 
@@ -241,6 +244,7 @@
             // 
             // Form1
             // 
+            this.AcceptButton = this.equalButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(166, 243);
@@ -266,6 +270,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "Calculator";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
