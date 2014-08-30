@@ -18,9 +18,9 @@ namespace CalculatorBrainTests
         public void ShouldDisplayZeroAfterClear()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('1');
-            calculator.ProvideInput('+');
-            calculator.ProvideInput('c');
+            calculator.ProcessInput('1');
+            calculator.ProcessInput('+');
+            calculator.ProcessInput('c');
             Assert.AreEqual("0", calculator.GetDisplay());
         }
 
@@ -28,7 +28,7 @@ namespace CalculatorBrainTests
         public void ShouldDisplaySingleDigit()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('1');
+            calculator.ProcessInput('1');
             Assert.AreEqual("1", calculator.GetDisplay());
         }
 
@@ -38,9 +38,9 @@ namespace CalculatorBrainTests
         public void ShouldAcceptMultiDigitNumbers()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('3');
+            calculator.ProcessInput('3');
             Assert.AreEqual("3", calculator.GetDisplay());
-            calculator.ProvideInput('1');
+            calculator.ProcessInput('1');
             Assert.AreEqual("31", calculator.GetDisplay());
         }
 
@@ -49,17 +49,17 @@ namespace CalculatorBrainTests
         public void ShouldNotChangeJustBecauseGetDisplayIsCalled()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('1');
+            calculator.ProcessInput('1');
             Assert.AreEqual("1", calculator.GetDisplay());
-            calculator.ProvideInput('+');
+            calculator.ProcessInput('+');
             Assert.AreEqual("1", calculator.GetDisplay());
             Assert.AreEqual("1", calculator.GetDisplay());
             Assert.AreEqual("1", calculator.GetDisplay());
-            calculator.ProvideInput('2');
+            calculator.ProcessInput('2');
             Assert.AreEqual("2", calculator.GetDisplay());
             Assert.AreEqual("2", calculator.GetDisplay());
             Assert.AreEqual("2", calculator.GetDisplay());
-            calculator.ProvideInput('=');
+            calculator.ProcessInput('=');
             Assert.AreEqual("3", calculator.GetDisplay());
             Assert.AreEqual("3", calculator.GetDisplay());
             Assert.AreEqual("3", calculator.GetDisplay());                    

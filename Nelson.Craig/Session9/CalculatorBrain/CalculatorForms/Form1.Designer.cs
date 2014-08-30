@@ -202,7 +202,6 @@
             this.equalButton.Text = "=";
             this.equalButton.UseVisualStyleBackColor = true;
             this.equalButton.Click += new System.EventHandler(this.button3_Click);
-            this.equalButton.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.equalButton_KeyPress);
             // 
             // minusButton
             // 
@@ -270,7 +269,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "Calculator";
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

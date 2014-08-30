@@ -10,13 +10,13 @@ namespace CalculatorBrainTests
         public void CanSubtractSingleDigitNumbers()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('7');
+            calculator.ProcessInput('7');
             Assert.AreEqual("7", calculator.GetDisplay());
-            calculator.ProvideInput('-');
+            calculator.ProcessInput('-');
             Assert.AreEqual("-", calculator.GetDisplay());
-            calculator.ProvideInput('2');
+            calculator.ProcessInput('2');
             Assert.AreEqual("2", calculator.GetDisplay());
-            calculator.ProvideInput('=');
+            calculator.ProcessInput('=');
             Assert.AreEqual("5", calculator.GetDisplay());
         }
 
@@ -24,28 +24,28 @@ namespace CalculatorBrainTests
         public void CanSubtractMultiDigitNumbers()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('7');
+            calculator.ProcessInput('7');
             Assert.AreEqual("7", calculator.GetDisplay());
-            calculator.ProvideInput('1');
+            calculator.ProcessInput('1');
             Assert.AreEqual("71", calculator.GetDisplay());
-            calculator.ProvideInput('-');
+            calculator.ProcessInput('-');
             Assert.AreEqual("-", calculator.GetDisplay());
-            calculator.ProvideInput('2');
+            calculator.ProcessInput('2');
             Assert.AreEqual("2", calculator.GetDisplay());
-            calculator.ProvideInput('=');
+            calculator.ProcessInput('=');
             Assert.AreEqual("69", calculator.GetDisplay());
         }
         [Test]
         public void ShouldAddSmallSingleDigits()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('1');
+            calculator.ProcessInput('1');
             Assert.AreEqual("1", calculator.GetDisplay());
-            calculator.ProvideInput('+');
+            calculator.ProcessInput('+');
             Assert.AreEqual("+", calculator.GetDisplay());
-            calculator.ProvideInput('2');
+            calculator.ProcessInput('2');
             Assert.AreEqual("2", calculator.GetDisplay());
-            calculator.ProvideInput('=');
+            calculator.ProcessInput('=');
             Assert.AreEqual("3", calculator.GetDisplay());
         }
 
@@ -53,10 +53,10 @@ namespace CalculatorBrainTests
         public void ShouldAddLargeSingleDigitsIntoDoubleDigits()
         {
             var calculator = new Calculator();
-            calculator.ProvideInput('9');
-            calculator.ProvideInput('+');
-            calculator.ProvideInput('8');
-            calculator.ProvideInput('=');
+            calculator.ProcessInput('9');
+            calculator.ProcessInput('+');
+            calculator.ProcessInput('8');
+            calculator.ProcessInput('=');
             Assert.AreEqual("17", calculator.GetDisplay());
         }
     }

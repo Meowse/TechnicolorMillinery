@@ -21,8 +21,9 @@ namespace CalculatorForms
             
             _myCalculator.ProvideInput(input);
             TextDisplay.Text = _myCalculator.GetDisplay();
-            _myCalculator.ofMathsList.Add(_myCalculator.GetDisplay());
+            //_myCalculator.ofMathsList.Add(_myCalculator.GetDisplay());
             HandleAggregate(input);
+            
         }
 
         private void HandleAggregate(char input)
@@ -35,8 +36,8 @@ namespace CalculatorForms
             else
             if (input == '=')
             {
-                _myCalculator.ofMathsList.Clear();
                 labelFullCalc.Text = _myCalculator.GetDisplay();
+                _myCalculator.ofMathsList.Clear();
             }            
             else
             {
@@ -45,6 +46,8 @@ namespace CalculatorForms
             }
             
         }
+
+
 
         private void OneButton_Click(object sender, EventArgs e)
         {

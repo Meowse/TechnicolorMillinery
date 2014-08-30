@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 
 namespace CalculatorBrain
 {
     public class Calculator
     {
+        public List<string> ofMathsList = new List<string>();
+
         private string _currentValue = "0";
         private string _storedValue = "";
         private string _operator = "";

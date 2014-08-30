@@ -17,20 +17,12 @@ namespace CalculatorForms
 
         }
 
-        //private void ParseMaths()
-        //{
-        //    foreach (string item in _myCalculator.ofMathsList)
-        //    {
-        //        ProcessInput(Convert.ToChar(item));
-        //    }
-           
-        //}
+        
         private void ProcessInput(char input)
         {
-            
-            _myCalculator.ProvideInput(input);
+
+            _myCalculator.ProcessInput(input);
             TextDisplay.Text = _myCalculator.GetDisplay();
-            _myCalculator.ofMathsList.Add(_myCalculator.GetDisplay());
             HandleAggregate(input);
 
         }
@@ -39,22 +31,22 @@ namespace CalculatorForms
         {
             if (input == 'c')
             {
-                _myCalculator.ofMathsList.Clear();
+                _myCalculator.ValuesList.Clear();
                 labelFullCalc.Text = "";
             }
             else
-            if (input == '=')
-            {
+                if (input == '=')
+                {
 
-                labelFullCalc.Text = _myCalculator.GetDisplay();
+                    labelFullCalc.Text = _myCalculator.GetDisplay();
 
-            }            
-            else
-            {
-                _myCalculator.ofMathsList.Add(input.ToString());
-                labelFullCalc.Text = labelFullCalc.Text + _myCalculator.ofMathsList[_myCalculator.ofMathsList.Count - 1];               
-            }
-            
+                }
+                else
+                {
+                    _myCalculator.ValuesList.Add(input);
+                    labelFullCalc.Text = labelFullCalc.Text + _myCalculator.ValuesList[_myCalculator.ValuesList.Count - 1];
+                }
+
         }
 
 
@@ -149,16 +141,6 @@ namespace CalculatorForms
         }
 
         private void OneButton_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            ProcessInput(e.KeyChar);
-        }
-
-        private void equalButton_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            ProcessInput(e.KeyChar);
-        }
-
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
             ProcessInput(e.KeyChar);
         }
