@@ -1,0 +1,11 @@
+The result is set to blank.
+
+If the value of arg1 is less than 17 then check if the value of arg2 is greater than 12,  if this is true, then the value of the result is = Fred!. 
+
+Check if arg2 is greater than 22, if this is true then the value of the result is I hate logic!.
+
+If arg2 is greater than 6, then the value of the result is equal to the concatenation of arg1 and arg2.  
+
+Next, check if the total characters (length of) the value of the result is greater than 5, set the result to Ooops.
+
+Return the value of the variable result to the main method.
