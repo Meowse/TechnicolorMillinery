@@ -24,13 +24,4 @@ namespace CalculatorBrain
          * '=' -- perform the current calculation
          * 'c' -- clear
          */
-        public void ProvideInput(char input)
-        {
-        }
-
-        public string GetDisplay()
-        {
-            return "0";
-        }
-    }
-}
+  
