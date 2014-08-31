@@ -1,0 +1,28 @@
+INPUT		Expected Result
+0,0,0		Not a triangle
+
+0,2,4		Not a triangle
+2,0,4		Not a triangle
+2,3,0		Not a triangle
+
+-1,-1,-1	Not a triangle
+
+-1,2,4		Not a triangle
+2,-1,4		Not a triangle
+2,3,-1		Not a triangle
+
+1,1,1		Equalateral triangle
+2,2,2		Equalateral triangle
+3,3,3		Equalateral triangle
+
+1,1,2		Isosceles triangle
+2,3,2		Isosceles triangle
+3,3,2		Isosceles triangle
+
+3,2,4		Scalene triangle 
+4,5,6		Scalene triangle
+4,6,9		Scalene triangle
+
+2,2,4		Isosceles also a degenerate triangle
+1,2,3		Scalene triangle also a degenerate triangle
+1,2,4		Not a triangle? Scalene? 1+2>4 is false but 2+4>1 and 1+4>2 are true

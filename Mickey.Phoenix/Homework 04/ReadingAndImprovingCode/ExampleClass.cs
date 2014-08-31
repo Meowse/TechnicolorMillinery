@@ -8,7 +8,7 @@ namespace ReadingAndImprovingCode
 {
     public class ExampleClass
     {
-        public string SomeMethod(int arg1, int arg2)
+        public string Main(int arg1, int arg2)
         {
             String result = "";
             if (arg1 < 17)
