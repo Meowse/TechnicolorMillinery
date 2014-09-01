@@ -1,0 +1,21 @@
+INPUT		Expected Result
+
+1,1,1 = Equilateral triangle
+2,2,2 = Equilateral triangle
+3,3,3 = Equilateral triangle
+
+1,1,2 = Isosceles triangle
+2,3,2 = Isosceles triangle
+3,3,2 = Isosceles triangle
+
+3,2,4 = Scalene triangle 
+4,5,6 = Scalene triangle
+4,6,9 = Scalene triangle
+
+0,0,0 = Not a triangle
+
+0,2,4 = Not a triangle
+2,0,4 = Not a triangle
+2,3,0 = Not a triangle
+
+-1,-1,-1 = Not a triangle
