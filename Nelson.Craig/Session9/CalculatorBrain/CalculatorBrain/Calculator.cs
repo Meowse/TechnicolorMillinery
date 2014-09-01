@@ -9,14 +9,14 @@ namespace CalculatorBrain
     public class Calculator
     {
 
-        //private string _operation = "";
+        private string _operation = "";
         private string _currentValue = "";
         private decimal _NumberOne, _NumberTwo = 0;
         private char _operator;
 
         public bool HasDecimal = false;
         private bool EnteringFirstNumber = true;
-        private bool HasOperator = true;
+        private bool HasOperator = false;
 
         public List<char> ValuesList = new List<char>();
         private readonly List<char> operatorsList = new List<char> {'+', '-', '/', '*'};
@@ -91,13 +91,23 @@ namespace CalculatorBrain
 
         private void ProcessDigitOrDecimal(char input)
         {
+            _operation = _operation + input.ToString();
+            _currentValue = input.ToString();
+            if (HasOperator)
+            {
+                _NumberTwo = Convert.ToInt64(input);
+            }
+            else
+            {
+                _NumberOne = Convert.ToInt64(input);
 
+            }
         }
 
         private void ProcessOperator(char input)
         {
             _NumberOne = decimal.Parse(_currentValue);
-            _operation = inputOperator;
+            _operator = input;
             HasOperator = true;
         }
 
