@@ -47,6 +47,12 @@
     <Compile Include="SimpleTrinagleTyperUtilsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TriangleTyperUtils\TriangleTyperUtils.csproj">
+      <Project>{283EE27A-30EF-4008-9385-75E0C960F310}</Project>
+      <Name>TriangleTyperUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
