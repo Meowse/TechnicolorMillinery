@@ -104,5 +104,15 @@ namespace WindowsFormsApplication1
             _calculator.ProvideInput(input);
             Displaybox.Text = _calculator.GetDisplay();
         }
+
+        private void leftParenButton_Click(object sender, EventArgs e)
+        {
+            HandleInput('(');
+        }
+
+        private void rightParenButton_Click(object sender, EventArgs e)
+        {
+            HandleInput(')');
+        }
     }
 }

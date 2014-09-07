@@ -23,6 +23,12 @@ namespace CalculatorBrain
                 case 'c':
                     Clear();
                     break;
+                case '(':
+                    StartSubExpression();
+                    break;
+                case ')':
+                    EndSubExpression();
+                    break;
                 case '+':
                     ProcessOperator(Operator.Addition);
                     break;
@@ -54,6 +60,40 @@ namespace CalculatorBrain
             }
         }
 
+        private void StartSubExpression()
+        {
+            _pendingOperations.Push(new PendingOperation
+            {
+                AccumulatedValue = _accumulatedValue,
+                Operator = _operator
+            });
+            _accumulatedValue = 0;
+            _operator = Operator.None;
+            _currentValue = null;
+        }
+
+        private void EndSubExpression()
+        {
+            if (_pendingOperations.Count == 0)
+            {
+                return; // ignore mismatched parentheses
+            }
+
+            // Do the calculation "inside the parentheses".  This will put the result
+            // of the parenthesized calculation into _accumulatedValue.
+            PerformCalculation();
+
+            // Move the result of that calculation into _currentValue, so that we can
+            // pop the stored value from _pendingOperations into the _accumulatedValue.
+            _currentValue = _accumulatedValue.ToString();
+
+            // Pop the stored value and operator from the top of _pendingOperations
+            // and put it into _accumulatedValue and _operator.
+            PendingOperation pending = _pendingOperations.Pop();
+            _accumulatedValue = pending.AccumulatedValue;
+            _operator = pending.Operator;
+        }
+
         private void Clear()
         {
             _accumulatedValue = 0;
@@ -70,6 +110,11 @@ namespace CalculatorBrain
 
         private void ProcessNumber(char input)
         {
+            if (input == '.' && _currentValue != null && _currentValue.Contains("."))
+            {
+                return;
+            }
+
             _currentValue += input;
         }
 
@@ -79,7 +124,16 @@ namespace CalculatorBrain
             {
                 return _accumulatedValue.ToString();
             }
-            return decimal.Parse(_currentValue).ToString();
+            if (_currentValue == ".")
+            {
+                return "0.";
+            }
+            var display = decimal.Parse(_currentValue).ToString();
+            if (_currentValue.EndsWith("."))
+            {
+                display += ".";
+            }
+            return display;
         }
 
         public void PerformCalculation()
